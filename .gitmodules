@@ -1,0 +1,72 @@
+[submodule "lib/tcpdump/17a3c288"]
+	path = lib/tcpdump/17a3c288
+	url = https://github.com/the-tcpdump-group/tcpdump
+[submodule "lib/tcpdump/a9e4211"]
+	path = lib/tcpdump/a9e4211
+	url = https://github.com/the-tcpdump-group/tcpdump
+[submodule "lib/w3m/06caca1"]
+	path = lib/w3m/06caca1
+	url = https://github.com/tats/w3m
+[submodule "lib/w3m/a56a8ef"]
+	path = lib/w3m/a56a8ef
+	url = https://github.com/tats/w3m
+[submodule "lib/libjepg-turbo/a0b7de9"]
+	path = lib/libjepg-turbo/a0b7de9
+	url = https://github.com/libjpeg-turbo/libjpeg-turbo
+[submodule "lib/libjepg-turbo/3091354"]
+	path = lib/libjepg-turbo/3091354
+	url = https://github.com/libjpeg-turbo/libjpeg-turbo
+[submodule "lib/imginfo/4212e7e"]
+	path = lib/imginfo/4212e7e
+	url = https://github.com/mdadams/jasper
+[submodule "lib/jasper/ed355a6"]
+	path = lib/jasper/ed355a6
+	url = https://github.com/mdadams/jasper
+[submodule "lib/file/df74b09"]
+	path = lib/file/df74b09
+	url = https://github.com/file/file
+[submodule "lib/file/b6e8437"]
+	path = lib/file/b6e8437
+	url = https://github.com/file/file
+[submodule "lib/file/4a51454"]
+	path = lib/file/4a51454
+	url = https://github.com/file/file
+[submodule "lib/file/7445748"]
+	path = lib/file/7445748
+	url = https://github.com/file/file
+[submodule "lib/zlib/cacf7f1d"]
+	path = lib/zlib/cacf7f1d
+	url = https://github.com/madler/zlib
+[submodule "lib/zlib/7c2a874"]
+	path = lib/zlib/7c2a874
+	url = https://github.com/madler/zlib
+[submodule "lib/zlib/14763ac"]
+	path = lib/zlib/14763ac
+	url = https://github.com/madler/zlib
+[submodule "lib/tiff2pdf/d57ccfc9"]
+	path = lib/tiff2pdf/d57ccfc9
+	url = https://github.com/vadz/libtiff
+[submodule "lib/tiff2pdf/f64949a"]
+	path = lib/tiff2pdf/f64949a
+	url = https://github.com/vadz/libtiff
+[submodule "lib/flac/d2cb0d1"]
+	path = lib/flac/d2cb0d1
+	url = https://github.com/xiph/flac
+[submodule "lib/flac/d8d1717"]
+	path = lib/flac/d8d1717
+	url = https://github.com/xiph/flac
+[submodule "lib/tcpdump/8322d3a"]
+	path = lib/tcpdump/8322d3a
+	url = https://github.com/the-tcpdump-group/tcpdump
+[submodule "lib/w3m/1ac245b"]
+	path = lib/w3m/1ac245b
+	url = https://github.com/tats/w3m
+[submodule "lib/w3m/02ba3d6"]
+	path = lib/w3m/02ba3d6
+	url = https://github.com/tats/w3m
+[submodule "lib/imginfo/b702259"]
+	path = lib/imginfo/b702259
+	url = https://github.com/mdadams/jasper
+[submodule "lib/jasper/4212e7e"]
+	path = lib/jasper/4212e7e
+	url = https://github.com/mdadams/jasper
