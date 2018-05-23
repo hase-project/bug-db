@@ -1,4 +1,6 @@
-
+import os
+import stat
+import os.path
 
 # NOTE: List from Evaluating Manual Intervention
 submodule_list = [
@@ -45,3 +47,19 @@ submodule_list = [
         'd8d1717'
     ])
 ]
+
+
+UTIL_PATH = os.path.dirname(os.path.realpath(__file__))
+
+
+def format_path(lib, commit_id):
+    return "./lib/{}/{}".format(lib, commit_id)
+
+
+def abspath(path):
+    return os.path.join(UTIL_PATH, path)
+
+
+def add_executable(path):
+    st = os.stat(path)
+    os.chmod(path, st.st_mode | stat.S_IEXEC)

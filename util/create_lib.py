@@ -1,13 +1,4 @@
-import sys
-import os
-import stat
-
-from .bug_list import submodule_list
-
-
-def add_executable(path):
-    st = os.stat(path)
-    os.chmod(path, st.st_mode | stat.S_IEXEC)
+from bug_list import *
 
 
 def add_submodule(path, url, commit_id):
@@ -31,7 +22,7 @@ def rebuild_submodule():
     add_executable("checkout.sh")
     for lib, url, commits in submodule_list:
         for commit in commits:
-            path = "lib/{}/{}".format(lib, commit)
+            path = format_path(lib, commit)
             add_submodule(path, url, commit)
 
 if __name__ == "__main__":
