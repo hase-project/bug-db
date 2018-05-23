@@ -16,7 +16,9 @@ cd ..
 
 4. use KLEE(?) to get error testcase and parse
 
-5. (*) create patchs for code
+5. use hase to replay the testcase
+
+6. (*) create patchs for modified lib
 ```
 cd util
 python create_patch.py
