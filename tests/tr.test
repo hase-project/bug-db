@@ -1,0 +1,2 @@
+cmdargs: -d '\n'
+stdin: $(pwd)/tr.stdin

@@ -1,0 +1,1 @@
+cmdargs: -a $(pwd)/unexpand.stdin

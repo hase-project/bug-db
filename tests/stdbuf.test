@@ -1,0 +1,1 @@
+cmdargs: --input=L --output=L --error=L /bin/true

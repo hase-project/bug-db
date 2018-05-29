@@ -1,0 +1,1 @@
+cmdargs: $(pwd)/paste.stdin $(pwd)/paste.stdin

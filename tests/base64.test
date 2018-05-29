@@ -1,0 +1,1 @@
+cmdargs: $(pwd)/base64.stdin

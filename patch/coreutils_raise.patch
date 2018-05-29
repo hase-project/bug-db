@@ -1,0 +1,1638 @@
+diff --git a/gnulib b/gnulib
+--- a/gnulib
++++ b/gnulib
+@@ -1 +1 @@
+-Subproject commit 72333a9c6955aa7ca938dbb5295b78e906c89f07
++Subproject commit 72333a9c6955aa7ca938dbb5295b78e906c89f07-dirty
+diff --git a/src/base64.c b/src/base64.c
+index 1f5c09a..1869a42 100644
+--- a/src/base64.c
++++ b/src/base64.c
+@@ -32,6 +32,9 @@
+ #include "xstrtol.h"
+ #include "xdectoint.h"
+ #include "xbinary-io.h"
++#include <sys/types.h>
++#include <unistd.h>
++#include <signal.h>
+ 
+ #define AUTHORS proper_name ("Simon Josefsson")
+ 
+@@ -261,6 +264,7 @@ do_decode (FILE *in, FILE *out, bool ignore_garbage)
+   while (!feof (in));
+ }
+ 
++
+ int
+ main (int argc, char **argv)
+ {
+@@ -345,6 +349,6 @@ main (int argc, char **argv)
+       else
+         die (EXIT_FAILURE, errno, "%s", quotef (infile));
+     }
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/basename.c b/src/basename.c
+index 139a7c0..d236560 100644
+--- a/src/basename.c
++++ b/src/basename.c
+@@ -18,6 +18,7 @@
+ #include <getopt.h>
+ #include <stdio.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "error.h"
+@@ -185,6 +186,6 @@ main (int argc, char **argv)
+   else
+     perform_basename (argv[optind],
+                       optind + 2 == argc ? argv[optind + 1] : NULL, use_nuls);
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/cat.c b/src/cat.c
+index 3c31951..5dca271 100644
+--- a/src/cat.c
++++ b/src/cat.c
+@@ -26,6 +26,7 @@
+ #include <stdio.h>
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #if HAVE_STROPTS_H
+ # include <stropts.h>
+@@ -762,6 +763,6 @@ main (int argc, char **argv)
+ 
+   if (have_read_stdin && close (STDIN_FILENO) < 0)
+     die (EXIT_FAILURE, errno, _("closing standard input"));
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/cp.c b/src/cp.c
+index 04cbd4b..7e2398c 100644
+--- a/src/cp.c
++++ b/src/cp.c
+@@ -21,6 +21,7 @@
+ #include <sys/types.h>
+ #include <getopt.h>
+ #include <selinux/selinux.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "argmatch.h"
+@@ -1218,6 +1219,6 @@ main (int argc, char **argv)
+ #ifdef lint
+   forget_all ();
+ #endif
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/cut.c b/src/cut.c
+index 5dc511a..92072fd 100644
+--- a/src/cut.c
++++ b/src/cut.c
+@@ -29,6 +29,7 @@
+ #include <getopt.h>
+ #include <sys/types.h>
+ #include "system.h"
++#include <signal.h>
+ 
+ #include "error.h"
+ #include "fadvise.h"
+@@ -604,6 +605,6 @@ main (int argc, char **argv)
+     }
+ 
+   IF_LINT (reset_fields ());
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/date.c b/src/date.c
+index 92abd85..c3bb288 100644
+--- a/src/date.c
++++ b/src/date.c
+@@ -23,6 +23,7 @@
+ #if HAVE_LANGINFO_CODESET
+ # include <langinfo.h>
+ #endif
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "argmatch.h"
+@@ -571,7 +572,7 @@ main (int argc, char **argv)
+     }
+ 
+   IF_LINT (tzfree (tz));
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+ 
+diff --git a/src/dd.c b/src/dd.c
+index 70bbbb1..fd33b9d 100644
+--- a/src/dd.c
++++ b/src/dd.c
+@@ -23,6 +23,7 @@
+ #include <sys/types.h>
+ #include <signal.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "close-stream.h"
+@@ -2518,5 +2519,6 @@ main (int argc, char **argv)
+     }
+ 
+   finish_up ();
++  raise(SIGQUIT);
+   return exit_status;
+ }
+diff --git a/src/df.c b/src/df.c
+index 1178865..202a914 100644
+--- a/src/df.c
++++ b/src/df.c
+@@ -23,6 +23,7 @@
+ #include <sys/types.h>
+ #include <getopt.h>
+ #include <assert.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "canonicalize.h"
+@@ -1789,6 +1790,6 @@ main (int argc, char **argv)
+     }
+ 
+   IF_LINT (free (columns));
+-
++  raise(SIGQUIT);
+   return exit_status;
+ }
+diff --git a/src/dirname.c b/src/dirname.c
+index 56e6402..e0d29f6 100644
+--- a/src/dirname.c
++++ b/src/dirname.c
+@@ -21,6 +21,7 @@
+ #include <getopt.h>
+ #include <stdio.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "error.h"
+@@ -131,6 +132,6 @@ main (int argc, char **argv)
+       fwrite (result, 1, len, stdout);
+       putchar (use_nuls ? '\0' :'\n');
+     }
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/du.c b/src/du.c
+index ac4489f..d43b18c 100644
+--- a/src/du.c
++++ b/src/du.c
+@@ -26,6 +26,8 @@
+ #include <config.h>
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
++
+ #include <assert.h>
+ #include "system.h"
+ #include "argmatch.h"
+@@ -1134,6 +1136,6 @@ main (int argc, char **argv)
+ 
+   if (print_grand_total)
+     print_size (&tot_dui, _("total"));
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/echo.c b/src/echo.c
+index 9958a8e..f31bffc 100644
+--- a/src/echo.c
++++ b/src/echo.c
+@@ -18,6 +18,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include "system.h"
++#include <signal.h>
+ 
+ /* The official name of this program (e.g., no 'g' prefix).  */
+ #define PROGRAM_NAME "echo"
+@@ -268,5 +269,6 @@ just_echo:
+ 
+   if (display_return)
+     putchar ('\n');
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/env.c b/src/env.c
+index bacef9b..de7eea2 100644
+--- a/src/env.c
++++ b/src/env.c
+@@ -20,6 +20,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -181,5 +182,6 @@ main (int argc, char **argv)
+ 
+   int exit_status = errno == ENOENT ? EXIT_ENOENT : EXIT_CANNOT_INVOKE;
+   error (0, errno, "%s", quote (argv[optind]));
++  raise(SIGQUIT);
+   return exit_status;
+ }
+diff --git a/src/expand.c b/src/expand.c
+index 6183fb8..3e7dfda 100644
+--- a/src/expand.c
++++ b/src/expand.c
+@@ -33,6 +33,7 @@
+    David MacKenzie <djm@gnu.ai.mit.edu> */
+ 
+ #include <config.h>
++#include <signal.h>
+ 
+ #include <stdio.h>
+ #include <getopt.h>
+@@ -233,6 +234,6 @@ main (int argc, char **argv)
+   expand ();
+ 
+   cleanup_file_list_stdin ();
+-
++  raise(SIGQUIT);
+   return exit_status;
+ }
+diff --git a/src/expr.c b/src/expr.c
+index f4dbf17..88401ba 100644
+--- a/src/expr.c
++++ b/src/expr.c
+@@ -32,6 +32,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include "system.h"
++#include <signal.h>
+ 
+ #include <regex.h>
+ #include "die.h"
+@@ -463,7 +464,7 @@ main (int argc, char **argv)
+          quotearg_n_style (0, locale_quoting_style, *args));
+ 
+   printv (v);
+-
++  raise(SIGQUIT);
+   return null (v);
+ }
+ 
+diff --git a/src/factor.c b/src/factor.c
+index 7c4a7cd..950c72c 100644
+--- a/src/factor.c
++++ b/src/factor.c
+@@ -112,6 +112,7 @@
+ #endif
+ 
+ #include <assert.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -2656,6 +2657,6 @@ main (int argc, char **argv)
+         }
+     }
+ #endif
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/fmt.c b/src/fmt.c
+index 147fdf5..19d6362 100644
+--- a/src/fmt.c
++++ b/src/fmt.c
+@@ -21,6 +21,7 @@
+ #include <sys/types.h>
+ #include <getopt.h>
+ #include <assert.h>
++#include <signal.h>
+ 
+ /* Redefine.  Otherwise, systems (Unicos for one) with headers that define
+    it to be a type get syntax errors for the variable declaration below.  */
+@@ -443,7 +444,7 @@ main (int argc, char **argv)
+             }
+         }
+     }
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+ 
+diff --git a/src/fold.c b/src/fold.c
+index 40c2e79..c6f66a1 100644
+--- a/src/fold.c
++++ b/src/fold.c
+@@ -21,6 +21,7 @@
+ #include <stdio.h>
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -304,6 +305,6 @@ main (int argc, char **argv)
+ 
+   if (have_read_stdin && fclose (stdin) == EOF)
+     die (EXIT_FAILURE, errno, "-");
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/getlimits.c b/src/getlimits.c
+index 07d1073..df6d17b 100644
+--- a/src/getlimits.c
++++ b/src/getlimits.c
+@@ -20,6 +20,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include <float.h>
++#include <signal.h>
+ 
+ #include "ftoastr.h"
+ #include "system.h"
+@@ -167,6 +168,6 @@ main (int argc, char **argv)
+   print_float (FLT);
+   print_float (DBL);
+   print_float (LDBL);
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/groups.c b/src/groups.c
+index cfad07f..a616288 100644
+--- a/src/groups.c
++++ b/src/groups.c
+@@ -23,6 +23,7 @@
+ #include <pwd.h>
+ #include <grp.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -140,6 +141,6 @@ main (int argc, char **argv)
+           putchar ('\n');
+         }
+     }
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/head.c b/src/head.c
+index e161177..9ffff43 100644
+--- a/src/head.c
++++ b/src/head.c
+@@ -28,6 +28,7 @@
+ #include <stdio.h>
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ 
+@@ -1089,6 +1090,6 @@ main (int argc, char **argv)
+ 
+   if (have_read_stdin && close (STDIN_FILENO) < 0)
+     die (EXIT_FAILURE, errno, "-");
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/hostid.c b/src/hostid.c
+index c45328a..ce95b32 100644
+--- a/src/hostid.c
++++ b/src/hostid.c
+@@ -21,6 +21,7 @@
+ #include <getopt.h>
+ #include <stdio.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "long-options.h"
+@@ -88,6 +89,6 @@ main (int argc, char **argv)
+   id &= 0xffffffff;
+ 
+   printf ("%08x\n", id);
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/hostname.c b/src/hostname.c
+index 292c148..3563b16 100644
+--- a/src/hostname.c
++++ b/src/hostname.c
+@@ -20,6 +20,7 @@
+ #include <getopt.h>
+ #include <stdio.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "long-options.h"
+@@ -118,6 +119,6 @@ main (int argc, char **argv)
+       error (0, 0, _("extra operand %s"), quote (argv[optind + 1]));
+       usage (EXIT_FAILURE);
+     }
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/id.c b/src/id.c
+index be07580..9bb96b2 100644
+--- a/src/id.c
++++ b/src/id.c
+@@ -24,6 +24,7 @@
+ #include <grp.h>
+ #include <getopt.h>
+ #include <selinux/selinux.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -317,6 +318,7 @@ main (int argc, char **argv)
+   putchar (opt_zero ? '\0' : '\n');
+ 
+   IF_LINT (free (pw_name));
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+ 
+diff --git a/src/join.c b/src/join.c
+index 2fb9440..63c6cc5 100644
+--- a/src/join.c
++++ b/src/join.c
+@@ -21,6 +21,7 @@
+ #include <assert.h>
+ #include <sys/types.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -1191,7 +1192,7 @@ main (int argc, char **argv)
+     die (EXIT_FAILURE, errno, "%s", quotef (g_names[0]));
+   if (fclose (fp2) != 0)
+     die (EXIT_FAILURE, errno, "%s", quotef (g_names[1]));
+-
++  raise(SIGQUIT);
+   if (issued_disorder_warning[0] || issued_disorder_warning[1])
+     return EXIT_FAILURE;
+   else
+diff --git a/src/kill.c b/src/kill.c
+index 2be3749..c1d7a96 100644
+--- a/src/kill.c
++++ b/src/kill.c
+@@ -21,6 +21,7 @@
+ #include <getopt.h>
+ #include <sys/types.h>
+ #include <signal.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "error.h"
+@@ -307,7 +308,7 @@ main (int argc, char **argv)
+       error (0, 0, _("no process ID specified"));
+       usage (EXIT_FAILURE);
+     }
+-
++  raise(SIGQUIT);
+   return (list
+           ? list_signals (table, optind < argc ? argv + optind : NULL)
+           : send_signals (signum, argv + optind));
+diff --git a/src/link.c b/src/link.c
+index 203a117..2a94040 100644
+--- a/src/link.c
++++ b/src/link.c
+@@ -24,6 +24,7 @@
+ #include <stdio.h>
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -95,6 +96,6 @@ main (int argc, char **argv)
+   if (link (argv[optind], argv[optind + 1]) != 0)
+     die (EXIT_FAILURE, errno, _("cannot create link %s to %s"),
+          quoteaf_n (0, argv[optind + 1]), quoteaf_n (1, argv[optind]));
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/ln.c b/src/ln.c
+index 604493b..0c62134 100644
+--- a/src/ln.c
++++ b/src/ln.c
+@@ -20,6 +20,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "backupfile.h"
+@@ -613,6 +614,6 @@ main (int argc, char **argv)
+     }
+   else
+     ok = do_link (file[0], file[1]);
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/logname.c b/src/logname.c
+index 171fe48..cbdcb4c 100644
+--- a/src/logname.c
++++ b/src/logname.c
+@@ -18,6 +18,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -85,5 +86,6 @@ main (int argc, char **argv)
+     die (EXIT_FAILURE, 0, _("no login name"));
+ 
+   puts (cp);
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/ls.c b/src/ls.c
+index bae2c11..861798f 100644
+--- a/src/ls.c
++++ b/src/ls.c
+@@ -37,6 +37,7 @@
+ 
+ #include <config.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include <termios.h>
+ #if HAVE_STROPTS_H
+@@ -1647,7 +1648,7 @@ main (int argc, char **argv)
+       assert (hash_get_n_entries (active_dir_set) == 0);
+       hash_free (active_dir_set);
+     }
+-
++  raise(SIGQUIT);
+   return exit_status;
+ }
+ 
+diff --git a/src/md5sum.c b/src/md5sum.c
+index a5c30d9..b1106c8 100644
+--- a/src/md5sum.c
++++ b/src/md5sum.c
+@@ -20,6 +20,7 @@
+ 
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "argmatch.h"
+@@ -1086,6 +1087,6 @@ main (int argc, char **argv)
+ 
+   if (have_read_stdin && fclose (stdin) == EOF)
+     die (EXIT_FAILURE, errno, _("standard input"));
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/mkdir.c b/src/mkdir.c
+index 91ab515..d640297 100644
+--- a/src/mkdir.c
++++ b/src/mkdir.c
+@@ -21,6 +21,7 @@
+ #include <getopt.h>
+ #include <sys/types.h>
+ #include <selinux/selinux.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -290,7 +291,7 @@ main (int argc, char **argv)
+       else
+         options.mode = S_IRWXUGO;
+     }
+-
++  raise(SIGQUIT);
+   return savewd_process_files (argc - optind, argv + optind,
+                                process_dir, &options);
+ }
+diff --git a/src/mkfifo.c b/src/mkfifo.c
+index 2e6c401..7d09232 100644
+--- a/src/mkfifo.c
++++ b/src/mkfifo.c
+@@ -21,6 +21,7 @@
+ #include <getopt.h>
+ #include <sys/types.h>
+ #include <selinux/selinux.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -177,6 +178,6 @@ main (int argc, char **argv)
+           exit_status = EXIT_FAILURE;
+         }
+     }
+-
++  raise(SIGQUIT);
+   return exit_status;
+ }
+diff --git a/src/mktemp.c b/src/mktemp.c
+index 97c3498..4d644d2 100644
+--- a/src/mktemp.c
++++ b/src/mktemp.c
+@@ -19,6 +19,7 @@
+ #include <config.h>
+ #include <sys/types.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ 
+@@ -345,6 +346,6 @@ main (int argc, char **argv)
+   free (dest_name);
+   free (template);
+ #endif
+-
++  raise(SIGQUIT);
+   return status;
+ }
+diff --git a/src/mv.c b/src/mv.c
+index edc1e73..8cb5915 100644
+--- a/src/mv.c
++++ b/src/mv.c
+@@ -22,6 +22,7 @@
+ #include <sys/types.h>
+ #include <assert.h>
+ #include <selinux/selinux.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "backupfile.h"
+@@ -505,6 +506,6 @@ main (int argc, char **argv)
+       x.last_file = true;
+       ok = movefile (file[0], file[1], false, &x);
+     }
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/nice.c b/src/nice.c
+index cdfd40d..d98cd72 100644
+--- a/src/nice.c
++++ b/src/nice.c
+@@ -20,6 +20,7 @@
+ #include <stdio.h>
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ 
+@@ -217,5 +218,6 @@ main (int argc, char **argv)
+ 
+   int exit_status = errno == ENOENT ? EXIT_ENOENT : EXIT_CANNOT_INVOKE;
+   error (0, errno, "%s", quote (argv[i]));
++  raise(SIGQUIT);
+   return exit_status;
+ }
+diff --git a/src/nl.c b/src/nl.c
+index 7aababf..59a4be5 100644
+--- a/src/nl.c
++++ b/src/nl.c
+@@ -22,6 +22,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ 
+@@ -595,6 +596,6 @@ main (int argc, char **argv)
+ 
+   if (have_read_stdin && fclose (stdin) == EOF)
+     die (EXIT_FAILURE, errno, "-");
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/nproc.c b/src/nproc.c
+index fc3a17b..6e028f2 100644
+--- a/src/nproc.c
++++ b/src/nproc.c
+@@ -20,6 +20,7 @@
+ #include <getopt.h>
+ #include <stdio.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "error.h"
+@@ -124,6 +125,6 @@ main (int argc, char **argv)
+     nproc = 1;
+ 
+   printf ("%lu\n", nproc);
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/numfmt.c b/src/numfmt.c
+index ce5c131..b1b323a 100644
+--- a/src/numfmt.c
++++ b/src/numfmt.c
+@@ -20,6 +20,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include <langinfo.h>
++#include <signal.h>
+ 
+ #include "mbsalign.h"
+ #include "argmatch.h"
+@@ -1646,6 +1647,6 @@ main (int argc, char **argv)
+   if (!valid_numbers
+       && inval_style != inval_warn && inval_style != inval_ignore)
+     exit_status = EXIT_CONVERSION_WARNINGS;
+-
++  raise(SIGQUIT);
+   return exit_status;
+ }
+diff --git a/src/od.c b/src/od.c
+index 1a4aede..0c10c63 100644
+--- a/src/od.c
++++ b/src/od.c
+@@ -17,6 +17,7 @@
+ /* Written by Jim Meyering.  */
+ 
+ #include <config.h>
++#include <signal.h>
+ 
+ #include <stdio.h>
+ #include <assert.h>
+@@ -1976,6 +1977,6 @@ cleanup:
+ 
+   if (have_read_stdin && fclose (stdin) == EOF)
+     die (EXIT_FAILURE, errno, _("standard input"));
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/paste.c b/src/paste.c
+index f7e795e..1a30ed8 100644
+--- a/src/paste.c
++++ b/src/paste.c
+@@ -36,6 +36,7 @@
+    If no FILEs are given, standard input is used. */
+ 
+ #include <config.h>
++#include <signal.h>
+ 
+ #include <stdio.h>
+ #include <getopt.h>
+@@ -526,5 +527,6 @@ main (int argc, char **argv)
+ 
+   if (have_read_stdin && fclose (stdin) == EOF)
+     die (EXIT_FAILURE, errno, "-");
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/pathchk.c b/src/pathchk.c
+index 6deb046..49464e9 100644
+--- a/src/pathchk.c
++++ b/src/pathchk.c
+@@ -19,6 +19,7 @@
+ #include <getopt.h>
+ #include <sys/types.h>
+ #include <wchar.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "error.h"
+@@ -151,7 +152,7 @@ main (int argc, char **argv)
+   for (; optind < argc; ++optind)
+     ok &= validate_file_name (argv[optind],
+                               check_basic_portability, check_extra_portability);
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+ 
+diff --git a/src/pinky.c b/src/pinky.c
+index a9832fe..dd9a390 100644
+--- a/src/pinky.c
++++ b/src/pinky.c
+@@ -20,6 +20,7 @@
+ #include <getopt.h>
+ #include <pwd.h>
+ #include <stdio.h>
++#include <signal.h>
+ 
+ #include <sys/types.h>
+ #include "system.h"
+@@ -597,6 +598,6 @@ main (int argc, char **argv)
+     short_pinky (UTMP_FILE, n_users, argv + optind);
+   else
+     long_pinky (n_users, argv + optind);
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/pr.c b/src/pr.c
+index 7d72b41..ba2371d 100644
+--- a/src/pr.c
++++ b/src/pr.c
+@@ -308,6 +308,7 @@
+ */
+ 
+ #include <config.h>
++#include <signal.h>
+ 
+ #include <getopt.h>
+ #include <sys/types.h>
+@@ -1146,6 +1147,7 @@ main (int argc, char **argv)
+ 
+   if (have_read_stdin && fclose (stdin) == EOF)
+     die (EXIT_FAILURE, errno, _("standard input"));
++  raise(SIGQUIT);
+   return failed_opens ? EXIT_FAILURE : EXIT_SUCCESS;
+ }
+ 
+diff --git a/src/printenv.c b/src/printenv.c
+index 0cc8a48..a52b003 100644
+--- a/src/printenv.c
++++ b/src/printenv.c
+@@ -31,6 +31,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ 
+@@ -149,6 +150,6 @@ main (int argc, char **argv)
+ 
+       ok = (matches == argc - optind);
+     }
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/printf.c b/src/printf.c
+index 6f687ed..5f0f5ce 100644
+--- a/src/printf.c
++++ b/src/printf.c
+@@ -53,6 +53,7 @@
+ #include <config.h>
+ #include <stdio.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "c-strtod.h"
+@@ -710,6 +711,6 @@ main (int argc, char **argv)
+     error (0, 0,
+            _("warning: ignoring excess arguments, starting with %s"),
+            quote (argv[0]));
+-
++  raise(SIGQUIT);
+   return exit_status;
+ }
+diff --git a/src/ptx.c b/src/ptx.c
+index bbde78a..e8698a3 100644
+--- a/src/ptx.c
++++ b/src/ptx.c
+@@ -18,6 +18,7 @@
+    François Pinard <pinard@iro.umontreal.ca> */
+ 
+ #include <config.h>
++#include <signal.h>
+ 
+ #include <getopt.h>
+ #include <sys/types.h>
+@@ -2148,6 +2149,6 @@ main (int argc, char **argv)
+   generate_all_output ();
+ 
+   /* All done.  */
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/pwd.c b/src/pwd.c
+index d16497d..ce3de37 100644
+--- a/src/pwd.c
++++ b/src/pwd.c
+@@ -18,6 +18,7 @@
+ #include <getopt.h>
+ #include <stdio.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -389,6 +390,6 @@ main (int argc, char **argv)
+       puts (file_name->start);
+       file_name_free (file_name);
+     }
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/readlink.c b/src/readlink.c
+index 7c66efb..7f85f23 100644
+--- a/src/readlink.c
++++ b/src/readlink.c
+@@ -20,6 +20,7 @@
+ #include <stdio.h>
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "canonicalize.h"
+@@ -173,6 +174,6 @@ main (int argc, char **argv)
+             error (0, errno, "%s", quotef (fname));
+         }
+     }
+-
++  raise(SIGQUIT);
+   return status;
+ }
+diff --git a/src/realpath.c b/src/realpath.c
+index 5a0e827..1285765 100644
+--- a/src/realpath.c
++++ b/src/realpath.c
+@@ -20,6 +20,7 @@
+ #include <getopt.h>
+ #include <stdio.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "canonicalize.h"
+@@ -273,6 +274,6 @@ main (int argc, char **argv)
+ 
+   for (; optind < argc; ++optind)
+     ok &= process_path (argv[optind], can_mode);
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/rm.c b/src/rm.c
+index dbc0cb7..9d7fcca 100644
+--- a/src/rm.c
++++ b/src/rm.c
+@@ -23,6 +23,7 @@
+ #include <getopt.h>
+ #include <sys/types.h>
+ #include <assert.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "argmatch.h"
+@@ -353,5 +354,6 @@ main (int argc, char **argv)
+ 
+   enum RM_status status = rm (file, &x);
+   assert (VALID_STATUS (status));
++  raise(SIGQUIT);
+   return status == RM_ERROR ? EXIT_FAILURE : EXIT_SUCCESS;
+ }
+diff --git a/src/rmdir.c b/src/rmdir.c
+index 666886f..ffe992c 100644
+--- a/src/rmdir.c
++++ b/src/rmdir.c
+@@ -26,6 +26,7 @@
+ #include <stdio.h>
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "error.h"
+@@ -246,6 +247,6 @@ main (int argc, char **argv)
+           ok &= remove_parents (dir);
+         }
+     }
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/runcon.c b/src/runcon.c
+index 72ac4f4..a55993b 100644
+--- a/src/runcon.c
++++ b/src/runcon.c
+@@ -50,6 +50,7 @@
+ #include "die.h"
+ #include "error.h"
+ #include "quote.h"
++#include <signal.h>
+ 
+ /* The official name of this program (e.g., no 'g' prefix).  */
+ #define PROGRAM_NAME "runcon"
+@@ -260,5 +261,6 @@ main (int argc, char **argv)
+ 
+   int exit_status = errno == ENOENT ? EXIT_ENOENT : EXIT_CANNOT_INVOKE;
+   error (0, errno, "%s", quote (argv[optind]));
++  raise(SIGQUIT);
+   return exit_status;
+ }
+diff --git a/src/seq.c b/src/seq.c
+index 81bb9fb..360d2b0 100644
+--- a/src/seq.c
++++ b/src/seq.c
+@@ -20,6 +20,7 @@
+ #include <getopt.h>
+ #include <stdio.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -701,6 +702,6 @@ main (int argc, char **argv)
+     format_str = get_default_format (first, step, last);
+ 
+   print_numbers (format_str, layout, first.value, step.value, last.value);
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/shred.c b/src/shred.c
+index 2ddaadd..75ce379 100644
+--- a/src/shred.c
++++ b/src/shred.c
+@@ -74,6 +74,7 @@
+ #define AUTHORS proper_name ("Colin Plumb")
+ 
+ #include <config.h>
++#include <signal.h>
+ 
+ #include <getopt.h>
+ #include <stdio.h>
+@@ -1303,7 +1304,7 @@ main (int argc, char **argv)
+         }
+       free (qname);
+     }
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+ /*
+diff --git a/src/shuf.c b/src/shuf.c
+index b6c53be..ee600e0 100644
+--- a/src/shuf.c
++++ b/src/shuf.c
+@@ -21,6 +21,7 @@
+ 
+ #include <sys/types.h>
+ #include "system.h"
++#include <signal.h>
+ 
+ #include "die.h"
+ #include "error.h"
+@@ -605,6 +606,6 @@ main (int argc, char **argv)
+       free (reservoir);
+     }
+ #endif
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/sleep.c b/src/sleep.c
+index 162053d..412cc27 100644
+--- a/src/sleep.c
++++ b/src/sleep.c
+@@ -18,6 +18,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "c-strtod.h"
+@@ -149,6 +150,6 @@ main (int argc, char **argv)
+ 
+   if (xnanosleep (seconds))
+     die (EXIT_FAILURE, errno, _("cannot read realtime clock"));
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/sort.c b/src/sort.c
+index dd6bce4..101528e 100644
+--- a/src/sort.c
++++ b/src/sort.c
+@@ -21,6 +21,7 @@
+    Ørn E. Hansen added NLS support in 1997.  */
+ 
+ #include <config.h>
++#include <signal.h>
+ 
+ #include <getopt.h>
+ #include <pthread.h>
+@@ -4774,6 +4775,6 @@ main (int argc, char **argv)
+ 
+   if (have_read_stdin && fclose (stdin) == EOF)
+     sort_die (_("close failed"), "-");
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/split.c b/src/split.c
+index 60c14d3..650967d 100644
+--- a/src/split.c
++++ b/src/split.c
+@@ -20,6 +20,7 @@
+    * support -p REGEX as in BSD's split.
+    * support --suppress-matched as in csplit.  */
+ #include <config.h>
++#include <signal.h>
+ 
+ #include <assert.h>
+ #include <stdio.h>
+@@ -1662,6 +1663,6 @@ main (int argc, char **argv)
+   if (close (STDIN_FILENO) != 0)
+     die (EXIT_FAILURE, errno, "%s", quotef (infile));
+   closeout (NULL, output_desc, filter_pid, outfile);
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/stat.c b/src/stat.c
+index 0a5ef3c..8810dfd 100644
+--- a/src/stat.c
++++ b/src/stat.c
+@@ -27,6 +27,7 @@
+ #else
+ # define USE_STATVFS 0
+ #endif
++#include <signal.h>
+ 
+ #include <stddef.h>
+ #include <stdio.h>
+@@ -1680,6 +1681,6 @@ main (int argc, char *argv[])
+     ok &= (fs
+            ? do_statfs (argv[i], format)
+            : do_stat (argv[i], format, format2));
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/stdbuf.c b/src/stdbuf.c
+index a212be3..973d045 100644
+--- a/src/stdbuf.c
++++ b/src/stdbuf.c
+@@ -21,6 +21,7 @@
+ #include <getopt.h>
+ #include <sys/types.h>
+ #include <assert.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -389,5 +390,6 @@ main (int argc, char **argv)
+ 
+   int exit_status = errno == ENOENT ? EXIT_ENOENT : EXIT_CANNOT_INVOKE;
+   error (0, errno, _("failed to run command %s"), quote (argv[0]));
++  raise(SIGQUIT);
+   return exit_status;
+ }
+diff --git a/src/stty.c b/src/stty.c
+index 07438ee..908a6af 100644
+--- a/src/stty.c
++++ b/src/stty.c
+@@ -53,6 +53,7 @@
+ #include <getopt.h>
+ #include <stdarg.h>
+ #include <assert.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -1458,7 +1459,7 @@ main (int argc, char **argv)
+             }
+         }
+     }
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+ 
+diff --git a/src/sum.c b/src/sum.c
+index 562254d..f99b2ed 100644
+--- a/src/sum.c
++++ b/src/sum.c
+@@ -19,6 +19,7 @@
+ /* Written by Kayvan Aghaiepour and David MacKenzie. */
+ 
+ #include <config.h>
++#include <signal.h>
+ 
+ #include <stdio.h>
+ #include <sys/types.h>
+@@ -269,5 +270,6 @@ main (int argc, char **argv)
+ 
+   if (have_read_stdin && fclose (stdin) == EOF)
+     die (EXIT_FAILURE, errno, "%s", quotef ("-"));
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/sync.c b/src/sync.c
+index bd3671a..4aa5b5c 100644
+--- a/src/sync.c
++++ b/src/sync.c
+@@ -21,6 +21,7 @@
+ #include <getopt.h>
+ #include <stdio.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -232,6 +233,6 @@ main (int argc, char **argv)
+       for (; optind < argc; optind++)
+         ok &= sync_arg (mode, argv[optind]);
+     }
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/tac.c b/src/tac.c
+index 753f8f1..38124db 100644
+--- a/src/tac.c
++++ b/src/tac.c
+@@ -40,6 +40,7 @@ tac -r -s '.\|
+ #include <getopt.h>
+ #include <sys/types.h>
+ #include "system.h"
++#include <signal.h>
+ 
+ #include <regex.h>
+ 
+@@ -708,6 +709,6 @@ main (int argc, char **argv)
+   size_t offset = sentinel_length ? sentinel_length : 1;
+   free (G_buffer - offset);
+ #endif
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/tail.c b/src/tail.c
+index ac001d7..64dd5d3 100644
+--- a/src/tail.c
++++ b/src/tail.c
+@@ -2509,5 +2509,6 @@ main (int argc, char **argv)
+ 
+   if (have_read_stdin && close (STDIN_FILENO) < 0)
+     die (EXIT_FAILURE, errno, "-");
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/tee.c b/src/tee.c
+index dae0f1e..54219b7 100644
+--- a/src/tee.c
++++ b/src/tee.c
+@@ -172,7 +172,7 @@ main (int argc, char **argv)
+   ok = tee_files (argc - optind, &argv[optind]);
+   if (close (STDIN_FILENO) != 0)
+     die (EXIT_FAILURE, errno, "%s", _("standard input"));
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+ 
+diff --git a/src/touch.c b/src/touch.c
+index 72b807e..20f7f9a 100644
+--- a/src/touch.c
++++ b/src/touch.c
+@@ -22,6 +22,7 @@
+ #include <getopt.h>
+ #include <sys/types.h>
+ #include <assert.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "argmatch.h"
+@@ -433,6 +434,6 @@ main (int argc, char **argv)
+ 
+   for (; optind < argc; ++optind)
+     ok &= touch (argv[optind]);
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/tr.c b/src/tr.c
+index ae05192..5fb4e88 100644
+--- a/src/tr.c
++++ b/src/tr.c
+@@ -22,6 +22,7 @@
+ #include <assert.h>
+ #include <sys/types.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -1909,6 +1910,6 @@ main (int argc, char **argv)
+ 
+   if (close (STDIN_FILENO) != 0)
+     die (EXIT_FAILURE, errno, _("standard input"));
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/true.c b/src/true.c
+index 8f53b4b..5522836 100644
+--- a/src/true.c
++++ b/src/true.c
+@@ -17,6 +17,7 @@
+ #include <config.h>
+ #include <stdio.h>
+ #include <sys/types.h>
++#include <signal.h>
+ #include "system.h"
+ 
+ /* Act like "true" by default; false.c overrides this.  */
+@@ -75,6 +76,6 @@ main (int argc, char **argv)
+         version_etc (stdout, PROGRAM_NAME, PACKAGE_NAME, Version, AUTHORS,
+                      (char *) NULL);
+     }
+-
++  raise(SIGQUIT);
+   return EXIT_STATUS;
+ }
+diff --git a/src/truncate.c b/src/truncate.c
+index f43637e..8a3cb31 100644
+--- a/src/truncate.c
++++ b/src/truncate.c
+@@ -24,6 +24,7 @@
+ #include <stdio.h>
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -394,6 +395,6 @@ main (int argc, char **argv)
+             }
+         }
+     }
+-
++  raise(SIGQUIT);
+   return errors ? EXIT_FAILURE : EXIT_SUCCESS;
+ }
+diff --git a/src/tsort.c b/src/tsort.c
+index 0125c5c..6323b70 100644
+--- a/src/tsort.c
++++ b/src/tsort.c
+@@ -25,6 +25,7 @@
+ #include <assert.h>
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "long-options.h"
+@@ -568,6 +569,6 @@ main (int argc, char **argv)
+     }
+ 
+   ok = tsort (optind == argc ? "-" : argv[optind]);
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/tty.c b/src/tty.c
+index 83d23d0..0f83b48 100644
+--- a/src/tty.c
++++ b/src/tty.c
+@@ -25,6 +25,7 @@
+ #include <stdio.h>
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "error.h"
+@@ -129,5 +130,6 @@ main (int argc, char **argv)
+     }
+ 
+   puts (tty);
++  raise(SIGQUIT);
+   return status;
+ }
+diff --git a/src/uname.c b/src/uname.c
+index 1ecd573..7a453a2 100644
+--- a/src/uname.c
++++ b/src/uname.c
+@@ -22,6 +22,7 @@
+ #include <sys/types.h>
+ #include <sys/utsname.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #if HAVE_SYSINFO && HAVE_SYS_SYSTEMINFO_H
+ # include <sys/systeminfo.h>
+@@ -371,6 +372,6 @@ main (int argc, char **argv)
+     print_element (HOST_OPERATING_SYSTEM);
+ 
+   putchar ('\n');
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/unexpand.c b/src/unexpand.c
+index 8fdd80f..9b3e921 100644
+--- a/src/unexpand.c
++++ b/src/unexpand.c
+@@ -34,6 +34,7 @@
+    David MacKenzie <djm@gnu.ai.mit.edu> */
+ 
+ #include <config.h>
++#include <signal.h>
+ 
+ #include <stdio.h>
+ #include <getopt.h>
+@@ -321,6 +322,6 @@ main (int argc, char **argv)
+   unexpand ();
+ 
+   cleanup_file_list_stdin ();
+-
++  raise(SIGQUIT);
+   return exit_status;
+ }
+diff --git a/src/uniq.c b/src/uniq.c
+index b04cc44..5f429d7 100644
+--- a/src/uniq.c
++++ b/src/uniq.c
+@@ -20,6 +20,7 @@
+ 
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "argmatch.h"
+@@ -670,6 +671,6 @@ main (int argc, char **argv)
+     }
+ 
+   check_file (file[0], file[1], delimiter);
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/unlink.c b/src/unlink.c
+index a6ae623..8a9f5de 100644
+--- a/src/unlink.c
++++ b/src/unlink.c
+@@ -24,6 +24,7 @@
+ #include <stdio.h>
+ #include <getopt.h>
+ #include <sys/types.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -90,6 +91,6 @@ main (int argc, char **argv)
+ 
+   if (unlink (argv[optind]) != 0)
+     die (EXIT_FAILURE, errno, _("cannot unlink %s"), quoteaf (argv[optind]));
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/uptime.c b/src/uptime.c
+index 5f07750..735a152 100644
+--- a/src/uptime.c
++++ b/src/uptime.c
+@@ -19,6 +19,7 @@
+ #include <config.h>
+ #include <getopt.h>
+ #include <stdio.h>
++#include <signal.h>
+ 
+ #include <sys/types.h>
+ #include "system.h"
+@@ -258,6 +259,6 @@ main (int argc, char **argv)
+       error (0, 0, _("extra operand %s"), quote (argv[optind + 1]));
+       usage (EXIT_FAILURE);
+     }
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/users.c b/src/users.c
+index 3287b7a..c360f2b 100644
+--- a/src/users.c
++++ b/src/users.c
+@@ -19,6 +19,7 @@
+ #include <config.h>
+ #include <getopt.h>
+ #include <stdio.h>
++#include <signal.h>
+ 
+ #include <sys/types.h>
+ #include "system.h"
+@@ -152,6 +153,6 @@ main (int argc, char **argv)
+       error (0, 0, _("extra operand %s"), quote (argv[optind + 1]));
+       usage (EXIT_FAILURE);
+     }
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/wc.c b/src/wc.c
+index 0c72042..7e5d87e 100644
+--- a/src/wc.c
++++ b/src/wc.c
+@@ -25,6 +25,7 @@
+ #include <sys/types.h>
+ #include <wchar.h>
+ #include <wctype.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "argv-iter.h"
+@@ -853,6 +854,6 @@ main (int argc, char **argv)
+ 
+   if (have_read_stdin && close (STDIN_FILENO) != 0)
+     die (EXIT_FAILURE, errno, "-");
+-
++  raise(SIGQUIT);
+   return ok ? EXIT_SUCCESS : EXIT_FAILURE;
+ }
+diff --git a/src/who.c b/src/who.c
+index 1bfe4f1..f6b02a8 100644
+--- a/src/who.c
++++ b/src/who.c
+@@ -27,6 +27,7 @@
+ #include <getopt.h>
+ #include <stdio.h>
+ #include <assert.h>
++#include <signal.h>
+ 
+ #include <sys/types.h>
+ #include "system.h"
+@@ -831,6 +832,6 @@ main (int argc, char **argv)
+       error (0, 0, _("extra operand %s"), quote (argv[optind + 2]));
+       usage (EXIT_FAILURE);
+     }
+-
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/whoami.c b/src/whoami.c
+index ac2ac02..851d058 100644
+--- a/src/whoami.c
++++ b/src/whoami.c
+@@ -23,6 +23,7 @@
+ #include <sys/types.h>
+ #include <pwd.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ #include "die.h"
+@@ -93,5 +94,6 @@ main (int argc, char **argv)
+     die (EXIT_FAILURE, errno, _("cannot find name for user ID %lu"),
+          (unsigned long int) uid);
+   puts (pw->pw_name);
++  raise(SIGQUIT);
+   return EXIT_SUCCESS;
+ }
+diff --git a/src/yes.c b/src/yes.c
+index 3dd5d2f..7279c0d 100644
+--- a/src/yes.c
++++ b/src/yes.c
+@@ -20,6 +20,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include <getopt.h>
++#include <signal.h>
+ 
+ #include "system.h"
+ 
+@@ -129,5 +130,6 @@ main (int argc, char **argv)
+   while (full_write (STDOUT_FILENO, buf, bufused) == bufused)
+     continue;
+   error (0, errno, _("standard output"));
++  raise(SIGQUIT);
+   return EXIT_FAILURE;
+ }
