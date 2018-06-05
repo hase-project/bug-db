@@ -13,7 +13,7 @@ targets = ['base64',
 	'du', 'echo', 'env', 'expand', 
 	'expr', 'factor', 'fmt', 'fold', 
 	'getlimits', 'groups', 'head', 'hostid', 
-	'hostname', 'id', 'join', 'kill', 
+	'id', 'join', 'kill', 
 	'link', 'ln', 'logname', 'ls', 
 	'md5sum', 'mkdir', 'mkfifo', 'mktemp', 
 	'mv', 'nice', 'nl', 'nproc', 'numfmt', 
@@ -53,6 +53,7 @@ def do_test(target):
 			if l.startswith('cmdargs:'):
 				cmdargs = l.split(':')[1].strip()
 				if cmdargs != '':
+					cmds.append('--')
 					cmds += cmdargs.split(' ')
 		if not omit:
 			print("Executing: {}".format(' '.join(cmds)))

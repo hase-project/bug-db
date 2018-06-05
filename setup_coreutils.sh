@@ -5,6 +5,7 @@ cd lib/coreutils
 ./configure --quiet
 sed -i 's/man\/false.1//g' ./Makefile
 sed -i 's/man\/true.1//g' ./Makefile
+sed -i 's/-O2//g' ./Makefile
 git apply ../../patch/coreutils_raise.patch
 make
 cd ../../util

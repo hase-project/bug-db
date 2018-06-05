@@ -1,1 +1,1 @@
-cmdargs: /usr/include/stdio.h ~/
+cmdargs: /usr/include/stdio.h $(pwd)/
