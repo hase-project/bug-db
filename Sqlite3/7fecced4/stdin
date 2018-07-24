@@ -1,0 +1,2 @@
+create table name (type integer, path text primary key); 
+select (name.type = 0) as container from Name name where name.type = 0 or container order by name.path;

@@ -3,3 +3,7 @@
 .gitmodules
 .gdb_history
 stdio.h
+**/SQLite
+*.tar.gz
+**/nginx
+**/memcached
