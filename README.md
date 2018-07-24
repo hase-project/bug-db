@@ -26,7 +26,7 @@ cd ..
 git add/commit/push
 ```
 
-7. use raise-added coreutils
+## raise-added coreutils
 ```
 ./setup_coreutils.sh
 cd util
@@ -34,3 +34,12 @@ python test_coreutils.py [target]
 ```
 
 prereq libraries: Autoconf, Automake, Bison, Gettext, Git, Gperf, Gzip, Perl, RSync, Tar, TexInfo
+
+## sqlite3/nginx/memcached bugs
+```
+make source
+make build
+make record
+# if needed
+make test
+```
