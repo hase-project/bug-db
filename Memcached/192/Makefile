@@ -1,4 +1,4 @@
-# ticket: 
+# ticket: https://code.google.com/archive/p/memcached/issues/192
 
 VERSION=1.4.13
 PREFIX=$(dir $(realpath $(lastword $(MAKEFILE_LIST))))
