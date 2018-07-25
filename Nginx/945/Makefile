@@ -18,7 +18,7 @@ record:
 ifndef HASEBIN
 	echo "Please define hase binary path"
 else
-	sudo $(HASEBIN) record -- ./nginx/nginx-$(VERSION)/objs/nginx -c nginx.conf &
+	sudo $(HASEBIN) record -- ./nginx/nginx-$(VERSION)/objs/nginx -c nginx.conf
 endif
 
 # better collect pid

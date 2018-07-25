@@ -1,6 +1,6 @@
-# ticket: https://trac.nginx.org/nginx/ticket/{}
+# ticket: https://trac.nginx.org/nginx/ticket/37
 
-VERSION=
+VERSION=1.1.6
 PREFIX=$(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 
 source:
@@ -11,14 +11,14 @@ source:
 build:
 	mkdir -p logs
 	cd nginx/nginx-$(VERSION); \
-	./configure --prefix=$(PREFIX) --with-http_ssl_module; \
+	./configure --prefix=$(PREFIX) --with-http_ssl_module --with-http_stub_status_module; \
 	make
 
 record:
 ifndef HASEBIN
 	echo "Please define hase binary path"
 else
-	sudo $(HASEBIN) record -- ./nginx/nginx-$(VERSION)/objs/nginx -c nginx.conf
+	sudo $(HASEBIN) record -- ./nginx/nginx-$(VERSION)/objs/nginx -t -c nginx.conf 
 endif
 
 stop:

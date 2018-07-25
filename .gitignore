@@ -4,6 +4,6 @@
 .gdb_history
 stdio.h
 **/SQLite
-*.tar.gz
+**/*.tar.gz
 **/nginx
 **/memcached
