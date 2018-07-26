@@ -1,4 +1,4 @@
-# ticket: https://www.exploit-db.com/exploits/40697/
+# ticket: https://code.google.com/archive/p/memcached/issues/306
 # This testcase doesn't produce coredump (through show abnormal message)
 
 VERSION=1.4.4
@@ -36,3 +36,4 @@ stop:
 clean:
 	rm -rf ./memcached
 	rm -rf ./memcached-$(VERSION).tar.gz
+	rm -rf ./libmemcached-1.0.18.tar.gz
