@@ -7,3 +7,4 @@ stdio.h
 **/*.tar.gz
 **/nginx
 **/memcached
+**/coreutils_dir

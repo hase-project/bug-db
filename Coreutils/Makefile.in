@@ -1,0 +1,25 @@
+VERSION=
+BINPATH=./coreutils_dir/coreutils-$(VERSION)/src
+
+source:
+	wget -c http://ftp.gnu.org/gnu/coreutils/coreutils-$(VERSION).tar.xz
+	mkdir -p coreutils_dir
+	tar -xf coreutils-$(VERSION).tar.xz -C coreutils_dir
+
+build:
+	cd ./coreutils_dir/coreutils-$(VERSION); \
+	./configure; \
+	make
+
+# commit-id: 
+record:
+ifndef HASEBIN
+	echo "Please define hase binary path"
+else
+	sudo $(HASEBIN) record -- $(BINPATH)/
+endif
+
+
+clean:
+	rm -rf ./coreutils_dir
+	rm -rf ./coreutils-$(VERSION).tar.xz
