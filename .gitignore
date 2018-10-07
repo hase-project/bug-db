@@ -5,6 +5,7 @@
 stdio.h
 **/SQLite
 **/*.tar.gz
+**/*.tar.xz
 **/nginx
 **/memcached
 **/coreutils_dir
