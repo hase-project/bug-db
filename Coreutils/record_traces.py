@@ -15,6 +15,7 @@ from hase import path
 from hase.record import record_loop
 
 ROOT = Path(__file__).resolve().parent
+REPORT_PATH = ROOT.joinpath("reports")
 COREUTILS_VERSION_PATH = ROOT.joinpath("versions")
 CPUS = multiprocessing.cpu_count()
 
@@ -22,8 +23,10 @@ CPUS = multiprocessing.cpu_count()
 def blue_text(s: str) -> str:
     return "\x1b[34m%s\x1b[0m" % s
 
+
 def red_text(s: str) -> str:
     return "\x1b[31m%s\x1b[0m" % s
+
 
 def green_text(s: str) -> str:
     return "\x1b[32m%s\x1b[0m" % s
@@ -199,15 +202,19 @@ class Bug:
         self.version = version
         self.commit_ids = commit_ids
         self.stdin_file = stdin_file
-        self.vars : Dict[str, str] = {}
+        self.vars: Dict[str, str] = {}
         self.directory = TemporaryDirectory()
         self.vars["tempdir"] = self.directory.name
+        self.report_path = REPORT_PATH.joinpath(f"{self.id()}.tar.gz")
 
     def substitute_vars(self, template: str) -> str:
         s = template
         for k, v in self.vars.items():
             s = s.replace(f"@{k}@", v)
         return s
+
+    def id(self) -> str:
+        return f"coreutils-{self.version}-{self.name}"
 
     def command(self):
         exe = self._command[0]
@@ -217,11 +224,14 @@ class Bug:
         return [command] + args
 
     def run(self, simulate: bool) -> None:
+        if not simulate and self.report_path.exists():
+            return
+
         command = self.command()
         if self.stdin_file is None:
             stdin = None
         else:
-            stdin = open(self.substitute_vars(self.stdin_file))
+            stdin = open(self.substitute_vars(self.stdin_file), "rb")
 
         print(green_text("$ " + " ".join(command)))
 
@@ -229,15 +239,21 @@ class Bug:
             with TemporaryDirectory() as tempdir:
                 timeout = 3
                 try:
-                    record_loop(
-                            path.Path(tempdir),
-                            path.Path(str(ROOT.joinpath("logs"))),
-                            limit=1,
-                            command=command,
-                            timeout=timeout,
-                            stdin=stdin)
+                    recording = record_loop(
+                        path.Path(tempdir),
+                        path.Path(str(ROOT.joinpath("logs"))),
+                        limit=1,
+                        command=command,
+                        timeout=timeout,
+                        stdin=stdin,
+                    )
+                    assert recording is not None
+                    print(red_text(f"{command[0]} exited with {recording.exit_status}"))
+                    import pdb; pdb.set_trace()
+                    if recording.report_path is not None:
+                        shutil.move(str(recording.report_path), self.report_path)
                 except subprocess.TimeoutExpired:
-                    print(f"timeout after {timeout}s")
+                    print(red_text(f"timeout after {timeout}s"))
 
     def reproduce(self, simulate: bool = False) -> None:
         self.pre_hook()
@@ -261,7 +277,7 @@ def create_setups() -> List[Bug]:
 
     class TacBug(Bug):
         def pre_hook(self):
-            self.vars["tempfile"] = os.path.join(self.vars["tempdir"], "path")
+            self.vars["tempfile"] = os.path.join(self.vars["tempdir"], "foobar")
             with open(self.vars["tempfile"], "w+") as f:
                 f.write("\n")
 
@@ -288,21 +304,20 @@ def create_setups() -> List[Bug]:
 
     class SHA512Bug(Bug):
         def pre_hook(self):
-            self.vars["tempfile"] = os.path.join(self.vars["tempdir"], "path")
+            self.vars["tempfile"] = os.path.join(self.vars["tempdir"], "foobar")
             with open(self.vars["tempfile"], "w+") as f:
-                f.write("SHA512 (")
+                f.write("SHA512 (\n")
 
     bugs.append(
-        SHA512Bug(
-            "sha512sum",
-            version="6.10",
-            commit_ids=[
-                "72d052896a9092b811961a8f3e6ca5d151a59be5",
-                "eb8fa94f2cf030d625c12ad68bb8883de204c196",
-            ],
-            command=["sha512sum", "-c"],
-            stdin_file="@tempfile@",
-        )
+       SHA512Bug(
+           "sha512sum",
+           version="6.10",
+           commit_ids=[
+               "72d052896a9092b811961a8f3e6ca5d151a59be5",
+               "eb8fa94f2cf030d625c12ad68bb8883de204c196",
+           ],
+           command=["sha512sum", "-c", "@tempfile@"],
+       )
     )
 
     class PTXBug(Bug):
@@ -319,7 +334,7 @@ def create_setups() -> List[Bug]:
             "ptx",
             version="6.10",
             commit_ids=["a0851554bd52038ed47e46ee521ce74a5a09f747"],
-            command=["ptx", "-F", "@tempfile@"],
+            command=["ptx", "-F\\", "@tempfile@"],
         )
     )
 
@@ -344,12 +359,18 @@ def create_setups() -> List[Bug]:
         )
     )
 
+    class SortBug(Bug):
+        def pre_hook(self):
+            self.vars["tempfile"] = os.path.join(self.vars["tempdir"], "foobar")
+            with open(self.vars["tempfile"], "w+") as f:
+                f.write("\n")
+
     bugs.append(
-        Bug(
+        SortBug(
             "sort",
             version="7.2",
             commit_ids=["25eb4c69097ca4f5665b050cfa4247a19ffd8c55"],
-            command=["sort", "-m", "-o", "@tempdir@", "@tempdir@"],
+            command=["sort", "-m", "-o", "@tempfile@", "@tempfile@"],
         )
     )
 
@@ -384,7 +405,7 @@ def create_setups() -> List[Bug]:
             "date",
             version="8.27",
             commit_ids=["9287ef2b1707e2a222f8ae776ce3785abcb16fba"],
-            command=["date", "-d", f"TZ=\"{'a' * 2000}0\"", "2017"],
+            command=["date", "-d", f"TZ=\"{'a' * 2001}0\" 2017"],
         )
     )
 
@@ -392,18 +413,17 @@ def create_setups() -> List[Bug]:
         def pre_hook(self):
             self.vars["tempfile"] = os.path.join(
                 self.vars["tempdir"],
-                "A01234567890123456789012345678901234567890123456789",
+                "foobar",
             )
             with open(self.vars["tempfile"], "w+") as f:
-                f.write("BLAKE2")
+                f.write("BLAKE2\n")
 
     bugs.append(
         B2SumBug(
             "b2sum",
             version="8.27",
             commit_ids=["9287ef2b1707e2a222f8ae776ce3785abcb16fba"],
-            command=["b2sum", "-c"],
-            stdin_file="@tempfile@",
+            command=["b2sum", "-c", "@tempfile@"],
         )
     )
 
@@ -412,7 +432,10 @@ def create_setups() -> List[Bug]:
 
 def main():
     os.makedirs(COREUTILS_VERSION_PATH, exist_ok=True)
+    os.makedirs(REPORT_PATH, exist_ok=True)
     os.environ["FORCE_UNSAFE_CONFIGURE"] = "1"
+    # nixos shenanigans
+    os.environ["hardeningDisable"] = "all"
     bugs = create_setups()
 
     simulate = False
