@@ -26,7 +26,7 @@ ifndef HASEBIN
 	echo "Please define hase binary path"
 else
 	echo "BLAKE2" > $(BINPATH)/foobar; \
-	sudo $(HASEBIN) record -- $(BINPATH)/b2sum -coreutils_dir < $(BINPATH)/foobar; \
+	sudo $(HASEBIN) record -- $(BINPATH)/b2sum -c < $(BINPATH)/foobar; \
 	rm -f $(BINPATH)/foobar
 endif
 
