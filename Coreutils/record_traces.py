@@ -249,9 +249,8 @@ class Bug:
                     )
                     assert recording is not None
                     print(red_text(f"{command[0]} exited with {recording.exit_status}"))
-                    import pdb; pdb.set_trace()
                     if recording.report_path is not None:
-                        shutil.move(str(recording.report_path), self.report_path)
+                        shutil.move(recording.report_path, self.report_path)
                 except subprocess.TimeoutExpired:
                     print(red_text(f"timeout after {timeout}s"))
 
