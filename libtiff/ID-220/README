@@ -1,0 +1,10 @@
+# To Compile:
+
+$ mkdir installer
+$ ./configure --prefix=`pwd`/installer CFLAGS='-fsanitize=address -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./installer/bin/tiffcmp 'PATH_TO_TEST_DIR/10_tiffcmp.tiff' 'PATH_TO_TEST_DIR/00_basefile.tiff' 

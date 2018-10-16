@@ -1,0 +1,1 @@
+./exploit.sh: line 19:  2827 Segmentation fault      (core dumped) env -i MALLOC_CHECK_=0 $GDB /usr/bin/fax2tiff "`cat $DIR/argv_1.symb`" "`cat $DIR/argv_2.symb`" "`cat $DIR/argv_3.symb`" < "$DIR/file___dev__stdin.symb"

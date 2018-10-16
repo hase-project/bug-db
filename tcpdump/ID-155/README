@@ -1,0 +1,11 @@
+# To Compile:
+
+$ autoreconf -i
+$ mkdir installer
+$ ./configure --prefix=`pwd`/installer CFLAGS='-g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ valgrind ./installer/sbin/tcpdump -vvv -r 'PATH_TO_FILE/ID-155/crash.pcap' 

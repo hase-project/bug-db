@@ -1,0 +1,10 @@
+# To Compile:
+
+$ mkdir install
+$ ./configure --prefix=`pwd`/install CFLAGS='-fsanitize=address -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./installer/bin/tiffinfo crash.tif

@@ -1,0 +1,10 @@
+# To Compile:
+
+$ mkdir installer
+$ ./configure --prefix=`pwd`/installer CFLAGS='-fsanitize=address -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./installer/bin/tiffcp 'PATH_TO_TEST_DIR/testcase'  out

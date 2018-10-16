@@ -1,0 +1,13 @@
+# To Compile:
+
+$ autoreconf -if
+$ touch './config.rpath'
+$ autoreconf -i
+$ mkdir install
+$ ./configure prefix=`pwd`/install CFLAGS="-g -fsanitize=address"  --enable-static --disable-shared --disable-asm-optimizations --disable-sse --disable-altivec --disable-avx --disable-cpplibs
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./install/bin/flac -e -f -o ~/test.flac PATH_TO_DIR/crash.flac 

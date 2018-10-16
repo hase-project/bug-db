@@ -1,0 +1,10 @@
+# To Compile:
+
+$ mkdir installer
+$ ./configure --prefix=`pwd`/installer CFLAGS='-fsanitize=address -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./installer/bin/rgb2ycbcr 'PATH_TO_TEST_DIR/broken_2.tiff' 'PATH_TO_TEST_DIR/test.pdf' 

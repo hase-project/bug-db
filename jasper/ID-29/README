@@ -1,0 +1,12 @@
+# To Compile:
+
+$ autoreconf -i
+$ mkdir install
+$ mkdir builder
+$ cmake -G "Unix Makefiles" -H'PATH_TO_PROJECT' -Bbuilder -DCMAKE_INSTALL_PREFIX=install -DJAS_ENABLE_ASAN=true
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./install/src/appl/jasper --input '/media/sf_Bugs/Jasper/ID-29/PoC1.jpc' --output-format jpc

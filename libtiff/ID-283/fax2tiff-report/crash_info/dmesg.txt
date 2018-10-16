@@ -1,0 +1,1 @@
+[   16.028802] fax2tiff[2827]: segfault at 0 ip b74c698c sp bf9e9840 error 4 in libc-2.17.so[b7492000+1a9000]

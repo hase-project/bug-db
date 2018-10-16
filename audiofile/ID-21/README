@@ -1,0 +1,9 @@
+# To Compile:
+
+$ sh autogen.sh
+$ ./configure prefix=`pwd`/install CFLAGS='-g -fsanitize=address'
+$make ; make install
+
+# To Trigger:
+
+./sfconvert /PATH_TO_REPOSITORY/ID-21/crashh out.mp3 format aiff

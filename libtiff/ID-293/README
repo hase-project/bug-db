@@ -1,0 +1,10 @@
+# To Compile:
+
+$ mkdir installer
+$ ./configure --prefix=`pwd`/installer CFLAGS='-fsanitize=address -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./installer/bin/tiff2bw 'PATH_TO_TEST_DIR/2016-11-16-tiff2bw-invalid-read.tif' 'PATH_TO_TEST_DIR/out' 

@@ -1,0 +1,11 @@
+# To Compile:
+
+
+$ mkdir install
+$ ./configure --prefix=`pwd`/installer CFLAGS='-fsanitize=address -fsanitize=undefined -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./installer/bin/w3m -dump -T text/plain 'PATH_TO_FILE/bugreport.cgi.html' 

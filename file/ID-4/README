@@ -1,0 +1,11 @@
+# To Compile:
+
+$ autoreconf -i
+$ mkdir install
+$ ./configure --prefix=`pwd`/install CFLAGS='-fsanitize=address -fsanitize=undefined -g ' LDFLAGS='-fsanitize=address -fsanitize=undefined -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./install/bin/file '/media/sf_Bugs/file/ID-4/crash' 

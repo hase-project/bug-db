@@ -1,0 +1,9 @@
+# To Compile:
+
+$ sh autogen.sh
+$ ./configure prefix=`pwd`/install CFLAGS='-g -fsanitize=address'
+$make ; make install
+
+# To Trigger:
+
+./sfinfo /PATH_TO_REPOSITORY/ID-14/crash

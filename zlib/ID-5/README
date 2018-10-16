@@ -1,0 +1,13 @@
+# To Compile:
+
+$ autoreconf -i
+$ mkdir install
+$ ./configure --prefix=`pwd`/install
+$ vim Makefile (Edit CFLAGS to include -g and -fsanitize=address).
+$ make
+$ make install
+$ 
+# To Trigger:
+
+$ ./minigzip -d < 'PATH_TO_FILE/ID-5/test.gz'
+

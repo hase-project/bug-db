@@ -1,0 +1,11 @@
+# To Compile:
+
+$ mkdir installer
+$ ./configure --prefix=`pwd`/installer CFLAGS='-fsanitize=address -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./installer/bin/thumbnail 'PATH_TO_TEST_DIR/01_thumbnail.tiff' 'PATH_TO_TEST_DIR/out.tiff' 
+

@@ -1,0 +1,10 @@
+# To Compile:
+
+$ mkdir installer
+$ ./configure --prefix=`pwd`/installer CFLAGS='-fsanitize=address -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./installer/bin/tiff2pdf 'PATH_TO_TEST_DIR/10-10-8-m6-63c8b14ea08a18c884d05a3431716047.tif-crash' -o 'PATH_TO_TEST_DIR/test.pdf' 

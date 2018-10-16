@@ -1,0 +1,11 @@
+# To Compile:
+
+$ autoreconf -i
+$ mkdir install
+$ ./configure --prefix=`pwd`/install CFLAGS='-fsanitize=address -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./install/src/appl/imginfo -f 'PATH_TO_FILE/00005-jasper-assert-ras_getcmap' 

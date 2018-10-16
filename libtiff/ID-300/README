@@ -1,0 +1,10 @@
+# To Compile:
+
+$ mkdir installer
+$ ./configure --prefix=`pwd`/installer CFLAGS='-fsanitize=address -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./installer/bin/tiffcrop -i 'PATH_TO_TEST_DIR/00100-libtiff-heapoverflow-_TIFFFax3fillruns' out

@@ -1,0 +1,11 @@
+# To Compile:
+
+$ autoreconf -i
+$ mkdir installer
+$ ./configure --prefix=`pwd`/installer CFLAGS='-fsanitize=address -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./installer/sbin/tcpdump -vvv -r 'PATH_TO_FILE/ID-40/crash.pcap' 

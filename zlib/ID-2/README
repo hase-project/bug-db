@@ -1,0 +1,14 @@
+# To Compile:
+
+$ autoreconf -i
+$ mkdir install
+$ ./configure --prefix=`pwd`/install CFLAGS='-fsanitize=address -g -m32'
+$ make
+$ make install
+$ cd ID-2
+$ gcc -g -fsanitize=address -o CVE-2003-0107 CVE-2003-0107.c 'PATH_TO_FOLDER/install/lib/libz.a' 
+
+# To Trigger:
+
+$ ./CVE-2003-0107
+

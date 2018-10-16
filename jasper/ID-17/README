@@ -1,0 +1,11 @@
+# To Compile:
+
+$ autoreconf -i
+$ mkdir install
+$ ./configure --prefix=`pwd`/installer CFLAGS='-fsanitize=address -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./installer/bin/imginfo -f 'PATH_TO_FILE/crash' 

@@ -1,0 +1,11 @@
+# To Compile:
+
+$ mkdir installer
+$ ./configure --prefix=`pwd`/installer CFLAGS='-fsanitize=address -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ cp 'PATH_TO_TEST_DIR/19_tiffset.tiff' 'PATH_TO_TEST_DIR/19_tiffset2.tiff'
+$ ./installer/bin/tiffset 'PATH_TO_TEST_DIR/19_tiffset2.tiff'

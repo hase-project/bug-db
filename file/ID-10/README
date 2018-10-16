@@ -1,0 +1,11 @@
+# To Compile:
+
+$ autoreconf -i
+$ mkdir install
+$ ./configure --prefix=`pwd`/install CFLAGS='-fsanitize=undefined -g'
+$ make
+$ make install
+
+# To Trigger:
+
+$ ./install/bin/file -f 'PATH_TO_FOLDER/test4' 
