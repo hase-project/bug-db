@@ -1,0 +1,17 @@
+# To Compile:
+
+$ vim CMakeLists.txt #include asan in Debug CFLAGS
+$ mkdir installer
+$ cmake -DCMAKE_BUILD_TYPE=DEBUG -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/installer .
+$ vim #include -lm 
+$ make
+$ make install
+$ cd ID-23
+gcc -g -fsanitize=address -fsanitize=undefined -I'/home/john/libgd/installer/include' wbmp_im2im.c -o bug '/home/john/libgd/installer/lib/libgd-static.a'  -lm
+
+# To Trigger:
+$ ./bug
+
+
+
+

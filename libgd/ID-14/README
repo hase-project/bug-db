@@ -1,0 +1,17 @@
+# To Compile:
+
+$ autoreconf -i
+$ mkdir installer
+$ ./configure --prefix=`pwd`/installer CFLAGS='-fsanitize=address -fsanitize=undefined -g'
+$ make
+$ make install
+$ cd ID-14
+$ gcc -g -fsanitize=address -fsanitize=undefined -I/PATH_TO/installer/include gdimagecolortransparent.c  -o bug 'PATH_TO/src/installer/lib/libgd.a' -lm
+
+
+# To Trigger:
+$ ./bug
+
+
+
+

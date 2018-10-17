@@ -19,12 +19,14 @@ class Build:
         directory: Path,
         simulate: bool = False,
         skip_auto_reconf: bool = False,
+        skip_cmake: bool = False,
         enable_address_sanitizer: bool = False,
     ) -> None:
         self.url = url
         self.directory = directory
         self.simulate = simulate
         self.skip_auto_reconf = skip_auto_reconf
+        self.skip_cmake = skip_cmake
         self.enable_address_sanitizer = enable_address_sanitizer
 
         parsed_url = urlparse(url)
@@ -33,9 +35,15 @@ class Build:
         match = re.match(r"(.+)\.(tar.gz|tar.xz|zip)$", self.archive_name)
         assert match is not None
         name = match.group(1)
-        self.build_directory = name
+        self.build_directory = Path(name)
         self.build_path = self.directory.joinpath(self.build_directory)
         self.build_finished_file = self.build_path.joinpath("build-finished")
+
+    def source_directory(self) -> Path:
+        return Path(".")
+
+    def source_path(self) -> Path:
+        return self.build_path.joinpath(self.source_directory())
 
     def download(self) -> None:
         if not self.simulate and os.path.exists(self.archive_path):
@@ -49,7 +57,6 @@ class Build:
         except Exception as e:
             os.unlink(tempfile.name)
             raise e
-
 
     def cflags(self) -> List[str]:
         flags = ["-g"]
@@ -69,6 +76,9 @@ class Build:
     def cmake_flags(self) -> List[str]:
         return []
 
+    def strip_components(self) -> int:
+        return 1
+
     def unpack(self) -> None:
         self.download()
 
@@ -80,7 +90,7 @@ class Build:
             assert tempdir is not None
             cmd = [
                 "tar",
-                "--strip-components=1",
+                f"--strip-components={self.strip_components()}",
                 "-xf",
                 str(self.archive_path),
                 "-C",
@@ -105,26 +115,29 @@ class Build:
         pass
 
     def configure(self) -> None:
-        build = str(self.build_path)
         if (
-            self.build_path.joinpath("configure.ac").exists()
-            and not self.skip_auto_reconf
+            not self.skip_auto_reconf
+            and self.source_path().joinpath("configure.ac").exists()
         ):
             sh(
                 ["autoreconf", "--install", "--force", "--verbose"],
                 self.simulate,
-                dir=build,
+                dir=self.source_path(),
             )
 
-        if self.build_path.joinpath("CMakeLists.txt").exists():
+        if not self.skip_cmake and self.source_path().joinpath("CMakeLists.txt").exists():
             sh(
                 ["cmake", "-DALLOW_IN_SOURCE_BUILD=1", "."] + self.cmake_flags(),
                 self.simulate,
-                dir=build,
+                dir=self.source_path(),
             )
 
-        if self.build_path.joinpath("configure").exists():
-            sh(["sh", "configure"] + self.configure_flags(), self.simulate, dir=build)
+        if self.source_path().joinpath("configure").exists():
+            sh(
+                ["sh", "configure"] + self.configure_flags(),
+                self.simulate,
+                dir=self.source_path(),
+            )
 
     def build(self) -> None:
         self.unpack()
@@ -138,7 +151,11 @@ class Build:
 
             self.configure()
 
-            sh(["make", "-j", str(CPUS)] + self.make_flags(), self.simulate, dir=build)
+            sh(
+                ["make", "-j", str(CPUS)] + self.make_flags(),
+                self.simulate,
+                dir=self.source_path(),
+            )
             if not self.simulate:
                 with open(self.build_finished_file, "w+"):
                     pass

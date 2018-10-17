@@ -6,6 +6,8 @@ from .file import file_bugs
 from .flac import flac_bugs
 from .hemiptera import read_bug_ids_per_project
 from .jasper import jasper_bugs
+from .libgd import libgd_bugs
+from .libjpeg_turbo import libjpeg_turbo_bugs
 from .libtiff import libtiff_bugs
 from .tcpdump import tcpdump_bugs
 from .utils import REPORT_PATH
@@ -41,6 +43,8 @@ def main():
         + zlib_bugs(bug_ids["zlib"])
         + tcpdump_bugs(bug_ids["tcpdump"])
         + w3m_bugs(bug_ids["w3m"])
+        + libjpeg_turbo_bugs(bug_ids["libjpeg-turbo"])
+        + libgd_bugs(bug_ids["libgd"])
     )
 
     simulate = False
@@ -49,7 +53,7 @@ def main():
         import pry
 
         with pry:
-            bug.reproduce(build_only=False)
+            bug.reproduce(build_only=True)
 
 
 if __name__ == "__main__":

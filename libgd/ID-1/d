@@ -1,0 +1,7 @@
+CC=gcc
+CFLAGS=-g -fsanitize=address -fsanitize=undefined
+LDFLAGS=lib/libgd.a -lm
+IDIR = ../include
+
+make:
+	$(CC) -o bug $(IDIR) bug00005.c $(CFLAGS) $(LDFLAGS) -lm

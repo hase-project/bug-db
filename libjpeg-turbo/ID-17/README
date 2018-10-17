@@ -1,0 +1,12 @@
+# To Compile:
+
+$ autoreconf -i
+$ mkdir installer
+$ ./configure --prefix=`pwd`/installer CFLAGS='-fsanitize=address -fsanitize=undefined -g'
+$ make
+$ make install
+$ 
+# To Trigger:
+
+$ ./installer/bin/cjpeg '/media/sf_Bugs/libjpeg-turbo/ID-17/crasherfile'
+
