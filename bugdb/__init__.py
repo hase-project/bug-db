@@ -1,6 +1,12 @@
+import argparse
 import os
+import sys
+from typing import List
+
+import pry
 
 from .audiofile import audiofile_bugs
+from .bug import Bug
 from .coreutils import coreutils_bugs
 from .file import file_bugs
 from .flac import flac_bugs
@@ -15,7 +21,7 @@ from .w3m import w3m_bugs
 from .zlib import zlib_bugs
 
 
-def main():
+def all_bugs() -> List[Bug]:
     os.makedirs(REPORT_PATH, exist_ok=True)
 
     bug_ids = read_bug_ids_per_project()
@@ -23,14 +29,8 @@ def main():
     os.environ["FORCE_UNSAFE_CONFIGURE"] = "1"
     # nixos shenanigans
     os.environ["hardeningDisable"] = "all"
-    # make address sanitzer coredump on violation
-    asan_options = [
-        "detect_leaks=0",
-        "abort_on_error=1",
-        "disable_coredump=0",
-        "unmap_shadow_on_exit=1",
-    ]
-    os.environ["ASAN_OPTIONS"] = ":".join(asan_options)
+    # breaks file build
+    os.environ["ASAN_OPTIONS"] = "detect_leaks=0"
 
     # bugs = coreutils_bugs() + audiofile_bugs()
     bugs = (
@@ -46,14 +46,24 @@ def main():
         + libjpeg_turbo_bugs(bug_ids["libjpeg-turbo"])
         + libgd_bugs(bug_ids["libgd"])
     )
+    return bugs
 
-    simulate = False
+
+def parse_args(args: List[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(prog=args[0])
+    parser.add_argument("--simulate", action="store_true")
+    parser.add_argument("--build-only", action="store_true")
+    return parser.parse_args(args[1:])
+
+
+def main():
+    args = parse_args(sys.argv)
+    bugs = all_bugs()
     for bug in bugs:
-        bug.simulate = simulate
-        import pry
+        bug.simulate = args.simulate
 
         with pry:
-            bug.reproduce(build_only=True)
+            bug.reproduce(build_only=args.build_only)
 
 
 if __name__ == "__main__":

@@ -66,7 +66,7 @@ class Build:
 
     def ldflags(self) -> List[str]:
         if self.enable_address_sanitizer:
-            return ["-lasan"]
+            return ["-lasan", "-lubsan"]
         else:
             return []
 
@@ -114,6 +114,9 @@ class Build:
     def pre_build(self) -> None:
         pass
 
+    def post_build(self) -> None:
+        pass
+
     def configure(self) -> None:
         if (
             not self.skip_auto_reconf
@@ -159,3 +162,5 @@ class Build:
             if not self.simulate:
                 with open(self.build_finished_file, "w+"):
                     pass
+
+            self.post_build()

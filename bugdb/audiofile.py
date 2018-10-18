@@ -25,8 +25,10 @@ class AudiofileBug(Bug):
     def working_directory(self) -> Path:
         return AUDIOFILE_PATH.joinpath(f"ID-{self.bug_id}")
 
-    def extra_env(self) -> Optional[Dict[str, str]]:
-        return dict(LD_LIBRARY_PATH=str(self.libaudiofile))
+    def extra_env(self) -> Dict[str, str]:
+        env = super().extra_env()
+        env.update(LD_LIBRARY_PATH=str(self.libaudiofile))
+        return env
 
     def executable(self) -> str:
         exe = self._command[0]

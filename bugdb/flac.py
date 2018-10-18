@@ -18,6 +18,9 @@ class Flac(Build):
         with open(self.build_path.joinpath("config.rpath"), "w+"):
             pass
 
+    def configure_flags(self) -> List[str]:
+        return ["--enable-ogg", "--disable-oggtest"]
+
 
 class FlacBug(Bug):
     def __init__(self, *args, bug_id: int, **kwargs) -> None:
@@ -31,7 +34,7 @@ class FlacBug(Bug):
         exe = self._command[0]
         flac = Flac(self.version, simulate=self.simulate)
         flac.build()
-        return f"{flac.build_path}/src/{exe}"
+        return f"{flac.build_path}/src/flac/{exe}"
 
 
 def flac_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
@@ -40,7 +43,7 @@ def flac_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     for id in [59, 61, 63]:
         commands[id] = ["flac", "-df", "@tempdir@/out.ogg", "crash.flac"]
     for id in [65, 66, 67]:
-        commands[id] = ["flac", "-e", "-f", "-o", "@tempdir@/out.ogg", "crash.flac"]
+        commands[id] = ["flac", "-e", "-f", "-o", "@tempdir@/out.ogg", "crash.wav"]
 
     for bug_id, command in commands.items():
         bugs.append(

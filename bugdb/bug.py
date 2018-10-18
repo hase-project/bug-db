@@ -1,5 +1,6 @@
 import os
 import shutil
+import shlex
 import subprocess
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -53,8 +54,14 @@ class Bug:
     def working_directory(self) -> Path:
         return Path(self.directory.name)
 
-    def extra_env(self) -> Optional[Dict[str, str]]:
-        return None
+    def extra_env(self) -> Dict[str, str]:
+        asan_options = [
+            "detect_leaks=0",
+            "abort_on_error=1",
+            "disable_coredump=0",
+            "unmap_shadow_on_exit=1",
+        ]
+        return dict(ASAN_OPTIONS=":".join(asan_options))
 
     def command(self) -> List[str]:
         executable = self.executable()
@@ -71,6 +78,16 @@ class Bug:
         else:
             stdin = open(self.substitute_vars(self.stdin_file), "rb")
 
+        working_directory = self.working_directory()
+        extra_env = self.extra_env()
+
+        if working_directory is not None:
+            print(green_text(f"$ cd {working_directory}"))
+        if extra_env is not None:
+            export: List[str] = []
+            for k, v in extra_env.items():
+                export += [f"{k}={shlex.quote(v)}"]
+            print(green_text(f"$ export {' '.join(export)}"))
         print(green_text(f"$ {' '.join(command)}"))
 
         if build_only:
@@ -78,7 +95,7 @@ class Bug:
 
         if not simulate:
             with TemporaryDirectory() as tempdir:
-                timeout = 3
+                timeout = 20
                 try:
                     recording = record_loop(
                         Path(tempdir),
@@ -87,13 +104,15 @@ class Bug:
                         command=command,
                         timeout=timeout,
                         stdin=stdin,
-                        working_directory=self.working_directory(),
-                        extra_env=self.extra_env(),
+                        working_directory=working_directory,
+                        extra_env=extra_env,
                     )
                     assert recording is not None
                     print(red_text(f"{command[0]} exited with {recording.exit_status}"))
                     if recording.report_path is not None:
                         shutil.move(recording.report_path, self.report_path)
+                    else:
+                        import pdb; pdb.set_trace()
                 except subprocess.TimeoutExpired:
                     print(red_text(f"timeout after {timeout}s"))
 

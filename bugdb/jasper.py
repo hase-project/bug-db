@@ -54,7 +54,7 @@ def jasper_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     commands[27] = ["imginfo", "-f", "jasper-heapoverflow-jpc_getuint16.jp2"]
     commands[28] = ["imginfo", "-f", "bug"]
     commands[29] = ["jasper", "--input", "PoC1.jpc", "--output-format", "jpc"]
-    commands[30] = ["imginfo", "--input", "PoC2.jpc"]
+    commands[30] = ["imginfo", "-f", "crash.jpc"]
     commands[31] = ["imginfo", "-f", "bug"]
     commands[32] = ["imginfo", "-f", "assert-pnm_getsint.mif"]
     commands[33] = ["imginfo", "-f", "681.crashes"]

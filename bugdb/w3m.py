@@ -57,14 +57,14 @@ class W3mBug(Bug):
         exe = self._command[0]
         w3m = W3m(self.version, simulate=self.simulate)
         w3m.build()
-        return f"{w3m.build_path}/src/{exe}"
+        return f"{w3m.build_path}/{exe}"
 
 
 def w3m_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     bugs: List[Bug] = []
     commands: Dict[int, List[str]] = {}
 
-    commands[11] = ["w3m", "-dump", "-T", "text/plain", "crash.min.html"]
+    commands[11] = ["w3m", "-dump", "-T", "text/plain", "crash.html"]
     commands[12] = ["w3m", "-dump", "-T", "text/plain", "bugreport.cgi.html"]
     commands[13] = ["w3m", "-dump", "crash.html"]
     commands[15] = ["w3m", "-dump", "-T", "text/html", "crash.html"]

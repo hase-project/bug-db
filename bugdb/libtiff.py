@@ -17,7 +17,7 @@ class Libtiff(Build):
             url,
             LIBTIFF_PATH,
             simulate,
-            enable_address_sanitizer=True,
+            #enable_address_sanitizer=True,
         )
 
     def pre_build(self):
@@ -32,8 +32,10 @@ class LibtiffBug(Bug):
     def working_directory(self) -> Path:
         return LIBTIFF_PATH.joinpath(f"ID-{self.bug_id}")
 
-    def extra_env(self) -> Optional[Dict[str, str]]:
-        return dict(LD_LIBRARY_PATH=str(self.libtiff_libs))
+    def extra_env(self) -> Dict[str, str]:
+        env = super().extra_env()
+        env.update(dict(LD_LIBRARY_PATH=str(self.libtiff_libs)))
+        return env
 
     def executable(self) -> str:
         exe = self._command[0]
@@ -47,33 +49,34 @@ def libtiff_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     bugs: List[Bug] = []
     commands: Dict[int, List[str]] = {}
 
-    commands[111] = ["tiff2pdf", "testcase.tiff", "-o", "@tempdir@/test.pdf"]
+    commands[111] = ["tiff2pdf", "testcase.tif", "-o", "@tempdir@/test.pdf"]
     commands[139] = [
         "tiff2pdf",
-        "10-10-8-m6-63c8b14ea08a18c884d05a3431716047.tif-crash" "-o",
+        "10-10-8-m6-63c8b14ea08a18c884d05a3431716047.tif-crash",
+        "-o",
         "@tempdir@/test.pdf",
     ]
     commands[141] = ["tiff2pdf", "wololo.tif", "-o", "@tempdir@/test.pdf"]
     commands[141] = ["tiff2pdf", "wololo.tif", "-o", "@tempdir@/test.pdf"]
     commands[162] = ["tiff2pdf", "testcase.04.tif", "-o", "@tempdir@/test.pdf"]
-    commands[163] = ["tiff2pdf", "test2.tif", "-o", "@tempdir@/test.pdf"]
+    commands[163] = ["rgb2ycbcr", "test2.tif", "@tempdir@/test.pdf"]
     commands[180] = ["tiff2rgba", "flower-palette-16.tif", "@tempdir@/test.pdf"]
     commands[212] = ["gif2tiff", "008.gif", "@tempdir@/test.pdf"]
     commands[218] = ["tiffcp", "-c", "none", "testcase.tif", "@tempdir@/0.none.tif"]
     commands[219] = ["tiff2pdf", "05_tiff2pdf.tiff", "-o", "@tempdir@/test.pdf"]
     commands[220] = ["tiffcmp", "10_tiffcmp.tiff", "00_basefile.tiff"]
-    commands[221] = ["thumbnail", "03_thumbnail.tiff", "@tempdir@/out.tiff"]
+    commands[221] = ["thumbnail", "02_thumbnail.tiff", "@tempdir@/out.tiff"]
     commands[222] = ["thumbnail", "03_thumbnail.tiff", "@tempdir@/out.tiff"]
     commands[223] = ["thumbnail", "01_thumbnail.tiff", "@tempdir@/out.tiff"]
     commands[223] = ["thumbnail", "01_thumbnail.tiff", "@tempdir@/out.tiff"]
     commands[224] = ["tiff2bw", "04_tiff2bw.tiff", "@tempdir@/out.tiff"]
-    commands[228] = ["tiff2pdf", "ycbr-cat.tif", "-o" "@tempdir@/test.pdf"]
+    commands[228] = ["tiff2pdf", "ycbcr-cat.tif", "-o" "@tempdir@/test.pdf"]
     commands[229] = ["tiff2pdf", "testcase.jpeg.tiff", "-o" "@tempdir@/test.pdf"]
-    commands[230] = ["tiff2rgba", "fpe1tiff", "-o" "@tempdir@/test.pdf"]
-    commands[264] = ["rgb2ycbcr", "broken_2.tiff", "@tempdir@/test.pdf"]
+    commands[230] = ["tiff2rgba", "fpe1.tif", "@tempdir@/test.pdf"]
+    commands[264] = ["rgb2ycbcr", "broken_2.tif", "@tempdir@/test.pdf"]
 
-    commands[265] = ["tiffinfo", "-d", "libtiff5.tiff"]
-    commands[269] = ["tiffcrop", "-d", "CVE-2016-5321.tif", "@tempdir@/out.tif"]
+    commands[265] = ["tiffinfo", "-d", "libtiff5.tif"]
+    commands[269] = ["tiffcrop", "CVE-2016-5321.tif", "@tempdir@/out.tif"]
     commands[270] = ["tiffcrop", "CVE-2016-5323.tif", "@tempdir@/out.tif"]
     commands[273] = ["tiffcrop", "CVE-2016-3991.tif", "@tempdir@/out.tif"]
     commands[274] = [
@@ -89,7 +92,7 @@ def libtiff_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
         "CVE-2016-3624.tif",
         "@tempdir@/out.tif",
     ]
-    commands[281] = ["rgb2ycbcr", "-d" "ShowTile_heap-oob.tif", "@tempdir@/out.tif"]
+    commands[281] = ["tiffinfo", "-d", "ShowTile_heap-oob.tif"]
 
     class TiffsetBug(LibtiffBug):
         def pre_hook(self):
@@ -101,11 +104,11 @@ def libtiff_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
             f"libtiff-282",
             bug_id=282,
             version=bug_ids[282],
-            command=["tiffset", "@tempdir@/19_tiffset2.tiff"],
+            command=["tiffset", "@tempdir@/19_tiffset.tiff"],
         )
     )
 
-    commands[286] = ["tiffset", "19_tiffset.tiff"]
+    commands[286] = ["tiffset", "test049"]
     commands[287] = ["tiffcrop", "2016-11-10-heap-buffer-overflow.tif", "@tempdir@/out"]
 
     commands[291] = ["tiff2pdf", "testcase", "-o", "@tempdir@/test.pdf"]
@@ -152,7 +155,7 @@ def libtiff_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     commands[303] = [
         "tiffinfo",
         "-Dijr",
-        "00101-libtiff-heapoverflow-combineSeparateSamples16bits",
+        "00056-libtiff-nullptr-TIFFReadRawData"
     ]
 
     commands[305] = [
@@ -177,7 +180,7 @@ def libtiff_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
         "@tempdir@/out",
     ]
 
-    commands[311] = ["tiff2pdf", "-j", "testcase", "@tempdir@/out"]
+    commands[311] = ["tiff2pdf", "-j", "testcase", "-o", "@tempdir@/out"]
 
     commands[312] = ["tiff2rgba", "ycbcr_14_lzw.tif", "@tempdir@/out"]
 
