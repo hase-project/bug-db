@@ -4,7 +4,7 @@ import subprocess
 import sys
 from contextlib import contextmanager
 from pathlib import Path
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional, Union, Any, IO
 
 ROOT = Path(__file__).resolve().parent.parent
 REPORT_PATH = ROOT.joinpath("reports")
@@ -38,7 +38,8 @@ def sh(
     verbose: bool = True,
     dir: Optional[Union[str, Path]] = None,
     extra_env: Optional[Dict[str, str]] = None,
-):
+    stdin: Union[None, int, IO[Any]] = None,
+) -> Optional[subprocess.CompletedProcess]:
     if verbose:
         args = " ".join(map(lambda s: shlex.quote(s), cmd[1:]))
         if dir is not None:
@@ -54,4 +55,5 @@ def sh(
         dir = str(dir)
 
     if not simulate:
-        return subprocess.run(cmd, cwd=dir, check=True, env=env)
+        return subprocess.run(cmd, cwd=dir, check=True, env=env, stdin=stdin)
+    return None

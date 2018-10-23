@@ -1,0 +1,11 @@
+# To Compile:
+
+$ make
+$ ./configure prefix=`pwd`/install CFLAGS='-g -fsanitize=address'
+$ make ; make install
+
+# To Trigger:
+
+./asn1Decoding /PATH_TO_REPOSITORY/ID-15/crash.asn x x
+
+./asn1Decoding /PATH_TO_REPOSITORY/ID-14/pkix.asn /PATH_TO_REPOSITORY/ID-14/overflow.crt

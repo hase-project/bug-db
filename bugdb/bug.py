@@ -1,6 +1,6 @@
 import os
-import shutil
 import shlex
+import shutil
 import subprocess
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -61,7 +61,10 @@ class Bug:
             "disable_coredump=0",
             "unmap_shadow_on_exit=1",
         ]
-        return dict(ASAN_OPTIONS=":".join(asan_options))
+        return dict(
+            ASAN_OPTIONS=":".join(asan_options),
+            UBSAN_OPTIONS="abort_on_error=1:halt_on_error=1:print_stacktrace=1",
+        )
 
     def command(self) -> List[str]:
         executable = self.executable()
@@ -112,7 +115,9 @@ class Bug:
                     if recording.report_path is not None:
                         shutil.move(recording.report_path, self.report_path)
                     else:
-                        import pdb; pdb.set_trace()
+                        import pdb
+
+                        pdb.set_trace()
                 except subprocess.TimeoutExpired:
                     print(red_text(f"timeout after {timeout}s"))
 

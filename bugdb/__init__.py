@@ -19,6 +19,7 @@ from .tcpdump import tcpdump_bugs
 from .utils import REPORT_PATH
 from .w3m import w3m_bugs
 from .zlib import zlib_bugs
+from .libtasn import libtasn_bugs
 
 
 def all_bugs() -> List[Bug]:
@@ -35,16 +36,18 @@ def all_bugs() -> List[Bug]:
     # bugs = coreutils_bugs() + audiofile_bugs()
     bugs = (
         coreutils_bugs()
-        + audiofile_bugs(bug_ids["audiofile"])
+        + w3m_bugs(bug_ids["w3m"])
         + file_bugs(bug_ids["file"])
+        + audiofile_bugs(bug_ids["audiofile"])
         + libtiff_bugs(bug_ids["libtiff"])
         + jasper_bugs(bug_ids["jasper"])
         + flac_bugs(bug_ids["libflac"])
         + zlib_bugs(bug_ids["zlib"])
         + tcpdump_bugs(bug_ids["tcpdump"])
-        + w3m_bugs(bug_ids["w3m"])
         + libjpeg_turbo_bugs(bug_ids["libjpeg-turbo"])
-        + libgd_bugs(bug_ids["libgd"])
+        + libtasn_bugs(bug_ids["libtasn"])
+        # this is marked as "ongoing" in hemiptera
+        #+ libgd_bugs(bug_ids["libgd"])
     )
     return bugs
 
