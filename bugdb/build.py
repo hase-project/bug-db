@@ -48,7 +48,7 @@ class Build:
     def download(self) -> None:
         if not self.simulate and os.path.exists(self.archive_path):
             return
-
+        os.makedirs(os.path.dirname(self.archive_path), exist_ok=True)
         tempfile = NamedTemporaryFile(dir=str(ROOT), delete=False)
         try:
             sh(["wget", self.url, "-O", tempfile.name], self.simulate)

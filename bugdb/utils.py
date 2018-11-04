@@ -2,6 +2,7 @@ import os
 import shlex
 import subprocess
 import sys
+import signal
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Dict, List, Optional, Union, Any, IO
@@ -57,3 +58,20 @@ def sh(
     if not simulate:
         return subprocess.run(cmd, cwd=dir, check=True, env=env, stdin=stdin)
     return None
+
+
+class Timeout():
+    def __init__(self, seconds):
+        self.seconds = seconds
+        def signal_handler(signum, frame):
+            raise TimeoutError()
+        self.old_handler = signal.getsignal(signal.SIGALRM)
+        self.signal_handler = signal_handler
+
+    def __enter__(self):
+        signal.signal(signal.SIGALRM, self.signal_handler)
+        signal.alarm(self.seconds)
+
+    def __exit__(self, type, value, traceback):
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, self.old_handler)

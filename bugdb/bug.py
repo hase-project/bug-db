@@ -2,13 +2,15 @@ import os
 import shlex
 import shutil
 import subprocess
+import time
+import angr
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from typing import Dict, List, Optional
 
 from hase.record import record_loop
 
-from .utils import REPORT_PATH, ROOT, green_text, red_text
+from .utils import REPORT_PATH, ROOT, green_text, red_text, Timeout
 
 
 class Bug:
@@ -28,6 +30,7 @@ class Bug:
         self.commit_ids = commit_ids
         self.stdin_file = stdin_file
         self.simulate = False
+        self.by_angr = False
         self.vars: Dict[str, str] = {}
         self.directory = TemporaryDirectory()
         self.vars["tempdir"] = self.directory.name
@@ -70,6 +73,23 @@ class Bug:
         executable = self.executable()
         args = list(map(self.substitute_vars, self._command[1:]))
         return [executable] + args
+
+    def run_by_angr(self):
+        proj = angr.Project(self.executable())
+        state = proj.factory.full_init_state(args=self.command())
+        simgr = proj.factory.simulation_manager(state)
+        timeout = 60 * 60
+        with Timeout(timeout) as _:
+            try:
+                current_time = time.time()
+                simgr.run()
+            except TimeoutError:
+                print(red_text('Angr simulation timeout'))
+            else:
+                time_diff = time.time() - current_time
+                print(green_text(f'Execution time {time_diff}s'))
+                import pdb
+                pdb.set_trace()
 
     def run(self, simulate: bool, build_only: bool) -> None:
         if not simulate and self.report_path.exists():
@@ -120,6 +140,9 @@ class Bug:
                         pdb.set_trace()
                 except subprocess.TimeoutExpired:
                     print(red_text(f"timeout after {timeout}s"))
+        else:
+            if self.by_angr:
+                self.run_by_angr()
 
     def reproduce(self, build_only: bool = False) -> None:
         try:
