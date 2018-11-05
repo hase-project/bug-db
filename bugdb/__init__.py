@@ -57,7 +57,7 @@ def parse_args(args: List[str]) -> argparse.Namespace:
     parser.add_argument("--simulate", action="store_true")
     parser.add_argument("--build-only", action="store_true")
     parser.add_argument("--by_angr", action="store_true")
-    parser.add_argument("--name")
+    parser.add_argument("--name", nargs='+')
     return parser.parse_args(args[1:])
 
 
@@ -65,7 +65,7 @@ def main():
     args = parse_args(sys.argv)
     bugs = all_bugs()
     for bug in bugs:
-        if args.name is None or args.name == bug.name:
+        if args.name is None or bug.name in args.name:
             bug.simulate = args.simulate
             bug.by_angr = args.by_angr
 
