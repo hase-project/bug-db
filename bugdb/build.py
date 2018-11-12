@@ -21,6 +21,7 @@ class Build:
         skip_auto_reconf: bool = False,
         skip_cmake: bool = False,
         enable_address_sanitizer: bool = False,
+        enable_ubsan_sanitizer: Optional[bool] = None,
     ) -> None:
         self.url = url
         self.directory = directory
@@ -28,6 +29,11 @@ class Build:
         self.skip_auto_reconf = skip_auto_reconf
         self.skip_cmake = skip_cmake
         self.enable_address_sanitizer = enable_address_sanitizer
+        if enable_ubsan_sanitizer is None:
+            # backwards compatible
+            self.enable_ubsan_sanitizer = enable_address_sanitizer
+        else:
+            self.enable_ubsan_sanitizer = False
 
         parsed_url = urlparse(url)
         self.archive_name = os.path.basename(parsed_url.path)
@@ -61,14 +67,18 @@ class Build:
     def cflags(self) -> List[str]:
         flags = ["-g"]
         if self.enable_address_sanitizer:
-            flags += ["-fsanitize=address", "-fsanitize=undefined"]
+            flags.append("-fsanitize=address")
+        if self.enable_ubsan_sanitizer:
+            flags.append("-fsanitize=undefined")
         return flags
 
     def ldflags(self) -> List[str]:
+        flags = []
         if self.enable_address_sanitizer:
-            return ["-lasan", "-lubsan"]
-        else:
-            return []
+            flags.append("-lasan")
+        elif self.enable_ubsan_sanitizer:
+            flags.append("-lubsan")
+        return flags
 
     def configure_flags(self) -> List[str]:
         return []

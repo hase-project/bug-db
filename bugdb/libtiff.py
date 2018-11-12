@@ -17,7 +17,7 @@ class Libtiff(Build):
             url,
             LIBTIFF_PATH,
             simulate,
-            #enable_address_sanitizer=True,
+            enable_address_sanitizer=True,
         )
 
     def pre_build(self):
@@ -190,6 +190,8 @@ def libtiff_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
         "-o",
         "@tempdir@/out",
     ]
+
+    #bug_ids[314] = "ad2fccb"
 
     commands[314] = [
         "tiff2pdf",
