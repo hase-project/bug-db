@@ -1,5 +1,4 @@
 /lib/
-/bin/
 .gitmodules
 .gdb_history
 stdio.h

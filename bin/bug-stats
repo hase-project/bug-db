@@ -1,0 +1,72 @@
+#!/usr/bin/env python
+import os
+import sys
+import re
+from collections import defaultdict
+from pathlib import Path
+from typing import Dict
+
+import pandas as pd
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def main():
+    if len(sys.argv) < 3:
+        print(f"USAGE: {sys.argv[0]} (summarized|all) report-directory", file=sys.stderr)
+        sys.exit(1)
+
+    df = pd.read_csv(ROOT.joinpath("hemiptera_commits.tsv"), sep="\t")
+
+    report_directory = sys.argv[2]
+    files = os.listdir(report_directory)
+    stats: Dict[str, int] = defaultdict(int)
+    bugs = defaultdict(list)
+    for f in files:
+        if f.startswith("coreutils"):
+            app = f.split("-", 3)[-1].split(".", 1)[0]
+            version = f.split("-", 1)[-1]
+            prog = "coreutils"
+            bug_id = f"{bug_id}-{app}"
+            bug_type = "Out-of-Bounds"
+        else:
+            match = re.match(r"(.+)-(\d+)-[a-f0-9]+", f)
+            assert match is not None
+            prog, bug_id, = match.group(1), match.group(2)
+            if prog == "flac":
+                prog = "libflac"
+            bug_id = int(bug_id)
+            bug_types = df[(df.bug_id == bug_id) & (df.project == prog)].bug_type
+            bug_type = bug_types.iloc[0]
+        bugs["name"].append(prog)
+        bugs["bug_id"].append(bug_id)
+        if isinstance(bug_type, str):
+            bug_type = bug_type.lower()
+            if bug_type == "unit variable":
+                bug_type = "unitialized memory"
+        bugs["bug_type"].append(bug_type)
+    df2 = pd.DataFrame(bugs)
+    df2.loc[(df2.bug_id == 2) & (df2.name == 'file'), 'bug_type'] = "assertion failure"
+    df2.loc[(df2.bug_id == 4) & (df2.name == 'zlib'), 'bug_type'] = "out-of-bounds"
+    df2.loc[(df2.bug_id == 313) & (df2.name == 'libtiff'), 'bug_type'] = "out-of-bounds"
+    df2.bug_type = df2.bug_type.astype("category")
+
+    if sys.argv[1] == "summarized":
+        for row in df2.groupby('bug_type').count().iterrows():
+            bug_type = row[0]
+            count = row[1].iloc[0]
+            print(f"{bug_type} & {count} \\\\")
+    elif sys.argv[1] == "all":
+        print(df2[['name', 'bug_id', 'bug_type']].sort_values(['name', 'bug_id']).to_csv())
+    else:
+        print("first argument must either summarized or all")
+
+    #total = 0
+    #for name, count in stats.items():
+    #    total += count
+    #    print(f"{name} & {count} & - \\\\")
+    #print(f"##total & {total} & - \\\\")
+
+
+if __name__ == "__main__":
+    main()

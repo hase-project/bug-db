@@ -9,14 +9,14 @@ from typing import Dict, Iterator, Tuple
 
 import pandas as pd
 
-INTERNAL_ID = re.compile(".*internal\s+id.*", re.IGNORECASE)
-UNFIXED_COMMIT = re.compile(".*unfixed\s+commit.*", re.IGNORECASE)
-
 
 def normalize_string(s):
     if isinstance(s, str):
         return s.strip()
     return s
+
+
+INTERNAL_ID = re.compile(".*internal\s+id.*", re.IGNORECASE)
 
 
 def scrape_ids(df) -> Dict[int, int]:
@@ -32,6 +32,9 @@ def scrape_ids(df) -> Dict[int, int]:
             except ValueError:
                 found_internal_ids = False
     return row_to_id
+
+
+UNFIXED_COMMIT = re.compile(".*unfixed\s+commit.*", re.IGNORECASE)
 
 
 def scrape_commits(df) -> Dict[int, str]:
@@ -50,13 +53,30 @@ def scrape_commits(df) -> Dict[int, str]:
     return row_to_commits
 
 
-def scrape_bugs(df) -> Iterator[Tuple[int, str]]:
+BUG_TYPE = re.compile(".*bug\s+(type|details).*", re.IGNORECASE)
+
+
+def scrape_bug_type(df, col) -> Dict[int, str]:
+    found_bug_type = False
+    row_to_commits: Dict[int, str] = {}
+    for (row, value) in enumerate(df[df.columns[col]].values):
+        value = normalize_string(value)
+        if isinstance(value, str) and BUG_TYPE.match(value):
+            found_bug_type = True
+        elif found_bug_type:
+            row_to_commits[row] = value
+    return row_to_commits
+
+
+def scrape_bugs(df, bug_col: int = 9) -> Iterator[Tuple[int, str, str]]:
     row_to_id = scrape_ids(df)
     row_to_commits = scrape_commits(df)
+    row_to_bug_type = scrape_bug_type(df, bug_col)
+    assert len(row_to_bug_type) > 0
     assert len(row_to_commits.keys() - row_to_id.keys()) == 0
     bugs_with_commits = row_to_id.keys() & row_to_commits.keys()
     for id in bugs_with_commits:
-        yield (row_to_id[id], row_to_commits[id])
+        yield (row_to_id[id], row_to_commits[id], row_to_bug_type[id])
 
 
 def main():
@@ -69,11 +89,17 @@ def main():
     for sheet in sheets:
         with open(sheet) as f:
             df = pd.read_csv(f)
-        for (bug_id, commit) in scrape_bugs(df):
-            name, _ = os.path.splitext(os.path.basename(sheet))
+        bug_col = 9
+        name, _ = os.path.splitext(os.path.basename(sheet))
+        if name.lower() in "coreutils":
+            bug_col = 8
+        elif name.lower() == "jasper":
+            bug_col = 10
+        for (bug_id, commit, bug_type) in scrape_bugs(df, bug_col):
             reproducible_bugs["project"].append(name.lower())
             reproducible_bugs["bug_id"].append(bug_id)
             reproducible_bugs["commit"].append(commit)
+            reproducible_bugs["bug_type"].append(bug_type)
     new_df = pd.DataFrame(reproducible_bugs)
     new_df.to_csv(sys.stdout, sep="\t")
 
