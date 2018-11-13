@@ -8,6 +8,9 @@ Build first without root:
 $ ./bin/bugdb-record --build-only
 ```
 
+Build dependencies:
+- boehmgc, cmake, intltool, ncurses, nasm, libogg, help2man, autoconf, automake, gettext, libtool, pkg-config, openssl
+
 Then as root run
 
 ```console
