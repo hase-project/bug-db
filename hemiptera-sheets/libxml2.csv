@@ -1,0 +1,124 @@
+libXML2,,Num Of Confirmed Bugs with test cases:,0,Num of available crashes,1,,Project Link:,https://github.com/GNOME/libxml2,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Internal ID,Tool Name,CVE ID,Date of Fix,Earlies Unfixed Commit,Commit ID before fix,Commit ID of fix,Notes,Shall we include?,Bug Type,Bug Details,Crash Input,Crash Status,Useful Link
+,libxml2,N/A,13 Nov 1998,,42dc9b3,242590e,N/A,Potential,I Don't Know,Potential Use-before write as intended assignment was in the form of an equality check.,No,TODO,https://github.com/GNOME/libxml2/commit/70120ffb43afc634e00cc539c36e00afa4486a63
+,libxml2,N/A,1 Mar 1999,,d692aa4,bc50b59,N/A,No,Memory Leak,"Memory Leak in 
+void xmlFreeInputStream(xmlParserInputPtr input)",No,TODO,https://github.com/GNOME/libxml2/commit/bc50b59d362f76dda6ef69c872c38ab0d60312e7
+,libxml2,N/A,29 May 1999,,5099ae8,,N/A,No,Memory Leak,"Memory leak
+
+Forgot to call xmlBufferFree(buf);",No,TODO,https://github.com/GNOME/libxml2/commit/5e60f5a2361a0ff73b710c0a28869ef0ec9b5092
+,libxml2,N/A,15 Jun 1999,,34e0cc3,05240da,N/A,Yes,Buffer Overflow,Buffer overrun in parser.c,No,TODO,https://github.com/GNOME/libxml2/commit/05240da81832cc922f396e3ff3322666fad47668
+,libxml2,N/A,9 Jul 1999,,82150d8,7cc3c04,"A test case seems to be easy to create manually. You just need to render the length to 0, and hope malloc returns an address (rather than NULL).",No,Infinite Loop,Seems like a potential infinite loop.,No,TODO,https://github.com/GNOME/libxml2/commit/7cc3c04b806cb29cdd2b7a8030615af8cad6738c
+,libxml2,N/A,10 Aug 1999,,6a6ccc1,b05deb7,Commit message says it does bug fixes + additional features. It's a huge commit. A very quick skip of the code failed to spot the bug.,I Don't Know,I Don't Know,N/A,No,TODO,https://github.com/GNOME/libxml2/commit/b05deb7f5fa01da1cbc54f65199eff1c5421ec00
+,libxml2,N/A,30 Aug 1999,,d2d38e9,e7a5a77,N/A,Yes,Use-Before-Write,Missed call to memset,No,TODO,https://github.com/GNOME/libxml2/commit/e7a5a77dd0abc0be021415f14027007b9a740991
+,libxml2,N/A,1 Sep 1999,,e7a5a77,1ff7ae3,N/A,Potential,Double Free,Potential Double free or use of free,No,TODO,https://github.com/GNOME/libxml2/commit/1ff7ae3dfd22cf9b0ca92666b71b347bc4e83594
+,libxml2,N/A,2 Sep 1999,,1ff7ae3,6454aec,N/A,I Don't Know,Memory Leak,Several Memory Leak fixes,No,TODO,https://github.com/GNOME/libxml2/commit/6454aec23de4875fb66fd735618858c9b0b2a008
+,libxml2,N/A,8 Oct 1999,,00fdf37,2673d3c,Bug reported by Kristian Hogsberg Kristensen,I Don't Know,I Don't Know,Possible Crash,No,TODO,https://github.com/GNOME/libxml2/commit/2673d3c8564bb7970af29cecb0678a4c16ac23f0
+,libxml2,N/A,25 Oct 1999,,7c1206f,3500838,N/A,Potential,I Don't Know,Crash,Yes,TODO,"https://github.com/GNOME/libxml2/commit/3500838f65e6eda8e943c620d5eb9da3109e3766
+"
+,libxml2,N/A,17 Jan 2000,,ad8f99d ,f967b90,Reported by Rune.Djurhuus@fast.no,Yes,Null Dereference,Null Dereference due to lack of Null Checki with xmlGetDtdAttrDesc,No,TODO,https://github.com/GNOME/libxml2/commit/f967b904c2592a8698fa408fd390740bfed1cd5d
+,,N/A,14 Aug 2000,,310929,1255ab7,Patch provided by  Dave Yearke,Yes,Null Dereference,segfault if ctxt->sax->characters() is NULL,No,TODO,https://github.com/GNOME/libxml2/commit/1255ab77803cdd9b90bd5baa2dc85f2c3e8115ec
+,libxml2,N/A,23 Aug 2000,,af7fc34,52402ce,N/A,Potential,I Don't Know,Potential buffer overflow due to mistake in EOF,No,TODO,"https://github.com/GNOME/libxml2/commit/52402ce7ebfc7af69c4f7789338fcd74f3a05e30
+
+https://github.com/GNOME/libxml2/commit/e715dd25dd99b9d7d883892f5871dfc87a220de4"
+,libxml2,N/A,8 Sep 2000,,1de5080,4b5b80c,N/A,Yes,Null Dereference,"Null Dereference
+
+Cases where doc is NULL when looking up entities",No,TODO,https://github.com/GNOME/libxml2/commit/4b5b80cf02136554f35e296538313a7754e75582
+,libxml2,N/A,23 Sep 2000,,bbe11b0,8ddb5a7,N/A,No,Infinite Loop,"Infinite Loop
+
+HTMLparser.c   control-character-induced infinite loop",No,TODO,https://github.com/GNOME/libxml2/commit/8ddb5a7aef4df31c80a63301fe66f4e5bfc7a1d1
+,libxml2,N/A,12 Nov 2000,,c2def84,bf43275,Commit introduces regression tests!,I Don't Know,I Don't Know,Potential seg fault.,Potential,TODO,https://github.com/GNOME/libxml2/commit/bf43275dd1e31ee7542c37f1f7ce21e0ee9218ee
+,libxml2,N/A,13 Nov 2000,,bf43275,41e0651,N/A,I Don't Know,I Don't Know,"A few serious bugfixes
+parser.[ch] parserInternals.c: applied the conditional
+  section processing",No,TODO,https://github.com/GNOME/libxml2/commit/41e065130b6ed61362f61bd451a20039bfae9669
+,libxml2,N/A,15 Jan 2001,,dbce3d4,389e6b7,N/A,I Don't Know,I Don't Know,Potential Null Dereference in  debugXML.c,No,TODO,https://github.com/GNOME/libxml2/commit/389e6b7227c1991a03992cfc36817d18b064bf45
+,libxml2,N/A,18 Jan 2001,,cb126ac,d8aa7cb,N/A,Yes,Buffer Overflow,Off by one in xmlIO.c,No,TODO,https://github.com/GNOME/libxml2/commit/d8aa7cbd18d66739e56c26d58af1a62654bde4af
+,libxml2,N/A,22 Jan 2001,,e456646,8a7642f,N/A,I Don't Know,I Don't Know,Potential UAF in xpath.c,No,TODO,https://github.com/GNOME/libxml2/commit/8a7642fd889b336da1c3c1efe67682c52ba157af
+,libxml2,N/A,5 Feb 2001,,0f2a53c,2c257ec,N/A,I Don't Know,I Don't Know,Bugs in XSLT,No,TODO,https://github.com/GNOME/libxml2/commit/0f2a53ccbd40877f45d83e7e2b870ccf72ef58d4
+,libxml2,N/A,7 Feb 2001,,2c257ec ,5eef622,Reported by Gary Pennington,I Don't Know,I Don't Know, bugs in Htmltree.c and valid.c,No,TODO,https://github.com/GNOME/libxml2/commit/5eef6225f74a4bbbfe2efeb8b36fa1cb28a1262a
+,libxml2,N/A,20 Mar 2001,,fbf8a2d,0b6b55b,Commit contains potential test case.,Yes,Buffer Overflow,"Buffer Overflow in xpath
+
+Bug 52299 strange condition leading to a parser crash due to a buffer overflow",Potential,TODO,https://github.com/GNOME/libxml2/commit/0b6b55b076211ca2fbce4d2abfac7ff57cef4fe5
+,libxml2,N/A,26 Mar 2001,,c86a4fa,04be4f5,Sullivan and Darin found a parser bug,I Don't Know,I Don't Know,Bug in parser,No,TODO,https://github.com/GNOME/libxml2/commit/04be4f51e449220148fb5816d0b2f6c6282d14d5
+,libxml2,N/A,2 Apr 2001,,bc96766 ,4dd9346,N/A,I Don't Know,Memory Leak,Memory Leak in XPath,No,TODO,https://github.com/GNOME/libxml2/commit/4dd9346df228ff478e8cbe38bee270d56a609676
+,libxml2,N/A,7 Apr 2001,,d8df6c0,911f49a,N/A,Yes,Null Dereference,Null Dereference in xpath.c,No,TODO,https://github.com/GNOME/libxml2/commit/911f49a0a02d13f5432ddd75ff497290619be924#diff-6734d0d93bbebf3cb581090de56d4ba3L483
+,libxml2,N/A,10 Apr 2001,,fac26a1,73639a7,N/A,Yes,Null Dereference,Potential Null Dereference in xpath.c,No,TODO,https://github.com/GNOME/libxml2/commit/73639a73c5a51c3739595f54c338bb531c1319c2
+,libxml2,N/A,16 Apr 2001,,a3bfca5 ,e043ee1,N/A,Yes,Buffer Overflow,Off-by-one in in xmlStringCurrentChar(),No,TODO,https://github.com/GNOME/libxml2/commit/e043ee17c26c41c6d50c38d07d69dd1900d8ad01
+,libxml2,N/A,18 Apr 2001,,ceacdd9,e470df7,N/A,Yes,I Don't Know,Potential Null Dereference in xpath.c,No,TODO,https://github.com/GNOME/libxml2/commit/e470df7fdd3505c6232d6498f3b8834ebfce522d
+,libxml2,N/A,22 Apr 2001,,40af649,0680399,N/A,Yes,Use-Before-Write,Invalid memory access in valid.c (vstateVPush()),No,TODO,https://github.com/GNOME/libxml2/commit/0680399c8d534e6dae7f837b6a4fdfe14eb367bc
+,libxml2,N/A,22 Apr 2001,,680399,e82a992,N/A,Potential,I Don't Know,Potential Use-before write,No,TODO,https://github.com/GNOME/libxml2/commit/e82a992bf5cf8bd22ae31116d2f51afab85b6a09
+,libxml2,N/A,24 Apr 2001,,43dadeb,122376b,N/A,Yes,Null Dereference,Null Dereference in entities.c as doc was not being checked for nullness,No,TODO,https://github.com/GNOME/libxml2/commit/61b33d5733ccf61ade1aa1562fea27e6a6a8aad9
+,libxml2,N/A,24 Apr 2001,,56098d4,61b33d5,N/A,Yes,Use-Before-Write,Use of uninitialised variable in valid.c,No,TODO,https://github.com/GNOME/libxml2/commit/61b33d5733ccf61ade1aa1562fea27e6a6a8aad9
+,libxml2,N/A,24 Apr 2001,,61b33d5,7533cc8,N/A,Yes,I Don't Know,Segmentation Fault in valid.c,No,TODO,"https://github.com/GNOME/libxml2/commit/7533cc8fda1f29a6b7f77202d249c8ff18cbda4f
+
+https://bugzilla.gnome.org/show_bug.cgi?id=53537"
+,libxml2,N/A,26 Apr 2001,,5c4ec4c,5a7c345,N/A,No,I Don't Know,Potential Out-of-bounds error,No,TODO,https://github.com/GNOME/libxml2/commit/5a7c3459d0fb823f82a22e120a7f199eaf4140af
+,libxml2,N/A,26 Apr 2001,,5a7c345 ,30211a0,N/A,No,I Don't Know,Potential Null Dereference,No,Potential,"https://github.com/GNOME/libxml2/commit/30211a0eef53d38726cb96b0cfd246fa67613995
+
+https://bugzilla.gnome.org/show_bug.cgi?id=53391"
+,libxml2,N/A,8 May 2001,,01ef738 ,083c266,N/A,I Don't Know,I Don't Know,"Potential Seg Fault in HTMLtree.c (htmlNodeDump)
+",No,TODO,https://github.com/GNOME/libxml2/commit/083c2660f4f5582f5cd8da1029b60a47177c31fb
+,libxml2,N/A,11 May 2001,,0a2a163,75bea54,N/A,I Don't Know,I Don't Know,Potential Null Dereference in tree.c,No,TODO,https://github.com/GNOME/libxml2/blob/75bea5480ea4bb12b65f6e98438f7f755ebf9ae7/tree.c
+,libxml2,N/A,7 Jun 2001,,e8fc08e,a682b21,N/A,Potential,Null Dereference,Null Dereference,No,TODO,https://github.com/GNOME/libxml2/commit/a682b219c45b77a85c3920724f7d3179654aa78c
+,libxml2,N/A,25 Jul 2001,,a53c688,e392497,N/A,No,I Don't Know,Potential Buffer Overflow.,No,TODO,https://github.com/GNOME/libxml2/commit/e392497e4c4313382c3c20903d09a69f0948f721
+,libxml2,N/A,25 Jul 2001,,2454ab9,6dd398f,N/A,Yes,I Don't Know,Segmentation Fault in parser.c,Yes,TODO,"https://github.com/GNOME/libxml2/commit/6dd398f6c49c4a547bf3911ed6fc14897d302726
+
+https://bugzilla.gnome.org/show_bug.cgi?id=58073"
+,libxml2,N/A,1 Aug 2001,,ba6db03,f186c82,N/A,Potential,I Don't Know,Potential Out-of-bounds error,No,TODO,https://github.com/GNOME/libxml2/commit/f186c8259ae985cd56b3e14c1def484ab127fd14
+,libxml2,N/A,1 Aug 2001,,f186c82,567e1b4,N/A,Potential,I Don't Know,Potential invalid memory access,No,TODO,https://github.com/GNOME/libxml2/commit/567e1b48e8664163894742d5674c24baa4282f9e
+,libxml2,N/A,21 Sep 2001,,c0631a6,b1d6287,N/A,Potential,I Don't Know,Potential Out-of-bounds error,No,TODO,"https://github.com/GNOME/libxml2/commit/b1d62871db75d927bf3f9a18a27845059a67820c
+
+https://bugzilla.gnome.org/show_bug.cgi?id=60757"
+,libxml2,N/A,18 Oct 2001,,3c01b1d,ce2c2f0,N/A,I Don't Know,I Don't Know,Looping Validation Error,No,TODO,https://github.com/GNOME/libxml2/commit/ce2c2f09973022cf064a65d5045c71b558ad2c43
+,libxml2,N/A,22 Oct 2001,,89cad53,b6b0fd8,N/A,Potential,I Don't Know,Potential Null Dereference in htmlNewDoc(),No,TODO,https://github.com/GNOME/libxml2/commit/b6b0fd8962e95bdb27e9e65bc785ce8cf1a3622c
+,libxml2,N/A,29 Oct 2001,,5109531,635ef72,N/A,Yes,I Don't Know,"Seg Fault
+
+Potential use before write error .lack of call to xmlInitParser() in xmlSAXParseFileWithData (parser.c)",No,TODO,"https://github.com/GNOME/libxml2/commit/635ef72a94db9f647dcff11d33f50115564ce091
+
+https://bugzilla.gnome.org/show_bug.cgi?id=63271"
+,,,8 Jan 2002,,4a85920,73c6e53,N/A,Yes,Null Dereference,"Seg Fault
+
+Potential Null Dereference",No,TODO,https://github.com/GNOME/libxml2/commit/73c6e53aff56602b6d2a4437018456344274f110
+,libxml2,N/A,8 Feb 2002,,c575b99,d455d79,N/A,No,Memory Leak,Memory Leak in xmlValidGetValidElements,No,TODO,"https://github.com/GNOME/libxml2/commit/d455d79d84f218003f562f129ad6d3212a4c50cc
+
+https://bugzilla.gnome.org/show_bug.cgi?id=70166"
+,libxml2,N/A,20 Feb 2002,,6dbcaf8,d54fa3e,N/A,No,Memory Leak,Memory Leaks,No,TODO,https://github.com/GNOME/libxml2/commit/d54fa3ef3cd143a99491805287978c5c386adc62
+,libxml2,N/A,2 Mar 2002,,c0fef77,c661304,N/A,Potential,I Don't Know,Potential Null Dereference,No,TODO,https://github.com/GNOME/libxml2/commit/c6613048af6864f162d0587bf221fac825672c71
+,libxml2,N/A,8 Mar 2002,,af43f63,a3db2e3,N/A,Potential,I Don't Know,Potential Null Dereference,No,TODO,https://github.com/GNOME/libxml2/commit/a3db2e371f909584c56ab84c37cc250d1a78d451
+,libxml2,N/A,16 Mar 2002,,d237901,38bf6f0,N/A,No,I Don't Know,Potential Use-After-Free,No,TODO,https://github.com/GNOME/libxml2/commit/38bf6f042507c6051bfa2db5cc9b6666cfc35c2a
+,libxml2,N/A,26 Mar 2002,,dd4b912,db1dc39,N/A,No,File Descriptor Leak,File Descriptor Leak,No,TODO,"https://github.com/GNOME/libxml2/commit/db1dc3952517f753974d8db9a7a37b66e77df6fa
+
+https://bugzilla.gnome.org/show_bug.cgi?id=76404"
+,libxml2,N/A,15 Apr 2002,,eb475a3,940492d,N/A,No,Infinite Loop,Infinite loop that continiously allocates data until a seg fault occurs.,Yes,TODO,"https://github.com/GNOME/libxml2/commit/940492d429025d449cacac1b6293c9600554579b
+
+https://bugzilla.gnome.org/show_bug.cgi?id=78729"
+,libxml2,N/A,9 May 2002,,50fe8b1,e48a318,N/A,No,I Don't Know,Memory Growth in SAX,No,TODO,"https://github.com/GNOME/libxml2/commit/e48a318f0ff00da30889988a8a7200f8792a4abc
+
+https://bugzilla.gnome.org/show_bug.cgi?id=81159"
+,libxml2,N/A,14 Jun 2002,,e059b89,49cc975,N/A,No,I Don't Know,Buffer Overflow due to the use of sprintf(),No,TODO,https://github.com/GNOME/libxml2/commit/49cc97565fbe2928388a1e437c44429097a504ae
+,libxml2,N/A,3 Aug 2002,,58e44c9,ea4272a,N/A,Potential,Memory Leak,Memory Leak,No,TODO,https://github.com/GNOME/libxml2/commit/ea4272a199ff749f33f80a30325d108bfd49182e
+,libxml2,N/A,10 Sep 2002,,f4862f0,607b35c,N/A,Yes,Buffer Overflow,Out-of-bounds error,No,TODO,https://github.com/GNOME/libxml2/commit/607b35c57019b3bf3940977ed2162d7b5c4fad00
+,libxml2,N/A,9 Oct 2002,,321be0c,01992e0,N/A,Yes,Use-Before-Write,Use of uninitialised variables,No,TODO,https://github.com/GNOME/libxml2/commit/01992e044630e9bd74aff638e181c52fb294c266
+,libxml2,N/A,6 Jan 2003,,0aaaacd,e0ed10c,N/A,Potential,Null Dereference,Potential Null Dereference,No,TODO,https://github.com/GNOME/libxml2/commit/e0ed10cb0f7244f781f84ecf2b063d1a7deb2b63
+,libxml2,N/A,7 Jan 2003,,56ada1d,8bf70b9,N/A,No,Buffer Overflow,Memory leak in SAX,No,TODO,https://github.com/GNOME/libxml2/commit/8bf70b956ade0c2ae0d97e21422c1f222d2f4d79
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,
+,libxml2,N/A,,,,,,,,,,,

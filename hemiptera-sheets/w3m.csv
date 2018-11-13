@@ -1,0 +1,1255 @@
+w3m,,Num Of Confirmed Bugs with test cases:,46,Num of available crashes,58,,Project Link:,https://github.com/tats/w3m,,,,,,
+,,,,,,,Support Links,https://github.com/ivmai/bdwgc https://github.com/kcwu/fuzzing-w3m,,,,,,
+Invalid Access,44,02ba3d6,20,,,,,,,,,,,
+Failed Assertion,0,06caca1,15,,,,,,,,,,,
+Division By Zero,0,a56a8ef,11,,,,,,,,,,,
+Dangling Pointer Use,2,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+Internal ID,Tool Name,CVE ID,Date of Fix,Earliest Unfixed Commit,Commit ID / Version before fix,Commit ID / Version of fix,Notes,Shall we include?,Bug Type,Bug Details,Crash Input,Crash Status,Useful Link,Author of Test Case
+1,w3m,N/A,2013-08-04 11:55:09 +0900,,1515daa 0c6b7c5,62aafb2,N/A,Potential,I Don't Know,In main.c,No,TODO,https://github.com/tats/w3m/commit/62aafb2,
+2,w3m,N/A,2013-08-04 16:53:29 +0900,,62aafb2 8164da9,f59b4a5,N/A,Yes,Buffer Overflow,In Str.c,No,TODO,https://github.com/tats/w3m/commit/f59b4a5,
+3,w3m,N/A,2013-10-14 23:04:23 +0900,,f7ff70f c155b93,54b9076,N/A,Potential,I Don't Know,In url.c,No,TODO,https://github.com/tats/w3m/commit/54b9076,
+4,w3m,N/A,2013-12-07 10:34:11 +0900,,1d8d8d4 b5641f5,c1c4d3a,N/A,Potential,I Don't Know,In main.c,No,TODO,https://github.com/tats/w3m/commit/c1c4d3a,
+5,w3m,N/A,2014-12-06 16:51:54 +0900,,fcc18b1 c6f1525,a1b70ec,N/A,Potential,Use-Before-Write,In terms.c,No,TODO,https://github.com/tats/w3m/commit/a1b70ec,
+6,w3m,N/A,2014-12-06 17:19:46 +0900,,a1b70ec fc754b4,0552b86,N/A,Potential,Use-Before-Write,In anchor.c,No,TODO,https://github.com/tats/w3m/commit/0552b86,
+7,w3m,N/A,2014-12-06 19:01:47 +0900,,e479f83 608828e,6ef08c6,N/A,Yes,Null Dereference,parsetagx.c,No,TODO,https://github.com/tats/w3m/commit/6ef08c6,
+8,w3m,N/A,2015-08-05 06:35:09 +0900,,ea4fe13,dd05448,N/A,Potential,Buffer Overflow,main.c,No,TODO,https://github.com/tats/w3m/commit/dd05448,
+9,w3m,N/A,2015-09-06 20:58:20 +0900,,5d4d27a,85fe990,N/A,Potential,I Don't Know,table.c,No,TODO,https://github.com/tats/w3m/commit/85fe990,
+10,w3m,N/A,2016-03-29 19:12:56 +0900,,96b17f9,686a824,N/A,Yes,Out-of-Bounds,url.c,No,TODO,https://github.com/tats/w3m/commit/686a824,
+11,w3m,N/A,2016-04-07 06:42:55 +0900,02ba3d6,02ba3d6,7bb2a46,Triggered with NotGC,Yes,Out-of-Bounds,"In ucs.c (Seg Fault, stack trace from GC version. NotGC crashes at a different location.)
+
+==13642==ERROR: AddressSanitizer: SEGV on unknown address 0x0000c01a6950 (pc 0x0000006441bf bp 0x7ffee583ab40 sp 0x7ffee583ab00 T0)
+    #0 0x6441be in wc_any_to_ucs /home/john/tests/w3m/libwc/ucs.c:275
+    #1 0x652ee4 in wc_push_to_utf8 /home/john/tests/w3m/libwc/utf8.c:276
+    #2 0x61b739 in wc_conv_to_ces /home/john/tests/w3m/libwc/conv.c:93
+    #3 0x61ae03 in wc_Str_conv /home/john/tests/w3m/libwc/conv.c:23
+    #4 0x4b8486 in _saveBuffer /home/john/tests/w3m/file.c:7612
+    #5 0x4b8a11 in saveBuffer /home/john/tests/w3m/file.c:7630
+    #6 0x40f4d6 in do_dump /home/john/tests/w3m/main.c:1357
+    #7 0x40c09a in main /home/john/tests/w3m/main.c:1063
+    #8 0x2b8c19038400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+",Yes,Success,"https://github.com/tats/w3m/commit/7bb2a46
+https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=820162",Steve Kemp
+12,w3m,N/A,2016-04-08 06:10:42 +0900,02ba3d6,2be205f,5a159af,N/A,Yes,Use-Before-Write,libwcjohab.c,Yes,Failed,"https://github.com/tats/w3m/commit/5a159af
+https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=820373",Steve Kemp
+13,w3m,N/A,2016-08-09 00:02:24 +0900,02ba3d6,222a313,59b91cd,Triggered with NotGC,Yes,Null Dereference,"ASAN:DEADLYSIGNAL
+=================================================================
+==29128==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x0000004cfb32 bp 0x7fffe71d3ab0 sp 0x7fffe71d37b0 T0)
+    #0 0x4cfb31 in formUpdateBuffer /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/form.c:458
+    #1 0x4ce0ed in formResetBuffer /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/form.c:268
+    #2 0x46fd64 in loadHTMLBuffer /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/file.c:6750
+    #3 0x434265 in loadSomething /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/file.c:224
+    #4 0x442e8e in loadGeneralFile /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/file.c:2241
+    #5 0x4093d0 in main /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/main.c:1017
+    #6 0x2b2edbeaa400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x404b19 in _start (/nas/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/install/bin/w3m+0x404b19)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/form.c:458 in formUpdateBuffer
+==29128==ABORTING
+",Yes,Success,"https://github.com/tats/w3m/commit/59b91cd
+https://github.com/tats/w3m/issues/7",Kuang-che Wu
+14,w3m,N/A,2016-08-15 20:42:27 +0900,,f9adc2d,9f0bdcf,N/A,Yes,Out-of-Bounds,"form.c
+",Yes,Failed,"https://github.com/tats/w3m/commit/9f0bdcf
+https://github.com/tats/w3m/issues/10",Kuang-che Wu
+15,w3m,N/A,2016-08-15 20:42:27 +0900,02ba3d6,f9adc2d,9f0bdcf,Triggered with GC,Yes,Out-of-Bounds,"form.c
+
+    #0 0x5e9650 in onAnchor /home/john/tests/w3m/anchor.c:109
+    #1 0x5ef3de in shiftAnchorPosition /home/john/tests/w3m/anchor.c:538
+    #2 0x545c15 in formUpdateBuffer /home/john/tests/w3m/form.c:490
+    #3 0x542314 in formResetBuffer /home/john/tests/w3m/form.c:268
+    #4 0x4ad9aa in loadHTMLBuffer /home/john/tests/w3m/file.c:6752
+    #5 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #6 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #7 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #8 0x2b2356ef4400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+",Yes,Success,"https://github.com/tats/w3m/commit/9f0bdcf
+https://github.com/tats/w3m/issues/9",Kuang-che Wu
+16,w3m,N/A,2016-08-17 19:47:19 +0900,02ba3d6,72b1094,a25fd09,Triggered with NotGC,Yes,Out-of-Bounds,"file.c
+
+29711==ERROR: AddressSanitizer: SEGV on unknown address 0x000002957620 (pc 0x0000004a4325 bp 0x7fff532d38b0 sp 0x7fff532d3210 T0)
+    #0 0x4a4324 in HTMLlineproc2body /home/john/tests/w3m/file.c:6035
+    #1 0x4a5f18 in HTMLlineproc2 /home/john/tests/w3m/file.c:6173
+    #2 0x4b3655 in loadHTMLstream /home/john/tests/w3m/file.c:7258
+    #3 0x4ad7eb in loadHTMLBuffer /home/john/tests/w3m/file.c:6755
+    #4 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #5 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #6 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #7 0x2af05d52d400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+",Yes,Success,"https://github.com/tats/w3m/commit/a25fd09
+https://github.com/tats/w3m/issues/12",Kuang-che Wu
+17,w3m,N/A,2016-08-17 21:10:30 +0900,02ba3d6,a25fd09,807e8b7,Triggered with GC,Yes,Out-of-Bounds,"form.c
+
+table.c:1222:11: runtime error: variable length array bound evaluates to non-positive value 0
+table.c:1223:12: runtime error: variable length array bound evaluates to non-positive value 0
+ASAN:DEADLYSIGNAL
+=================================================================
+==313==ERROR: AddressSanitizer: SEGV on unknown address 0x00000140ffff (pc 0x2b9b11a4ec91 bp 0x7ffd977c1bd0 sp 0x7ffd977c1b48 T0)
+    #0 0x2b9b11a4ec90 in __memmove_sse2_unaligned_erms (/lib64/libc.so.6+0x90c90)
+    #1 0x5440b2 in form_update_line /home/john/tests/w3m/form.c:403
+    #2 0x5457e2 in formUpdateBuffer /home/john/tests/w3m/form.c:486
+    #3 0x54241f in formResetBuffer /home/john/tests/w3m/form.c:272
+    #4 0x4ada0b in loadHTMLBuffer /home/john/tests/w3m/file.c:6761
+    #5 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #6 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #7 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #8 0x2b9b119de400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+",Yes,Success,"https://github.com/tats/w3m/commit/807e8b7
+https://github.com/tats/w3m/issues/13",Kuang-che Wu
+18,w3m,N/A,2016-08-17 21:34:55 +0900,02ba3d6,807e8b7,9cf6926,Triggered with GC,Yes,Out-of-Bounds,"ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000cdd2 at pc 0x00000058431f bp 0x7fff2d083fa0 sp 0x7fff2d083f90
+READ of size 1 at 0x60200000cdd2 thread T0
+    #0 0x58431e in wtf_parse1 /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/libwc/wtf.c:405
+    #1 0x5849a3 in wtf_parse /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/libwc/wtf.c:473
+    #2 0x55ac2b in wc_conv_to_ces /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/libwc/conv.c:93
+    #3 0x55a46b in wc_Str_conv /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/libwc/conv.c:23
+    #4 0x55a65e in wc_Str_conv_strict /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/libwc/conv.c:37
+    #5 0x466640 in HTMLlineproc2body /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/file.c:5653
+    #6 0x46ad74 in HTMLlineproc2 /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/file.c:6162
+    #7 0x473a3e in loadHTMLstream /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/file.c:7247
+    #8 0x46fc55 in loadHTMLBuffer /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/file.c:6744
+    #9 0x434265 in loadSomething /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/file.c:224
+    #10 0x442e8e in loadGeneralFile /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/file.c:2241
+    #11 0x4093d0 in main /users/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/main.c:1017
+    #12 0x2ab4920ef400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #13 0x404b19 in _start (/nas/sealan/SEEvaluation/source/w3m/w3m-02ba3d6-asan/install/bin/w3m+0x404b19)",Yes,Success,"https://github.com/tats/w3m/commit/9cf6926
+https://github.com/tats/w3m/issues/14",Kuang-che Wu
+19,w3m,N/A,2016-08-17 23:47:44 +0900,02ba3d6,9cf6926,3d4eeda,Triggered with GC,Yes,Out-of-Bounds,"file.c
+
+file.c:6117:23: runtime error: member access within null pointer of type 'struct FormList'
+ASAN:DEADLYSIGNAL
+=================================================================
+==6129==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000038 (pc 0x0000004a5485 bp 0x7ffd3f106120 sp 0x7ffd3f105a80 T0)
+    #0 0x4a5484 in HTMLlineproc2body /home/john/tests/w3m/file.c:6117
+    #1 0x4a5f34 in HTMLlineproc2 /home/john/tests/w3m/file.c:6173
+    #2 0x4b3671 in loadHTMLstream /home/john/tests/w3m/file.c:7258
+    #3 0x4ad807 in loadHTMLBuffer /home/john/tests/w3m/file.c:6755
+    #4 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #5 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #6 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #7 0x2afffae6a400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /home/john/tests/w3m/file.c:6117 in HTMLlineproc2body
+==6129==ABORTING
+",Yes,Success,"https://github.com/tats/w3m/commit/3d4eeda
+https://github.com/tats/w3m/issues/15
+",Kuang-che Wu
+20,w3m,N/A,2016-08-18 00:21:08 +0900,02ba3d6,3d4eeda,67be73b,Triggered with NotGC,Yes,Out-of-Bounds,"file.c
+
+=================================================================
+==8753==ERROR: AddressSanitizer: SEGV on unknown address 0x00000069c5c0 (pc 0x000000544b36 bp 0x7ffc42207e10 sp 0x7ffc42207b00 T0)
+    #0 0x544b35 in formUpdateBuffer /home/john/tests/w3m/form.c:448
+    #1 0x54247e in formResetBuffer /home/john/tests/w3m/form.c:272
+    #2 0x4ada6a in loadHTMLBuffer /home/john/tests/w3m/file.c:6762
+    #3 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #4 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #5 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #6 0x2b1fef373400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /home/john/tests/w3m/form.c:448 in formUpdateBuffer
+",Yes,Success,"https://github.com/tats/w3m/commit/67be73b
+https://github.com/tats/w3m/issues/17",Kuang-che Wu
+21,w3m,N/A,2016-08-18 19:26:58 +0900,02ba3d6,67be73b,010b685,Triggered with NotGC,Yes,Null Dereference,"file.c
+
+ile.c:3025:8: runtime error: member access within null pointer of type 'struct _Str'
+ASAN:DEADLYSIGNAL
+=================================================================
+==11416==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x000000472db8 bp 0x7ffdb22da040 sp 0x7ffdb22d9ba0 T0)
+    #0 0x472db7 in flushline /home/john/tests/w3m/file.c:3025
+    #1 0x4ab8ab in HTMLlineproc0 /home/john/tests/w3m/file.c:6603
+    #2 0x50ead8 in do_refill /home/john/tests/w3m/table.c:798
+    #3 0x51c79c in renderTable /home/john/tests/w3m/table.c:1800
+    #4 0x4a8932 in HTMLlineproc0 /home/john/tests/w3m/file.c:6438
+    #5 0x4b0804 in completeHTMLstream /home/john/tests/w3m/file.c:7007
+    #6 0x4b2ea9 in loadHTMLstream /home/john/tests/w3m/file.c:7239
+    #7 0x4ad893 in loadHTMLBuffer /home/john/tests/w3m/file.c:6767
+    #8 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #9 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #10 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #11 0x2b47008c2400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #12 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /home/john/tests/w3m/file.c:3025 in flushline
+",Yes,Success,"https://github.com/tats/w3m/commit/010b685
+https://github.com/tats/w3m/issues/18",Kuang-che Wu
+22,w3m,N/A,2016-08-18 19:35:41 +0900,02ba3d6,010b685,67a3db3,Triggered with NotGC,Yes,Out-of-Bounds,"table.c
+
+=================================================================
+==14077==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x2b3edf6946a5 bp 0x000000000020 sp 0x7ffe2652cdc0 T0)
+    #0 0x2b3edf6946a4 in GC_generic_malloc_many (/lib64/libgc.so.1+0xf6a4)
+    #1 0x2b3edf69cf7d in GC_malloc_kind (/lib64/libgc.so.1+0x17f7d)
+    #2 0x601b26 in Strnew /home/john/tests/w3m/Str.c:40
+    #3 0x4a6e61 in HTMLlineproc0 /home/john/tests/w3m/file.c:6307
+    #4 0x50ebae in do_refill /home/john/tests/w3m/table.c:798
+    #5 0x51c872 in renderTable /home/john/tests/w3m/table.c:1800
+    #6 0x4a8a08 in HTMLlineproc0 /home/john/tests/w3m/file.c:6438
+    #7 0x4b08da in completeHTMLstream /home/john/tests/w3m/file.c:7007
+    #8 0x4b2f7f in loadHTMLstream /home/john/tests/w3m/file.c:7239
+    #9 0x4ad969 in loadHTMLBuffer /home/john/tests/w3m/file.c:6767
+    #10 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #11 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #12 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #13 0x2b3ee1017400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #14 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (/lib64/libgc.so.1+0xf6a4) in GC_generic_malloc_many
+==14077==ABORTING
+",Yes,Success,"https://github.com/tats/w3m/commit/67a3db3
+https://github.com/tats/w3m/issues/8",Kuang-che Wu
+23,w3m,N/A,2016-08-19 19:05:25 +0900,,1b1803e,0fba2f1,N/A,Potential,Use-Before-Write,file.c and parsetagx.c,No,TODO,"https://github.com/tats/w3m/commit/0fba2f1
+https://github.com/tats/w3m/issues/16",Kuang-che Wu
+24,w3m,N/A,2016-08-24 19:05:58 +0900,02ba3d6,1200ecc,b910f09,N/A,Yes,Out-of-Bounds,"table.c
+
+file.c:5012:11: runtime error: signed integer overflow: 333330000 * 79 cannot be represented in type 'int [2]'
+table.c:1588:8: runtime error: variable length array bound evaluates to non-positive value 0",Yes,Failed,"https://github.com/tats/w3m/commit/b910f09
+https://github.com/tats/w3m/issues/25",Kuang-che Wu
+25,w3m,N/A,2016-08-24 19:05:58 +0900,,b910f09,4a8d16f,N/A,Yes,Out-of-Bounds,form.c,Yes,Failed,"https://github.com/tats/w3m/commit/4a8d16f
+https://github.com/tats/w3m/issues/22",Kuang-che Wu
+26,w3m,N/A,2016-08-24 19:05:58 +0900,02ba3d6,4a8d16f,a625766,Triggered with NotGC,Yes,Null Dereference,"table.c
+
+table.c:1574:11: runtime error: variable length array bound evaluates to non-positive value 0
+table.c:1588:8: runtime error: variable length array bound evaluates to non-positive value 0
+table.c:767:41: runtime error: member access within null pointer of type 'struct table'
+ASAN:DEADLYSIGNAL
+=================================================================
+==23783==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000018 (pc 0x00000050e4ec bp 0x7ffe7874da60 sp 0x7ffe7874d4e0 T0)
+    #0 0x50e4eb in do_refill /home/john/tests/w3m/table.c:767
+    #1 0x51c872 in renderTable /home/john/tests/w3m/table.c:1800
+    #2 0x4a8a08 in HTMLlineproc0 /home/john/tests/w3m/file.c:6438
+    #3 0x4b08da in completeHTMLstream /home/john/tests/w3m/file.c:7007
+    #4 0x4b2f7f in loadHTMLstream /home/john/tests/w3m/file.c:7239
+    #5 0x4ad969 in loadHTMLBuffer /home/john/tests/w3m/file.c:6767
+    #6 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #7 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #8 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #9 0x2ad036258400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #10 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /home/john/tests/w3m/table.c:767 in do_refill
+",Yes,Success,"https://github.com/tats/w3m/commit/a625766
+https://github.com/tats/w3m/issues/24",Kuang-che Wu
+27,w3m,N/A,2016-08-29 19:29:19 +0900,02ba3d6,6445eb8,7b88478,Triggered with GC,Yes,Out-of-Bounds,"form.c
+
+=================================================================
+==26146==ERROR: AddressSanitizer: SEGV on unknown address 0x000002a78fff (pc 0x2afbaece3c91 bp 0x7ffdd922cf10 sp 0x7ffdd922ce88 T0)
+    #0 0x2afbaece3c90 in __memmove_sse2_unaligned_erms (/lib64/libc.so.6+0x90c90)
+    #1 0x543f93 in form_update_line /home/john/tests/w3m/form.c:399
+    #2 0x5455c9 in formUpdateBuffer /home/john/tests/w3m/form.c:480
+    #3 0x542300 in formResetBuffer /home/john/tests/w3m/form.c:268
+    #4 0x4ad996 in loadHTMLBuffer /home/john/tests/w3m/file.c:6750
+    #5 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #6 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #7 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #8 0x2afbaec73400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+",Yes,Success,"https://github.com/tats/w3m/commit/7b88478
+https://github.com/tats/w3m/issues/13",Kuang-che Wu
+28,w3m,N/A,2016-08-29 19:29:19 +0900,02ba3d6,7b88478,4e46481,Triggered with GC,Yes,Null Dereference,"anchor.c
+
+form.c:462:21: runtime error: member access within null pointer of type 'struct _Str'
+ASAN:DEADLYSIGNAL
+=================================================================
+==13871==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x00000054587c bp 0x7ffe6be22760 sp 0x7ffe6be22450 T0)
+    #0 0x54587b in formUpdateBuffer /home/john/tests/w3m/form.c:462
+    #1 0x542f99 in formResetBuffer /home/john/tests/w3m/form.c:272
+    #2 0x4ae4aa in loadHTMLBuffer /home/john/tests/w3m/file.c:6779
+    #3 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #4 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #5 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #6 0x2adbceaff400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /home/john/tests/w3m/form.c:462 in formUpdateBuffer
+==13871==ABORTING
+",Yes,Success,"https://github.com/tats/w3m/commit/4e46481
+https://github.com/tats/w3m/issues/26",Kuang-che Wu
+29,w3m,N/A,2016-09-02 23:01:37 +0900,,e79a099,d43527c,N/A,Yes,I Don't Know,Str.c,No,TODO,"https://github.com/tats/w3m/commit/d43527c
+https://github.com/tats/w3m/pull/27",Kuang-che Wu
+30,w3m,N/A,2016-10-08 06:39:47 +0900,02ba3d6,c92724e,ec9eb22,Triggered with NotGC,Yes,Null Dereference,"form.c
+
+form.c:462:21: runtime error: member access within null pointer of type 'struct _Str'
+ASAN:DEADLYSIGNAL
+=================================================================
+==10951==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x00000054587c bp 0x7fff27ad2bc0 sp 0x7fff27ad28b0 T0)
+    #0 0x54587b in formUpdateBuffer /home/john/tests/w3m/form.c:462
+    #1 0x542f99 in formResetBuffer /home/john/tests/w3m/form.c:272
+    #2 0x4ae4aa in loadHTMLBuffer /home/john/tests/w3m/file.c:6779
+    #3 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #4 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #5 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #6 0x2ba86b0a6400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+",Yes,Success,"https://github.com/tats/w3m/commit/ec9eb22
+https://github.com/tats/w3m/issues/28",Kuang-che Wu
+31,w3m,N/A,2016-10-08 07:06:12 +0900,02ba3d6,ec9eb22,d01de73,Triggered with NotGC,Yes,Out-of-Bounds,"form.c
+
+==19607==ERROR: AddressSanitizer: global-buffer-overflow on address 0x00000069d466 at pc 0x000000545651 bp 0x7ffcddb4b7a0 sp 0x7ffcddb4b790
+WRITE of size 1 at 0x00000069d466 thread T0
+    #0 0x545650 in formUpdateBuffer /home/john/tests/w3m/form.c:448
+    #1 0x542f99 in formResetBuffer /home/john/tests/w3m/form.c:272
+    #2 0x4ae4aa in loadHTMLBuffer /home/john/tests/w3m/file.c:6779
+    #3 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #4 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #5 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #6 0x2acc235b0400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+
+0x00000069d466 is located 58 bytes to the left of global variable '*.LC3' defined in 'buffer.c' (0x69d4a0) of size 9
+  '*.LC3' is ascii string 'buffer.c'
+0x00000069d466 is located 5 bytes to the right of global variable '*.LC2' defined in 'buffer.c' (0x69d460) of size 1
+  '*.LC2' is ascii string ''
+
+==19607==ABORTING
+",Yes,Success,"https://github.com/tats/w3m/commit/d01de73
+https://github.com/tats/w3m/issues/29",Kuang-che Wu
+32,w3m,N/A,2016-10-31 20:22:26 +0900,,fa331bc,6f14545,N/A,Yes,Out-of-Bounds,"table.c, table.h and textlist.h",No,TODO,"https://github.com/tats/w3m/commit/6f14545
+https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=842623",Kuang-che Wu
+33,w3m,N/A,2016-11-07 00:35:42 +0900,02ba3d6,5cf7524,c6c3997,Triggered with GC,Yes,Null Dereference,"file.c
+
+ile.c:6061:32: runtime error: load of null pointer of type 'struct Anchor *'
+ASAN:DEADLYSIGNAL
+=================================================================
+==26254==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x0000004a4e61 bp 0x7ffc1edade70 sp 0x7ffc1edad7d0 T0)
+    #0 0x4a4e60 in HTMLlineproc2body /home/john/tests/w3m/file.c:6061
+    #1 0x4a69d3 in HTMLlineproc2 /home/john/tests/w3m/file.c:6191
+    #2 0x4b4110 in loadHTMLstream /home/john/tests/w3m/file.c:7276
+    #3 0x4ae2a6 in loadHTMLBuffer /home/john/tests/w3m/file.c:6773
+    #4 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #5 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #6 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #7 0x2b510e388400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+",Yes,Success,"https://github.com/tats/w3m/commit/c6c3997
+https://github.com/tats/w3m/issues/32",Kuang-che Wu
+34,w3m,N/A,2016-11-07 01:25:49 +0900,,c6c3997,216722e,N/A,No,Infinite Loop,file.c,Yes,TODO,"https://github.com/tats/w3m/commit/216722e
+https://github.com/tats/w3m/issues/23",Kuang-che Wu
+35,w3m,N/A,2016-11-07 19:02:42 +0900,,216722e,af592aa,N/A,Yes,Out-of-Bounds,file.c,Yes,Failed,"https://github.com/tats/w3m/commit/af592aa
+https://github.com/tats/w3m/issues/33",Kuang-che Wu
+36,w3m,N/A,2016-11-07 19:21:22 +0900,02ba3d6,af592aa,e2c7ece,Triggered with GC,Yes,Null Dereference,"form.c
+
+form.c:445:30: runtime error: member access within null pointer of type 'struct Line'
+ASAN:DEADLYSIGNAL
+=================================================================
+==29122==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000028 (pc 0x00000054554a bp 0x7ffee5457d20 sp 0x7ffee5457a10 T0)
+    #0 0x545549 in formUpdateBuffer /home/john/tests/w3m/form.c:445
+    #1 0x543045 in formResetBuffer /home/john/tests/w3m/form.c:272
+    #2 0x4ae4b8 in loadHTMLBuffer /home/john/tests/w3m/file.c:6779
+    #3 0x44f6ee in loadSomething /home/john/tests/w3m/file.c:224
+    #4 0x468038 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #5 0x40b836 in main /home/john/tests/w3m/main.c:1017
+    #6 0x2af42e334400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x405119 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405119)
+",Yes,Success,"https://github.com/tats/w3m/commit/e2c7ece
+https://github.com/tats/w3m/issues/35",Kuang-che Wu
+37,w3m,N/A,2016-11-07 21:14:50 +0900,,1b123c1,e458def,N/A,No,Infinite Loop,file.c,Yes,TODO,"https://github.com/tats/w3m/commit/ff8510a
+https://github.com/tats/w3m/issues/36",Kuang-che Wu
+38,w3m,N/A,2016-11-13 17:33:53 +0900,02ba3d6,5837243,a59a352,Triggered with GC,Yes,Null Dereference,"file.c
+
+file.c:6049:34: runtime error: load of null pointer of type 'struct Anchor *'
+ASAN:DEADLYSIGNAL
+=================================================================
+==31859==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x0000004a4beb bp 0x7ffe4643c710 sp 0x7ffe4643c070 T0)
+    #0 0x4a4bea in HTMLlineproc2body /home/john/tests/w3m/file.c:6049
+    #1 0x4a6a84 in HTMLlineproc2 /home/john/tests/w3m/file.c:6197
+    #2 0x4b425f in loadHTMLstream /home/john/tests/w3m/file.c:7285
+    #3 0x4ae357 in loadHTMLBuffer /home/john/tests/w3m/file.c:6779
+    #4 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #5 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #6 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #7 0x2ab231429400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /home/john/tests/w3m/file.c:6049 in HTMLlineproc2body
+==31859==ABORTING
+",Yes,Success,"https://github.com/tats/w3m/commit/a59a352
+https://github.com/tats/w3m/issues/32#issuecomment-260170163",Kuang-che Wu
+39,w3m,N/A,2016-11-14 21:20:44 +0900,02ba3d6,5b932eb,0c3f5d0,Triggered with NotGC,Yes,Buffer Overflow,"display.c, file.c fm.h, and symbol.c
+
+================================================================
+==4779==ERROR: AddressSanitizer: SEGV on unknown address 0x002000000000 (pc 0x2af16a1c5fe6 bp 0x7fff90bce5a0 sp 0x7fff90bcdd18 T0)
+    #0 0x2af16a1c5fe5 in strlen (/lib64/libc.so.6+0x8cfe5)
+    #1 0x2af16713be5b  (/lib64/libasan.so.3+0x3ce5b)
+    #2 0x47df9e in Strcat_charp /home/john/tests/w3m/Str.c:216
+    #3 0x42fd7b in conv_symbol /home/john/tests/w3m/file.c:7614
+    #4 0x42feb1 in _saveBuffer /home/john/tests/w3m/file.c:7647
+    #5 0x430008 in saveBuffer /home/john/tests/w3m/file.c:7668
+    #6 0x408012 in do_dump /home/john/tests/w3m/main.c:1357
+    #7 0x4073b8 in main /home/john/tests/w3m/main.c:1063
+    #8 0x2af16a159400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x404619 in _start (/home/john/tests/w3m/installer/bin/w3m+0x404619)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (/lib64/libc.so.6+0x8cfe5) in strlen
+==4779==ABORTING
+",Yes,Success,"https://github.com/tats/w3m/commit/0c3f5d0
+https://github.com/tats/w3m/issues/38",Kuang-che Wu
+40,w3m,N/A,2016-11-14 21:22:13 +0900,02ba3d6,0c3f5d0,9db4380,Triggered with NotGC,Yes,Null Dereference,"file.c
+
+file.c:5862:13: runtime error: member access within null pointer of type 'struct FormList'
+ASAN:DEADLYSIGNAL
+=================================================================
+==7465==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000020 (pc 0x0000004a2d34 bp 0x7fff24bf4d90 sp 0x7fff24bf46f0 T0)
+    #0 0x4a2d33 in HTMLlineproc2body /home/john/tests/w3m/file.c:5862
+    #1 0x4a6a92 in HTMLlineproc2 /home/john/tests/w3m/file.c:6197
+    #2 0x4b426d in loadHTMLstream /home/john/tests/w3m/file.c:7285
+    #3 0x4ae365 in loadHTMLBuffer /home/john/tests/w3m/file.c:6779
+    #4 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #5 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #6 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #7 0x2ab09f022400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /home/john/tests/w3m/file.c:5862 in HTMLlineproc2body
+",Yes,Success,"https://github.com/tats/w3m/commit/9db4380
+https://github.com/tats/w3m/issues/39",Kuang-che Wu
+41,w3m,N/A,2016-11-15 19:40:28 +0900,06caca1,06caca1,a088e02,N/A,Yes,Null Dereference,"anchor.c
+
+nchor.c:554:12: runtime error: member access within null pointer of type 'struct HmarkerList'
+ASAN:DEADLYSIGNAL
+=================================================================
+==10121==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x0000005f091a bp 0x7ffca52fbc00 sp 0x7ffca52fbba0 T0)
+    #0 0x5f0919 in shiftAnchorPosition /home/john/tests/w3m/anchor.c:554
+    #1 0x546e5a in formUpdateBuffer /home/john/tests/w3m/form.c:505
+    #2 0x543292 in formResetBuffer /home/john/tests/w3m/form.c:272
+    #3 0x4ae5cd in loadHTMLBuffer /home/john/tests/w3m/file.c:6786
+    #4 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #5 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #6 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #7 0x2ad70f826400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /home/john/tests/w3m/anchor.c:554 in shiftAnchorPosition
+==10121==ABORTING
+",Yes,Success,"https://github.com/tats/w3m/commit/a088e02
+https://github.com/tats/w3m/issues/40",Kuang-che Wu
+42,w3m,N/A,2016-11-15 20:11:52 +0900,,61e50c5,2a4a2fb,N/A,No,Infinite Loop,"file.c, proto.h, and table.c",Yes,TODO,"https://github.com/tats/w3m/commit/2a4a2fb
+https://github.com/tats/w3m/issues/20",Kuang-che Wu
+43,w3m,N/A,2016-11-15 23:59:57 +0900,06caca1,08285d6,ec99f18,N/A,Yes,Null Dereference,"table.c
+
+==13296==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000018 (pc 0x00000051b1fc bp 0x7ffea7d0ae90 sp 0x7ffea7d0a9d0 T0)
+    #0 0x51b1fb in renderCoTable /home/john/tests/w3m/table.c:1660
+    #1 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #2 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #3 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #4 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #5 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #6 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #7 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #8 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #9 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #10 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #11 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #12 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #13 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #14 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #15 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #16 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #17 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #18 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #19 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #20 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #21 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #22 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #23 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #24 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #25 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #26 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #27 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #28 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #29 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #30 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #31 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #32 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #33 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #34 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #35 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #36 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #37 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #38 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #39 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #40 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #41 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #42 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #43 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #44 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #45 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #46 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #47 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #48 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #49 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #50 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #51 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #52 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #53 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #54 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #55 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #56 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #57 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #58 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #59 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #60 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #61 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #62 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #63 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #64 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #65 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #66 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #67 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #68 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #69 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #70 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #71 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #72 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #73 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #74 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #75 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #76 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #77 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #78 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #79 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #80 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #81 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #82 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #83 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #84 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #85 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #86 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #87 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #88 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #89 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #90 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #91 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #92 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #93 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #94 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #95 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #96 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #97 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #98 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #99 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #100 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #101 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #102 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #103 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #104 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #105 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #106 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #107 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #108 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #109 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #110 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #111 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #112 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #113 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #114 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #115 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #116 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #117 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #118 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #119 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #120 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #121 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #122 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #123 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #124 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #125 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #126 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #127 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #128 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #129 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #130 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #131 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #132 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #133 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #134 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #135 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #136 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #137 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #138 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #139 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #140 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #141 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #142 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #143 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #144 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #145 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #146 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #147 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #148 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #149 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #150 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #151 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #152 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #153 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #154 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #155 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #156 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #157 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #158 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #159 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #160 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #161 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #162 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #163 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #164 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #165 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #166 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #167 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #168 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #169 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #170 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #171 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #172 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #173 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #174 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #175 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #176 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #177 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #178 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #179 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #180 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #181 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #182 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #183 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #184 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #185 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #186 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #187 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #188 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #189 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #190 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #191 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #192 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #193 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #194 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #195 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #196 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #197 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #198 0x51b431 in renderCoTable /home/john/tests/w3m/table.c:1666
+    #199 0x51d2e1 in renderTable /home/john/tests/w3m/table.c:1810
+    #200 0x4a946d in HTMLlineproc0 /home/john/tests/w3m/file.c:6452
+    #201 0x4b136e in completeHTMLstream /home/john/tests/w3m/file.c:7022
+    #202 0x4b3a82 in loadHTMLstream /home/john/tests/w3m/file.c:7258
+    #203 0x4ae3ce in loadHTMLBuffer /home/john/tests/w3m/file.c:6781
+    #204 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #205 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #206 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #207 0x2b697f826400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #208 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /home/john/tests/w3m/table.c:1660 in renderCoTable
+==13296==ABORTING
+",Yes,TODO,"https://github.com/tats/w3m/commit/ec99f18
+https://github.com/tats/w3m/issues/20#issuecomment-260649537",Kuang-che Wu
+44,w3m,N/A,2016-11-17 19:33:09 +0900,06caca1,81a2932,ecfdcbe,N/A,Yes,Out-of-Bounds,"file.c
+
+==15993==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x0000004a7b73 bp 0x7ffc20418d30 sp 0x7ffc20418b60 T0)
+    #0 0x4a7b72 in HTMLlineproc0 /home/john/tests/w3m/file.c:6333
+    #1 0x4b393e in loadHTMLstream /home/john/tests/w3m/file.c:7252
+    #2 0x4ae3ce in loadHTMLBuffer /home/john/tests/w3m/file.c:6781
+    #3 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #4 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #5 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #6 0x2b62b632e400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV /home/john/tests/w3m/file.c:6333 in HTMLlineproc0
+==15993==ABORTING
+",Yes,Success,"https://github.com/tats/w3m/commit/ecfdcbe
+https://github.com/tats/w3m/issues/42",Kuang-che Wu
+45,w3m,N/A,2016-11-17 20:19:55 +0900,06caca1,ecfdcbe,ba9d78f,N/A,Yes,Out-of-Bounds,"url.c
+
+==18653==ERROR: AddressSanitizer: global-buffer-overflow on address 0x000000bebcfc at pc 0x0000005a39f3 bp 0x7ffe2383df90 sp 0x7ffe2383df80
+READ of size 4 at 0x000000bebcfc thread T0
+    #0 0x5a39f2 in parseURL /home/john/tests/w3m/url.c:844
+    #1 0x5a5431 in parseURL2 /home/john/tests/w3m/url.c:999
+    #2 0x5b4641 in url_to_charset /home/john/tests/w3m/url.c:2278
+    #3 0x5b48f5 in url_encode /home/john/tests/w3m/url.c:2293
+    #4 0x49fcee in HTMLlineproc2body /home/john/tests/w3m/file.c:5684
+    #5 0x4a6af6 in HTMLlineproc2 /home/john/tests/w3m/file.c:6198
+    #6 0x4b4306 in loadHTMLstream /home/john/tests/w3m/file.c:7289
+    #7 0x4ae3fe in loadHTMLBuffer /home/john/tests/w3m/file.c:6781
+    #8 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #9 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #10 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #11 0x2b519abed400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #12 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x000000bebcfc is located 20 bytes to the right of global variable '*.Lubsan_data80' defined in 'url.c' (0xbebcc0) of size 40
+0x000000bebcfc is located 36 bytes to the left of global variable '*.Lubsan_data81' defined in 'url.c' (0xbebd20) of size 40
+SUMMARY: AddressSanitizer: global-buffer-overflow /home/john/tests/w3m/url.c:844 in parseURL
+
+
+==18653==ABORTING
+",Yes,Success,"https://github.com/tats/w3m/commit/ba9d78f
+https://github.com/tats/w3m/issues/41",Kuang-che Wu
+46,w3m,N/A,2016-11-18 22:30:19 +0900,06caca1,8f4f576,716bc12,N/A,Yes,Out-of-Bounds,"libwcucs.c, and libwcucs.map
+
+==23628==ERROR: AddressSanitizer: global-buffer-overflow on address 0x000000d1cce0 at pc 0x0000006458b2 bp 0x7ffd11758e70 sp 0x7ffd11758e60
+READ of size 2 at 0x000000d1cce0 thread T0
+    #0 0x6458b1 in wc_any_to_ucs /home/john/tests/w3m/libwc/ucs.c:281
+    #1 0x6545b2 in wc_push_to_utf8 /home/john/tests/w3m/libwc/utf8.c:276
+    #2 0x61cc67 in wc_conv_to_ces /home/john/tests/w3m/libwc/conv.c:93
+    #3 0x61c331 in wc_Str_conv /home/john/tests/w3m/libwc/conv.c:23
+    #4 0x4b91b1 in _saveBuffer /home/john/tests/w3m/file.c:7654
+    #5 0x4b973c in saveBuffer /home/john/tests/w3m/file.c:7672
+    #6 0x40f526 in do_dump /home/john/tests/w3m/main.c:1357
+    #7 0x40c0ea in main /home/john/tests/w3m/main.c:1063
+    #8 0x2b3ac2242400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x000000d1cce0 is located 0 bytes to the right of global variable 'viscii112_ucs_map' defined in 'map/viscii11_ucs.map:22:18' (0xd1cca0) of size 64
+0x000000d1cce0 is located 32 bytes to the left of global variable 'ucs_viscii11_map' defined in 'map/viscii11_ucs.map:31:15' (0xd1cd00) of size 536
+SUMMARY: AddressSanitizer: global-buffer-overflow /home/john/tests/w3m/libwc/ucs.c:281 in wc_any_to_ucs
+
+
+",Yes,Success,"https://github.com/tats/w3m/commit/716bc12
+https://github.com/tats/w3m/issues/43",Kuang-che Wu
+47,w3m,N/A,2016-11-27 17:08:02 +0900,,8d31b4b 7e1c05d,4da2745,N/A,Yes,Out-of-Bounds,In menu.c,No,TODO,https://github.com/tats/w3m/commit/4da2745,Kuang-che Wu
+48,w3m,N/A,2016-12-05 21:44:17 +0900,06caca1,13cca01,d57c132,N/A,Yes,Out-of-Bounds,"anchor.c
+
+=================================================================
+==13267==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61300000daf4 at pc 0x0000005f0b1d bp 0x7fff798a1190 sp 0x7fff798a1180
+READ of size 4 at 0x61300000daf4 thread T0
+    #0 0x5f0b1c in shiftAnchorPosition /home/john/tests/w3m/anchor.c:554
+    #1 0x546ea2 in formUpdateBuffer /home/john/tests/w3m/form.c:505
+    #2 0x5432da in formResetBuffer /home/john/tests/w3m/form.c:272
+    #3 0x4ae602 in loadHTMLBuffer /home/john/tests/w3m/file.c:6787
+    #4 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #5 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #6 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #7 0x2ac05e91d400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x61300000daf4 is located 12 bytes to the left of 360-byte region [0x61300000db00,0x61300000dc68)
+allocated by thread T0 here:
+    #0 0x2ac05bae0e60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x2ac05d0e2be6 in GC_malloc_atomic /media/sf_theRealBugSuite/w3m/notgc/notgc.c:275
+
+",Yes,Success,"https://github.com/tats/w3m/commit/d57c132
+https://github.com/tats/w3m/issues/62",Kuang-che Wu
+49,w3m,N/A,2016-12-05 21:48:08 +0900,06caca1,d57c132,6c6a2cb,N/A,Yes,Out-of-Bounds,"file.c
+
+==15867==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000d10f at pc 0x00000048289d bp 0x7ffe5ec3f670 sp 0x7ffe5ec3f660
+READ of size 1 at 0x60200000d10f thread T0
+    #0 0x48289c in getMetaRefreshParam /home/john/tests/w3m/file.c:4381
+    #1 0x49b3f7 in HTMLtagproc1 /home/john/tests/w3m/file.c:5197
+    #2 0x4a9954 in HTMLlineproc0 /home/john/tests/w3m/file.c:6477
+    #3 0x4b396e in loadHTMLstream /home/john/tests/w3m/file.c:7252
+    #4 0x4ae3fe in loadHTMLBuffer /home/john/tests/w3m/file.c:6781
+    #5 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #6 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #7 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #8 0x2b3e6c4ab400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x60200000d10f is located 1 bytes to the left of 1-byte region [0x60200000d110,0x60200000d111)
+allocated by thread T0 here:
+    #0 0x2b3e6966ee60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x2b3e6ac70be6 in GC_malloc_atomic /media/sf_theRealBugSuite/w3m/notgc/notgc.c:275
+
+==15867==ABORTING
+",Yes,Success,"https://github.com/tats/w3m/commit/6c6a2cb
+https://github.com/tats/w3m/issues/63",Kuang-che Wu
+50,w3m,N/A,2016-12-05 21:48:20 +0900,06caca1,0e66622,f34c37f,N/A,Yes,Out-of-Bounds,"file.c
+
+=================================================================
+==18490==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61300000dcbc at pc 0x0000004a0e77 bp 0x7ffcbcc37d80 sp 0x7ffcbcc37d70
+WRITE of size 4 at 0x61300000dcbc thread T0
+    #0 0x4a0e76 in HTMLlineproc2body /home/john/tests/w3m/file.c:5732
+    #1 0x4a6b28 in HTMLlineproc2 /home/john/tests/w3m/file.c:6199
+    #2 0x4b43a7 in loadHTMLstream /home/john/tests/w3m/file.c:7292
+    #3 0x4ae49f in loadHTMLBuffer /home/john/tests/w3m/file.c:6784
+    #4 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #5 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #6 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #7 0x2b84b5250400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x61300000dcbc is located 4 bytes to the left of 360-byte region [0x61300000dcc0,0x61300000de28)
+allocated by thread T0 here:
+    #0 0x2b84b2413e60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x2b84b3a15be6 in GC_malloc_atomic /media/sf_theRealBugSuite/w3m/notgc/notgc.c:275
+
+
+==18490==ABORTING
+",Yes,Success,"https://github.com/tats/w3m/commit/f34c37f
+https://github.com/tats/w3m/issues/61",Kuang-che Wu
+51,w3m,N/A,2016-12-05 21:48:20 +0900,06caca1,6c6a2cb,0e66622,N/A,Yes,Out-of-Bounds,"file.c
+
+==21080==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61400000f438 at pc 0x000000509786 bp 0x7fff9eab3ec0 sp 0x7fff9eab3eb0
+READ of size 8 at 0x61400000f438 thread T0
+    #0 0x509785 in check_row /home/john/tests/w3m/table.c:377
+    #1 0x53410a in pushTable /home/john/tests/w3m/table.c:3337
+    #2 0x4a8fca in HTMLlineproc0 /home/john/tests/w3m/file.c:6435
+    #3 0x4b13d0 in completeHTMLstream /home/john/tests/w3m/file.c:7023
+    #4 0x4b3ae4 in loadHTMLstream /home/john/tests/w3m/file.c:7259
+    #5 0x4ae430 in loadHTMLBuffer /home/john/tests/w3m/file.c:6782
+    #6 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #7 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #8 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #9 0x2b9b1a2c6400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #10 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x61400000f438 is located 8 bytes to the left of 400-byte region [0x61400000f440,0x61400000f5d0)
+allocated by thread T0 here:
+    #0 0x2b9b1748a020 in calloc (/lib64/libasan.so.3+0xc7020)
+    #1 0x2b9b18a8bac5 in GC_malloc /media/sf_theRealBugSuite/w3m/notgc/notgc.c:259
+    #2 0x5220c3 in begin_table /home/john/tests/w3m/table.c:1998
+    #3 0x495a1d in HTMLtagproc1 /home/john/tests/w3m/file.c:5040
+    #4 0x4a9986 in HTMLlineproc0 /home/john/tests/w3m/file.c:6478
+    #5 0x4ac4b6 in HTMLlineproc0 /home/john/tests/w3m/file.c:6622
+    #6 0x4b39a0 in loadHTMLstream /home/john/tests/w3m/file.c:7253
+    #7 0x4ae430 in loadHTMLBuffer /home/john/tests/w3m/file.c:6782
+    #8 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #9 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #10 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #11 0x2b9b1a2c6400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+
+
+==21080==ABORTING
+",Yes,Success,"https://github.com/tats/w3m/commit/0e66622
+https://github.com/tats/w3m/issues/67",Kuang-che Wu
+52,w3m,N/A,2016-12-05 21:48:30 +0900,06caca1,f34c37f,d7f55d5,N/A,Yes,Out-of-Bounds,"file.c
+
+==26409==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60300000e1ff at pc 0x00000047f8c8 bp 0x7ffd136d8550 sp 0x7ffd136d8540
+READ of size 1 at 0x60300000e1ff thread T0
+    #0 0x47f8c7 in process_textarea /home/john/tests/w3m/file.c:4015
+    #1 0x49aaca in HTMLtagproc1 /home/john/tests/w3m/file.c:5145
+    #2 0x4a9a2d in HTMLlineproc0 /home/john/tests/w3m/file.c:6480
+    #3 0x4b3a4a in loadHTMLstream /home/john/tests/w3m/file.c:7255
+    #4 0x4ae4da in loadHTMLBuffer /home/john/tests/w3m/file.c:6784
+    #5 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #6 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #7 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #8 0x2b3af9840400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+",Yes,Success,"https://github.com/tats/w3m/commit/d7f55d5
+https://github.com/tats/w3m/issues/58",Kuang-che Wu
+53,w3m,N/A,2016-12-05 22:05:07 +0900,06caca1,d7f55d5,a6ddc33,N/A,Yes,Out-of-Bounds,"table.c
+
+==29101==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61500000fc80 at pc 0x000000529ea8 bp 0x7ffe08a37070 sp 0x7ffe08a37060
+READ of size 2 at 0x61500000fc80 thread T0
+    #0 0x529ea7 in feed_table_tag /home/john/tests/w3m/table.c:2595
+    #1 0x530b26 in feed_table /home/john/tests/w3m/table.c:3145
+    #2 0x4a8d13 in HTMLlineproc0 /home/john/tests/w3m/file.c:6425
+    #3 0x4b3aa1 in loadHTMLstream /home/john/tests/w3m/file.c:7255
+    #4 0x4ae531 in loadHTMLBuffer /home/john/tests/w3m/file.c:6784
+    #5 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #6 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #7 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #8 0x2abb033c9400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+",Yes,Success,"https://github.com/tats/w3m/commit/a6ddc33
+https://github.com/tats/w3m/issues/60",Kuang-che Wu
+54,w3m,N/A,2016-12-05 22:25:14 +0900,06caca1,a6ddc33,a3ed914,N/A,Yes,Out-of-Bounds,"table.c
+
+==31801==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x619000000680 at pc 0x00000051320d bp 0x7ffd3baa2ab0 sp 0x7ffd3baa2aa0
+READ of size 8 at 0x619000000680 thread T0
+    #0 0x51320c in set_integered_width /home/john/tests/w3m/table.c:1017
+    #1 0x51ce96 in renderTable /home/john/tests/w3m/table.c:1789
+    #2 0x4a95cd in HTMLlineproc0 /home/john/tests/w3m/file.c:6455
+    #3 0x4b14d1 in completeHTMLstream /home/john/tests/w3m/file.c:7025
+    #4 0x4b3be5 in loadHTMLstream /home/john/tests/w3m/file.c:7261
+    #5 0x4ae531 in loadHTMLBuffer /home/john/tests/w3m/file.c:6784
+    #6 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #7 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #8 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #9 0x2b0a186d8400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #10 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+",Yes,Success,"https://github.com/tats/w3m/commit/a3ed914
+https://github.com/tats/w3m/issues/70",Kuang-che Wu
+55,w3m,N/A,2016-12-05 22:36:58 +0900,06caca1,a3ed914,30b0c97,N/A,Yes,Out-of-Bounds,"table.c
+
+==2392==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61400000f7d0 at pc 0x0000005294ba bp 0x7ffc693c8150 sp 0x7ffc693c8140
+WRITE of size 8 at 0x61400000f7d0 thread T0
+    #0 0x5294b9 in feed_table_tag /home/john/tests/w3m/table.c:2570
+    #1 0x530c45 in feed_table /home/john/tests/w3m/table.c:3145
+    #2 0x4a8d13 in HTMLlineproc0 /home/john/tests/w3m/file.c:6425
+    #3 0x4b3aa1 in loadHTMLstream /home/john/tests/w3m/file.c:7255
+    #4 0x4ae531 in loadHTMLBuffer /home/john/tests/w3m/file.c:6784
+    #5 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #6 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #7 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #8 0x2b75621c8400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x61400000f7d0 is located 0 bytes to the right of 400-byte region [0x61400000f640,0x61400000f7d0)
+allocated by thread T0 here:
+    #0 0x2b755f38c020 in calloc (/lib64/libasan.so.3+0xc7020)
+    #1 0x2b756098dac5 in GC_malloc /media/sf_theRealBugSuite/w3m/notgc/notgc.c:259
+    #2 0x522267 in begin_table /home/john/tests/w3m/table.c:1998
+    #3 0x495a74 in HTMLtagproc1 /home/john/tests/w3m/file.c:5040
+    #4 0x4a9a84 in HTMLlineproc0 /home/john/tests/w3m/file.c:6480
+    #5 0x4b3aa1 in loadHTMLstream /home/john/tests/w3m/file.c:7255
+    #6 0x4ae531 in loadHTMLBuffer /home/john/tests/w3m/file.c:6784
+    #7 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #8 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #9 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #10 0x2b75621c8400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+",Yes,Success,"https://github.com/tats/w3m/commit/30b0c97
+https://github.com/tats/w3m/issues/71",Kuang-che Wu
+56,w3m,N/A,2016-12-07 21:19:28 +0900,06caca1,900553d,d345c09,N/A,Yes,Out-of-Bounds,"libwcwtf.c
+
+==7385==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60300000e1f0 at pc 0x000000659075 bp 0x7ffc65a8a280 sp 0x7ffc65a8a270
+READ of size 1 at 0x60300000e1f0 thread T0
+    #0 0x659074 in wtf_strwidth /home/john/tests/w3m/libwc/wtf.c:124
+    #1 0x50aa6e in visible_length /home/john/tests/w3m/table.c:476
+    #2 0x532cec in feed_table /home/john/tests/w3m/table.c:3250
+    #3 0x4a8d13 in HTMLlineproc0 /home/john/tests/w3m/file.c:6425
+    #4 0x4b3aa1 in loadHTMLstream /home/john/tests/w3m/file.c:7255
+    #5 0x4ae531 in loadHTMLBuffer /home/john/tests/w3m/file.c:6784
+    #6 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #7 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #8 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #9 0x2afcb6c3a400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #10 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x60300000e1f0 is located 0 bytes to the right of 32-byte region [0x60300000e1d0,0x60300000e1f0)
+allocated by thread T0 here:
+    #0 0x2afcb3dfde60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x2afcb53ffbe6 in GC_malloc_atomic /media/sf_theRealBugSuite/w3m/notgc/notgc.c:275
+",Yes,Success,"https://github.com/tats/w3m/commit/d345c09
+https://github.com/tats/w3m/issues/57",Kuang-che Wu
+57,w3m,N/A,2016-12-07 21:24:44 +0900,06caca1,d345c09,512ed46,N/A,Yes,Out-of-Bounds,"file.c
+
+==10046==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60300000e1c0 at pc 0x0000004ac603 bp 0x7ffeec35b1b0 sp 0x7ffeec35b1a0
+READ of size 1 at 0x60300000e1c0 thread T0
+    #0 0x4ac602 in HTMLlineproc0 /home/john/tests/w3m/file.c:6501
+    #1 0x4b3aa1 in loadHTMLstream /home/john/tests/w3m/file.c:7255
+    #2 0x4ae531 in loadHTMLBuffer /home/john/tests/w3m/file.c:6784
+    #3 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #4 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #5 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #6 0x2b82a00d7400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x60300000e1c0 is located 0 bytes to the right of 32-byte region [0x60300000e1a0,0x60300000e1c0)
+allocated by thread T0 here:
+    #0 0x2b829d29ae60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x2b829e89cbe6 in GC_malloc_atomic /media/sf_theRealBugSuite/w3m/notgc/notgc.c:275
+",Yes,Suucess,"https://github.com/tats/w3m/commit/512ed46
+https://github.com/tats/w3m/issues/59",Kuang-che Wu
+58,w3m,N/A,2016-12-07 21:57:37 +0900,06caca1,512ed46,ecf5771,N/A,Yes,Out-of-Bounds,"file.c
+
+==12703==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x62e000012bb1 at pc 0x2b82937a1fd3 bp 0x7fff660733a0 sp 0x7fff66072b48
+READ of size 1 at 0x62e000012bb1 thread T0
+    #0 0x2b82937a1fd2  (/lib64/libasan.so.3+0x3cfd2)
+    #1 0x60340c in Strnew_charp /home/john/tests/w3m/Str.c:67
+    #2 0x46f270 in flushline /home/john/tests/w3m/file.c:2794
+    #3 0x497475 in HTMLtagproc1 /home/john/tests/w3m/file.c:5075
+    #4 0x4a9b5a in HTMLlineproc0 /home/john/tests/w3m/file.c:6485
+    #5 0x51bd1b in make_caption /home/john/tests/w3m/table.c:1691
+    #6 0x51c255 in renderTable /home/john/tests/w3m/table.c:1724
+    #7 0x4a96a3 in HTMLlineproc0 /home/john/tests/w3m/file.c:6460
+    #8 0x4b15a7 in completeHTMLstream /home/john/tests/w3m/file.c:7030
+    #9 0x4b3cbb in loadHTMLstream /home/john/tests/w3m/file.c:7266
+    #10 0x4ae607 in loadHTMLBuffer /home/john/tests/w3m/file.c:6789
+    #11 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #12 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #13 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #14 0x2b8296668400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #15 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+",Yes,Success,"https://github.com/tats/w3m/commit/ecf5771
+https://github.com/tats/w3m/issues/64",Kuang-che Wu
+59,w3m,N/A,2016-12-07 22:09:06 +0900,06caca1,ecf5771,26484fc,N/A,Yes,Use-After-Free,"file.c
+
+==15375==ERROR: AddressSanitizer: heap-use-after-free on address 0x61200000b7c5 at pc 0x2b4a45839fd3 bp 0x7ffedfd5f720 sp 0x7ffedfd5eec8
+READ of size 106 at 0x61200000b7c5 thread T0
+    #0 0x2b4a45839fd2  (/lib64/libasan.so.3+0x3cfd2)
+    #1 0x6034c6 in Strnew_charp /home/john/tests/w3m/Str.c:67
+    #2 0x4ac4b7 in HTMLlineproc0 /home/john/tests/w3m/file.c:6622
+    #3 0x51c061 in make_caption /home/john/tests/w3m/table.c:1698
+    #4 0x51edbf in renderTable /home/john/tests/w3m/table.c:1870
+    #5 0x4a975d in HTMLlineproc0 /home/john/tests/w3m/file.c:6464
+    #6 0x4b1661 in completeHTMLstream /home/john/tests/w3m/file.c:7034
+    #7 0x4b3d75 in loadHTMLstream /home/john/tests/w3m/file.c:7270
+    #8 0x4ae6c1 in loadHTMLBuffer /home/john/tests/w3m/file.c:6793
+    #9 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #10 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #11 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #12 0x2b4a48700400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #13 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+",Yes,Success,"https://github.com/tats/w3m/commit/26484fc
+https://github.com/tats/w3m/issues/65",Kuang-che Wu
+60,w3m,N/A,2016-12-08 01:00:42 +0900,06caca1,295b1ef,a56a8ef,Duplicate,Potential,Out-of-Bounds,"libwcwtf.c
+
+==20617==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60300000e1f0 at pc 0x000000659321 bp 0x7ffed3845160 sp 0x7ffed3845150
+READ of size 1 at 0x60300000e1f0 thread T0
+    #0 0x659320 in wtf_strwidth /home/john/tests/w3m/libwc/wtf.c:124
+    #1 0x50ad1a in visible_length /home/john/tests/w3m/table.c:476
+    #2 0x532f98 in feed_table /home/john/tests/w3m/table.c:3250
+    #3 0x4a8ea3 in HTMLlineproc0 /home/john/tests/w3m/file.c:6434
+    #4 0x4b3d4d in loadHTMLstream /home/john/tests/w3m/file.c:7265
+    #5 0x4ae7dd in loadHTMLBuffer /home/john/tests/w3m/file.c:6794
+    #6 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #7 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #8 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #9 0x2b4c1d8fb400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #10 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x60300000e1f0 is located 0 bytes to the right of 32-byte region [0x60300000e1d0,0x60300000e1f0)
+allocated by thread T0 here:
+    #0 0x2b4c1aabee60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x2b4c1c0c0be6 in GC_malloc_atomic /media/sf_theRealBugSuite/w3m/notgc/notgc.c:275
+",Yes,Success,"https://github.com/tats/w3m/commit/a56a8ef
+https://github.com/tats/w3m/issues/57",Kuang-che Wu
+61,w3m,N/A,2016-12-08 23:46:30 +0900,a56a8ef,a56a8ef,a932f78,N/A,Yes,Out-of-Bounds,"table.c
+
+==23287==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60300000e220 at pc 0x00000050b051 bp 0x7ffd83ab8ff0 sp 0x7ffd83ab8fe0
+READ of size 1 at 0x60300000e220 thread T0
+    #0 0x50b050 in visible_length /home/john/tests/w3m/table.c:432
+    #1 0x532f98 in feed_table /home/john/tests/w3m/table.c:3250
+    #2 0x4a8ea3 in HTMLlineproc0 /home/john/tests/w3m/file.c:6434
+    #3 0x4b3d4d in loadHTMLstream /home/john/tests/w3m/file.c:7265
+    #4 0x4ae7dd in loadHTMLBuffer /home/john/tests/w3m/file.c:6794
+    #5 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #6 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #7 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #8 0x2ac8e122e400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x60300000e220 is located 0 bytes to the right of 32-byte region [0x60300000e200,0x60300000e220)
+allocated by thread T0 here:
+    #0 0x2ac8de3f1e60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x2ac8df9f3be6 in GC_malloc_atomic /media/sf_theRealBugSuite/w3m/notgc/notgc.c:275
+",Yes,Success,"https://github.com/tats/w3m/commit/a932f78
+https://github.com/tats/w3m/issues/73
+",Kuang-che Wu
+62,w3m,N/A,2016-12-08 23:51:09 +0900,a56a8ef,a932f78,e757b43,N/A,Yes,Out-of-Bounds,"table.c
+
+==25963==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60300000e1c0 at pc 0x0000005276e2 bp 0x7ffd70f31ea0 sp 0x7ffd70f31e90
+READ of size 1 at 0x60300000e1c0 thread T0
+    #0 0x5276e1 in skip_space /home/john/tests/w3m/table.c:2261
+    #1 0x532f6c in feed_table /home/john/tests/w3m/table.c:3250
+    #2 0x4a8ea3 in HTMLlineproc0 /home/john/tests/w3m/file.c:6434
+    #3 0x4b3d4d in loadHTMLstream /home/john/tests/w3m/file.c:7265
+    #4 0x4ae7dd in loadHTMLBuffer /home/john/tests/w3m/file.c:6794
+    #5 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #6 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #7 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #8 0x2b98fc2a0400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x60300000e1c0 is located 0 bytes to the right of 32-byte region [0x60300000e1a0,0x60300000e1c0)
+allocated by thread T0 here:
+    #0 0x2b98f9463e60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x2b98faa65be6 in GC_malloc_atomic /media/sf_theRealBugSuite/w3m/notgc/notgc.c:275
+",Yes,Success,"https://github.com/tats/w3m/commit/e757b43
+https://github.com/tats/w3m/issues/74",Kuang-che Wu
+63,w3m,N/A,2016-12-09 00:41:19 +0900,a56a8ef,e757b43,9ccaa1d,N/A,Yes,Out-of-Bounds,"form.c
+
+==28604==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000ce79 at pc 0x00000060541d bp 0x7ffc2bfe9a80 sp 0x7ffc2bfe9a70
+READ of size 3 at 0x60200000ce79 thread T0
+    #0 0x60541c in Strcat_charp_n /home/john/tests/w3m/Str.c:199
+    #1 0x548323 in textfieldrep /home/john/tests/w3m/form.c:545
+    #2 0x47c140 in process_input /home/john/tests/w3m/file.c:3708
+    #3 0x49a78a in HTMLtagproc1 /home/john/tests/w3m/file.c:5120
+    #4 0x4a9c14 in HTMLlineproc0 /home/john/tests/w3m/file.c:6489
+    #5 0x4b3d4d in loadHTMLstream /home/john/tests/w3m/file.c:7265
+    #6 0x4ae7dd in loadHTMLBuffer /home/john/tests/w3m/file.c:6794
+    #7 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #8 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #9 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #10 0x2ad52a1b7400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #11 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x60200000ce7b is located 0 bytes to the right of 11-byte region [0x60200000ce70,0x60200000ce7b)
+allocated by thread T0 here:
+    #0 0x2ad52737ae60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x2ad52897cbe6 in GC_malloc_atomic /media/sf_theRealBugSuite/w3m/notgc/notgc.c:275
+",Yes,Success,"https://github.com/tats/w3m/commit/9ccaa1d
+https://github.com/tats/w3m/issues/75",Kuang-che Wu
+64,w3m,N/A,2016-12-10 16:38:44 +0900,a56a8ef,52e9fc6,e0efc12,N/A,Yes,Out-of-Bounds,"form.c
+
+==6890==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60300000e040 at pc 0x000000545193 bp 0x7ffe5d1db1b0 sp 0x7ffe5d1db1a0
+READ of size 1 at 0x60300000e040 thread T0
+    #0 0x545192 in form_update_line /home/john/tests/w3m/form.c:393
+    #1 0x546ddf in formUpdateBuffer /home/john/tests/w3m/form.c:497
+    #2 0x543815 in formResetBuffer /home/john/tests/w3m/form.c:272
+    #3 0x4ae9e1 in loadHTMLBuffer /home/john/tests/w3m/file.c:6800
+    #4 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #5 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #6 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #7 0x2ba71810c400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x60300000e040 is located 0 bytes to the right of 32-byte region [0x60300000e020,0x60300000e040)
+allocated by thread T0 here:
+    #0 0x2ba7152cfe60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x2ba7168d1be6 in GC_malloc_atomic /media/sf_theRealBugSuite/w3m/notgc/notgc.c:275
+",Yes,Success,"https://github.com/tats/w3m/commit/e0efc12
+https://github.com/tats/w3m/issues/78",Kuang-che Wu
+65,w3m,N/A,2016-12-10 18:18:47 +0900,a56a8ef,e0efc12,b4d27ba,N/A,Yes,Out-of-Bounds,"libwcwtf.c
+
+==4189==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60700000d1fc at pc 0x00000065c4f2 bp 0x7ffec07275c0 sp 0x7ffec07275b0
+READ of size 1 at 0x60700000d1fc thread T0
+    #0 0x65c4f1 in wtf_is_hangul /home/john/tests/w3m/libwc/wtf.c:554
+    #1 0x4ab06f in HTMLlineproc0 /home/john/tests/w3m/file.c:6579
+    #2 0x4b3d4d in loadHTMLstream /home/john/tests/w3m/file.c:7265
+    #3 0x4ae7dd in loadHTMLBuffer /home/john/tests/w3m/file.c:6794
+    #4 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #5 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #6 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #7 0x2b11901b3400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x60700000d1fc is located 0 bytes to the right of 76-byte region [0x60700000d1b0,0x60700000d1fc)
+allocated by thread T0 here:
+    #0 0x2b118d376e60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x2b118e978be6 in GC_malloc_atomic /media/sf_theRealBugSuite/w3m/notgc/notgc.c:275
+",Yes,Success,"https://github.com/tats/w3m/commit/b4d27ba
+https://github.com/tats/w3m/issues/77",Kuang-che Wu
+66,w3m,N/A,2016-12-10 18:18:58 +0900,a56a8ef,b4d27ba,f763b8e,N/A,Yes,Out-of-Bounds,"table.c
+
+==12202==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60300000e100 at pc 0x00000050b6ae bp 0x7ffe8a079870 sp 0x7ffe8a079860
+READ of size 1 at 0x60300000e100 thread T0
+    #0 0x50b6ad in visible_length_plain /home/john/tests/w3m/table.c:514
+    #1 0x50b719 in maximum_visible_length_plain /home/john/tests/w3m/table.c:551
+    #2 0x53376a in feed_table /home/john/tests/w3m/table.c:3290
+    #3 0x4a8ea3 in HTMLlineproc0 /home/john/tests/w3m/file.c:6434
+    #4 0x4b3d4d in loadHTMLstream /home/john/tests/w3m/file.c:7265
+    #5 0x4ae7dd in loadHTMLBuffer /home/john/tests/w3m/file.c:6794
+    #6 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #7 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #8 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #9 0x2b4f6b2da400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #10 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+",Yes,Success,"https://github.com/tats/w3m/commit/f763b8e
+https://github.com/tats/w3m/issues/76",Kuang-che Wu
+67,w3m,N/A,2016-12-10 18:18:58 +0900,a56a8ef,f763b8e,4381dff,N/A,Yes,Out-of-Bounds,"Str.c
+
+=================================================================
+==9556==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x000000603493 bp 0x7ffcda313460 sp 0x7ffcda313430 T0)
+    #0 0x603492 in Strnew_size /home/john/tests/w3m/Str.c:52
+    #1 0x54760f in textfieldrep /home/john/tests/w3m/form.c:522
+    #2 0x47c140 in process_input /home/john/tests/w3m/file.c:3708
+    #3 0x49a78a in HTMLtagproc1 /home/john/tests/w3m/file.c:5120
+    #4 0x4a9c14 in HTMLlineproc0 /home/john/tests/w3m/file.c:6489
+    #5 0x4b3d4d in loadHTMLstream /home/john/tests/w3m/file.c:7265
+    #6 0x4ae7dd in loadHTMLBuffer /home/john/tests/w3m/file.c:6794
+    #7 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #8 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #9 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #10 0x2ba43542d400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #11 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+",Yes,Success,"https://github.com/tats/w3m/commit/4381dff
+https://github.com/tats/w3m/issues/72",Kuang-che Wu
+68,w3m,N/A,2016-12-10 22:09:34 +0900,a56a8ef,4381dff,998b6f9,N/A,Yes,Out-of-Bounds,"libwcwtf.c
+
+READ of size 1 at 0x60200000ce92 thread T0
+    #0 0x65b16f in wtf_parse1 /home/john/tests/w3m/libwc/wtf.c:408
+    #1 0x65bab2 in wtf_parse /home/john/tests/w3m/libwc/wtf.c:476
+    #2 0x61d1ed in wc_conv_to_ces /home/john/tests/w3m/libwc/conv.c:93
+    #3 0x61c8d3 in wc_Str_conv /home/john/tests/w3m/libwc/conv.c:23
+    #4 0x61cac6 in wc_Str_conv_strict /home/john/tests/w3m/libwc/conv.c:37
+    #5 0x5b4f5e in url_encode /home/john/tests/w3m/url.c:2296
+    #6 0x4767e8 in process_img /home/john/tests/w3m/file.c:3248
+    #7 0x4944a3 in HTMLtagproc1 /home/john/tests/w3m/file.c:4930
+    #8 0x4a9c14 in HTMLlineproc0 /home/john/tests/w3m/file.c:6489
+    #9 0x4b3d4d in loadHTMLstream /home/john/tests/w3m/file.c:7265
+    #10 0x4ae7dd in loadHTMLBuffer /home/john/tests/w3m/file.c:6794
+    #11 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #12 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #13 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #14 0x2ab0a1eae400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #15 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+
+0x60200000ce92 is located 0 bytes to the right of 2-byte region [0x60200000ce90,0x60200000ce92)
+allocated by thread T0 here:
+    #0 0x2ab09f071e60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x2ab0a0673be6 in GC_malloc_atomic /media/sf_theRealBugSuite/w3m/notgc/notgc.c:275
+",Yes,Success,"https://github.com/tats/w3m/commit/998b6f9
+https://github.com/tats/w3m/issues/68",Kuang-che Wu
+69,w3m,N/A,2016-12-10 22:30:36 +0900,,998b6f9,1978455,N/A,Yes,Out-of-Bounds,etc.c,Yes,Failed,"https://github.com/tats/w3m/commit/1978455
+https://github.com/tats/w3m/issues/69",Kuang-che Wu
+70,w3m,N/A,2016-12-10 22:54:14 +0900,,1978455,7fbaf94,N/A,Yes,Out-of-Bounds,libwcwtf.c,Yes,Failed,"https://github.com/tats/w3m/commit/7fbaf94
+https://github.com/tats/w3m/issues/57",Kuang-che Wu
+71,w3m,N/A,2016-12-13 21:44:40 +0900,,aaeb315,a4152aa,N/A,Yes,Out-of-Bounds,form.c,Yes,Failed,"https://github.com/tats/w3m/commit/a4152aa
+https://github.com/tats/w3m/issues/82",Kuang-che Wu
+72,w3m,N/A,2016-12-13 22:24:54 +0900,a56a8ef,a4152aa,77d8d8d,N/A,Yes,Out-of-Bounds,"form.c
+
+==25643==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000ced0 at pc 0x000000605475 bp 0x7fff0b4435b0 sp 0x7fff0b4435a0
+READ of size 3 at 0x60200000ced0 thread T0
+    #0 0x605474 in Strcat_charp_n /home/john/tests/w3m/Str.c:201
+    #1 0x54836e in textfieldrep /home/john/tests/w3m/form.c:547
+    #2 0x47c140 in process_input /home/john/tests/w3m/file.c:3708
+    #3 0x49a78a in HTMLtagproc1 /home/john/tests/w3m/file.c:5120
+    #4 0x4a9c14 in HTMLlineproc0 /home/john/tests/w3m/file.c:6489
+    #5 0x4b3d4d in loadHTMLstream /home/john/tests/w3m/file.c:7265
+    #6 0x4ae7dd in loadHTMLBuffer /home/john/tests/w3m/file.c:6794
+    #7 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #8 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #9 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #10 0x2abc33e32400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #11 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+",Yes,Success,"https://github.com/tats/w3m/commit/77d8d8d
+https://github.com/tats/w3m/issues/79",Kuang-che Wu
+73,w3m,N/A,2016-12-13 23:04:18 +0900,a56a8ef,77d8d8d,e79d0ec,N/A,Potential,Out-of-Bounds,"file.c
+
+==28312==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000d033 at pc 0x000000605525 bp 0x7ffef6535d70 sp 0x7ffef6535d60
+READ of size 3 at 0x60200000d033 thread T0
+    #0 0x605524 in Strcat_charp_n /home/john/tests/w3m/Str.c:201
+    #1 0x46d3db in proc_mchar /home/john/tests/w3m/file.c:2610
+    #2 0x4aabca in HTMLlineproc0 /home/john/tests/w3m/file.c:6555
+    #3 0x4b3d4d in loadHTMLstream /home/john/tests/w3m/file.c:7265
+    #4 0x4ae7dd in loadHTMLBuffer /home/john/tests/w3m/file.c:6794
+    #5 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #6 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #7 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #8 0x2b18ddab4400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+",Yes,Success,"https://github.com/tats/w3m/commit/e79d0ec
+https://github.com/tats/w3m/issues/80",Kuang-che Wu
+74,w3m,N/A,2016-12-16 00:44:44 +0900,,107810c,6eea841,"Fixed bug  have been re-introduced  and fixed with better code. Since they are essentially duplicates, we dont consider this commit",Potential,I Don't Know,file.cnlibwcwtf.cnlibwcwtf.h,No,TODO,https://github.com/tats/w3m/commit/6eea841,Kuang-che Wu
+75,w3m,N/A,2016-12-18 00:44:36 +0900,,5d665be,7a2675b,N/A,No,Infinite Loop,file.c,Yes,TODO,"https://github.com/tats/w3m/commit/7a2675b
+https://github.com/tats/w3m/issues/85",Kuang-che Wu
+76,w3m,N/A,2016-12-18 01:20:14 +0900,a56a8ef,7a2675b,aa2077e,N/A,Yes,Use-After-Free,"file.c
+
+=================================================================
+==31025==ERROR: AddressSanitizer: heap-use-after-free on address 0x60600000e44e at pc 0x0000004ac418 bp 0x7ffd0ba329a0 sp 0x7ffd0ba32990
+READ of size 1 at 0x60600000e44e thread T0
+    #0 0x4ac417 in HTMLlineproc0 /home/john/tests/w3m/file.c:6507
+    #1 0x4b38b6 in loadHTMLstream /home/john/tests/w3m/file.c:7262
+    #2 0x4ae346 in loadHTMLBuffer /home/john/tests/w3m/file.c:6791
+    #3 0x44f74d in loadSomething /home/john/tests/w3m/file.c:224
+    #4 0x468097 in loadGeneralFile /home/john/tests/w3m/file.c:2241
+    #5 0x40b886 in main /home/john/tests/w3m/main.c:1017
+    #6 0x2b6453e77400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+",Yes,Success,"https://github.com/tats/w3m/commit/aa2077e
+https://github.com/tats/w3m/issues/81",Kuang-che Wu
+77,w3m,N/A,2016-12-24 12:58:44 +0900,,d3048fe,dc32152,N/A,Yes,Out-of-Bounds,form.c,Yes,Failed,"https://github.com/tats/w3m/commit/dc32152
+https://github.com/tats/w3m/issues/82",Kuang-che Wu
+78,w3m,N/A,2016-12-24 13:02:41 +0900,a56a8ef,dc32152,eb4130a,N/A,Yes,Out-of-Bounds,"form.c
+
+==4288==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x611000009860 at pc 0x00000065a610 bp 0x7ffdb502deb0 sp 0x7ffdb502dea0
+READ of size 1 at 0x611000009860 thread T0
+    #0 0x65a60f in wtf_parse1 /home/john/tests/w3m/libwc/wtf.c:416
+    #1 0x65bcbd in wtf_get_code /home/john/tests/w3m/libwc/wtf.c:549
+    #2 0x4b865f in conv_symbol /home/john/tests/w3m/file.c:7615
+    #3 0x4b8f61 in _saveBuffer /home/john/tests/w3m/file.c:7661
+    #4 0x4b95fa in saveBuffer /home/john/tests/w3m/file.c:7682
+    #5 0x40f526 in do_dump /home/john/tests/w3m/main.c:1357
+    #6 0x40c0ea in main /home/john/tests/w3m/main.c:1063
+    #7 0x2b5e7cd9d400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x405169 in _start (/home/john/tests/w3m/installer/bin/w3m+0x405169)
+",Yes,Success,https://github.com/tats/w3m/commit/eb4130a,Kuang-che Wu
+79,w3m,N/A,2016-12-24 14:20:35 +0900,,eb4130a,f51c096,N/A,Yes,I Don't Know,libwcwtf.c,Yes,Failed,"https://github.com/tats/w3m/commit/f51c096
+http://emacs-w3m.namazu.org/ml/msg12505.html",Katsumi Yamaoka

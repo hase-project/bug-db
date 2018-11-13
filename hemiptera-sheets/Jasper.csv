@@ -1,0 +1,288 @@
+JASPER,,Num Of Confirmed Bugs with test cases:,19,Num of available crashes,22,,Project Link:,https://github.com/mdadams/jasper,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+Invalid Access,11,b702259,17,,,,,,,,,,,,
+Failed Assertion,6,ed355a6,2,,,,,,,,,,,,
+Division By Zero,2,,,,,,,,,,,,,,
+Dangling Pointer Use,0,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+Internal ID,Tool Name,CVE ID,Date of Fix,Earlies Unfixed Commit,Worked on imgfile,Commit ID before fix,Commit ID of fix,Notes,Shall we include?,Bug Type,Bug Details,Crash Input,Crash Status,Useful Link,Author of Test Case
+1,Jasper,CVE-2008-3522,19 Sep 2016,TODO,Could not find author of report.,b702259,413a496,N/A,Yes,Buffer Overflow,Invalid read due to unsafe vsnprintf,No,TODO,https://github.com/mdadams/jasper/commit/413a496481e53ba75d9808085a6e988a86e684dd,
+2,Jasper,CVE-2016-1577,19 Sep 2016,b702259,Yes (for failed assetion),00b33e9,e8f510f,Test fails assertion but does not trigger double free bug,Yes,Double Free,Double Free bug - attrval was not nullified upon its destruction.,Yes,Failed,https://github.com/mdadams/jasper/commit/462c38279036a5c480db9fac73ddb31d936d0bcb,
+3,Jasper,CVE-2016-2116,19 Sep 2016,TODO,TODO,876698f,ad3a21e,Memory Leakage is according to CVE bug report.,No,Memory Leak,Memory Leakage – stream not closed in case of error. ,No,TODO,https://github.com/mdadams/jasper/commit/fc6d908725af4fb674fcaf897c809dc12b522585,
+4,Jasper,CVE-2015-5221,19 Sep 2016,TODO,No,fc6d908,d23c795,"Obtained kindly from Josselin Feist
+
+Does not get detected by ASAN. ASAN could be having a false negative.",Yes,Double Free,Double Free bug – tvp is destroyed twice as the error label leads also to its destruction.,Yes,Failed,https://github.com/mdadams/jasper/commit/d23c7955bc8ddb12e88036ada09443ce54cd6495,
+5,Jasper,CVE-2014-8138,19 Sep 2016,TODO,TODO,c966a36,3933ab6,N/A,Yes,Buffer Overflow,Buffer overflow due to lack on check on def->data.cdef.ents[i].channo,No,TODO,https://github.com/mdadams/jasper/commit/3933ab687ca9a0abcaa8bc769088d41d72c6013a,
+6,Jasper,CVE-2014-8157,22 Sep 2016,TODO,TODO,95c5a55,2144881,N/A,Yes,Buffer Overflow,Buffer overflow due to no missing equality check (off-by-one bug).,No,TODO,https://github.com/mdadams/jasper/commit/214488123f5746bc4a56967d1632b068ef4ef497,
+7,Jasper,CVE-2014-8158,22 Sep 2016,TODO,TODO,266ab23,137628a,N/A,Yes,Buffer Overflow,Overflows.,No,TODO,https://github.com/mdadams/jasper/commit/137628a9ebc798b8681f900adf83a8a9953d156e,
+8,Jasper,CVE-2014-9029,22 Sep 2016,TODO,TODO,8c0cb3e,7793a89,N/A,Yes,Buffer Overflow,A number of off-by-one bugs,No,TODO,https://github.com/mdadams/jasper/commit/9d3a5fc8aa37e09d83772f122d43cb2b2428d9d7,
+9,Jasper,CVE-2016-1867,22 Sep 2016,b702259,Yes,9d3a5fc,773e70c,N/A,Yes,Buffer Overflow,"Missing out-of-bounds check Heap Buffer overflow jpc_pi_nextcprl
+
+==4613==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60700000c4e0 at pc 0x000000455794 bp 0x7fff3ea6c540 sp 0x7fff3ea6c530
+READ of size 8 at 0x60700000c4e0 thread T0
+    #0 0x455793 in jpc_pi_nextcprl /home/john/tests/jasper/src/libjasper/jpc/jpc_t2cod.c:434
+    #1 0x4512f4 in jpc_pi_next /home/john/tests/jasper/src/libjasper/jpc/jpc_t2cod.c:125
+    #2 0x48d3eb in jpc_dec_decodepkts /home/john/tests/jasper/src/libjasper/jpc/jpc_t2dec.c:441
+    #3 0x470eaa in jpc_dec_process_sod /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:590
+    #4 0x46fc17 in jpc_dec_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:390
+    #5 0x46f299 in jpc_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:254
+    #6 0x41e4a2 in jp2_decode /home/john/tests/jasper/src/libjasper/jp2/jp2_dec.c:215
+    #7 0x40a8d5 in jas_image_decode /home/john/tests/jasper/src/libjasper/base/jas_image.c:372
+    #8 0x4026de in main /home/john/tests/jasper/src/appl/imginfo.c:179
+    #9 0x2b71e2555400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #10 0x4023d9 in _start (/home/john/tests/jasper/installer/bin/imginfo+0x4023d9)
+",Yes,Success,"https://github.com/mdadams/jasper/commit/773e70cbab3ca723bd6431a33c9601417c8e39cd
+https://bugzilla.redhat.com/show_bug.cgi?id=1298135#a0
+http://seclists.org/oss-sec/2016/q1/84",
+10,Jasper,CVE-2016-2089,12 Oct 2016,TODO,TODO,1184d7e,c87ad33,N/A,Yes,Null Dereference,Null Dereference.,No,TODO,https://github.com/mdadams/jasper/commit/c87ad330a8b8d6e5eb0065675601fdfae08ebaab,
+11,Jasper,CVE-2014-8137,12 Oct 2016,TODO,TODO,c87ad33,4bb93a6,N/A,Yes,Double Free,"Double Free bug – dangling pointer results in trigger code at label error, which will deallocate memory again.",No,TODO,https://github.com/mdadams/jasper/commit/4bb93a6c49da7c1b6ad2acb60b18954a6547c637,
+34,Jasper,CVE-2016-8691,15 Oct 2016,b702259,Yes,3c55b39,d8c2604,N/A,Yes,Division By Zero,"Division by zero bug in jpc_dec_process_siz
+
+==4630==ERROR: AddressSanitizer: FPE on unknown address 0x0000004770b3 (pc 0x0000004770b3 bp 0x7ffd9eec1b20 sp 0x7ffd9eec1ae0 T0)
+    #0 0x4770b2 in jpc_dec_process_siz /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:1194
+    #1 0x46fc17 in jpc_dec_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:390
+    #2 0x46f299 in jpc_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:254
+    #3 0x40a8d5 in jas_image_decode /home/john/tests/jasper/src/libjasper/base/jas_image.c:372
+    #4 0x4026de in main /home/john/tests/jasper/src/appl/imginfo.c:179
+    #5 0x2b31093d2400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x4023d9 in _start (/home/john/tests/jasper/installer/bin/imginfo+0x4023d9)
+",Yes,Success,"https://blogs.gentoo.org/ago/2016/10/16/jasper-two-divide-by-zero-in-jpc_dec_process_siz-jpc_dec-c/
+https://github.com/mdadams/jasper/issues/22
+https://github.com/mdadams/jasper/commit/d8c2604cd438c41ec72aff52c16ebd8183068020",
+35,Jasper,CVE-2016-8692,15 Oct 2016,b702259,Yes,3c55b39,d8c2604,N/A,Yes,Division By Zero,"Division by zero bug in jpc_dec_process_siz
+
+==4685==ERROR: AddressSanitizer: FPE on unknown address 0x000000477185 (pc 0x000000477185 bp 0x7ffe50120a00 sp 0x7ffe501209c0 T0)
+    #0 0x477184 in jpc_dec_process_siz /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:1196
+    #1 0x46fc17 in jpc_dec_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:390
+    #2 0x46f299 in jpc_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:254
+    #3 0x40a8d5 in jas_image_decode /home/john/tests/jasper/src/libjasper/base/jas_image.c:372
+    #4 0x4026de in main /home/john/tests/jasper/src/appl/imginfo.c:179
+    #5 0x2ace93aed400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x4023d9 in _start (/home/john/tests/jasper/installer/bin/imginfo+0x4023d9)
+",Yes,Success,"https://blogs.gentoo.org/ago/2016/10/16/jasper-two-divide-by-zero-in-jpc_dec_process_siz-jpc_dec-c/
+https://github.com/mdadams/jasper/issues/23
+https://github.com/mdadams/jasper/commit/d8c2604cd438c41ec72aff52c16ebd8183068020",
+12,Jasper,N/A,16 Oct 2016,TODO,TODO,722e943,fa19cad,N/A,No,Memory Leak,Memory leak at realloc,No,TODO,https://github.com/mdadams/jasper/commit/fa19cadf7e16233427bfc217d6f913892d5f1fed,
+26,Japer,N/A,16 Oct 2016,b702259,Yes,779ddf8,8f62b47,"No git commits where referenced when the issued was raised. Just that the bug did not fail on the recent rep (16th Oct).
+
+Included the earliest Commit ID done on the 16th as the fixed ID, and the commit when project was updated to version 1.900.3.",Yes,Buffer Overflow,"Heap Buffer Overflow in jpc_pi_nextrpcl
+
+==4667==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x618000010000 at pc 0x00000047aa84 bp 0x7ffd4a4ee010 sp 0x7ffd4a4ee000
+WRITE of size 1 at 0x618000010000 thread T0
+    #0 0x47aa83 in jpc_dec_cp_setfromcox /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:1668
+    #1 0x47a48b in jpc_dec_cp_setfromcod /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:1636
+    #2 0x477fd9 in jpc_dec_process_cod /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:1263
+    #3 0x46fc17 in jpc_dec_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:390
+    #4 0x46f299 in jpc_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:254
+    #5 0x40a8d5 in jas_image_decode /home/john/tests/jasper/src/libjasper/base/jas_image.c:372
+    #6 0x4026de in main /home/john/tests/jasper/src/appl/imginfo.c:179
+    #7 0x2ab47aaf1400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x4023d9 in _start (/home/john/tests/jasper/installer/bin/imginfo+0x4023d9)
+",Yes,Success,https://github.com/mdadams/jasper/issues/28,
+27,Jasper,N/A,16 Oct 2016,b702259,Yes,b13b8c8,8f62b47,"No git commits where referenced when the issued was raised. Just that the bug did not fail on the recent rep (16th Oct).
+
+Included the earliest Commit ID done on the 16th as the fixed ID, and the commit when project was updated to version 1.900.3.",Yes,Buffer Overflow,"Issuer reports Buffer Overflow. 
+
+=4705==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000ecd8 at pc 0x0000004866b3 bp 0x7ffdc88c9470 sp 0x7ffdc88c9460
+WRITE of size 8 at 0x60200000ecd8 thread T0
+    #0 0x4866b2 in jpc_getuint16 /home/john/tests/jasper/src/libjasper/jpc/jpc_cs.c:1544
+    #1 0x4851b1 in jpc_crg_getparms /home/john/tests/jasper/src/libjasper/jpc/jpc_cs.c:1337
+    #2 0x47ec9d in jpc_getms /home/john/tests/jasper/src/libjasper/jpc/jpc_cs.c:280
+    #3 0x46faab in jpc_dec_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:372
+    #4 0x46f299 in jpc_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:254
+    #5 0x40a8d5 in jas_image_decode /home/john/tests/jasper/src/libjasper/base/jas_image.c:372
+    #6 0x4026de in main /home/john/tests/jasper/src/appl/imginfo.c:179
+    #7 0x2aeca45f2400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x4023d9 in _start (/home/john/tests/jasper/installer/bin/imginfo+0x4023d9)
+",Yes,Success,https://github.com/mdadams/jasper/issues/29,
+13,Jasper,N/A ,19 Oct 2016,b702259,No,69a1439,33cc2cf,N/A,Yes,Assertion Failure,"Assertion Fails
+
+jpc_dec.c:1072: jpc_dec_tiledecode: Assertion `dec->numcomps == 3' failed.
+",Yes,Success,"https://github.com/mdadams/jasper/issues/32
+https://github.com/mdadams/jasper/commit/69a1439a5381e42b06ec6a06ed2675eb793babee",
+14,Jasper,N/A,19 Oct 2016,TODO,TODO,f596a07,b35a056,N/A,No,Double Free,Integer Overflow. Leads to triggering a destruction ,No,TODO,https://github.com/mdadams/jasper/commit/b35a05635e56f554870ce85f64293a3868793f69,
+15,Jasper,N/A,19 Oct 2016,b702259,Yes,d6b3687,69a1439,N/A,No,Unit Variable,"Uninitialised Variable seg fault
+
+==4822==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x000000456fc3 bp 0x7ffd5e52f170 sp 0x7ffd5e52f150 T0)
+    #0 0x456fc2 in jpc_pi_destroy /home/john/tests/jasper/src/libjasper/jpc/jpc_t2cod.c:521
+    #1 0x47528b in jpc_dec_tilefini /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:999
+    #2 0x476925 in jpc_dec_process_eoc /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:1151
+    #3 0x46fc17 in jpc_dec_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:390
+    #4 0x46f299 in jpc_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:254
+    #5 0x40a8d5 in jas_image_decode /home/john/tests/jasper/src/libjasper/base/jas_image.c:372
+    #6 0x4026de in main /home/john/tests/jasper/src/appl/imginfo.c:179
+    #7 0x2ba824d15400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x4023d9 in _start (/home/john/tests/jasper/installer/bin/imginfo+0x4023d9)
+",Yes,Success,"https://github.com/mdadams/jasper/issues/30
+https://github.com/mdadams/jasper/commit/69a1439a5381e42b06ec6a06ed2675eb793babee",
+16,Jasper,N/A,19 Oct 2016,TODO,TODO,ec99998,67f309a,N/A,No,Unit Variable,Uninitialised variable,No,TODO,https://github.com/mdadams/jasper/commit/67f309a5b527ef850f2b3ac3db73ca4cebf286bb,
+17,Jasper,CVE-2016-8884,20 Oct 2016,b702259,Yes,cfa945c,5d66894,N/A,Yes,Null Dereference,"Null Dereference.
+
+=================================================================
+==11240==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x2ac83ee865a7 bp 0x7fff9d2c2f50 sp 0x7fff9d2c2e70 T0)
+    #0 0x2ac83ee865a6 in bmp_getdata /home/john/tests/jasper/src/libjasper/bmp/bmp_dec.c:394
+    #1 0x2ac83ee844ff in bmp_decode /home/john/tests/jasper/src/libjasper/bmp/bmp_dec.c:201
+    #2 0x2ac83ee643b8 in jas_image_decode /home/john/tests/jasper/src/libjasper/base/jas_image.c:391
+    #3 0x4011bd in main /home/john/tests/jasper/src/appl/imginfo.c:188
+    #4 0x2ac83f6ef400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #5 0x400e59 in _start (/home/john/tests/jasper/installer/bin/imginfo+0x400e59)
+",Yes,Success,"https://github.com/mdadams/jasper/commit/5d66894d2313e3f3469f19066e149e08ff076698
+https://blogs.gentoo.org/ago/2016/10/18/jasper-two-null-pointer-dereference-in-bmp_getdata-bmp_dec-c-incomplete-fix-for-cve-2016-8690/",
+18,Jasper,CVE-2016-8693,20 Oct 2016,b702259,TODO,efb88eb ,44a524e,Seems to trigger a failed assertion as well.,Yes,Double Free,"Double Free bug -creation of a zero sized buffer
+
+==4885==ERROR: AddressSanitizer: attempting double-free on 0x619000003780 in thread T0:
+    #0 0x2ab592707b00 in free (/lib64/libasan.so.3+0xc6b00)
+    #1 0x41379f in jas_free /home/john/tests/jasper/src/libjasper/base/jas_malloc.c:111
+    #2 0x408303 in mem_close /home/john/tests/jasper/src/libjasper/base/jas_stream.c:1079
+    #3 0x403e37 in jas_stream_close /home/john/tests/jasper/src/libjasper/base/jas_stream.c:466
+    #4 0x40a800 in jas_image_cmpt_destroy /home/john/tests/jasper/src/libjasper/base/jas_image.c:343
+    #5 0x40a7a5 in jas_image_cmpt_create /home/john/tests/jasper/src/libjasper/base/jas_image.c:333
+    #6 0x40c989 in jas_image_addcmpt /home/john/tests/jasper/src/libjasper/base/jas_image.c:669
+    #7 0x491683 in jpg_mkimage /home/john/tests/jasper/src/libjasper/jpg/jpg_dec.c:247
+    #8 0x490e6f in jpg_decode /home/john/tests/jasper/src/libjasper/jpg/jpg_dec.c:171
+    #9 0x40a8d5 in jas_image_decode /home/john/tests/jasper/src/libjasper/base/jas_image.c:372
+    #10 0x4026de in main /home/john/tests/jasper/src/appl/imginfo.c:179
+    #11 0x2ab593b76400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #12 0x4023d9 in _start (/home/john/tests/jasper/installer/bin/imginfo+0x4023d9)
+",Yes,Failed,"https://github.com/mdadams/jasper/issues/31
+https://blogs.gentoo.org/ago/2016/10/16/jasper-double-free-in-mem_close-jas_stream-c/
+https://github.com/mdadams/jasper/commit/44a524e367597af58d6265ae2014468b334d0309",
+23,Jasper,N/A,22 Oct 2016,b702259,Yes,c5e348f,988f836,Other report states that a heap buffer overflow occurs. Highly likely this is a bug! (This has now been confirmed),Yes,Buffer Overflow,"Integer Overflow - affects a size variable, but use of it, particularly in a loop, was not easily found from git changes.
+
+=================================================================
+==4851==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x2b02950c3770 at pc 0x0000004761ce bp 0x7ffe6d9a2a90 sp 0x7ffe6d9a2a80
+READ of size 8 at 0x2b02950c3770 thread T0
+    #0 0x4761cd in jpc_dec_tiledecode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:1103
+    #1 0x476904 in jpc_dec_process_eoc /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:1147
+    #2 0x46fc17 in jpc_dec_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:390
+    #3 0x46f299 in jpc_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:254
+    #4 0x41e4a2 in jp2_decode /home/john/tests/jasper/src/libjasper/jp2/jp2_dec.c:215
+    #5 0x40a8d5 in jas_image_decode /home/john/tests/jasper/src/libjasper/base/jas_image.c:372
+    #6 0x4026de in main /home/john/tests/jasper/src/appl/imginfo.c:179
+    #7 0x2b0289df1400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x4023d9 in _start (/home/john/tests/jasper/installer/bin/imginfo+0x4023d9)
+",Yes,Success,"https://github.com/mdadams/jasper/commit/988f8365f7d8ad8073b6786e433d34c553ecf568
+https://github.com/mdadams/jasper/commit/988f8365f7d8ad8073b6786e433d34c553ecf56
+https://github.com/mdadams/jasper/issues/46",
+22,Jasper,N/A,23 Oct 2016,b702259,Yes,b9be3d9,d91198a,"Despite the fact that the same assertion is failed as in ID-20, maintainer says that the root cause is different. Quick look at code seems to confirm this.",Yes,Buffer Overflow,"Integer Overflow - Overflows the size, which in turn is used as the bounds of a loop.
+
+Fails Assertion
+
+ jas_seq.c:89: jas_seq2d_create: Assertion `xstart <= xend && ystart <= yend' failed.
+",Yes,Success,"https://github.com/mdadams/jasper/commit/d91198abd00fc435a397fe6bad906a4c1748e9cf
+https://github.com/asarubbo/poc/blob/master/00003-jasper-assert-jas_matrix_t",
+32,Jasper,N/A,23 Oct 2016,b702259,Yes,5e3a597,e5b827c,N/A,Yes,Assertion Failure,"Assertion Fail
+
+pnm_dec.c:403: pnm_getsint: Assertion `(tmpval & (1 << (wordsize - 1))) == 0' failed.",Yes,Success,"https://github.com/mdadams/jasper/commit/e5b827c9611e43c704a1c4e33de21dea89d2145a
+https://github.com/mdadams/jasper/issues/47",
+33,Jasper,CVE-2016-8887,23 Oct 2016,b702259,Yes,d91198a,bdfe95a,N/A,Yes,Null Dereference,"Null Pointer Dereference
+
+==4985==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x2b1e929bb8f7 bp 0x7fff5ab6e940 sp 0x7fff5ab6e0b0 T0)
+    #0 0x2b1e929bb8f6  (/lib64/libasan.so.3+0x238f6)
+    #1 0x2b1e92a5eacb in free (/lib64/libasan.so.3+0xc6acb)
+    #2 0x41379f in jas_free /home/john/tests/jasper/src/libjasper/base/jas_malloc.c:111
+    #3 0x42280e in jp2_colr_destroy /home/john/tests/jasper/src/libjasper/jp2/jp2_cod.c:444
+    #4 0x4213e6 in jp2_box_destroy /home/john/tests/jasper/src/libjasper/jp2/jp2_cod.c:211
+    #5 0x421b13 in jp2_box_get /home/john/tests/jasper/src/libjasper/jp2/jp2_cod.c:308
+    #6 0x41e454 in jp2_decode /home/john/tests/jasper/src/libjasper/jp2/jp2_dec.c:156
+    #7 0x40a8d5 in jas_image_decode /home/john/tests/jasper/src/libjasper/base/jas_image.c:372
+    #8 0x4026de in main /home/john/tests/jasper/src/appl/imginfo.c:179
+    #9 0x2b1e93ecd400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #10 0x4023d9 in _start (/home/john/tests/jasper/installer/bin/imginfo+0x4023d9)
+",Yes,Success,"https://blogs.gentoo.org/ago/2016/10/18/jasper-null-pointer-dereference-in-jp2_colr_destroy-jp2_cod-c/
+https://github.com/mdadams/jasper/issues/45
+https://github.com/mdadams/jasper/commit/bdfe95a6e81ffb4b2fad31a76b57943695beed20",
+24,Jasper,N/A,24 Oct 2016,b702259,Yes,c62014d,411a406,N/A,Yes,Assertion Failure,"ras_dec.c:327: ras_getcmap: Assertion `numcolors <= RAS_CMAP_MAXSIZ' failed.
+",Yes,Success,https://github.com/mdadams/jasper/commit/411a4068f8c464e883358bf403a3e25158863823,
+28,Jasper,CVE-2016-9391,25 Oct 2016,b702259,Yes,dee11ec ,1e84674,Can fail multiple asserts.,Yes,Assertion Failure,"Failed Assertions in JPC bitstream code
+
+jpc_bs.c:197: jpc_bitstream_getbits: Assertion `n >= 0 && n < 32' failed.
+",Yes,Success,"https://github.com/mdadams/jasper/issues/59
+https://github.com/mdadams/jasper/issues/55
+https://github.com/mdadams/jasper/commit/1e84674d95353c64e5c4c0e7232ae86fd6ea813b",
+31,Jasper,N/A,28 Oct 2016,b702259,Yes,dee1b64,f703806,N/A,Yes,Assertion Failure,"Assertion Fail
+
+jpc_t2cod.c:297: jpc_pi_nextrpcl: Assertion `pi->prcno < pi->pirlvl->numprcs' failed.",Yes,Success,"https://github.com/mdadams/jasper/commit/f7038068550fba0e41e1d0c355787f1dcd5bf330
+https://github.com/mdadams/jasper/issues/61
+https://github.com/mdadams/jasper/issues/57",
+25,Jasper,N/A,4 Nov 2016,b702259,Yes,862ba25,1f0dfe5 ,Causes Buffer Overflow but maintainer could not reproduce. Worth trying. (This is now confirmed thanks to ASan),Yes,Buffer Overflow,"Heap Buffer Overflow in jpc_pi_nextrpcl
+
+==5064==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000e9ec at pc 0x000000456949 bp 0x7ffc270cd760 sp 0x7ffc270cd750
+READ of size 4 at 0x60200000e9ec thread T0
+    #0 0x456948 in jpc_pi_nextcprl /home/john/tests/jasper/src/libjasper/jpc/jpc_t2cod.c:482
+    #1 0x4512f4 in jpc_pi_next /home/john/tests/jasper/src/libjasper/jpc/jpc_t2cod.c:125
+    #2 0x48d3eb in jpc_dec_decodepkts /home/john/tests/jasper/src/libjasper/jpc/jpc_t2dec.c:441
+    #3 0x470eaa in jpc_dec_process_sod /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:590
+    #4 0x46fc17 in jpc_dec_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:390
+    #5 0x46f299 in jpc_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:254
+    #6 0x41e4a2 in jp2_decode /home/john/tests/jasper/src/libjasper/jp2/jp2_dec.c:215
+    #7 0x40a8d5 in jas_image_decode /home/john/tests/jasper/src/libjasper/base/jas_image.c:372
+    #8 0x4026de in main /home/john/tests/jasper/src/appl/imginfo.c:179
+    #9 0x2ae158185400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #10 0x4023d9 in _start (/home/john/tests/jasper/installer/bin/imginfo+0x4023d9)
+",Yes,Success,"https://github.com/mdadams/jasper/commit/1f0dfe5a42911b6880a1445f13f6d615ddb55387
+https://github.com/mdadams/jasper/issues/75
+https://github.com/mdadams/jasper/issues/73",
+21,Jasper,N/A,6 Nov 2016,TODO,TODO,5fffc50 ,fa6834f,N/A,No,Buffer Overflow,Lack of Bounds check,No,TODO,"https://github.com/mdadams/jasper/commit/fa6834f4fba8452da6d4fe1c63a378de4d3bff16
+https://github.com/mdadams/jasper/issues/77",
+20,Jasper,CVE-2016-9557,12 Nov 2016,b702259,Yes,2b2efba,d42b238,N/A,Yes,Assertion Failure,"Integer Overflow - calls a memopen function with a potentially overflowed integer. Need to investigate the function to check if an out of bounds read occurs.
+
+Also ASSERT FAILURE Bug
+
+jas_seq.c:90: jas_seq2d_create: Assertion `xstart <= xend && ystart <= yend' failed.
+",Yes,Success,"https://github.com/mdadams/jasper/commit/d42b2388f7f8e0332c846675133acea151fc557a 
+https://blogs.gentoo.org/ago/2016/11/19/jasper-signed-integer-overflow-in-jas_image-c/
+https://github.com/mdadams/jasper/issues/82",
+19,Jasper,CVE-2016-9560,20 Nov 2016,b702259,Yes,b702259,1abc2e5,N/A,Yes,Buffer Overflow,"Buffer overflow
+
+==5085==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7fffe6ec4b20 at pc 0x00000046d530 bp 0x7fffe6ec3c10 sp 0x7fffe6ec3c00
+WRITE of size 4 at 0x7fffe6ec4b20 thread T0
+    #0 0x46d52f in jpc_tsfb_getbands2 /home/john/tests/jasper/src/libjasper/jpc/jpc_tsfb.c:225
+    #1 0x46d4c8 in jpc_tsfb_getbands2 /home/john/tests/jasper/src/libjasper/jpc/jpc_tsfb.c:221
+    #2 0x46cfb1 in jpc_tsfb_getbands /home/john/tests/jasper/src/libjasper/jpc/jpc_tsfb.c:185
+    #3 0x471c7b in jpc_dec_tileinit /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:710
+    #4 0x470ace in jpc_dec_process_sod /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:556
+    #5 0x46fc17 in jpc_dec_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:390
+    #6 0x46f299 in jpc_decode /home/john/tests/jasper/src/libjasper/jpc/jpc_dec.c:254
+    #7 0x40a8d5 in jas_image_decode /home/john/tests/jasper/src/libjasper/base/jas_image.c:372
+    #8 0x4026de in main /home/john/tests/jasper/src/appl/imginfo.c:179
+    #9 0x2b06ad950400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #10 0x4023d9 in _start (/home/john/tests/jasper/installer/bin/imginfo+0x4023d9)
+",Yes,Success,"https://github.com/mdadams/jasper/commit/1abc2e5a401a4bf1d5ca4df91358ce5df111f495
+https://blogs.gentoo.org/ago/2016/11/20/jasper-stack-based-buffer-overflow-in-jpc_tsfb_getbands2-jpc_tsfb-c/",
+29,Jasper,CVE-2016-8654,27 Nov 2016,ed355a6,No,ed355a6,4a59cfa,"Compile using cmake (instead of ./configure). 
+
+./jasper --input '/media/sf_Bugs/Jasper/ID-29/PoC1.jpc' --output-format jpc
+
+Requires LIBJPEG to trigger",Yes,Buffer Overflow,"ERROR: AddressSanitizer: heap-buffer-overflow on address 0x62d000030408 at pc 0x2b8fd66c6a99 bp 0x7ffc5bad6b00 sp 0x7ffc5bad6af0
+WRITE of size 8 at 0x62d000030408 thread T0
+    #0 0x2b8fd66c6a98 in jpc_qmfb_split_colgrp (/home/john/tests/jasper/install/lib/libjasper.so.4+0x9ea98)
+    #1 0x2b8fd66ca74d in jpc_ft_analyze (/home/john/tests/jasper/install/lib/libjasper.so.4+0xa274d)
+    #2 0x2b8fd6706090 in jpc_tsfb_analyze2 (/home/john/tests/jasper/install/lib/libjasper.so.4+0xde090)
+    #3 0x2b8fd6705fe6 in jpc_tsfb_analyze (/home/john/tests/jasper/install/lib/libjasper.so.4+0xddfe6)
+    #4 0x2b8fd66aa54e in jpc_enc_encodemainbody (/home/john/tests/jasper/install/lib/libjasper.so.4+0x8254e)
+    #5 0x2b8fd66a2f2f in jpc_encode (/home/john/tests/jasper/install/lib/libjasper.so.4+0x7af2f)
+    #6 0x2b8fd665ebc7 in jas_image_encode (/home/john/tests/jasper/install/lib/libjasper.so.4+0x36bc7)
+    #7 0x40240c in main (/home/john/tests/jasper/install/bin/jasper+0x40240c)
+    #8 0x2b8fd6ee8400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x4018b9 in _start (/home/john/tests/jasper/install/bin/jasper+0x4018b9)
+",Yes,Success,"https://github.com/mdadams/jasper/issues/93
+https://bugzilla.redhat.com/show_bug.cgi?id=1399167
+https://github.com/mdadams/jasper/commit/4a59cfaf9ab3d48fca4a15c0d2674bf7138e3d1a","Bingchang, Liu @ VARAS of IIE"
+30,Jasper,CVE-2016-8654,27 Nov 2016,ed355a6,Yes,da11593,f25486c,Compile using cmake (instead of ./configure),Yes,Buffer Overflow,"Buffer Overflow
+
+13297==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x00000048c7de bp 0x7ffe534fe4b0 sp 0x7ffe534fe450 T0)
+    #0 0x48c7dd in jpc_pi_nextrpcl /home/john/hemiptera_applications/jasper/src/libjasper/jpc/jpc_t2cod.c:252
+    #1 0x48b20b in jpc_pi_next /home/john/hemiptera_applications/jasper/src/libjasper/jpc/jpc_t2cod.c:117
+    #2 0x4939ae in jpc_dec_decodepkts /home/john/hemiptera_applications/jasper/src/libjasper/jpc/jpc_t2dec.c:441
+    #3 0x436db0 in jpc_dec_process_sod /home/john/hemiptera_applications/jasper/src/libjasper/jpc/jpc_dec.c:628
+    #4 0x435b2f in jpc_dec_decode /home/john/hemiptera_applications/jasper/src/libjasper/jpc/jpc_dec.c:425
+    #5 0x435158 in jpc_decode /home/john/hemiptera_applications/jasper/src/libjasper/jpc/jpc_dec.c:262
+    #6 0x40a4fe in jas_image_decode /home/john/hemiptera_applications/jasper/src/libjasper/base/jas_image.c:444
+    #7 0x407408 in main /home/john/hemiptera_applications/jasper/src/appl/imginfo.c:238
+    #8 0x2add04818400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x406e29 in _start (/home/john/hemiptera_applications/jasper/install/bin/imginfo+0x406e29)
+",Yes,Success,"https://github.com/mdadams/jasper/commit/f25486c3d4aa472fec79150f2c41ed4333395d3d
+https://github.com/mdadams/jasper/issues/94","Bingchang, Liu @ VARAS of IIE"

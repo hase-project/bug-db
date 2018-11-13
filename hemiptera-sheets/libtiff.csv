@@ -1,0 +1,1029 @@
+libtiff,,Num Of Confirmed Bugs with test cases:,41,Num of available crashes,60,,Project Link:,https://github.com/vadz/libtiff,,,,,,
+,,,,,,,,,,,,,,
+Invalid Access,36,18b29a6,1,,f64949a,15,,,,,,,,
+Failed Assertion,1,8b4c419 ,2,,,,,,,,,,,
+Division By Zero,4,9ec1d40 ,6,,,,,,,,,,,
+Dangling Pointer Use,0,cd82b52 ,11,,,,,,,,,,,
+,,,,,,,,,,,,,,
+Internal ID,Tool Name,CVE ID,Date of Fix,Earlies Unfixed Commit,Commit ID before fix,Commit ID of fix,Notes,Shall we include?,Bug Type,Bug Details,Crash Input,Crash Status,Useful Links,Creditor to Crash Input
+1,LibTiff,N/A,1999-09-17 4:08:59,TODO,92a1534,226d5a9,N/A,Yes,Buffer Overflow,Causes Seg Fault,No,TODO,"https://github.com/vadz/libtiff/commit/226d5a9
+http://www.asmail.be/msg0055338123.html",
+2,LibTiff,N/A,1999-09-29 16:09:59,TODO,8f0cab0,25fea31,N/A,Potential,Buffer Overflow,Potential out of bounds in tif_fax3.c,No,TODO,https://github.com/vadz/libtiff/commit/25fea31,
+3,LibTiff,N/A,1999-12-20 23:46:11,TODO,3b1989c,2c26285,N/A,Yes,I Don't Know,Causes Seg Fault,No,TODO,https://github.com/vadz/libtiff/commit/2c26285,
+4,LibTiff,N/A,2000-02-11 19:28:17,TODO,8515d92,9b26856,N/A,Potential,I Don't Know,Could be an underflow,No,TODO,https://github.com/vadz/libtiff/commit/9b26856,
+5,LibTiff,N/A,2000-03-17 18:34:39,TODO,33c0ee2,caa0fc9,N/A,No,Negative Shift,In tif_fax3.c,No,TODO,https://github.com/vadz/libtiff/commit/caa0fc9,
+6,LibTiff,N/A,2000-04-04 14:54:34,TODO,cde2051,9f9421a,N/A,Yes,Buffer Overflow,Several overreads and overwrites,No,TODO,"https://github.com/vadz/libtiff/commit/9f9421a
+http://www.asmail.be/msg0054803880.html",
+7,LibTiff,N/A,2000-07-12 13:00:27,TODO,a79cc5f,653a310,N/A,Yes,Buffer Overflow,In tif_fax3.c,No,TODO,"https://github.com/vadz/libtiff/commit/653a310
+http://www.asmail.be/msg0054928810.html",
+8,LibTiff,N/A,2000-09-25 13:48:45,TODO,6a538c0,5e55680,N/A,Potential,I Don't Know,In tif_getimage.c,No,TODO,https://github.com/vadz/libtiff/commit/5e55680,
+9,LibTiff,N/A,2000-09-26 12:59:19,TODO,6e6a67b,8016a77,N/A,Potential,I Don't Know,In tif_fax3.h,No,TODO,https://github.com/vadz/libtiff/commit/8016a77,
+10,LibTiff,N/A,2000-10-12 14:22:38,TODO,3bc44cf,c613276,N/A,Potential,I Don't Know,In tif_fax3.c,No,TODO,https://github.com/vadz/libtiff/commit/c613276,
+11,LibTiff,N/A,2000-10-17 2:33:52,TODO,77466b9,f3f457a,N/A,Potential,I Don't Know,In tif_packbits.c,No,TODO,https://github.com/vadz/libtiff/commit/f3f457a,
+12,LibTiff,N/A,2001-06-29 2:48:00,TODO,2741f78,27a3781,N/A,Potential,I Don't Know,In tiffcmp.c,No,TODO,https://github.com/vadz/libtiff/commit/27a3781,
+13,LibTiff,N/A,2001-08-11 3:41:07,TODO,67afed8,97d6898,N/A,Potential,I Don't Know,tif_getimage.c,No,TODO,https://github.com/vadz/libtiff/commit/97d6898,
+14,LibTiff,N/A,2001-08-28 13:11:38,TODO,97d6898,6b962be,N/A,Potential,I Don't Know,tif_getimage.c,No,TODO,https://github.com/vadz/libtiff/commit/6b962be,
+15,LibTiff,N/A,2001-09-06 19:28:45,TODO,fe597d3,0415586,N/A,Yes,I Don't Know,In tif_packbits.c,No,TODO,https://github.com/vadz/libtiff/commit/0415586,
+16,LibTiff,N/A,2001-09-09 16:02:04,TODO,53c91df,20e2cbb,N/A,Potential,I Don't Know,In tif_getimage.c,No,TODO,https://github.com/vadz/libtiff/commit/20e2cbb,
+17,LibTiff,N/A,2002-01-04 19:19:12,TODO,49fb026,284ea63,N/A,Potential,I Don't Know,In tif_jpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/284ea63,
+18,LibTiff,N/A,2002-01-18 19:05:27,TODO,a92ce12,6a8cdde,N/A,Potential,I Don't Know,In tif_read.c,No,TODO,https://github.com/vadz/libtiff/commit/6a8cdde,
+19,LibTiff,N/A,2002-03-10 13:11:35,TODO,11ce721,cd6c629,N/A,Potential,I Don't Know,In tif_dirwrite.c & tif_dirinfo.c,No,TODO,https://github.com/vadz/libtiff/commit/cd6c629,
+20,LibTiff,N/A,2002-03-25 15:43:16,TODO,783ddf1,ccc8750,N/A,Potential,I Don't Know,In tif_getimage.c,No,TODO,https://github.com/vadz/libtiff/commit/ccc8750,
+21,LibTiff,N/A,2002-03-26 10:35:27,TODO,d8dbd99,f1fc7e7,N/A,Potential,I Don't Know,In tif_getimage.c,No,TODO,https://github.com/vadz/libtiff/commit/f1fc7e7,
+22,LibTiff,N/A,2002-03-27 14:46:45,TODO,d3bf756,97587df,N/A,Yes,Division By Zero,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/97587df,
+23,LibTiff,N/A,2002-04-08 17:07:19,TODO,356e27a,add4494,N/A,Potential,I Don't Know,In tif_dirinfo.c,No,TODO,https://github.com/vadz/libtiff/commit/add4494,
+24,LibTiff,N/A,2002-04-09 20:48:53,TODO,6b5a537,536829f,N/A,Yes,Division By Zero,In tiff2ps.c,No,TODO,https://github.com/vadz/libtiff/commit/536829f,
+25,LibTiff,N/A,2002-06-12 2:44:40,TODO,a00a65a,13454b8,N/A,Potential,I Don't Know,In tif_ojpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/13454b8,
+26,LibTiff,N/A,2002-06-22 10:32:56,TODO,a56f20a,3f07bfa,N/A,Potential,I Don't Know,In tiff2ps.c,No,TODO,https://github.com/vadz/libtiff/commit/3f07bfa,
+27,LibTiff,N/A,2002-07-31 21:05:13,TODO,c87370e,c8cb18c,N/A,Potential,I Don't Know,In tif_jpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/c8cb18c,
+28,LibTiff,N/A,2002-07-31 21:36:08,TODO,bc5f33c,fb65d7c,N/A,Potential,I Don't Know,In tif_jpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/fb65d7c,
+29,LibTiff,N/A,2002-08-22 15:13:27,TODO,49c1c63,3bd3a76,N/A,Potential,I Don't Know,In tif_lzw.c,No,TODO,https://github.com/vadz/libtiff/commit/3bd3a76,
+30,LibTiff,N/A,2002-09-08 18:01:20,TODO,42eaeba,cc05feb,N/A,Potential,I Don't Know,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/cc05feb,
+31,LibTiff,N/A,2002-10-02 8:46:54,TODO,d2b0f7d,e39cfd2,N/A,Potential,I Don't Know,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/e39cfd2,
+32,LibTiff,N/A,2002-10-15 2:39:09,TODO,70483a3,5f7803f,N/A,Potential,Buffer Overflow,In tiff2ps.c,No,TODO,https://github.com/vadz/libtiff/commit/5f7803f,
+33,LibTiff,N/A,2003-02-04 8:51:38,TODO,1cad57c,947c3a5,N/A,No,Memory Leak,In raw2tiff.c,No,TODO,https://github.com/vadz/libtiff/commit/947c3a5,
+34,LibTiff,N/A,2003-04-16 19:27:57,TODO,c48aade,29080eb,N/A,I Don't Know,Buffer Overflow,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/29080eb,
+35,LibTiff,N/A,2003-05-07 8:12:30,TODO,46ae7d4,3c4afd8,N/A,Yes,Buffer Overflow,In Ascii85EncodeBlock() function,No,TODO,https://github.com/vadz/libtiff/commit/3c4afd8,
+36,LibTiff,N/A,2003-06-18 9:57:55,TODO,5ce298c,0211d7b,N/A,Potential,Use-Before-Write,In tiffcmp.c,No,TODO,https://github.com/vadz/libtiff/commit/0211d7b,
+37,LibTiff,N/A,2003-06-19 21:37:01,TODO,be06fb7,3f64e70,N/A,Yes,Buffer Overflow,In tif_print.c,No,TODO,https://github.com/vadz/libtiff/commit/3f64e70,
+38,LibTiff,N/A,2003-06-30 18:25:50,TODO,b111a9f,9aa4d0f,N/A,Potential,I Don't Know,In tif_dir.c & tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/9aa4d0f,
+39,LibTiff,N/A,2003-07-03 12:27:17,TODO,280c1ab,4cc69dd,N/A,No,Memory Leak,In thumbnail.c,No,TODO,https://github.com/vadz/libtiff/commit/4cc69dd,
+40,LibTiff,N/A,2003-08-21 10:00:06,TODO,dd1ed4a,88590f7,N/A,Potential,Buffer Overflow,In tiffmedian.c,No,TODO,https://github.com/vadz/libtiff/commit/88590f7,
+41,LibTiff,N/A,2003-09-30 9:38:55,TODO,6079d33,0d9aff8,N/A,Potential,I Don't Know,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/0d9aff8,
+42,LibTiff,N/A,2003-10-03 13:09:38,TODO,c9939fb,5238199,N/A,No,Infinite Loop,In fax2ps.c,No,TODO,https://github.com/vadz/libtiff/commit/5238199,
+43,LibTiff,N/A,2003-11-09 22:04:58,TODO,9d3a813,9d59926,N/A,Potential,I Don't Know,In tif_tile.c,No,TODO,https://github.com/vadz/libtiff/commit/9d59926,
+44,LibTiff,N/A,2003-11-29 15:32:40,TODO,ab5483d,2234218,N/A,Potential,I Don't Know,In tiff2pdf.c,No,TODO,https://github.com/vadz/libtiff/commit/2234218,
+45,LibTiff,N/A,2003-12-01 10:51:39,TODO,0a6af7f,dfe5e9d,N/A,Potential,I Don't Know,In tiff2pdf.c,No,TODO,https://github.com/vadz/libtiff/commit/dfe5e9d,
+46,LibTiff,N/A,2003-12-02 16:40:01,TODO,dfe5e9d,fb141cb,N/A,Potential,I Don't Know,tif_dir.c,No,TODO,https://github.com/vadz/libtiff/commit/fb141cb,
+47,LibTiff,N/A,2003-12-05 14:10:58,TODO,5136cf0,a67751e,N/A,Potential,I Don't Know,In tif_codec.c,No,TODO,https://github.com/vadz/libtiff/commit/a67751e,
+48,LibTiff,N/A,2003-12-31 9:49:47,TODO,d641250,f152696,N/A,Potential,Null Dereference,In tif_win32.c,No,TODO,https://github.com/vadz/libtiff/commit/f152696,
+49,LibTiff,N/A,2004-01-20 19:28:05,TODO,d37dad1,3bb0cea,N/A,Potential,Buffer Overflow,In tif_write.c,No,TODO,https://github.com/vadz/libtiff/commit/3bb0cea,
+50,LibTiff,N/A,2004-01-28 12:12:01,TODO,2620b5d,53c2cf2,N/A,No,Memory Leak,In tiffcp.c,No,TODO,https://github.com/vadz/libtiff/commit/53c2cf2,
+51,LibTiff,N/A,2004-01-29 15:39:52,TODO,fb5d3f2,7ab709f,Requires Windows,Potential,Null Dereference,In tif_win32.c,No,TODO,https://github.com/vadz/libtiff/commit/7ab709f,
+52,LibTiff,N/A,2004-02-05 9:53:39,TODO,1a2090c,4199fcc,N/A,Potential,I Don't Know,In tif_fax3.c,No,TODO,https://github.com/vadz/libtiff/commit/4199fcc,
+53,LibTiff,N/A,2004-04-20 14:54:05,TODO,c0d5588,e096eb9,N/A,Potential,I Don't Know,In tiff2pdf.c,No,TODO,https://github.com/vadz/libtiff/commit/e096eb9,
+54,LibTiff,N/A,2004-05-03 16:39:11,TODO,3dffbe2,d198110,N/A,Potential,Buffer Overflow,In tiffset.c,No,TODO,https://github.com/vadz/libtiff/commit/d198110,
+55,LibTiff,N/A,2004-08-18 20:13:31,TODO,76bdc4d,3ab38ce,N/A,Potential,I Don't Know,In tif_dirinfo.c,No,TODO,https://github.com/vadz/libtiff/commit/3ab38ce,
+56,LibTiff,N/A,2004-08-23 12:00:30,TODO,c1a68b9,0a0b6cb,N/A,Potential,I Don't Know,In tiff2pdf.c,No,TODO,https://github.com/vadz/libtiff/commit/0a0b6cb,
+57,LibTiff,N/A,2004-08-23 12:57:52,TODO,aec18fd,0812385,N/A,Potential,Null Dereference,In tif_dir.c,No,TODO,https://github.com/vadz/libtiff/commit/0812385,
+58,LibTiff,N/A,2004-08-23 13:16:54,TODO,0812385,0589734,N/A,Potential,Use-Before-Write,In tiff2ps.c,No,TODO,https://github.com/vadz/libtiff/commit/0589734,
+59,LibTiff,N/A,2004-08-25 13:14:18,TODO,96f7ffd,1afe530,N/A,Yes,Division By Zero,In tiff2ps.c,No,TODO,https://github.com/vadz/libtiff/commit/1afe530,
+60,LibTiff,N/A,2004-09-10 11:50:57,TODO,7b0d5c5,57cf74f,N/A,Potential,I Don't Know,tiff2pdf.c,No,TODO,https://github.com/vadz/libtiff/commit/57cf74f,
+61,LibTiff,N/A,2004-09-10 13:40:24,TODO,d97b05b,83a444c,N/A,Potential,I Don't Know,In ascii_tag.c,No,TODO,https://github.com/vadz/libtiff/commit/83a444c,
+62,LibTiff,N/A,2004-09-19 10:08:38,TODO,1ed810e,17e318c,N/A,Yes,Buffer Overflow,"In tif_luv.c, tif_next.c and tif_thunder.c",No,TODO,https://github.com/vadz/libtiff/commit/17e318c,
+63,LibTiff,N/A,2004-09-23 7:49:58,TODO,62a1c99,0f341d8,N/A,Potential,Buffer Overflow,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/0f341d8,
+64,LibTiff,N/A,2004-09-24 8:10:18,TODO,d22003a,a7e4cd8,N/A,Yes,Buffer Overflow,In tif_dirread.c and tiffiop.h,No,TODO,https://github.com/vadz/libtiff/commit/a7e4cd8,
+65,LibTiff,N/A,2004-09-25 11:05:10,TODO,627e205 ,43e7bcb,N/A,No,Memory Leak,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/43e7bcb,
+66,LibTiff,N/A,2004-09-25 11:05:58,TODO,43e7bcb,a503891,N/A,No,Memory Leak,In tif_dir.c,No,TODO,https://github.com/vadz/libtiff/commit/a503891,
+67,LibTiff,N/A,2004-09-25 11:07:11,TODO,a503891,8c94538,N/A,No,Memory Leak,In tif_write.c,No,TODO,https://github.com/vadz/libtiff/commit/8c94538,
+68,LibTiff,N/A,2004-09-29 7:42:52,TODO,a3f0206,197b6b7,N/A,Potential,Buffer Overflow,"In tif_dirread.c, tif_strip.c and tif_tile.c",No,TODO,https://github.com/vadz/libtiff/commit/197b6b7,
+69,LibTiff,N/A,2004-10-02 13:29:41,TODO,911494d,b07d609,N/A,Potential,Buffer Overflow,N/A,No,TODO,https://github.com/vadz/libtiff/commit/b07d609,
+70,LibTiff,N/A,2004-10-08 14:06:16,TODO,fa0a176,4eac592,N/A,Potential,Use-After-Free,In tif_dirinfo.c,No,TODO,https://github.com/vadz/libtiff/commit/4eac592,
+71,LibTiff,N/A,2004-10-26 18:17:19,TODO,ba9ccc9,f8987eb,N/A,Yes,Division By Zero,In tif_tile.c,No,TODO,https://github.com/vadz/libtiff/commit/f8987eb,
+72,LibTiff,N/A,2004-10-29 11:46:06,TODO,f892d68,7adf257,N/A,Potential,I Don't Know,tif_fax3.c,No,TODO,https://github.com/vadz/libtiff/commit/7adf257,
+73,LibTiff,N/A,2004-11-09 20:27:47,TODO,e15fc50,a136d92,N/A,Yes,Division By Zero,In tif_color.c,No,TODO,https://github.com/vadz/libtiff/commit/a136d92,
+74,LibTiff,N/A,2005-01-05 20:38:38,TODO,cf274e2,a249ffc,N/A,Potential,I Don't Know,In tiffdump.c,No,TODO,https://github.com/vadz/libtiff/commit/a249ffc,
+75,LibTiff,N/A,2005-02-03 17:02:19,TODO,c8ec79e,0b25739,N/A,Potential,I Don't Know,In tiff2ps.c,No,TODO,https://github.com/vadz/libtiff/commit/0b25739,
+76,LibTiff,N/A,2005-03-04 10:25:24,TODO,0eb87c5,f7e5a11,N/A,Potential,Buffer Overflow,In tiffcmp.c,No,TODO,https://github.com/vadz/libtiff/commit/f7e5a11,
+77,LibTiff,N/A,2005-05-05 18:03:22,TODO,86ea46b,836c69c,N/A,Potential,I Don't Know,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/836c69c,
+78,LibTiff,N/A,2005-06-01 9:41:30,TODO,156d915,1c6b592,N/A,No,Memory Leak,In tif_jpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/1c6b592,
+79,LibTiff,N/A,2005-09-06 3:25:16,TODO,28d819c,cdd913b,N/A,Yes,Double Free,In tif_dir.c,No,TODO,https://github.com/vadz/libtiff/commit/cdd913b,
+80,LibTiff,N/A,2005-09-28 12:10:22,TODO,7986b85,bcce2a4,N/A,Yes,Use-Before-Write,In tiffdump.c,No,TODO,https://github.com/vadz/libtiff/commit/bcce2a4,
+81,LibTiff,N/A,2005-10-31 12:59:30,TODO,991404c,50373d7,N/A,Potential,Buffer Overflow,In bmp2tiff.c,No,TODO,https://github.com/vadz/libtiff/commit/50373d7,
+82,LibTiff,N/A,2005-10-31 13:08:19,TODO,50373d7,3bea4d4,N/A,Potential,Buffer Overflow,In tiffdump.c,No,TODO,https://github.com/vadz/libtiff/commit/3bea4d4,
+83,LibTiff,N/A,2005-10-31 14:48:59,TODO,5498f97,7ce7044,N/A,Potential,Buffer Overflow,In fax2tiff.c,No,TODO,https://github.com/vadz/libtiff/commit/7ce7044,
+84,LibTiff,N/A,2005-11-30 13:54:35,TODO,c9fc390,0ae0cc0,N/A,Potential,I Don't Know,In fax2tiff.c,No,TODO,https://github.com/vadz/libtiff/commit/0ae0cc0,
+85,LibTiff,N/A,2005-11-30 14:01:49,TODO,0ae0cc0,82da4b3,Requies Windows,No,File Descriptor Leak,In tif_win32.c,No,TODO,https://github.com/vadz/libtiff/commit/82da4b3,
+86,LibTiff,N/A,2005-12-13 16:42:39,TODO,8137e7d,44743e8,N/A,Potential,I Don't Know,In tiffcp.c,No,TODO,https://github.com/vadz/libtiff/commit/44743e8,
+87,LibTiff,N/A,2005-12-20 16:50:21,TODO,afc9280,25359f3,N/A,Potential,Buffer Overflow,In tiffcp.c,No,TODO,https://github.com/vadz/libtiff/commit/25359f3,
+88,LibTiff,N/A,2006-01-11 16:59:35,TODO,d21e523,81836dc,N/A,Potential,I Don't Know,In bmp2tiff.c,No,TODO,https://github.com/vadz/libtiff/commit/81836dc,
+89,LibTiff,N/A,2006-02-03 15:58:42,TODO,e725730,59eb3ad,N/A,Potential,I Don't Know,In tif_dir.c,No,TODO,https://github.com/vadz/libtiff/commit/59eb3ad,
+90,LibTiff,N/A,2006-02-09 15:42:20,TODO,ed1ca0d,7c0a7ef,N/A,Potential,Buffer Overflow,In tif_color.c,No,TODO,https://github.com/vadz/libtiff/commit/7c0a7ef,
+91,LibTiff,N/A,2006-02-09 16:00:34,TODO,7c0a7ef,8d046c6,N/A,Potential,I Don't Know,In tiffgt.c,No,TODO,https://github.com/vadz/libtiff/commit/8d046c6,
+92,LibTiff,N/A,2006-02-23 14:50:32,TODO,0c62bc6,765bd3c,N/A,Potential,I Don't Know,In tiff2ps.c,No,TODO,https://github.com/vadz/libtiff/commit/765bd3c,
+93,LibTiff,N/A,2006-02-23 16:07:45,TODO,b2ce5d8,207c78a,N/A,Potential,I Don't Know,In tif_dirwrite.c,No,TODO,https://github.com/vadz/libtiff/commit/207c78a,
+94,LibTiff,N/A,2006-02-27 14:29:20,TODO,38f5793,be54717,N/A,Potential,I Don't Know,In tif_write.c,No,TODO,https://github.com/vadz/libtiff/commit/be54717,
+95,LibTiff,N/A,2006-03-03 13:06:00,TODO,ee65c74,eec4c06,N/A,Potential,Buffer Overflow,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/eec4c06,
+96,LibTiff,N/A,2006-03-04 16:00:45,TODO,a72cf60,0a36d7f,N/A,Potential,I Don't Know,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/0a36d7f,
+97,LibTiff,N/A,2006-03-07 13:57:01,TODO,c40022c,ed0f544,N/A,Potential,Buffer Overflow,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/ed0f544,
+98,LibTiff,N/A,2006-03-13 7:53:28,TODO,577cb95,b5608e7,N/A,No,Memory Leak,In tif_print.c,No,TODO,https://github.com/vadz/libtiff/commit/b5608e7,
+99,LibTiff,N/A,2006-03-15 12:48:24,TODO,9961f5c,a47c353,N/A,Potential,Buffer Overflow,In raw2tiff.c,No,TODO,https://github.com/vadz/libtiff/commit/a47c353,
+100,LibTiff,N/A,2006-03-15 20:56:40,TODO,d940486,b27624d,N/A,Potential,Use-After-Free,In tif_jpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/b27624d,
+101,LibTiff,N/A,2006-03-16 12:38:24,TODO,07e8205,354d61b,N/A,Potential,I Don't Know,In tif_fax3.c,No,TODO,https://github.com/vadz/libtiff/commit/354d61b,
+102,LibTiff,N/A,2006-03-25 8:01:08,TODO,32a9e60,a741a23,N/A,Potential,I Don't Know,In tif_jpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/a741a23,
+103,LibTiff,N/A,2006-03-25 17:52:37,TODO,a741a23,9f21aab,N/A,Potential,I Don't Know,In tif_ovrcache.c,No,TODO,https://github.com/vadz/libtiff/commit/9f21aab,
+104,LibTiff,N/A,2006-03-25 18:04:34,TODO,9f21aab,2b284e4,N/A,Potential,I Don't Know,In tif_jpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/2b284e4,
+105,LibTiff,N/A,2006-04-07 0:08:56,TODO,173c5b7,63de0af,N/A,Potential,I Don't Know,In tif_getimage.c,No,TODO,https://github.com/vadz/libtiff/commit/63de0af,
+106,LibTiff,N/A,2006-04-08 2:15:40,TODO,63de0af,97e9301,N/A,No,Memory Leak,In tif_ojpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/97e9301,
+107,LibTiff,CVE-2006-2193,2006-06-08 10:45:35,TODO,d742335,e0d08ab,N/A,Yes,Buffer Overflow,In tiff2pdf.c,No,TODO,"https://github.com/vadz/libtiff/commit/e0d08ab
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2193",
+108,LibTiff,N/A,2006-06-08 11:33:00,TODO,0047aa4,0fcee93,N/A,Potential,I Don't Know,In tif_fax3.c,No,TODO,https://github.com/vadz/libtiff/commit/0fcee93,
+109,LibTiff,N/A,2006-06-08 11:52:27,TODO,0fcee93,f0e6311,N/A,Potential,I Don't Know,In tiffcmp.c,No,TODO,https://github.com/vadz/libtiff/commit/f0e6311,
+110,LibTiff,N/A,2006-07-25 18:26:33,TODO,86d9aad,4d84ca2,N/A,No,Memory Leak,In tif_msdos.c,No,TODO,https://github.com/vadz/libtiff/commit/4d84ca2,
+111,LibTiff,CVE-2006-3459,2006-09-28 16:26:03,18b29a6,18b29a6,4b0e136,N/A,Yes,Buffer Overflow,"In tif_read.c
+
+=25263==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffc599ec3f4 at pc 0x7fd9e016a29b bp 0x7ffc599ec310 sp 0x7ffc599ebab8
+WRITE of size 200 at 0x7ffc599ec3f4 thread T0
+    #0 0x7fd9e016a29a  (/lib64/libasan.so.3+0x5f29a)
+    #1 0x7fd9dfec173e in _TIFFmemcpy //home/john/libtiff/libtiff/tif_unix.c:265
+    #2 0x7fd9dfe49e4f in TIFFFetchData //home/john/libtiff/libtiff/tif_dirread.c:1135
+    #3 0x7fd9dfe4ba57 in TIFFFetchShortArray //home/john/libtiff/libtiff/tif_dirread.c:1297
+    #4 0x7fd9dfe4bc2f in TIFFFetchShortPair //home/john/libtiff/libtiff/tif_dirread.c:1319
+",Yes,Success,"https://github.com/vadz/libtiff/commit/4b0e136
+https://bugs.gentoo.org/show_bug.cgi?id=142383
+",Tavis Ormandy
+112,LibTiff,CVE-2006-3460,2006-09-28 16:26:03,TODO,18b29a6,4b0e136,Ask Tavis,Yes,Buffer Overflow,In tif_jpeg.c,No,TODO,"https://github.com/vadz/libtiff/commit/2b5f8af
+https://access.redhat.com/security/cve/cve-2006-3460",
+114,LibTiff,N/A,2006-10-12 17:38:48,TODO,a29c2d1,90489fc,N/A,Potential,I Don't Know,In tif_win32.c,No,TODO,https://github.com/vadz/libtiff/commit/90489fc,
+116,LibTiff,N/A,2007-02-22 14:07:16,TODO,2635db8,d7c020c,N/A,Potential,I Don't Know,In tif_dir.c,No,TODO,https://github.com/vadz/libtiff/commit/d7c020c,
+117,LibTiff,N/A,2007-02-24 17:14:14,TODO,668c775,c1e3050,N/A,Potential,I Don't Know,In tiffset.c,No,TODO,https://github.com/vadz/libtiff/commit/c1e3050,
+118,LibTiff,N/A,2007-04-07 6:36:39,TODO,94d2afa,ab5da7d,N/A,Potential,I Don't Know,In tif_overview.c,No,TODO,https://github.com/vadz/libtiff/commit/ab5da7d,
+119,LibTiff,N/A,2007-05-01 15:01:32,TODO,5f90ac1,4b663a3,N/A,Potential,I Don't Know,In tif_dirwrite.c,No,TODO,https://github.com/vadz/libtiff/commit/4b663a3,
+120,LibTiff,N/A,2007-06-27 16:09:58,TODO,b5a00d0,fa7a39c,N/A,Potential,I Don't Know,In tif_dirwrite.c,No,TODO,https://github.com/vadz/libtiff/commit/fa7a39c,
+121,LibTiff,N/A,2007-07-11 13:41:44,TODO,249ffcc,515866a,N/A,Potential,Buffer Overflow,tif_write.c,No,TODO,https://github.com/vadz/libtiff/commit/515866a,
+122,LibTiff,N/A,2007-07-16 18:05:12,TODO,09e8220,f2d989d,N/A,Potential,I Don't Know,In tif_read.c,No,TODO,https://github.com/vadz/libtiff/commit/f2d989d,
+123,LibTiff,N/A,2007-09-29 10:34:37,TODO,c686a39,4bc5b1b,N/A,Potential,I Don't Know,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/4bc5b1b,
+124,LibTiff,N/A,2007-10-22 18:39:53,TODO,485109d,893096b,N/A,Potential,Buffer Overflow,tif_jpeg.c,No,TODO,"https://github.com/vadz/libtiff/commit/893096b
+https://github.com/vadz/libtiff/commit/318d435",
+125,LibTiff,N/A,2007-10-24 10:19:42,TODO,893096b,240844b,N/A,Yes,Assertion Failure,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/240844b,
+126,LibTiff,N/A,2007-11-26 15:27:27,TODO,dcf131c,ef9cff8,N/A,No,Memory Leak,In tif_fax3.c,No,TODO,https://github.com/vadz/libtiff/commit/ef9cff8,
+127,LibTiff,N/A,2008-05-23 17:24:41,TODO,b1b7760,b4d4797,N/A,No,Memory Leak,In rgb2ycbcr.c,No,TODO,https://github.com/vadz/libtiff/commit/b4d4797,
+128,LibTiff,N/A,2008-05-23 19:52:49,TODO,b4d4797,e191727,N/A,No,Memory Leak,In tiffdither.c,No,TODO,https://github.com/vadz/libtiff/commit/e191727,
+129,LibTiff,N/A,2008-05-24 2:14:11,TODO,a6d545a,e01a8c1,N/A,No,Memory Leak,In iptcutil.c,No,TODO,https://github.com/vadz/libtiff/commit/e01a8c1,
+130,LibTiff,N/A,2008-05-25 1:55:38,TODO,b84bfc6,ec9f9dd,N/A,No,Memory Leak,In tif_dirwrite.c,No,TODO,https://github.com/vadz/libtiff/commit/ec9f9dd,
+131,LibTiff,N/A,2008-05-25 3:10:55,TODO,34167b3,398a3b6,N/A,Yes,Null Dereference,In tif_codec.c,No,TODO,https://github.com/vadz/libtiff/commit/398a3b6,
+132,LibTiff,N/A,2008-05-26 15:38:31,TODO,d995798,852d67a,Requires Windows,No,Memory Leak,In tif_win32.c,No,TODO,"https://github.com/vadz/libtiff/commit/852d67a
+http://bugzilla.maptools.org/show_bug.cgi?id=1885",
+133,LibTiff,N/A,2008-07-29 19:51:07,TODO,30e67ee,9c0bf8f,Reporter does not provide test case.,Yes,Assertion Failure,In tif_strip.c,No,TODO,"https://github.com/vadz/libtiff/commit/9c0bf8f
+http://bugzilla.maptools.org/show_bug.cgi?id=1927",
+134,LibTiff,N/A,2008-09-01 23:18:19,TODO,645edd2,4d8d794,1970 is marked as duplicate.,Yes,Assertion Failure,In tif_dirwrite.c,No,TODO,"https://github.com/vadz/libtiff/commit/4d8d794
+http://bugzilla.maptools.org/show_bug.cgi?id=1917
+http://bugzilla.maptools.org/show_bug.cgi?id=1970",
+135,LibTiff,CVE-2008-2327,2008-09-03 7:07:22,TODO,1bcd9d5,72cea6c,Properly zero out the string table,Yes,Division By Zero,In tif_lzw.c,No,TODO,"https://github.com/vadz/libtiff/commit/72cea6c
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2327
+http://bugzilla.maptools.org/show_bug.cgi?id=1929",
+136,LibTiff,N/A,2009-02-05 16:07:59,TODO,3ffdfc0,efa7d58,Ask Tavis,Yes,Buffer Overflow,Buffer Underflow,No,TODO,"https://github.com/vadz/libtiff/commit/efa7d58
+http://bugzilla.maptools.org/show_bug.cgi?id=1992",
+137,LibTiff,N/A,2009-02-05 19:21:45,TODO,efa7d58,8b4c419,Ask Tavis,Yes,Assertion Failure,N/A,No,TODO,"https://github.com/vadz/libtiff/commit/8b4c419
+http://bugzilla.maptools.org/show_bug.cgi?id=1995",
+138,LibTiff,N/A,2009-02-05 19:50:01,TODO,8b4c419,5ad91f3,Ask Tavis,Yes,Assertion Failure,In TIFFFetchNormalTag(),No,TODO,"https://github.com/vadz/libtiff/commit/5ad91f3
+",
+139,LibTiff,N/A,2009-02-09 14:29:08,8b4c419,8b4c419,e6231d4,Tavis,Yes,Buffer Overflow,"In tif_dirread.c
+
+==16115==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000ef94 at pc 0x7f672e9df486 bp 0x7ffc333863c0 sp 0x7ffc333863b0
+READ of size 4 at 0x60200000ef94 thread T0
+    #0 0x7f672e9df485 in TIFFReadDirEntryLong8Array //home/john/libtiff/libtiff/tif_dirread.c:1983
+    #1 0x7f672e9f125f in TIFFFetchStripThing //home/john/libtiff/libtiff/tif_dirread.c:5235
+    #2 0x7f672e9e7115 in TIFFReadDirectory //home/john/libtiff/libtiff/tif_dirread.c:3678
+    #3 0x7f672ea46646 in TIFFClientOpen //home/john/libtiff/libtiff/tif_open.c:464
+    #4 0x7f672ea6c994 in TIFFFdOpen //home/john/libtiff/libtiff/tif_unix.c:158
+    #5 0x7f672ea6ca7d in TIFFOpen //home/john/libtiff/libtiff/tif_unix.c:193
+    #6 0x4037b1 in main //home/john/libtiff/tools/tiff2pdf.c:742
+    #7 0x7f672e0d6400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x401e39 in _start (/home/john/libtiff/installer/bin/tiff2pdf+0x401e39)",Yes,Success,"https://github.com/vadz/libtiff/commit/e6231d4
+http://bugzilla.maptools.org/show_bug.cgi?id=1998",
+140,LibTiff,N/A,2009-05-03 14:29:36,TODO,c632803,4a8c483,N/A,Potential,Bad String Format,"printf(buffer), that may be cause crashes if buffer contains '%' characters. The correct format is printf(""%s"", buffer) instead.
+
+In tif_getimage.c",No,TODO,"https://github.com/vadz/libtiff/commit/4a8c483
+http://trac.osgeo.org/gdal/ticket/2976",
+141,LibTiff,N/A,2009-06-22 4:47:12,8b4c419,9d2ca87,95cfeea,N/A,Yes,Buffer Overflow,"In tif_lzw.c
+
+=================================================================
+==26228==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x7fdcdc3a37ff at pc 0x7fdcdb078b60 bp 0x7ffdd059b610 sp 0x7ffdd059b600
+WRITE of size 1 at 0x7fdcdc3a37ff thread T0
+    #0 0x7fdcdb078b5f in LZWDecodeCompat //home/john/libtiff/libtiff/tif_lzw.c:727
+    #1 0x7fdcdb09a2eb in TIFFReadEncodedStrip //home/john/libtiff/libtiff/tif_read.c:164
+    #2 0x40bf5f in t2p_readwrite_pdf_image //home/john/libtiff/tools/tiff2pdf.c:2327
+    #3 0x421194 in t2p_write_pdf //home/john/libtiff/tools/tiff2pdf.c:5378
+    #4 0x403a8f in main //home/john/libtiff/tools/tiff2pdf.c:798
+    #5 0x7fdcda70d400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x401e39 in _start (/home/john/libtiff/installer/bin/tiff2pdf+0x401e39)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/f68f949
+http://bugzilla.maptools.org/show_bug.cgi?id=2065
+http://bugzilla.maptools.org/show_bug.cgi?id=1985",
+142,LibTiff,N/A,2009-06-26 20:55:54,TODO,9435573,12d28d1,N/A,Yes,Assertion Failure,N/A,No,TODO,https://github.com/vadz/libtiff/commit/12d28d1,
+143,LibTiff,N/A,2009-06-30 4:15:24,TODO,12d28d1,95cfeea,N/A,Yes,Buffer Overflow,Buffer underflow in LZW decoding routines,No,TODO,"https://github.com/vadz/libtiff/commit/95cfeea
+http://bugzilla.maptools.org/show_bug.cgi?id=1985",
+144,LibTiff,CVE-2009-2347,2009-08-20 20:23:52,TODO,52fd592 ,81b47fa,N/A,Potential,Integer Overflow,tiff2rgba and rgb2ycbcr fail to guard against integer overflow,No,TODO,"https://github.com/vadz/libtiff/commit/81b47fa
+http://bugzilla.maptools.org/show_bug.cgi?id=2079",
+145,LibTiff,N/A,2009-08-24 16:43:40,TODO,efd27c8,61cd880,N/A,Yes,Assertion Failure,"Will cause an assertion failure
+in TIFFFetchNormalTag",No,TODO,"https://github.com/vadz/libtiff/commit/61cd880
+http://bugzilla.maptools.org/show_bug.cgi?id=1895",
+146,LibTiff,N/A,2009-08-24 16:51:14,TODO,61cd880,52fd592,N/A,Yes,Null Dereference,In tif_print.c,No,TODO,"https://github.com/vadz/libtiff/commit/52fd592
+http://bugzilla.maptools.org/show_bug.cgi?id=2024",
+147,LibTiff,N/A,2009-09-03 20:45:10,TODO,4a17de7,6406250,N/A,Yes,I Don't Know,In tif_ojpeg.c,No,TODO,"https://github.com/vadz/libtiff/commit/89bf4b1
+http://bugzilla.maptools.org/show_bug.cgi?id=2090",
+148,LibTiff,N/A,2009-11-30 18:42:53,TODO,b8c8dc6,50f0e0d,N/A,No,Memory Leak,N/A,No,TODO,"https://github.com/vadz/libtiff/commit/50f0e0d
+http://bugzilla.maptools.org/show_bug.cgi?id=2121",
+149,LibTiff,N/A,2009-12-04 1:04:00,TODO,6c435c7,97b0564,N/A,Yes,Buffer Overflow,"In tif_jpeg.c
+
+Seems to be a buffer overflow",Yes,failed,"https://github.com/vadz/libtiff/commit/b0d7493
+http://bugzilla.maptools.org/show_bug.cgi?id=1936",Tom Lane
+150,LibTiff,N/A,2010-02-22 19:10:07,TODO,71d7e44,07e6f1a,N/A,Potential,I Don't Know,In tiff2pdf.c,No,TODO,"https://github.com/vadz/libtiff/commit/07e6f1a
+http://bugzilla.maptools.org/show_bug.cgi?id=2135",
+151,LibTiff,CVE-2010-1411,2010-06-08 23:29:47,TODO,a278195,31040a3,N/A,Yes,Integer Overflow,tiffiop.h (TIFFhowmany),No,TODO,"https://github.com/vadz/libtiff/commit/31040a3
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1411",
+152,LibTiff,CVE-2010-1411,2010-06-08 23:29:47,TODO,a278195,31040a3,N/A,Yes,Integer Overflow,tif_fax3.c,No,TODO,"https://github.com/vadz/libtiff/commit/31040a3
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1411",
+153,LibTiff,N/A,2010-06-08 23:29:47,TODO,a3a81bf,4836585,N/A,Yes,Integer Overflow,In tif_read.c,No,TODO,https://github.com/vadz/libtiff/commit/4836585,
+154,LibTiff,N/A,2010-06-08 23:29:47,TODO,a3a81bf,4836585,N/A,Yes,Integer Overflow,In tif_ojpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/4836585,
+155,LibTiff,N/A,2010-06-08 23:29:47,TODO,a3a81bf,4836585,N/A,No,Memory Leak,In tiffcp.c,No,TODO,https://github.com/vadz/libtiff/commit/4836585,
+156,LibTiff,N/A,2010-06-09 17:16:58,TODO,31040a3,3151a7b,N/A,No,Memory Leak,tiffcp.c (main),No,TODO,https://github.com/vadz/libtiff/commit/1ee5274,
+157,LibTiff,N/A,2010-06-09 17:16:58,TODO,31040a3,3151a7b,N/A,Yes,Integer Overflow,tiffiop.h (TIFFSafeMultiply),No,TODO,https://github.com/vadz/libtiff/commit/1ee5274,
+158,LibTiff,N/A,2010-06-11 20:50:55,TODO,b26adcb,3791be8,N/A,Yes,I Don't Know,In tiffcp.c,Yes,TODO,"https://github.com/vadz/libtiff/commit/1c69ef2
+http://bugzilla.maptools.org/show_bug.cgi?id=2097",
+159,LibTiff,N/A,2010-06-13 19:18:41,TODO,370e2df,216b1af,N/A,Potential,I Don't Know,In tiff2pdf.c,No,TODO,"https://github.com/vadz/libtiff/commit/118dbe6
+http://bugzilla.maptools.org/show_bug.cgi?id=2211",
+160,LibTiff,N/A,2010-06-13 19:37:23,TODO,216b1af,d11d0ab,N/A,Potential,I Don't Know,,No,TODO,"https://github.com/vadz/libtiff/commit/d11d0ab
+http://bugzilla.maptools.org/show_bug.cgi?id=2201",
+161,LibTiff,CVE-2010-2067,2010-06-14 0:19:22,TODO,118dbe6,9ec1d40,N/A,Yes,Buffer Overflow,"In tif_dirread.c
+
+AddressSanitizer: stack-buffer-overflow on address 0x7ffe8840d2b8 at pc 0x2ba5ba5262ab bp 0x7ffe8840d1b0 sp 0x7ffe8840c958
+WRITE of size 800 at 0x7ffe8840d2b8 thread T0
+    #0 0x2ba5ba5262aa  (/lib64/libasan.so.3+0x5f2aa)
+    #1 0x2ba5bb51f4f0 in _TIFFmemcpy /home/sean/Documents/git/libtiff/libtiff-118dbe6-asan/libtiff/tif_unix.c:265
+    #2 0x2ba5bb4a5e11 in TIFFFetchData /home/sean/Documents/git/libtiff/libtiff-118dbe6-asan/libtiff/tif_dirread.c:1179
+    #3 0x2ba5bb4abdb2 in TIFFFetchSubjectDistance /home/sean/Documents/git/libtiff/libtiff-118dbe6-asan/libtiff/tif_dirread.c:1922
+    #4 0x2ba5bb4a3b11 in TIFFReadCustomDirectory /home/sean/Documents/git/libtiff/libtiff-118dbe6-asan/libtiff/tif_dirread.c:866
+    #5 0x2ba5bb4a3c87 in TIFFReadEXIFDirectory /home/sean/Documents/git/libtiff/libtiff-118dbe6-asan/libtiff/tif_dirread.c:889
+    #6 0x401d2d in main /home/sean/Documents/git/libtiff/libtiff-118dbe6-asan/tools/tiffinfo.c:138
+    #7 0x2ba5bbca8730 in __libc_start_main (/lib64/libc.so.6+0x20730)
+    #8 0x401698 in _start (/home/sean/Documents/git/libtiff/libtiff-118dbe6-asan/install/bin/tiffinfo+0x401698)
+",Yes,TODO,"https://github.com/vadz/libtiff/commit/9ec1d40
+http://bugzilla.maptools.org/show_bug.cgi?id=2212
+http://vulnfactory.org/blog/2010/06/29/breaking-libtiff/",Sean Heelan
+162,LibTiff,N/A,2010-06-14 0:21:46,9ec1d40,9ec1d40,d98e45f,N/A,Yes,Buffer Overflow,"In tif_dirread.c
+
+=24081==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000001 (pc 0x7fe711e7bfe6 bp 0x7ffecc2b9680 sp 0x7ffecc2b8df8 T0)
+    #0 0x7fe711e7bfe5 in strlen (/lib64/libc.so.6+0x8cfe5)
+    #1 0x7fe712ca7e5b  (/lib64/libasan.so.3+0x3ce5b)
+    #2 0x7fe71296507f in _TIFFsetString /home/john/libtiff/libtiff/tif_dir.c:59
+    #3 0x7fe7129cab85 in JPEGVSetField /home/john/libtiff/libtiff/tif_jpeg.c:1675
+    #4 0x7fe71296c954 in TIFFVSetField /home/john/libtiff/libtiff/tif_dir.c:670
+    #5 0x7fe71296c88c in TIFFSetField /home/john/libtiff/libtiff/tif_dir.c:655
+    #6 0x7fe712983943 in TIFFFetchNormalTag /home/john/libtiff/libtiff/tif_dirread.c:1651
+    #7 0x7fe71297a880 in TIFFReadDirectory /home/john/libtiff/libtiff/tif_dirread.c:500
+    #8 0x7fe7129f391d in TIFFClientOpen /home/john/libtiff/libtiff/tif_open.c:436
+    #9 0x7fe712a1906d in TIFFFdOpen /home/john/libtiff/libtiff/tif_unix.c:139
+    #10 0x7fe712a19156 in TIFFOpen /home/john/libtiff/libtiff/tif_unix.c:178
+",Yes,Success,"https://github.com/vadz/libtiff/commit/d98e45f
+http://bugzilla.maptools.org/show_bug.cgi?id=2210",
+163,LibTiff,N/A,2010-07-02 13:38:27,9ec1d40,5c0e2e9,e66a717,N/A,Yes,Buffer Overflow,"In tif_getimage.c
+
+==19583==ERROR: AddressSanitizer: SEGV on unknown address 0x7f42da2f9cac (pc 0x7f3ede191acc bp 0x7ffdd838d2d0 sp 0x7ffdd838d180 T0)
+    #0 0x7f3ede191acb in putcontig8bitYCbCr22tile /home/john/libtiff/libtiff/tif_getimage.c:1921
+    #1 0x7f3ede17ff75 in gtStripContig /home/john/libtiff/libtiff/tif_getimage.c:869
+    #2 0x7f3ede17db4a in TIFFRGBAImageGet /home/john/libtiff/libtiff/tif_getimage.c:472
+    #3 0x7f3ede17dcca in TIFFReadRGBAImageOriented /home/john/libtiff/libtiff/tif_getimage.c:491
+    #4 0x7f3ede17dde9 in TIFFReadRGBAImage /home/john/libtiff/libtiff/tif_getimage.c:509
+    #5 0x40252e in tiffcvt /home/john/libtiff/tools/rgb2ycbcr.c:312
+    #6 0x401711 in main /home/john/libtiff/tools/rgb2ycbcr.c:125
+    #7 0x7f3edd5cb400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x401209 in _start (/home/john/libtiff/installer/bin/rgb2ycbcr+0x401209)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/2d31645
+http://bugzilla.maptools.org/show_bug.cgi?id=2207
+https://bugzilla.redhat.com/show_bug.cgi?id=583081",
+164,LibTiff,N/A,2010-07-06 14:14:41,TODO,e66a717,f8995d3,N/A,Yes,Assertion Failure,In tif_dirinfo.c,No,TODO,https://github.com/vadz/libtiff/commit/bdb4031,
+165,LibTiff,CVE-2010-4665,2010-07-07 14:02:56,TODO,fd95e47,fc5e540,N/A,Yes,Buffer Overflow,In tiffdump.c,No,TODO,"https://github.com/vadz/libtiff/commit/fc5e540
+http://bugzilla.maptools.org/show_bug.cgi?id=2218
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4665",
+166,LibTiff,N/A,2010-07-08 9:39:29,TODO,c8c6c27 ,7e65af2,N/A,Potential,Buffer Overflow,In tiff2pdf.c,No,TODO,https://github.com/vadz/libtiff/commit/7e65,
+167,LibTiff,CVE-2006-2656,2010-07-13 16:51:00,TODO,7e65af2,f933751,Ask Tavis,Yes,Buffer Overflow,In tiffcrop.c,No,TODO,"https://github.com/vadz/libtiff/commit/f9337
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2656
+http://rhn.redhat.com/errata/RHSA-2006-0603.html",
+168,LibTiff,N/A,2010-12-06 18:05:36,TODO,1fc54e8,096a5ee,N/A,Potential,I Don't Know,In tif_jpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/069bd77,
+169,LibTiff,CVE-2010-3087,2010-12-08 0:47:52,TODO,c333e50,23eb4f9,N/A,Potential,I Don't Know,In tif_strip.c,No,TODO,"https://github.com/vadz/libtiff/commit/23eb4f9
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3087",
+170,LibTiff,N/A,2010-12-08 17:44:35,TODO,23eb4f9,c6d8a22,TAVIS,Yes,Assertion Failure,In tif_dirread.c,No,TODO,"https://github.com/vadz/libtiff/commit/c6d8a22
+http://bugzilla.maptools.org/show_bug.cgi?id=1994
+https://github.com/vadz/libtiff/commit/0c3f736",
+171,LibTiff,N/A,2010-12-11 19:16:26,TODO,69ca791,806c356,N/A,Yes,Null Dereference,In tif_dirread.c,Yes,Failed,"https://github.com/vadz/libtiff/commit/806c
+http://bugzilla.maptools.org/show_bug.cgi?id=1996",
+172,LibTiff,N/A,2010-12-11 21:23:21,TODO,1091618,1da6592,N/A,Yes,Buffer Overflow,In tif_ojpeg.c,Yes,Failed,"https://github.com/vadz/libtiff/commit/1da6592
+http://bugzilla.maptools.org/show_bug.cgi?id=1999",
+173,LibTiff,N/A,2010-12-12 6:58:26,TODO,b02f92d,42a709b,N/A,Potential,I Don't Know,In tiff2pdf.c,No,TODO,"https://github.com/vadz/libtiff/commit/42a709b
+http://www.asmail.be/msg0054688897.html",
+174,LibTiff,N/A,2010-12-13 5:15:50,TODO,42a709b,a2f2b9b,N/A,Potential,I Don't Know,In tif_dirread.c,No,TODO,"https://github.com/vadz/libtiff/commit/a2f2b9b
+http://bugzilla.maptools.org/show_bug.cgi?id=2164",
+175,LibTiff,CVE-2010-2595,2010-12-14 2:22:41,TODO,bdba15c,0cf279f,N/A,Potential,I Don't Know,In tif_color.c,Yes,Failed,"https://github.com/vadz/libtiff/commit/0cf279f
+https://bugzilla.redhat.com/show_bug.cgi?id=583081
+http://bugzilla.maptools.org/show_bug.cgi?id=2208",
+176,LibTiff,N/A,2010-12-15 0:22:44,TODO,5b825ea,d89410e,N/A,Yes,I Don't Know,In gif2tiff.c,No,TODO,"https://github.com/vadz/libtiff/commit/d89410e
+http://bugzilla.maptools.org/show_bug.cgi?id=2270",
+177,LibTiff,N/A,2011-01-04 2:38:51,TODO,abab54b,0896bd4,N/A,Potential,I Don't Know,In tif_jpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/5827c37,
+178,LibTiff,N/A,2011-02-09 18:05:00,TODO,b96d8f9,8da5b4a,Requires Windows,No,Buffer Overflow,In tif_win32.c,Yes,TODO,"https://github.com/vadz/libtiff/commit/8da5b4a
+http://bugzilla.maptools.org/show_bug.cgi?id=2293",
+179,LibTiff,N/A,2011-02-18 22:20:59,TODO,2e6f127,90a6ab0,N/A,Potential,I Don't Know,In tif_read.c,No,TODO,https://github.com/vadz/libtiff/commit/90a6ab0,
+180,LibTiff,N/A,2011-02-23 21:46:09,9ec1d40,edd8581,bd8bd4a,N/A,No,Memory Leak,"In tif_getimage.c
+
+Direct leak of 131072 byte(s) in 1 object(s) allocated from:
+    #0 0x7fd6ac520e60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x7fd6ac2036f8 in _TIFFmalloc /home/john/libtiff/libtiff/tif_unix.c:256
+    #2 0x7fd6ac18190d in TIFFRGBAImageBegin /home/john/libtiff/libtiff/tif_getimage.c:328
+    #3 0x7fd6ac182819 in TIFFReadRGBAImageOriented /home/john/libtiff/libtiff/tif_getimage.c:488
+    #4 0x4024bd in cvt_whole_image /home/john/libtiff/tools/tiff2rgba.c:383
+    #5 0x402d93 in tiffcvt /home/john/libtiff/tools/tiff2rgba.c:501
+    #6 0x401820 in main /home/john/libtiff/tools/tiff2rgba.c:124
+    #7 0x7fd6ab19c400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/bd8bd4a
+http://bugzilla.maptools.org/show_bug.cgi?id=2295",
+181,LibTiff,N/A,2011-02-23 21:57:59,TODO,bd8bd4a,89fab90,N/A,Yes,Division By Zero,In tif_fax3.h,Yes,Failed,"https://github.com/vadz/libtiff/commit/89fab90
+http://bugzilla.maptools.org/show_bug.cgi?id=2296",
+182,LibTiff,CVE-2011-0192,2011-03-03 1:38:25,TODO,89fab90,f01f8f5,N/A,Yes,Buffer Overflow,In tif_fax3.h,Yes,Failed,"https://github.com/vadz/libtiff/commit/f01f8f5
+http://bugzilla.maptools.org/show_bug.cgi?id=2297#c10
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0192",
+183,LibTiff,CVE-2011-1167,2011-03-21 16:02:27,TODO,221bd08,c847c0a,N/A,Yes,Buffer Overflow,In tif_thunder.c,No,TODO,"https://github.com/vadz/libtiff/commit/c847c0a
+http://bugzilla.maptools.org/show_bug.cgi?id=2300
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1167",
+184,LibTiff,N/A,2011-05-31 16:51:50,TODO,9370e88,2a1f622,N/A,Yes,Null Dereference,In tif_jpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/2a1f622,
+185,LibTiff,N/A,2011-05-31 17:05:07,TODO,ab91431,2bda334,N/A,No,Memory Leak,In tif_ojpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/2bda334,
+186,LibTiff,N/A,2011-05-31 17:10:18,TODO,2bda334,29415fd,N/A,Potential,Null Dereference,In tiff2ps.c,No,TODO,https://github.com/vadz/libtiff/commit/29415fd,
+187,LibTiff,N/A,2011-12-08 5:43:26,TODO,53b3bdb,aaf452d,N/A,Potential,I Don't Know,In tif_dirread.c,Yes,TODO,"https://github.com/vadz/libtiff/commit/aaf452d
+https://trac.osgeo.org/gdal/ticket/4373",
+188,LibTiff,N/A,2011-12-08 5:48:39,TODO,aaf452d,a539276,N/A,Potential,I Don't Know,In tif_dirread.c,Yes,TODO,"https://github.com/vadz/libtiff/commit/a539276
+https://trac.osgeo.org/gdal/ticket/4372",
+189,LibTiff,CVE-2012-1173,2012-04-06 16:46:31,TODO,8a79027,900adaa,"Claims that 
+Note: Segfault seen on 32 bit only.",Yes,Buffer Overflow,In tif_getimage.c,No,TODO,"https://github.com/vadz/libtiff/commit/900adaa
+http://seclists.org/oss-sec/2012/q2/31
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=cve-2012-1173",
+190,LibTiff,N/A,2012-05-24 1:40:24,TODO,99b78e6,10a2762,N/A,Potential,I Don't Know,In tif_print.c,No,TODO,"https://github.com/vadz/libtiff/commit/10a2762
+",
+191,LibTiff,N/A,2012-06-01 1:30:55,TODO,cc573e8,a566e2a,N/A,Yes,Buffer Overflow,In tif_jpeg.c,No,TODO,https://github.com/vadz/libtiff/commit/a566e2a,
+192,LibTiff,N/A,2012-06-01 21:08:51,TODO,8bdd7b8,bbba43d,N/A,Yes,Buffer Overflow,In tif_jpeg.c,Yes,TODO,"https://github.com/vadz/libtiff/commit/bbba43d
+http://bugzilla.maptools.org/show_bug.cgi?id=2386",
+193,LibTiff,N/A,2012-06-06 5:26:37,TODO,6a084ef,1e09548,N/A,No,Memory Leak,In custom_dir.c,No,TODO,https://github.com/vadz/libtiff/commit/1e09548,
+194,LibTiff,N/A,2012-06-06 5:33:55,TODO,1e09548,9bafd72,N/A,Yes,Assertion Failure,In tif_tile.c,No,TODO,https://github.com/vadz/libtiff/commit/9bafd72,
+195,LibTiff,CVE-2012-2113,2012-06-15 21:44:31,TODO,2714223,3ea0786,N/A,Yes,Buffer Overflow,In tiff2pdf.c,No,TODO,https://github.com/vadz/libtiff/commit/3ea0786,
+196,LibTiff,N/A,2012-06-20 5:22:51,TODO,4dc917a,0e7edeb,N/A,Yes,Buffer Overflow,In tif_packbits.c,No,TODO,https://github.com/vadz/libtiff/commit/0e7edeb,
+197,LibTiff,N/A,2012-07-06 23:24:46,TODO,7d996a2,1be40ec,N/A,Potential,I Don't Know,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/1be40ec,
+198,LibTiff,CVE-2012-3401,2012-07-18 15:07:55,TODO,7457277,9d8086d,N/A,Yes,Buffer Overflow,In tiff2pdf.c,,TODO,"https://github.com/vadz/libtiff/commit/9d8086d
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3401",
+199,LibTiff,N/A,2012-07-19 15:43:41,TODO,9d8086d,401c888,N/A,Potential,I Don't Know,In tiff2pdf.c,No,TODO,https://github.com/vadz/libtiff/commit/bc16d31,
+200,LibTiff,N/A,2012-10-18 17:34:59,TODO,1ad0b2b,3f038bd,N/A,Potential,I Don't Know,In tif_zip.c,No,TODO,https://github.com/vadz/libtiff/commit/3f038bd,
+201,LibTiff,CVE-2012-4564,2012-11-02 5:13:24,TODO,3f038bd,89d1134,N/A,Yes,Buffer Overflow,In ppm2tiff.c,No,TODO,"https://github.com/vadz/libtiff/commit/882d392
+https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2012-4564",
+202,LibTiff,CVE-2012-4447,2012-12-10 17:27:13,TODO,b997fdd,17804d7,N/A,Potential,I Don't Know,In tif_pixarlog.c,No,TODO,"https://github.com/vadz/libtiff/commit/17804d7
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=2012-4447",
+203,LibTiff, CVE-2013-1961,2013-05-02 14:44:29,TODO,ddd5890,3736301,N/A,Yes,Buffer Overflow,In xtiff.c,No,TODO,"https://github.com/vadz/libtiff/commit/3736301
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1961",
+204,LibTiff,CVE-2013-1960,2013-05-02 14:54:08,TODO,3736301,cc17414,N/A,Yes,Buffer Overflow,In tiff2pdf.c,No,TODO,"https://github.com/vadz/libtiff/commit/cc17414
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1960",
+205,LibTiff, CVE-2013-4232,2013-08-14 5:11:36,TODO,ac9d17e,f64499b,N/A,Yes,Use-After-Free,In tiff2pdf.c,No,TODO,"https://github.com/vadz/libtiff/commit/f64499b#diff-5173a9b3b48146e4fd86d7b9b346115e
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4232
+http://www.openwall.com/lists/oss-security/2013/08/08/6",
+206,LibTiff,CVE-2013-4231,2013-08-14 5:18:53,TODO,f64499b,ce6841d,N/A,Yes,Buffer Overflow,In gif2tiff.c,No,TODO,"https://github.com/vadz/libtiff/commit/8dc74e4
+http://bugzilla.maptools.org/show_bug.cgi?id=2450
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4231",
+207,LibTiff,CVE-2013-4244,2013-09-13 2:34:50,TODO,ce6841d,7ee46c6,N/A,Yes,Buffer Overflow,In gif2tiff.c,No,TODO,"https://github.com/vadz/libtiff/commit/7ee46c6
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4244
+",
+208,LibTiff,N/A,2013-09-20 16:09:01,TODO,acb5bb9,531a87e,N/A,Yes,Buffer Overflow,In gif2tiff.c (Seem to be stack based),No,TODO,"https://github.com/vadz/libtiff/commit/531a87e
+http://www.asmail.be/msg0055359936.html",
+209,LibTiff,N/A,2014-11-20 14:34:51,TODO,2cf11ef,895747f,N/A,Yes,I Don't Know,In tif_jpeg.c,Yes,TODO,"https://github.com/vadz/libtiff/commit/895747f
+http://bugzilla.maptools.org/show_bug.cgi?id=2471",
+210,LibTiff,CVE-2013-4243,2014-11-20 16:47:21,TODO,895747f,2f756ac,N/A,Yes,I Don't Know,"In tiffcrop.c
+
+Segfault if bad value passed to -Z option",No,TODO,"https://github.com/vadz/libtiff/commit/2f756ac
+http://bugzilla.maptools.org/show_bug.cgi?id=2459",
+211,LibTiff,CVE-2013-4243,2014-11-20 16:47:21,TODO,895747f,2f756ac,N/A,No,Memory Leak,In fax2ps.c,No,TODO,"https://github.com/vadz/libtiff/commit/2f756ac
+http://bugzilla.maptools.org/show_bug.cgi?id=2470
+
+",
+212,LibTiff,CVE-2013-4243,2014-11-20 16:47:21,9ec1d40,895747f,2f756ac,N/A,Yes,Buffer Overflow,"In gif2tif.c
+
+==21986==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60c00000c000 at pc 0x0000004031ed bp 0x7ffc0f2ac8f0 sp 0x7ffc0f2ac8e0
+WRITE of size 1 at 0x60c00000c000 thread T0
+    #0 0x4031ec in process /home/john/libtiff/tools/gif2tiff.c:437
+    #1 0x4029f0 in readraster /home/john/libtiff/tools/gif2tiff.c:361
+    #2 0x402406 in readgifimage /home/john/libtiff/tools/gif2tiff.c:297
+    #3 0x401d66 in convert /home/john/libtiff/tools/gif2tiff.c:213
+    #4 0x401bf3 in main /home/john/libtiff/tools/gif2tiff.c:174
+    #5 0x7f511805d400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x4015a9 in _start (/home/john/libtiff/installer/bin/gif2tiff+0x4015a9)
+
+",Yes,Success,"https://github.com/vadz/libtiff/commit/2f756ac
+http://bugzilla.maptools.org/show_bug.cgi?id=2451
+ttps://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4243",
+213,LibTiff,N/A,2014-12-06 15:58:40,TODO,629c62e,7d90b72,N/A,Yes,Double Free,In tiffdump.c,No,TODO,https://github.com/vadz/libtiff/commit/7d90b72,
+214,LibTiff,N/A,2014-12-07 19:32:25,TODO,2701f47,7a744ea,N/A,Potential,Null Dereference,In tiff2pdf.c,No,TODO,https://github.com/vadz/libtiff/commit/7a744ea,
+215,LibTiff,N/A,2014-12-07 22:33:06,TODO,7a744ea,5ef99cb,N/A,Yes,Buffer Overflow,"In tiffcrop.c, thumbnail.c",No,TODO,https://github.com/vadz/libtiff/commit/5ef99cb,
+216,LibTiff,N/A,2014-12-10 2:53:30,TODO,5ef99cb,d7dbac6,N/A,Yes,Buffer Overflow,In tiff2pdf.c,No,TODO,https://github.com/vadz/libtiff/commit/d7dbac6,
+217,LibTiff,N/A,2014-12-21 15:15:31,TODO,060ece3,662f744,N/A,Yes,Assertion Failure,In tif_dir.c,No,TODO,https://github.com/vadz/libtiff/commit/662f744,
+218,LibTiff,N/A,2014-12-21 16:28:37,9ec1d40,662f744,a42c3be,N/A,Yes,Buffer Overflow,"In tiffcp.c
+
+==32531==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x62b000006200 at pc 0x000000406215 bp 0x7fffb5387020 sp 0x7fffb5387010
+WRITE of size 1 at 0x62b000006200 thread T0
+    #0 0x406214 in cpStripToTile /home/john/libtiff/tools/tiffcp.c:1163
+    #1 0x4079e6 in writeBufferToContigTiles /home/john/libtiff/tools/tiffcp.c:1529
+    #2 0x40655c in cpImage /home/john/libtiff/tools/tiffcp.c:1228
+    #3 0x408264 in cpContigTiles2ContigTiles /home/john/libtiff/tools/tiffcp.c:1665
+    #4 0x404dfb in tiffcp /home/john/libtiff/tools/tiffcp.c:807
+    #5 0x402e05 in main /home/john/libtiff/tools/tiffcp.c:302
+    #6 0x7f0a0a65d400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x401bc9 in _start (/home/john/libtiff/installer/bin/tiffcp+0x401bc9)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/a42c3be
+http://bugzilla.maptools.org/show_bug.cgi?id=2480",
+219,LibTiff,N/A,2014-12-21 18:07:48,9ec1d40,266bc48,cd82b52,N/A,Yes,Buffer Overflow,"In tif_next.c
+
+==11131==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60b00000aff1 at pc 0x7fcaa62641c2 bp 0x7ffcf40a7ab0 sp 0x7ffcf40a7aa0
+WRITE of size 1 at 0x60b00000aff1 thread T0
+    #0 0x7fcaa62641c1 in NeXTDecode /home/john/libtiff/libtiff/tif_next.c:124
+    #1 0x7fcaa62981fe in TIFFReadEncodedStrip /home/john/libtiff/libtiff/tif_read.c:357
+    #2 0x40eef2 in t2p_readwrite_pdf_image /home/john/libtiff/tools/tiff2pdf.c:2407
+    #3 0x429c60 in t2p_write_pdf /home/john/libtiff/tools/tiff2pdf.c:5408
+    #4 0x403767 in main /home/john/libtiff/tools/tiff2pdf.c:794
+    #5 0x7fcaa523f400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x401f49 in _start (/home/john/libtiff/installer/bin/tiff2pdf+0x401f49)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/cd82b52
+http://bugzilla.maptools.org/show_bug.cgi?id=2487
+http://www.conostix.com/pub/adv/CVE-2014-8129-LibTIFF-Out-of-bounds_Reads_and_Writes.txt",
+220,LibTiff,CVE-2014-8128,2014-12-21 18:52:42,9ec1d40,cd82b52,8b6e80f,N/A,Yes,Out-Of-Bounds,"In tiffcmp.c
+
+=21946==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000124 (pc 0x7f540e224b22 bp 0x7ffcfc18c9c0 sp 0x7ffcfc18c960 T0)
+    #0 0x7f540e224b21 in _TIFFVGetField /home/john/libtiff/libtiff/tif_dir.c:1056
+    #1 0x7f540e226244 in TIFFVGetField /home/john/libtiff/libtiff/tif_dir.c:1174
+    #2 0x7f540e2260b9 in TIFFGetField /home/john/libtiff/libtiff/tif_dir.c:1158
+    #3 0x403310 in checkTag /home/john/libtiff/tools/tiffcmp.c:516
+    #4 0x403dfe in CheckLongTag /home/john/libtiff/tools/tiffcmp.c:610
+    #5 0x40238c in cmptags /home/john/libtiff/tools/tiffcmp.c:279
+    #6 0x401844 in tiffcmp /home/john/libtiff/tools/tiffcmp.c:167
+    #7 0x401502 in main /home/john/libtiff/tools/tiffcmp.c:98
+    #8 0x7f540d287400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x401159 in _start (/home/john/libtiff/installer/bin/tiffcmp+0x401159)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/8b6e80f
+http://bugzilla.maptools.org/show_bug.cgi?id=2493",
+221,LibTiff,CVE-2014-8128,2014-12-21 18:52:42,cd82b52,cd82b52,8b6e80f,N/A,Yes,Out-Of-Bounds,"In thumbnail.c
+
+=22014==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000124 (pc 0x7f5bbfabdb22 bp 0x7ffee98bd980 sp 0x7ffee98bd920 T0)
+    #0 0x7f5bbfabdb21 in _TIFFVGetField /home/john/libtiff/libtiff/tif_dir.c:1056
+    #1 0x7f5bbfabf244 in TIFFVGetField /home/john/libtiff/libtiff/tif_dir.c:1174
+    #2 0x7f5bbfabf0b9 in TIFFGetField /home/john/libtiff/libtiff/tif_dir.c:1158
+    #3 0x402037 in cpTag /home/john/libtiff/tools/thumbnail.c:165
+    #4 0x402558 in cpTags /home/john/libtiff/tools/thumbnail.c:277
+    #5 0x402c37 in cpIFD /home/john/libtiff/tools/thumbnail.c:352
+    #6 0x401ca6 in main /home/john/libtiff/tools/thumbnail.c:122
+    #7 0x7f5bbeb20400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x4017d9 in _start (/home/john/libtiff/installer/bin/thumbnail+0x4017d9)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/8b6e80f
+http://bugzilla.maptools.org/show_bug.cgi?id=2493",
+222,LibTiff,CVE-2014-8128,2014-12-21 19:53:59,cd82b52,8b6e80f,3206e0c,N/A,Yes,Buffer Overflow,"In thumbnail.c
+
+==32600==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffe02ec4d70 at pc 0x00000040432c bp 0x7ffe02ec4500 sp 0x7ffe02ec44f0
+WRITE of size 8 at 0x7ffe02ec4d70 thread T0
+    #0 0x40432b in setImage1 /home/john/libtiff/tools/thumbnail.c:571
+    #1 0x404475 in setImage /home/john/libtiff/tools/thumbnail.c:583
+    #2 0x40489f in generateThumbnail /home/john/libtiff/tools/thumbnail.c:625
+    #3 0x401c8f in main /home/john/libtiff/tools/thumbnail.c:120
+    #4 0x7f550efb7400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #5 0x4017d9 in _start (/home/john/libtiff/installer/bin/thumbnail+0x4017d9)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/3206e0c
+http://bugzilla.maptools.org/show_bug.cgi?id=2489",
+223,LibTiff,CVE-2014-8127,2014-12-21 20:04:31,cd82b52,3206e0c,3996fa0,N/A,Yes,Buffer Overflow,"In thumbnail.c
+
+==11058==ERROR: AddressSanitizer: SEGV on unknown address 0x00000000014d (pc 0x7ff12d027c3b bp 0x7ffd10738a30 sp 0x7ffd107389f0 T0)
+    #0 0x7ff12d027c3a in checkInkNamesString /home/john/libtiff/libtiff/tif_dir.c:139
+    #1 0x7ff12d02ce2b in _TIFFVSetField /home/john/libtiff/libtiff/tif_dir.c:433
+    #2 0x7ff12d030617 in TIFFVSetField /home/john/libtiff/libtiff/tif_dir.c:820
+    #3 0x7ff12d030054 in TIFFSetField /home/john/libtiff/libtiff/tif_dir.c:764
+    #4 0x402210 in cpTag /home/john/libtiff/tools/thumbnail.c:189
+    #5 0x4026e7 in cpTags /home/john/libtiff/tools/thumbnail.c:295
+    #6 0x402e21 in cpIFD /home/john/libtiff/tools/thumbnail.c:371
+    #7 0x401ca6 in main /home/john/libtiff/tools/thumbnail.c:122
+    #8 0x7ff12c098400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x4017d9 in _start (/home/john/libtiff/installer/bin/thumbnail+0x4017d9)
+
+",Yes,Success,"https://github.com/vadz/libtiff/commit/3996fa0
+http://bugzilla.maptools.org/show_bug.cgi?id=2484",
+224,LibTiff,CVE-2014-8127,2014-12-21 20:58:29,cd82b52,3996fa0,0782c75,N/A,Yes,Buffer Overflow,"In tiff2bw.c
+
+==21582==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x63000001f401 at pc 0x0000004014b6 bp 0x7ffe180133a0 sp 0x7ffe18013390
+READ of size 1 at 0x63000001f401 thread T0
+    #0 0x4014b5 in compresscontig /home/john/libtiff/tools/tiff2bw.c:63
+    #1 0x4029ed in main /home/john/libtiff/tools/tiff2bw.c:248
+    #2 0x7f6762453400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #3 0x401329 in _start (/home/john/libtiff/installer/bin/tiff2bw+0x401329)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/0782c75
+http://bugzilla.maptools.org/show_bug.cgi?id=2485",
+225,LibTiff,N/A,2014-12-22 2:52:38,TODO,0782c75,7783742,N/A,Yes,Buffer Overflow,In tiffdump.c,No,TODO,https://github.com/vadz/libtiff/commit/7783742,
+226,LibTiff,N/A,2014-12-23 10:15:35,TODO,7783742,1f7359b,N/A,Yes,Buffer Overflow,In tif_read.c,No,TODO,https://github.com/vadz/libtiff/commit/1f7359b,
+227,LibTiff,N/A,2014-12-23 11:06:54,TODO,1f7359b,8bf2ef8,N/A,Potential,I Don't Know,In tif_dirread.c: In EstimateStripByteCounts(),No,TODO,https://github.com/vadz/libtiff/commit/8bf2ef8,
+228,LibTiff,N/A,2014-12-24 15:38:11,cd82b52,8bf2ef8,a7c93f9,N/A,Yes,Buffer Overflow,"In tiff2pdf.c
+
+==32149==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x63400001e416 at pc 0x7fdcb95fef1a bp 0x7ffcc286aab0 sp 0x7ffcc286aaa0
+WRITE of size 1 at 0x63400001e416 thread T0
+    #0 0x7fdcb95fef19 in LZWDecode /home/john/libtiff/libtiff/tif_lzw.c:532
+    #1 0x7fdcb96373d4 in TIFFReadEncodedStrip /home/john/libtiff/libtiff/tif_read.c:357
+    #2 0x40f680 in t2p_readwrite_pdf_image /home/john/libtiff/tools/tiff2pdf.c:2494
+    #3 0x429c60 in t2p_write_pdf /home/john/libtiff/tools/tiff2pdf.c:5408
+    #4 0x403767 in main /home/john/libtiff/tools/tiff2pdf.c:794
+    #5 0x7fdcb85de400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x401f49 in _start (/home/john/libtiff/installer/bin/tiff2pdf+0x401f49)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/a7c93f9
+http://bugzilla.maptools.org/show_bug.cgi?id=2443",
+229,LibTiff,N/A,2014-12-24 16:32:28,cd82b52,a7c93f9,529c4d6,N/A,Yes,Buffer Overflow,"In tiff2pdf.c
+
+==10739==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x7f865411fb47 at pc 0x7f865303729b bp 0x7ffe0c5f4df0 sp 0x7ffe0c5f4598
+WRITE of size 155882 at 0x7f865411fb47 thread T0
+    #0 0x7f865303729a  (/lib64/libasan.so.3+0x5f29a)
+    #1 0x7f8652d813f3 in _TIFFmemcpy /home/john/libtiff/libtiff/tif_unix.c:287
+    #2 0x4185bc in t2p_process_jpeg_strip /home/john/libtiff/tools/tiff2pdf.c:3493
+    #3 0x40eb47 in t2p_readwrite_pdf_image /home/john/libtiff/tools/tiff2pdf.c:2366
+    #4 0x429d00 in t2p_write_pdf /home/john/libtiff/tools/tiff2pdf.c:5408
+    #5 0x403767 in main /home/john/libtiff/tools/tiff2pdf.c:794
+    #6 0x7f8651d16400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x401f49 in _start (/home/john/libtiff/installer/bin/tiff2pdf+0x401f49)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/529c4d6
+http://bugzilla.maptools.org/show_bug.cgi?id=2445",
+230,LibTiff,N/A,2014-12-24 16:57:18,cd82b52,529c4d6,24a2eee,N/A,Yes,Division By Zero,"In tif_getimage.c
+
+==21288==ERROR: AddressSanitizer: FPE on unknown address 0x7fa4a061fe04 (pc 0x7fa4a061fe04 bp 0x7ffe1b273090 sp 0x7ffe1b272ef0 T0)
+    #0 0x7fa4a061fe03 in gtStripContig /home/john/libtiff/libtiff/tif_getimage.c:885
+    #1 0x7fa4a061db41 in TIFFRGBAImageGet /home/john/libtiff/libtiff/tif_getimage.c:495
+    #2 0x7fa4a061dcc1 in TIFFReadRGBAImageOriented /home/john/libtiff/libtiff/tif_getimage.c:514
+    #3 0x4024c9 in cvt_whole_image /home/john/libtiff/tools/tiff2rgba.c:384
+    #4 0x402d9f in tiffcvt /home/john/libtiff/tools/tiff2rgba.c:502
+    #5 0x401820 in main /home/john/libtiff/tools/tiff2rgba.c:124
+    #6 0x7fa49f635400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x401389 in _start (/home/john/libtiff/installer/bin/tiff2rgba+0x401389)
+
+",Yes,Success,"https://github.com/vadz/libtiff/commit/24a2eee
+http://bugzilla.maptools.org/show_bug.cgi?id=2235",
+231,LibTiff,N/A,2014-12-29 12:09:11,TODO,26d8e90,feed76c,N/A,Yes,Buffer Overflow,In tif_getimage.c,No,TODO,https://github.com/vadz/libtiff/commit/40a5955,
+232,LibTiff,N/A,2015-01-03 18:03:40,TODO,bade175,57bdb8b,N/A,Yes,Buffer Overflow,In tif_dirread.c,No,TODO,https://github.com/vadz/libtiff/commit/57bdb8b,
+233,LibTiff,N/A,2015-01-05 19:03:11,TODO,57bdb8b,a77e2f6,N/A,Yes,Buffer Overflow,In tiff2pdf.c,No,TODO,https://github.com/vadz/libtiff/commit/a77e2f6,
+234,LibTiff,N/A,2015-01-22 9:58:49,TODO,46346a6,c6e30b6,N/A,Yes,Buffer Overflow,In iff2pdf.c,No,TODO,https://gitlab.kitware.com/third-party/tiff/commit/c6e30b678d4739bb102a4477928dd171bc60f9ee?w=1,
+235,LibTiff,N/A,2015-03-02 16:16:38,TODO,963a00d,147b269,N/A,Yes,Null Dereference,In tiffdither.c,Yes,Failed,"https://github.com/vadz/libtiff/commit/147b269
+http://bugzilla.maptools.org/show_bug.cgi?id=2501",
+236,LibTiff,N/A,2015-05-28 1:59:10,TODO,d0caaf7,e87a8bc,N/A,Yes,Division By Zero,In tiffcrop.c (readContigStripsIntoBuffer),No,TODO,https://github.com/vadz/libtiff/commit/e87a8bc,
+237,LibTiff,N/A,2015-05-28 2:16:08,TODO,6c5090a,2e761c6,N/A,Yes,Null Dereference,In tiffcrop.c,No,TODO,https://github.com/vadz/libtiff/commit/2e761c6,
+238,LibTiff,N/A,2015-05-28 2:19:16,TODO,2e761c6,3e63b1e,N/A,Yes,Buffer Overflow,In tiffcrop.c,No,TODO,https://github.com/vadz/libtiff/commit/3e63b1e,
+239,LibTiff,N/A,2015-05-28 3:08:18,TODO,6c4cee6,3fb9c79,N/A,Yes,Buffer Overflow,In tiffmedian.c (In get_histogram),No,TODO,https://github.com/vadz/libtiff/commit/3fb9c79,
+240,LibTiff,N/A,2015-05-28 13:10:26,TODO,fbd24f7,b5a9af3,N/A,No,Memory Leak,In tiffsplit.c (cpTiles),No,TODO,https://github.com/vadz/libtiff/commit/b5a9af3,
+241,LibTiff,N/A,2015-05-28 13:17:35,TODO,b5a9af3,7458b80,N/A,No,Memory Leak,In tiffcp.c,No,TODO,https://github.com/vadz/libtiff/commit/7458b80,
+242,LibTiff,N/A,2015-05-28 13:26:03,TODO,7458b80,628a633,N/A,No,Memory Leak,In tif_ovrcache.c,No,TODO,https://github.com/vadz/libtiff/commit/628a633,
+243,LibTiff,N/A,2015-05-29 2:37:56,TODO,628a633,0289b27,N/A,Potential,I Don't Know,In bmp2tiff.c,No,TODO,https://github.com/vadz/libtiff/commit/0289b27,
+244,LibTiff,N/A,2015-05-29 3:08:19,TODO,0289b27,3202013,N/A,No,Memory Leak,In tif_ovrcache.c (TIFFCreateOvrCache),No,TODO,https://github.com/vadz/libtiff/commit/3202013,
+245,LibTiff,N/A,2015-05-29 13:43:47,TODO,3202013,0133892,N/A,No,Infinite Loop,In iptcutil.c,No,TODO,https://github.com/vadz/libtiff/commit/0133892,
+246,LibTiff,N/A,2015-05-30 15:33:54,TODO,133892,d46cf54,N/A,No,Memory Leak,In tiff2pdf.c,No,TODO,https://github.com/vadz/libtiff/commit/d46cf54,
+247,LibTiff,N/A,2015-05-30 16:13:29,TODO,d46cf54,adae451,N/A,Potential,I Don't Know,In raw2tiff.c (main),No,TODO,https://github.com/vadz/libtiff/commit/adae451,
+248,LibTiff,N/A,2015-05-30 20:30:27,TODO,cc1d853,08fa0cc,N/A,Potential,I Don't Know,In addtiffo.c,No,TODO,https://github.com/vadz/libtiff/commit/08fa0cc,
+249,LibTiff,N/A,2015-05-30 21:13:39,TODO,08fa0cc,6222c4b,N/A,Yes,I Don't Know,In tif_overview.c (TIFF_DownSample),No,TODO,https://github.com/vadz/libtiff/commit/6222c4b,
+250,LibTiff,N/A,2015-05-31 0:38:46,TODO,18844e1,4ac4e76,N/A,No,Memory Leak,In tif_dirwrite.c,No,TODO,https://github.com/vadz/libtiff/commit/4ac4e76,
+251,LibTiff,N/A,2015-05-31 21:19:07,TODO,5520f2c,66afc63,N/A,Yes,Division By Zero,In tif_luv.c,No,TODO,https://github.com/vadz/libtiff/commit/66afc63,
+252,LibTiff,N/A,2015-05-31 21:21:22,TODO,66afc63,c13130d,N/A,Yes,Division By Zero,tif_luv.c (LogLuvDecodeStrip),No,TODO,https://github.com/vadz/libtiff/commit/c13130d,
+253,LibTiff,N/A,2015-05-31 21:23:23,TODO,c13130d,79b6f65,N/A,Yes,Division By Zero,tif_luv.c (LogLuvDecodeStrip),No,TODO,https://github.com/vadz/libtiff/commit/79b6f65,
+254,LibTiff,N/A,2015-05-31 21:24:44,TODO,79b6f65,2ee6f08,N/A,Yes,Division By Zero,tif_luv.c (LogLuvDecodeStrip),No,TODO,https://github.com/vadz/libtiff/commit/2ee6f08,
+255,LibTiff,N/A,2015-06-07 22:35:40,TODO,bcc3de6,cd2adea,N/A,Yes,Division By Zero,tif_read.c (TIFFStartTile),No,TODO,https://github.com/vadz/libtiff/commit/cd2adea,
+256,LibTiff,N/A,2015-06-07 22:41:07,TODO,cd2adea,06c8cd6,N/A,Yes,Division By Zero,tif_write.c (TIFFWriteEncodedStrip),No,TODO,https://github.com/vadz/libtiff/commit/cd2adea,
+257,LibTiff,N/A,2015-06-07 22:47:29,TODO,06c8cd6,6504f98,N/A,Yes,Division By Zero,In tif_write.c (TIFFWriteEncodedTile),No,TODO,https://github.com/vadz/libtiff/commit/6504f98,
+258,LibTiff,N/A,2015-06-07 22:53:17,TODO,6504f98,4159387,N/A,Yes,Division By Zero,In tif_write.c (TIFFWriteRawStrip),No,TODO,https://github.com/vadz/libtiff/commit/4159387,
+259,LibTiff,N/A,2015-06-07 23:00:23,TODO,4159387,5b4d037,N/A,Yes,Division By Zero,In tif_write.c (TIFFWriteScanline),No,TODO,https://github.com/vadz/libtiff/commit/5b4d037,
+260,LibTiff,N/A,2015-06-17 3:12:20,TODO,2f197ab,2f197ab,N/A,Potential,I Don't Know,In tif_getimage.c,No,TODO,https://github.com/vadz/libtiff/commit/2f197ab,
+261,LibTiff,N/A,2015-09-05 20:15:57,TODO,18fac6d,749311a,N/A,Yes,I Don't Know,tif_dirread.c (TIFFReadDirEntryCheckRangeSlongSlong8),No,TODO,https://github.com/vadz/libtiff/commit/749311a,
+262,LibTiff,CVE-2015-8665,2015-12-26 17:32:03,TODO,8ae08d1,f94a29a,N/A,Yes,Buffer Overflow,In tif_getimage.c,No,TODO,"https://github.com/vadz/libtiff/commit/f94a29a
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8665",
+263,LibTiff,CVE-2015-8683,2015-12-26 17:32:03,TODO,8ae08d1,f94a29a,N/A,Yes,Buffer Overflow,In tif_getimage.c,No,TODO,"https://github.com/vadz/libtiff/commit/f94a29a
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8683",
+264,LibTiff,N/A,2015-12-27 16:25:11,cd82b52,f94a29a,aaab5c3,N/A,Yes,Buffer Overflow,"In tif_luv.c
+
+TIFFFetchNormalTag: Warning, Incorrect count for ""Orientation""; tag ignored.
+rgb2ycbcr: tif_luv.c:205: LogL16Decode: Assertion `sp->tbuflen >= npixels' failed.
+Aborted (core dumped)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/aaab5c3
+http://bugzilla.maptools.org/show_bug.cgi?id=2522",
+265,LibTiff,N/A,2015-12-27 16:55:20,cd82b52,aaab5c3,b18012d,Is also triggered via rgb2ycbcr,Yes,Buffer Overflow,"In tif_next.c
+
+==31763==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60400000dfc0 at pc 0x7f273855743d bp 0x7ffd6d17eeb0 sp 0x7ffd6d17eea0
+WRITE of size 1 at 0x60400000dfc0 thread T0
+    #0 0x7f273855743c in NeXTDecode /home/john/libtiff/libtiff/tif_next.c:126
+    #1 0x7f273858c5cf in TIFFReadEncodedTile /home/john/libtiff/libtiff/tif_read.c:668
+    #2 0x7f273858c3cd in TIFFReadTile /home/john/libtiff/libtiff/tif_read.c:641
+    #3 0x402a96 in TIFFReadContigTileData /home/john/libtiff/tools/tiffinfo.c:310
+    #4 0x403079 in TIFFReadData /home/john/libtiff/tools/tiffinfo.c:361
+    #5 0x4038f9 in tiffinfo /home/john/libtiff/tools/tiffinfo.c:463
+    #6 0x401d93 in main /home/john/libtiff/tools/tiffinfo.c:152
+    #7 0x7f2737532400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x4016c9 in _start (/home/john/libtiff/installer/bin/tiffinfo+0x4016c9)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/b18012d
+http://lcamtuf.coredump.cx/afl/vulns/libtiff5.tif
+http://bugzilla.maptools.org/show_bug.cgi?id=2508",
+266,LibTiff,CVE-2016-5875,2016-06-28 15:12:19,TODO,c421b99,391e77f,N/A,Yes,Buffer Overflow,In tif_pixarlog.c (PixarLogDecode()),No,TODO,"https://github.com/vadz/libtiff/commit/391e77f
+http://seclists.org/oss-sec/2016/q3/53
+https://www.rapid7.com/db/vulnerabilities/freebsd-vid-0ab66088-4aa5-11e6-a7bd-14dae9d210b8",
+267,LibTiff,N/A,2016-07-01 11:06:04,TODO,d1d387b,ed60aac,N/A,Yes,Buffer Overflow,In tif_luv.c,No,TODO,https://github.com/vadz/libtiff/commit/ed60aac,
+268,LibTiff,N/A,2016-07-10 18:00:20,TODO,4bdc915,0ba5d88,N/A,Yes,Buffer Overflow,In tif_read.c,No,TODO,https://github.com/vadz/libtiff/commit/0ba5d88,
+269,LibTiff,CVE-2016-5321,2016-07-11 21:26:03,cd82b52,0ba5d88,d9783e4,N/A,Yes,Buffer Overflow,"In tiffcrop.c
+
+==8311==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffee0d614a0 at pc 0x000000402c82 bp 0x7ffee0d613a0 sp 0x7ffee0d61390
+READ of size 8 at 0x7ffee0d614a0 thread T0
+    #0 0x402c81 in readSeparateTilesIntoBuffer /home/john/libtiff/tools/tiffcrop.c:994
+    #1 0x41d8d1 in loadImage /home/john/libtiff/tools/tiffcrop.c:6079
+    #2 0x4095b9 in main /home/john/libtiff/tools/tiffcrop.c:2278
+    #3 0x7ff196af3400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #4 0x402099 in _start (/home/john/libtiff/installer/bin/tiffcrop+0x402099)
+
+",Yes,Success,"https://github.com/vadz/libtiff/commit/d9783e4
+http://bugzilla.maptools.org/show_bug.cgi?id=2558
+https://access.redhat.com/security/cve/cve-2016-5321",
+270,LibTiff,CVE-2016-5323,2016-07-11 21:38:31,d9783e4,d9783e4,2f79856,N/A,Yes,Buffer Overflow,"In tiffcrop.c
+
+ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffe333c8160 at pc 0x000000411c47 bp 0x7ffe333c7f30 sp 0x7ffe333c7f20
+READ of size 8 at 0x7ffe333c8160 thread T0
+    #0 0x411c46 in combineSeparateTileSamples16bits /home/john/hemiptera_applications/libtiff/tools/tiffcrop.c:4367
+    #1 0x40303a in readSeparateTilesIntoBuffer /home/john/hemiptera_applications/libtiff/tools/tiffcrop.c:1052
+    #2 0x41d8eb in loadImage /home/john/hemiptera_applications/libtiff/tools/tiffcrop.c:6079
+    #3 0x4095d3 in main /home/john/hemiptera_applications/libtiff/tools/tiffcrop.c:2278
+    #4 0x2b3364a06400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #5 0x4020a9 in _start (/home/john/hemiptera_applications/libtiff/installer/bin/tiffcrop+0x4020a9)
+
+",Yes,Success,"https://github.com/vadz/libtiff/commit/2f79856
+http://bugzilla.maptools.org/show_bug.cgi?id=2559
+http://seclists.org/oss-sec/2016/q3/100",
+271,LibTiff,CVE-2016-3945,2016-08-15 20:06:40,TODO,2f79856,7c39352,"It could be that we can construct the test case. 
+
+Create malicious tif file(width= 8388640, height=31) and set param -b will cause illegal write",Yes,Buffer Overflow,In tiff2rgba.c,No,TODO,"https://github.com/vadz/libtiff/commit/7c39352
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3945
+http://www.openwall.com/lists/oss-security/2016/04/08/6",
+272,LibTiff,CVE-2016-3990,2016-08-15 20:49:48,TODO,7c39352,6a4dbb0,N/A,Yes,Buffer Overflow,In tif_pixarlog.c,No,TODO,"https://github.com/vadz/libtiff/commit/6a4dbb0
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3990
+http://bugzilla.maptools.org/show_bug.cgi?id=2544",
+273,LibTiff,CVE-2016-3991,2016-08-15 21:05:40,d9783e4,6a4dbb0,e596d4e,N/A,Yes,Buffer Overflow,"In tiffcrop.c
+
+==25405==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000eef3 at pc 0x7fe51a7ad29b bp 0x7ffeffeb08b0 sp 0x7ffeffeb0058
+WRITE of size 1088 at 0x60200000eef3 thread T0
+    #0 0x7fe51a7ad29a  (/lib64/libasan.so.3+0x5f29a)
+    #1 0x7fe51a50173e in _TIFFmemcpy /home/john/libtiff/libtiff/tif_unix.c:340
+    #2 0x402507 in readContigTilesIntoBuffer /home/john/libtiff/tools/tiffcrop.c:854
+    #3 0x41d8bc in loadImage /home/john/libtiff/tools/tiffcrop.c:6071
+    #4 0x4095c3 in main /home/john/libtiff/tools/tiffcrop.c:2278
+    #5 0x7fe519495400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x402099 in _start (/home/john/libtiff/installer/bin/tiffcrop+0x402099)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/e596d4e
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3991
+http://bugzilla.maptools.org/show_bug.cgi?id=2543",
+274,LibTiff,CVE-2016-3623,2016-08-15 21:26:56,d9783e4,e596d4e,bd024f0,N/A,Yes,Division By Zero,"In rgb2ycbcr.c
+
+ERROR: AddressSanitizer: FPE on unknown address 0x0000004020f9 (pc 0x0000004020f9 bp 0x7ffcf2ca9170 sp 0x7ffcf2ca9110 T0)
+    #0 0x4020f8 in cvtRaster /home/john/hemiptera_applications/libtiff/tools/rgb2ycbcr.c:256
+    #1 0x4029d7 in tiffcvt /home/john/hemiptera_applications/libtiff/tools/rgb2ycbcr.c:352
+    #2 0x401741 in main /home/john/hemiptera_applications/libtiff/tools/rgb2ycbcr.c:127
+    #3 0x2b1464f4b400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #4 0x401239 in _start (/home/john/hemiptera_applications/libtiff/installer/bin/rgb2ycbcr+0x401239)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/bd024f0
+http://bugzilla.maptools.org/show_bug.cgi?id=2568
+http://bugzilla.maptools.org/show_bug.cgi?id=2569",
+275,LibTiff,N/A,2016-09-23 22:12:18,TODO,a402cdf,83a4b92,N/A,Potential,I Don't Know,"Reported as MSVR 35093, MSVR 35096, MSVR 35097 and MSVR 35094",No,TODO,https://github.com/vadz/libtiff/commit/83a4b92,
+276,LibTiff, CVE-2016-3622,2016-09-24 23:11:55,TODO,83a4b92,92d966a,N/A,Yes,Divizion By Zero,In tif_getimage.c,No,TODO,"https://github.com/vadz/libtiff/commit/92d966a
+http://www.openwall.com/lists/oss-security/2016/04/07/4",
+277,LibTiff,CVE-2016-9453,2016-10-08 15:14:42,TODO,43c0b81,d295571,N/A,Yes,Buffer Overflow,In tiff2pdf.c,Yes,Failed,"https://github.com/vadz/libtiff/commit/d295571
+http://www.openwall.com/lists/oss-security/2016/11/18/4
+http://bugzilla.maptools.org/show_bug.cgi?id=2579",
+278,LibTiff,N/A,2016-10-08 15:54:56,TODO,d295571,5ad9d80,N/A,Yes,I Don't Know,In tiffcp.c,No,TODO,https://github.com/vadz/libtiff/commit/5ad9d80,
+279,LibTiff,CVE-2016-5652,2016-10-09 11:03:36,TODO,5ad9d80,b5d6803,N/A,Yes,Buffer Overflow,In tiff2pdf.c,No,TODO,"https://github.com/vadz/libtiff/commit/b5d6803
+http://www.talosintelligence.com/reports/TALOS-2016-0187/
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5652",
+280,LibTiff,CVE-2016-9539,2016-10-14 19:13:20,TODO,b5d6803,ae9365d,N/A,Yes,Buffer Overflow,In tiffcp.c (readContigTilesIntoBuffer()),No,TODO,"https://github.com/vadz/libtiff/commit/ae9365d
+https://patchwork.openembedded.org/patch/134346/",
+281,LibTiff,N/A,2016-10-25 20:04:21,d9783e4,ae9365d,c614183,N/A,Yes,Buffer Overflow,"In tiffinfo.c
+
+ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61f00000fa80 at pc 0x00000040284d bp 0x7ffea64d20d0 sp 0x7ffea64d20c0
+READ of size 1 at 0x61f00000fa80 thread T0
+    #0 0x40284c in ShowTile /home/john/hemiptera_applications/libtiff/tools/tiffinfo.c:285
+    #1 0x402b08 in TIFFReadContigTileData /home/john/hemiptera_applications/libtiff/tools/tiffinfo.c:314
+    #2 0x403099 in TIFFReadData /home/john/hemiptera_applications/libtiff/tools/tiffinfo.c:361
+    #3 0x403919 in tiffinfo /home/john/hemiptera_applications/libtiff/tools/tiffinfo.c:463
+    #4 0x401db3 in main /home/john/hemiptera_applications/libtiff/tools/tiffinfo.c:152
+    #5 0x2b3fc5fb4400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x4016e9 in _start (/home/john/hemiptera_applications/libtiff/installer/bin/tiffinfo+0x4016e9)
+
+",Yes,Success,"https://github.com/vadz/libtiff/commit/c614183
+http://bugzilla.maptools.org/show_bug.cgi?id=2517",
+282,LibTiff,N/A,2016-10-25 21:35:15,d9783e4,c614183,45c6845,"Once crash occurs, the test case won't be able to trigger the crash again.",Yes,Buffer Overflow,"In tiffset
+
+ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000ef98 at pc 0x2b0293e97735 bp 0x7fff530c2a70 sp 0x7fff530c2a60
+READ of size 8 at 0x60200000ef98 thread T0
+    #0 0x2b0293e97734 in TIFFWriteDirectoryTagSampleformatArray /home/john/hemiptera_applications/libtiff/libtiff/tif_dirwrite.c:982
+    #1 0x2b0293e93f1a in TIFFWriteDirectorySec /home/john/hemiptera_applications/libtiff/libtiff/tif_dirwrite.c:582
+    #2 0x2b0293e90e3c in TIFFWriteDirectory /home/john/hemiptera_applications/libtiff/libtiff/tif_dirwrite.c:183
+    #3 0x2b0293e92208 in TIFFRewriteDirectory /home/john/hemiptera_applications/libtiff/libtiff/tif_dirwrite.c:359
+    #4 0x402aca in main /home/john/hemiptera_applications/libtiff/tools/tiffset.c:344
+    #5 0x2b0294d62400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x401249 in _start (/home/john/hemiptera_applications/libtiff/installer/bin/tiffset+0x401249)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/45c6845
+http://bugzilla.maptools.org/show_bug.cgi?id=2500",
+283,LibTiff,N/A,2016-10-25 22:22:45,TODO,505deff,ed9e07c,N/A,Potential,I Don't Know,In fax2tiff.c,Yes,Failed,"https://github.com/vadz/libtiff/commit/ed9e07c
+http://bugzilla.maptools.org/show_bug.cgi?id=2572
+https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=715892",
+284,LibTiff,CVE-2016-9535,2016-10-31 17:24:26,TODO,ed9e07c,3ca657a,N/A,Potential,Buffer Overflow,In tif_predict.c,No,TODO,"https://github.com/vadz/libtiff/commit/3ca657a
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9535",
+285,LibTiff,N/A,2016-11-04 9:19:13,TODO,3ca657a,6a984bf,N/A,No,Memory Leak,In tif_predict.c,No,TODO,https://github.com/vadz/libtiff/commit/6a984bf,
+286,LibTiff,CVE-2016-9273,2016-11-09 23:00:49,cd82b52,6a984bf,d651abc,N/A,Yes,Buffer Overflow,"In tif_strip.c
+
+==12916==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000ef78 at pc 0x000000402979 bp 0x7ffe6fab1350 sp 0x7ffe6fab1340
+READ of size 8 at 0x60200000ef78 thread T0
+    #0 0x402978 in cpStrips /home/john/libtiff/tools/tiffsplit.c:246
+    #1 0x402683 in tiffcp /home/john/libtiff/tools/tiffsplit.c:227
+    #2 0x401489 in main /home/john/libtiff/tools/tiffsplit.c:89
+    #3 0x7f20967c6400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #4 0x401179 in _start (/home/john/libtiff/installer/bin/tiffsplit+0x401179)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/d651abc
+http://bugzilla.maptools.org/show_bug.cgi?id=2587",
+287,LibTiff,CVE-2016-9532,2016-11-11 19:33:06,d9783e4,d651abc,21d39de,N/A,Yes,Buffer Overflow,"In tiffcrop.c
+
+ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000eeb1 at pc 0x00000040bb90 bp 0x7ffe54997ee0 sp 0x7ffe54997ed0
+WRITE of size 1 at 0x60200000eeb1 thread T0
+    #0 0x40bb8f in extractContigSamples24bits /home/john/hemiptera_applications/libtiff/tools/tiffcrop.c:2948
+    #1 0x40da70 in extractContigSamplesToBuffer /home/john/hemiptera_applications/libtiff/tools/tiffcrop.c:3509
+    #2 0x403729 in writeBufferToSeparateStrips /home/john/hemiptera_applications/libtiff/tools/tiffcrop.c:1165
+    #3 0x4256bb in writeCroppedImage /home/john/hemiptera_applications/libtiff/tools/tiffcrop.c:7866
+    #4 0x4098a1 in main /home/john/hemiptera_applications/libtiff/tools/tiffcrop.c:2326
+    #5 0x2b73e864f400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x4020a9 in _start (/home/john/hemiptera_applications/libtiff/installer/bin/tiffcrop+0x4020a9)
+
+",Yes,Success,"https://github.com/vadz/libtiff/commit/21d39de
+http://bugzilla.maptools.org/show_bug.cgi?id=2592",
+288,LibTiff,N/A,2016-11-11 20:01:55,TODO,21d39de,35fc319,N/A,Yes,Null Dereference,In tif_dirread.c,Yes,Failed,"https://github.com/vadz/libtiff/commit/35fc319
+http://bugzilla.maptools.org/show_bug.cgi?id=2585",
+289,LibTiff,CVE-2016-9297,2016-11-11 20:22:01,TODO,35fc319,30c9234,Needs preload,Yes,Buffer Overflow,In tif_dirread.c (_TIFFPrintField()),Yes,TODO,"https://github.com/vadz/libtiff/commit/30c9234
+http://bugzilla.maptools.org/show_bug.cgi?id=2590
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9297",
+290,LibTiff,N/A,2016-11-11 20:45:53,TODO,30c9234,ce4914a,N/A,Yes,Null Dereference,In tif_aux.c,Yes,Failed,"https://github.com/vadz/libtiff/commit/ce4914a
+http://bugzilla.maptools.org/show_bug.cgi?id=2591",
+291,LibTiff,N/A,2016-11-11 21:15:25,cd82b52,b5eef0a,80d7af5,Requires 32-bit,No,Arithmetic Error,"In tiff2pdf.c
+
+==23900==AddressSanitizer CHECK failed: ../../../../libsanitizer/sanitizer_common/sanitizer_allocator.cc:145 ""((0)) != (0)"" (0x0, 0x0)
+    #0 0x7f90383897aa  (/lib64/libasan.so.3+0xd07aa)
+    #1 0x7f9038390163 in __sanitizer::CheckFailed(char const*, int, char const*, unsigned long long, unsigned long long) (/lib64/libasan.so.3+0xd7163)
+    #2 0x7f903838e326  (/lib64/libasan.so.3+0xd5326)
+    #3 0x7f90382de314  (/lib64/libasan.so.3+0x25314)
+    #4 0x7f903837fe24 in malloc (/lib64/libasan.so.3+0xc6e24)
+    #5 0x7f903806c475 in _TIFFmalloc /home/john/libtiff/libtiff/tif_unix.c:316
+    #6 0x40d4ec in t2p_readwrite_pdf_image /home/john/libtiff/tools/tiff2pdf.c:2192
+    #7 0x42baf6 in t2p_write_pdf /home/john/libtiff/tools/tiff2pdf.c:5536
+    #8 0x4037a6 in main /home/john/libtiff/tools/tiff2pdf.c:808
+    #9 0x7f9036fff400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #10 0x401f49 in _start (/home/john/libtiff/installer/bin/tiff2pdf+0x401f49)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/80d7af5
+http://bugzilla.maptools.org/show_bug.cgi?id=2576
+",
+292,LibTiff,N/A,2016-11-11 21:22:50,cd82b52,80d7af5,482eb1e,N/A,No,Buffer Overflow,"In tiff2pdf.c
+
+==32450==ERROR: AddressSanitizer: memcpy-param-overlap: memory ranges [0x60200000ea13,0x60200000ea16) and [0x60200000ea14, 0x60200000ea17) overlap
+    #0 0x7f8db3c6be75  (/lib64/libasan.so.3+0x5ee75)
+    #1 0x419254 in t2p_sample_rgbaa_to_rgb /home/john/libtiff/tools/tiff2pdf.c:3700
+    #2 0x40fef2 in t2p_readwrite_pdf_image /home/john/libtiff/tools/tiff2pdf.c:2591
+    #3 0x42baf6 in t2p_write_pdf /home/john/libtiff/tools/tiff2pdf.c:5544
+    #4 0x4037a6 in main /home/john/libtiff/tools/tiff2pdf.c:808
+    #5 0x7f8db2953400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x401f49 in _start (/home/john/libtiff/installer/bin/tiff2pdf+0x401f49)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/482eb1e
+http://bugzilla.maptools.org/show_bug.cgi?id=2577",
+293,LibTiff,N/A,2016-11-16 15:14:15,f64949a,f64949a,8940628,N/A,Yes,Buffer Overflow,"In tif_dirread.c
+
+=8920==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7f55dbec5104 bp 0x7ffc5ed29400 sp 0x7ffc5ed291d0 T0)
+    #0 0x7f55dbec5103 in TIFFFetchNormalTag /home/john/libtiff/libtiff/tif_dirread.c:5180
+    #1 0x7f55dbebc217 in TIFFReadDirectory /home/john/libtiff/libtiff/tif_dirread.c:3821
+    #2 0x7f55dbf40683 in TIFFClientOpen /home/john/libtiff/libtiff/tif_open.c:466
+    #3 0x7f55dbf711db in TIFFFdOpen /home/john/libtiff/libtiff/tif_unix.c:211
+    #4 0x7f55dbf71434 in TIFFOpen /home/john/libtiff/libtiff/tif_unix.c:250
+    #5 0x401e51 in main /home/john/libtiff/tools/tiff2bw.c:159
+    #6 0x7f55daf04400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x401329 in _start (/home/john/libtiff/installer/bin/tiff2bw+0x401329)
+
+",Yes,Success,"https://github.com/vadz/libtiff/commit/8940628
+http://bugzilla.maptools.org/show_bug.cgi?id=2593
+https://security-tracker.debian.org/tracker/CVE-2016-9448",
+294,LibTiff,N/A,2016-11-18 14:58:46,TODO,e1ab7b6,a74be79,N/A,No,Memory Leak,In tiffcrop.c,No,TODO,"https://github.com/vadz/libtiff/commit/a74be79
+",
+295,LibTiff,N/A,2016-12-02 21:56:56,f64949a,fa6aff6,438274f,N/A,Yes,Division By Zero,"In tif_read.c (TIFFReadEncodedStrip())
+
+==17468==ERROR: AddressSanitizer: FPE on unknown address 0x7ff513e95ff7 (pc 0x7ff513e95ff7 bp 0x7fffe76e6ea0 sp 0x7fffe76e6e50 T0)
+    #0 0x7ff513e95ff6 in TIFFReadEncodedStrip /home/john/libtiff/libtiff/tif_read.c:350
+    #1 0x405a78 in cpDecodedStrips /home/john/libtiff/tools/tiffcp.c:991
+    #2 0x404e4a in tiffcp /home/john/libtiff/tools/tiffcp.c:815
+    #3 0x402e05 in main /home/john/libtiff/tools/tiffcp.c:304
+    #4 0x7ff512e3c400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #5 0x401bc9 in _start (/home/john/libtiff/installer/bin/tiffcp+0x401bc9)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/438274f
+http://bugzilla.maptools.org/show_bug.cgi?id=2596
+https://github.com/asarubbo/poc/blob/master/00064-libtiff-fpe-TIFFReadEncodedStrip",Asarubbo 
+296,LibTiff,N/A,2016-12-02 22:13:32,TODO,438274f,5397a41,N/A,Yes,Buffer Overflow,In tiffcp.c,Yes,Failed,"https://github.com/vadz/libtiff/commit/5397a41
+http://bugzilla.maptools.org/show_bug.cgi?id=2598
+https://github.com/asarubbo/poc/blob/master/00066-libtiff-heapoverflow-TIFFReverseBits",Asarubbo 
+297,LibTiff,N/A,2016-12-02 23:05:51,f64949a,5397a41,1044b43,N/A,Yes,Buffer Overflow,"In tif_luv.c
+
+==2467==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000eef4 at pc 0x7fab87a1f49f bp 0x7ffebebc9e50 sp 0x7ffebebc95f8
+READ of size 512 at 0x60200000eef4 thread T0
+    #0 0x7fab87a1f49e  (/lib64/libasan.so.3+0x5f49e)
+    #1 0x7fab8777358b in _TIFFmemcpy /home/john/libtiff/libtiff/tif_unix.c:340
+    #2 0x7fab876d1c82 in TIFFWriteDirectoryTagTransferfunction /home/john/libtiff/libtiff/tif_dirwrite.c:1842
+    #3 0x7fab876ccccf in TIFFWriteDirectorySec /home/john/libtiff/libtiff/tif_dirwrite.c:629
+    #4 0x7fab876c97c0 in TIFFWriteDirectory /home/john/libtiff/libtiff/tif_dirwrite.c:183
+    #5 0x7fab876c9a22 in TIFFRewriteDirectory /home/john/libtiff/libtiff/tif_dirwrite.c:223
+    #6 0x7fab876ec7e6 in TIFFFlush /home/john/libtiff/libtiff/tif_flush.c:83
+    #7 0x7fab87691053 in TIFFCleanup /home/john/libtiff/libtiff/tif_close.c:53
+    #8 0x7fab8769179d in TIFFClose /home/john/libtiff/libtiff/tif_close.c:128
+    #9 0x402e3a in main /home/john/libtiff/tools/tiffcp.c:306
+    #10 0x7fab86706400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #11 0x401bc9 in _start (/home/john/libtiff/installer/bin/tiffcp+0x401bc9)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/1044b43
+http://bugzilla.maptools.org/show_bug.cgi?id=2604
+https://github.com/asarubbo/poc/blob/master/00071-libtiff-heapoverflow-_TIFFmemcpy",Asarubbo 
+298,LibTiff,N/A,2016-12-03 11:02:15,f64949a,1044b43,9a72a69,N/A,Yes,Buffer Overflow,"In tif_dirread.c
+
+==11008==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000edd8 at pc 0x7f5ffc3551d4 bp 0x7ffcc0e1fed0 sp 0x7ffcc0e1fec0
+READ of size 8 at 0x60200000edd8 thread T0
+    #0 0x7f5ffc3551d3 in TIFFFillStrip /home/john/libtiff/libtiff/tif_read.c:523
+    #1 0x7f5ffc353c85 in TIFFSeek /home/john/libtiff/libtiff/tif_read.c:233
+    #2 0x7f5ffc354050 in TIFFReadScanline /home/john/libtiff/libtiff/tif_read.c:300
+    #3 0x40665a in readContigStripsIntoBuffer /home/john/libtiff/tools/tiffcp.c:1259
+    #4 0x406592 in cpImage /home/john/libtiff/tools/tiffcp.c:1234
+    #5 0x40818b in cpContigStrips2ContigTiles /home/john/libtiff/tools/tiffcp.c:1629
+    #6 0x404e4a in tiffcp /home/john/libtiff/tools/tiffcp.c:815
+    #7 0x402e05 in main /home/john/libtiff/tools/tiffcp.c:304
+    #8 0x7f5ffb2fa400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x401bc9 in _start (/home/john/libtiff/installer/bin/tiffcp+0x401bc9)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/9a72a69
+http://bugzilla.maptools.org/show_bug.cgi?id=2608
+https://github.com/asarubbo/poc/blob/master/00074-libtiff-heapoverflow-TIFFFillStrip",Asarubbo 
+299,LibTiff,,2016-12-03 11:15:18,f64949a,9a72a69,43bc256,N/A,Yes,Division By Zero,"In tif_ojpeg.c (OJPEGDecode) 
+
+==28000==ERROR: AddressSanitizer: FPE on unknown address 0x7f9ee4690e7a (pc 0x7f9ee4690e7a bp 0x7fff59389a70 sp 0x7fff59389a00 T0)
+    #0 0x7f9ee4690e79 in OJPEGDecodeRaw /home/john/libtiff/libtiff/tif_ojpeg.c:816
+    #1 0x7f9ee4690db4 in OJPEGDecode /home/john/libtiff/libtiff/tif_ojpeg.c:791
+    #2 0x7f9ee46c010d in TIFFReadScanline /home/john/libtiff/libtiff/tif_read.c:304
+    #3 0x4069d4 in quant /home/john/libtiff/tools/tiffmedian.c:771
+    #4 0x4026a2 in main /home/john/libtiff/tools/tiffmedian.c:283
+    #5 0x7f9ee3666400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x4012c9 in _start (/home/john/libtiff/installer/bin/tiffmedian+0x4012c9)
+",Yes,Success,"
+http://bugzilla.maptools.org/show_bug.cgi?id=2611
+https://github.com/asarubbo/poc/blob/master/00083-libtiff-fpe-OJPEGDecodeRaw",Asarubbo 
+300,LibTiff,,2016-12-03 11:35:56,f64949a,43bc256,9657bbe,N/A,Yes,Buffer Overflow,"In tiffcrop.c
+
+==4534==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x7f0147e307f8 at pc 0x7f014c25a4d7 bp 0x7ffd5f3e6cb0 sp 0x7ffd5f3e6ca0
+READ of size 1 at 0x7f0147e307f8 thread T0
+    #0 0x7f014c25a4d6 in _TIFFFax3fillruns /home/john/libtiff/libtiff/tif_fax3.c:413
+    #1 0x7f014c255909 in Fax3Decode1D /home/john/libtiff/libtiff/tif_fax3.c:249
+    #2 0x7f014c2da8fd in TIFFReadEncodedStrip /home/john/libtiff/libtiff/tif_read.c:380
+    #3 0x40e600 in readContigStripsIntoBuffer /home/john/libtiff/tools/tiffcrop.c:3689
+    #4 0x41dddc in loadImage /home/john/libtiff/tools/tiffcrop.c:6167
+    #5 0x4099b3 in main /home/john/libtiff/tools/tiffcrop.c:2345
+    #6 0x7f014b280400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x402099 in _start (/home/john/libtiff/installer/bin/tiffcrop+0x402099)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/9657bbe
+http://bugzilla.maptools.org/show_bug.cgi?id=2620
+https://github.com/asarubbo/poc/blob/master/00100-libtiff-heapoverflow-_TIFFFax3fillruns",Asarubbo 
+301,LibTiff,,2016-12-03 12:19:32,f64949a,9657bbe,bd9d767,N/A,Yes,Buffer Overflow,"In tiffcrop.c
+
+==13110==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000eef1 at pc 0x00000040f5b1 bp 0x7fff8a0053a0 sp 0x7fff8a005390
+READ of size 1 at 0x60200000eef1 thread T0
+    #0 0x40f5b0 in combineSeparateSamples16bits /home/john/libtiff/tools/tiffcrop.c:3911
+    #1 0x414918 in readSeparateStripsIntoBuffer /home/john/libtiff/tools/tiffcrop.c:4881
+    #2 0x41de39 in loadImage /home/john/libtiff/tools/tiffcrop.c:6175
+    #3 0x4099b3 in main /home/john/libtiff/tools/tiffcrop.c:2345
+    #4 0x7f1e01591400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #5 0x402099 in _start (/home/john/libtiff/installer/bin/tiffcrop+0x402099)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/bd9d767
+http://bugzilla.maptools.org/show_bug.cgi?id=2621
+https://github.com/asarubbo/poc/blob/master/00101-libtiff-heapoverflow-combineSeparateSamples16bits",Asarubbo 
+302,LibTiff,,2016-12-03 13:00:03,TODO,bd9d767,d3c5426,Failed also on 32 bit,Yes,Division By Zero,In tiffcrop.c,Yes,Failed,"https://github.com/vadz/libtiff/commit/d3c5426
+http://bugzilla.maptools.org/show_bug.cgi?id=2619
+https://github.com/asarubbo/poc/blob/master/00099-libtiff-fpe-readSeparateStripsIntoBuffer",Asarubbo 
+303,LibTiff,,2016-12-03 14:18:48,f64949a,1c606b1,c2f931b,N/A,Yes,Null Dereference,"In tiffinfo.c
+
+==19274==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61f00000fa80 at pc 0x00000040282d bp 0x7ffef72e1b00 sp 0x7ffef72e1af0
+READ of size 1 at 0x61f00000fa80 thread T0
+    #0 0x40282c in ShowTile /home/john/libtiff/tools/tiffinfo.c:285
+    #1 0x402ae8 in TIFFReadContigTileData /home/john/libtiff/tools/tiffinfo.c:314
+    #2 0x403079 in TIFFReadData /home/john/libtiff/tools/tiffinfo.c:361
+    #3 0x4038f9 in tiffinfo /home/john/libtiff/tools/tiffinfo.c:463
+    #4 0x401d93 in main /home/john/libtiff/tools/tiffinfo.c:152
+    #5 0x7f4a74c9b400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x4016c9 in _start (/home/john/libtiff/installer/bin/tiffinfo+0x4016c9)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/c2f931b
+http://bugzilla.maptools.org/show_bug.cgi?id=2594
+https://github.com/asarubbo/poc/blob/master/00056-libtiff-nullptr-TIFFReadRawData",Asarubbo 
+304,LibTiff,,2016-12-03 14:42:40,TODO,c2f931b,a87eb62,Failed also on 32 bit,Yes,Division By Zero,In tiffcp.c,Yes,Failed,"https://github.com/vadz/libtiff/commit/a87eb62
+http://bugzilla.maptools.org/show_bug.cgi?id=2597
+https://github.com/asarubbo/poc/blob/master/00065-libtiff-fpe-readSeparateTilesIntoBuffer",Asarubbo 
+305,LibTiff,,2016-12-03 15:30:31,f64949a,a87eb62,b4b4192,N/A,Yes,Buffer Overflow,"In tif_dir.c
+
+==15212==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000edd3 at pc 0x7f817ee57fd3 bp 0x7ffe8d73d220 sp 0x7ffe8d73c9c8
+READ of size 1 at 0x60200000edd3 thread T0
+    #0 0x7f817ee57fd2  (/lib64/libasan.so.3+0x3cfd2)
+    #1 0x404b32 in tiffcp /home/john/libtiff/tools/tiffcp.c:784
+    #2 0x402e05 in main /home/john/libtiff/tools/tiffcp.c:304
+    #3 0x7f817db61400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #4 0x401bc9 in _start (/home/john/libtiff/installer/bin/tiffcp+0x401bc9)",Yes,Success,"https://github.com/vadz/libtiff/commit/b4b4192
+http://bugzilla.maptools.org/show_bug.cgi?id=2599
+https://github.com/asarubbo/poc/blob/master/00067-libtiff-heapoverflow-tiffcp",Asarubbo 
+306,LibTiff,,2016-12-03 15:44:15,TODO,56779b4,296803e,N/A,Yes,Division By Zero,In tiffcp.c,Yes,Failed,"https://github.com/vadz/libtiff/commit/296803e
+http://bugzilla.maptools.org/show_bug.cgi?id=2607
+https://github.com/asarubbo/poc/blob/master/00073-libtiff-fpe-writeBufferToSeparateTiles",Asarubbo 
+307,LibTiff,,2016-12-03 16:40:01,TODO,296803e,787c0ee,N/A,Yes,Buffer Overflow,In tiffcp.c (cpStripToTile),Yes,Failed,"https://github.com/vadz/libtiff/commit/787c0ee
+http://bugzilla.maptools.org/show_bug.cgi?id=2610
+https://github.com/asarubbo/poc/blob/master/00082-libtiff-heap-overflow-cpStripToTile",Asarubbo 
+308,LibTiff,,2016-12-03 16:50:02,f64949a,787c0ee,7ff9652,N/A,Yes,Assertion Failure,"In tiffcp.c
+
+tiffcp: tiffcp.c:1396: readSeparateTilesIntoBuffer: Assertion `bps % 8 == 0' failed.",Yes,Success,"https://github.com/vadz/libtiff/commit/7ff9652
+http://bugzilla.maptools.org/show_bug.cgi?id=2605
+https://github.com/asarubbo/poc/blob/master/00072-libtiff-assert-readSeparateTilesIntoBuffer",Asarubbo 
+309,LibTiff,,2016-12-17 19:45:28,f64949a,f3069a5,5ed9fea,N/A,Yes,Buffer Overflow,"In tiff2ps.c (PSDataBW)
+
+==8915==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000ee91 at pc 0x000000410473 bp 0x7ffc3c195a10 sp 0x7ffc3c195a00
+READ of size 1 at 0x60200000ee91 thread T0
+    #0 0x410472 in PSDataBW /home/john/libtiff/tools/tiff2ps.c:2703
+    #1 0x40ac77 in PSpage /home/john/libtiff/tools/tiff2ps.c:2388
+    #2 0x4077ae in TIFF2PS /home/john/libtiff/tools/tiff2ps.c:1606
+    #3 0x40277a in main /home/john/libtiff/tools/tiff2ps.c:473
+    #4 0x7f2c2e839400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #5 0x401bb9 in _start (/home/john/libtiff/installer/bin/tiff2ps+0x401bb9)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/5ed9fea
+http://bugzilla.maptools.org/show_bug.cgi?id=2634
+https://github.com/asarubbo/poc/blob/master/00108-libtiff-heapoverflow-PSDataBW",Asarubbo 
+310,LibTiff,,2016-12-17 19:45:28,f64949a,f3069a5,5ed9fea,N/A,Yes,Buffer Overflow,"In tiff2ps.c (PSDataColorContig)
+
+==8932==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000ee54 at pc 0x00000040afda bp 0x7ffc20815980 sp 0x7ffc20815970
+READ of size 1 at 0x60200000ee54 thread T0
+    #0 0x40afd9 in PSDataColorContig /home/john/libtiff/tools/tiff2ps.c:2470
+    #1 0x40a9fd in PSpage /home/john/libtiff/tools/tiff2ps.c:2347
+    #2 0x4077ae in TIFF2PS /home/john/libtiff/tools/tiff2ps.c:1606
+    #3 0x40277a in main /home/john/libtiff/tools/tiff2ps.c:473
+    #4 0x7f7b57ad4400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #5 0x401bb9 in _start (/home/john/libtiff/installer/bin/tiff2ps+0x401bb9)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/5ed9fea
+http://bugzilla.maptools.org/show_bug.cgi?id=2633
+https://github.com/asarubbo/poc/blob/master/00107-libtiff-heapoverflow-PSDataColorContig",Asarubbo 
+311,LibTiff,,2016-12-18 10:37:59,f64949a,2b48171,4a7207e,N/A,Yes,Buffer Overflow,"In tiff2pdf.c
+
+==17497==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60400000df8a at pc 0x000000419069 bp 0x7ffdbde23ff0 sp 0x7ffdbde23fe0
+READ of size 1 at 0x60400000df8a thread T0
+    #0 0x419068 in t2p_sample_realize_palette /home/john/libtiff/tools/tiff2pdf.c:3662
+    #1 0x40fd1e in t2p_readwrite_pdf_image /home/john/libtiff/tools/tiff2pdf.c:2581
+    #2 0x42bb8c in t2p_write_pdf /home/john/libtiff/tools/tiff2pdf.c:5549
+    #3 0x4037f6 in main /home/john/libtiff/tools/tiff2pdf.c:808
+    #4 0x7f0804553400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #5 0x401f99 in _start (/home/john/libtiff/installer/bin/tiff2pdf+0x401f99)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/4a7207e
+http://bugzilla.maptools.org/show_bug.cgi?id=2635",Sarah
+312,LibTiff,,2016-12-18 22:28:42,f64949a,4a7207e,fa6b22a,N/A,No,Memory Leak,"In tif_getimage.c
+
+Direct leak of 6192 byte(s) in 1 object(s) allocated from:
+    #0 0x7f83b5bf8e60 in malloc (/lib64/libasan.so.3+0xc6e60)
+    #1 0x7f83b58d8f44 in _TIFFmalloc /home/john/libtiff/libtiff/tif_unix.c:316
+    #2 0x7f83b586b3ed in initYCbCrConversion /home/john/libtiff/libtiff/tif_getimage.c:2249
+    #3 0x7f83b586f7e8 in PickContigCase /home/john/libtiff/libtiff/tif_getimage.c:2640
+    #4 0x7f83b5854739 in TIFFRGBAImageBegin /home/john/libtiff/libtiff/tif_getimage.c:484
+    #5 0x7f83b5854d2d in TIFFReadRGBAImageOriented /home/john/libtiff/libtiff/tif_getimage.c:532
+    #6 0x40260c in cvt_whole_image /home/john/libtiff/tools/tiff2rgba.c:412
+    #7 0x402ee2 in tiffcvt /home/john/libtiff/tools/tiff2rgba.c:530
+    #8 0x401820 in main /home/john/libtiff/tools/tiff2rgba.c:126
+    #9 0x7f83b486b400 in __libc_start_main (/lib64/libc.so.6+0x20400)",Yes,Success,"https://github.com/vadz/libtiff/commit/fa6b22a
+http://bugzilla.maptools.org/show_bug.cgi?id=2627",Nicolas
+313,LibTiff,,2016-12-20 17:13:26,f64949a,fa6b22a,ad2fccb,N/A,No,I Don't Know,"In tiff2pdf.c
+
+Wrong use of memcpy
+
+==2890==ERROR: AddressSanitizer: memcpy-param-overlap: memory ranges [0x7f53553ae85d,0x7f53553ae8ba) and [0x7f53553ae861, 0x7f53553ae8be) overlap
+    #0 0x7f535438be75  (/lib64/libasan.so.3+0x5ee75)
+    #1 0x7f53540d3e84 in _TIFFmemcpy /home/john/libtiff/libtiff/tif_unix.c:340
+    #2 0x418bc2 in t2p_tile_collapse_left /home/john/libtiff/tools/tiff2pdf.c:3596
+    #3 0x4138bf in t2p_readwrite_pdf_image_tile /home/john/libtiff/tools/tiff2pdf.c:3073
+    #4 0x42b85f in t2p_write_pdf /home/john/libtiff/tools/tiff2pdf.c:5532
+    #5 0x4037f6 in main /home/john/libtiff/tools/tiff2pdf.c:808
+    #6 0x7f5353066400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x401f99 in _start (/home/john/libtiff/installer/bin/tiff2pdf+0x401f99)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/ad2fccb
+http://bugzilla.maptools.org/show_bug.cgi?id=2638
+https://github.com/asarubbo/poc/blob/master/00110-libtiff-memcpy-param-overlap-_TIFFmemcpy",Asarubbo 
+314,LibTiff,,2016-12-20 17:24:35,f64949a,ad2fccb,891b1b9,N/A,Yes,Buffer Overflow,"In tiff2pdf.c
+
+==11417==ERROR: AddressSanitizer: SEGV on unknown address 0x61b00002006c (pc 0x7f1903cafb93 bp 0xffffffffffffffff sp 0x7ffd7b10c338 T0)
+    #0 0x7f1903cafb92 in __memmove_sse2_unaligned_erms (/lib64/libc.so.6+0x90b92)
+    #1 0x7f1903c9a1e9 in _IO_file_xsputn@@GLIBC_2.2.5 (/lib64/libc.so.6+0x7b1e9)
+    #2 0x7f1903c8ebaa in fwrite (/lib64/libc.so.6+0x6fbaa)
+    #3 0x40230b in t2p_writeproc /home/john/libtiff/tools/tiff2pdf.c:405
+    #4 0x4021d4 in t2pWriteFile /home/john/libtiff/tools/tiff2pdf.c:379
+    #5 0x4126c6 in t2p_readwrite_pdf_image_tile /home/john/libtiff/tools/tiff2pdf.c:2924
+    #6 0x42b85e in t2p_write_pdf /home/john/libtiff/tools/tiff2pdf.c:5533
+    #7 0x4037f6 in main /home/john/libtiff/tools/tiff2pdf.c:808
+    #8 0x7f1903c3f400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x401f99 in _start (/home/john/libtiff/installer/bin/tiff2pdf+0x401f99)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/891b1b9
+http://bugzilla.maptools.org/show_bug.cgi?id=2639
+https://github.com/asarubbo/poc/blob/master/00111-libtiff-invalidread-t2p_writeproc",Asarubbo 
+315,LibTiff,,20/12/16 17:28:00,f64949a,891b1b9,c715336,N/A,Yes,Buffer Overflow,"In tiff2pdf.c
+
+==19937==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000ea11 at pc 0x7f67e75af29b bp 0x7ffc645e1510 sp 0x7ffc645e0cb8
+WRITE of size 2 at 0x60200000ea11 thread T0
+    #0 0x7f67e75af29a  (/lib64/libasan.so.3+0x5f29a)
+    #1 0x7f67e72f6e84 in _TIFFmemcpy /home/john/libtiff/libtiff/tif_unix.c:340
+    #2 0x4124c8 in t2p_readwrite_pdf_image_tile /home/john/libtiff/tools/tiff2pdf.c:2901
+    #3 0x42b897 in t2p_write_pdf /home/john/libtiff/tools/tiff2pdf.c:5535
+    #4 0x4037f6 in main /home/john/libtiff/tools/tiff2pdf.c:808
+    #5 0x7f67e6289400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x401f99 in _start (/home/john/libtiff/installer/bin/tiff2pdf+0x401f99)
+",Yes,Success,"https://github.com/vadz/libtiff/commit/c715336
+http://bugzilla.maptools.org/show_bug.cgi?id=2640
+https://github.com/asarubbo/poc/blob/master/00112-libtiff-heapoverflow-_TIFFmemcpy",Asarubbo 

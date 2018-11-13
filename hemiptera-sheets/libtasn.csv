@@ -1,0 +1,78 @@
+,,Num Of Confirmed Bugs with test cases:,2,Num of available crashes,6,,Project Link:,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=summary,,,,,
+,,,,,,,,,,,,,
+Invalid Access,2,,,,,,,,,,,,
+Failed Assertion,0,,,,,,,,,,,,
+Division By Zero,0,,,,,,,,,,,,
+Dangling Pointer Use,0,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Internal ID,Tool Name,CVE ID,Date of Fix,Earliest Unfixed Commit,Commit ID / Version before fix,Commit ID / Version of fix,Notes,Shall we include?,Bug Type,Bug Details,Crash Input,Crash Status,Useful Link
+1,libtasn1,,2017-01-19 11:10:17,,732d6d8,403b7f7,N/A,Potential,Null Dereference,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=403b7f7
+2,libtasn1,,2017-01-16 17:05:22,,6ec2a27,b3f7eca,N/A,Potential,Buffer Overflow,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=b3f7eca
+3,libtasn1,,2017-01-16 16:36:51,,4eddbe8,30f50fc,N/A,Potential,I Don't Know,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=30f50fc
+6,libtasn1,,2016-07-26 8:49:15,,5de17f0,8bf3ef1,N/A,Potential,Null Dereference,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=8bf3ef1
+7,libtasn1,,2016-04-08 13:49:26,,e186117,0be0b11,N/A,Potential,I Don't Know,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=0be0b11
+8,libtasn1,CVE-2016-4008,2016-04-06 13:03:46,,9ec2c56,a6e0a0b,N/A,Yes,Buffer Overflow,,No,TODO,"http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=a6e0a0b
+https://security-tracker.debian.org/tracker/CVE-2016-4008
+http://www.openwall.com/lists/oss-security/2016/04/11/3"
+10,libtasn1,,2016-04-04 15:07:04,,d3ca1b0,f435825,N/A,Potential,Buffer Overflow,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=f435825
+11,libtasn1,,2016-04-04 14:36:10,,4633168,301945,N/A,No,Memory Leak,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=0301945
+13,libtasn1,CVE-2015-3622,2015-04-20 14:56:38,,bf69ce9,f979435,N/A,Yes,Buffer Overflow,,Yes,Failed,"http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=f979435
+https://security-tracker.debian.org/tracker/CVE-2015-3622
+https://blog.fuzzing-project.org/9-Heap-overflow-invalid-read-in-Libtasn1-TFPA-0052015.html"
+14,libtasn1,CVE-2015-2806,2015-03-26 18:35:04,b27f1ad,77068c3,4d4f992,N/A,Yes,Buffer Overflow,"AddressSanitizer: stack-buffer-overflow on address 0x7ffc62b7bc94 at pc 0x2b338decc208 bp 0x7ffc62b7bb20 sp 0x7ffc62b7bb10
+WRITE of size 1 at 0x7ffc62b7bc94 thread T0
+    #0 0x2b338decc207 in _asn1_ltostr /home/john/hemiptera_applications/libtasn1/lib/parser_aux.c:574
+    #1 0x2b338debe349 in _asn1_get_objectid_der /home/john/hemiptera_applications/libtasn1/lib/decoding.c:397
+    #2 0x2b338dec183e in asn1_der_decoding2 /home/john/hemiptera_applications/libtasn1/lib/decoding.c:1225
+    #3 0x2b338dec2cdc in asn1_der_decoding /home/john/hemiptera_applications/libtasn1/lib/decoding.c:1602
+    #4 0x402418 in simple_decode /home/john/hemiptera_applications/libtasn1/src/asn1Decoding.c:251
+    #5 0x4026c4 in decode /home/john/hemiptera_applications/libtasn1/src/asn1Decoding.c:280
+    #6 0x4021d6 in main /home/john/hemiptera_applications/libtasn1/src/asn1Decoding.c:205
+    #7 0x2b338e101400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x401709 in _start (/home/john/hemiptera_applications/libtasn1/install/bin/asn1Decoding+0x401709)
+",Yes,Success,"http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=4d4f992
+https://blog.fuzzing-project.org/6-Stack-overflow-in-libtasn1-TFPA-0022015.html"
+15,libtasn1,,2015-02-05 10:33:14,b27f1ad,b27f1ad,edaff43,N/A,Yes,Null Dereference,"ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x2b28aa300fe6 bp 0x7ffc34736c30 sp 0x7ffc347363a8 T0)
+    #0 0x2b28aa300fe5 in strlen (/lib64/libc.so.6+0x8cfe5)
+    #1 0x2b28a90d6e5b  (/lib64/libasan.so.3+0x3ce5b)
+    #2 0x2b28aa05fc3b in _asn1_expand_object_id /home/john/hemiptera_applications/libtasn1/lib/parser_aux.c:704
+    #3 0x2b28aa0496a7 in asn1_parser2tree /home/john/hemiptera_applications/libtasn1/lib/ASN1.y:704
+    #4 0x401f5c in main /home/john/hemiptera_applications/libtasn1/src/asn1Decoding.c:142
+    #5 0x2b28aa294400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x401709 in _start (/home/john/hemiptera_applications/libtasn1/prefix/bin/asn1Decoding+0x401709)
+",Yes,Success,"http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=edaff43
+http://lists.gnu.org/archive/html/help-libtasn1/2015-01/msg00000.html
+https://blog.fuzzing-project.org/6-Stack-overflow-in-libtasn1-TFPA-0022015.html"
+16,libtasn1,,2014-08-20 16:20:01,,241acd0,0b0de9b,N/A,Potential,I Don't Know,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=0b0de9b
+17,libtasn1,,2014-05-04 12:24:26,,83e0827,ff3b5c6,N/A,Yes,Buffer Overflow,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=ff3b5c6
+18,libtasn1,,2014-04-26 11:39:43,,84288b4,3317187,N/A,No,Memory Leak,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=3317187
+19,libtasn1,,2014-04-26 11:39:40,,057193d,84288b4,N/A,No,Memory Leak,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=84288b4
+20,libtasn1,,2014-04-15 12:12:06,,e6d1e60,4f80477,N/A,Potential,I Don't Know,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=4f80477
+21,libtasn1,,2014-03-28 14:49:03,,960d3db,aab0f6e,N/A,Potential,I Don't Know,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=aab0f6e
+22,libtasn1,,2013-01-01 12:26:37,,d5a6c73,40ea6d9,N/A,Yes,Buffer Overflow,Cant Compile!,Yes,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=40ea6d9
+23,libtasn1,,2012-11-25 14:16:24,,0ffd9af,aa6e97f,N/A,Potential,Buffer Overflow,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=aa6e97f
+24,libtasn1,,2012-09-09 1:25:58,,2070089,447cf8f,N/A,No,Memory Leak,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=447cf8f
+25,libtasn1,CVE-2012-1569,2012-03-31 20:17:39,,95ed3fd,3873c6a,N/A,Yes,Buffer Overflow,"Cant Compile!
+config.status: error: cannot find input file: `lib/Makefile.in'
+cfg.mk:50: recipe for target 'bootstrap' failed
+",Yes,TODO,"http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=3873c6a
+https://security-tracker.debian.org/tracker/CVE-2012-1569"
+26,libtasn1,,2012-03-14 0:34:11,,4b1805a,6e534bf,N/A,Yes,Buffer Overflow,"config.status: error: cannot find input file: `lib/Makefile.in'
+cfg.mk:50: recipe for target 'bootstrap' failed
+",Yes,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=6e534bf
+27,libtasn1,,2012-03-13 19:34:32,,ae04194,826a8eb,N/A,Potential,Buffer Overflow,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=826a8eb
+28,libtasn1,,2008-08-25 13:20:44,,51400d3,7cea3aa,N/A,No,Memory Leak,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=7cea3aa
+29,libtasn1,,2008-02-01 17:48:39,,513d5dc,01d898c,N/A,No,Memory Leak,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=01d898c
+32,libtasn1,,2006-06-26 14:22:13,,955d22e,a92ff1b,N/A,Potential,I Don't Know,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=a92ff1b
+33,libtasn1,,2006-05-09 16:13:32,,1e5979d,3987dcf,N/A,Potential,I Don't Know,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=3987dcf
+34,libtasn1,,2006-03-11 8:42:21,,299374b,91ad73f,N/A,Yes,Buffer Overflow,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=91ad73f
+35,libtasn1,,2006-02-08 11:33:07,,b82dd2e,8879a9b,N/A,Potential,I Don't Know,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=8879a9b
+36,libtasn1,,2006-01-27 12:25:51,,4df91ee,fbac6dd,N/A,Potential,I Don't Know,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=fbac6dd
+39,libtasn1,,2004-11-10 21:20:11,,f5ca5cd,86e32f9,N/A,Potential,I Don't Know,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=86e32f9
+40,libtasn1,,2004-05-18 10:42:26,,bc7a29b,dd56621,N/A,Potential,I Don't Know,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=dd56621
+41,libtasn1,,2003-02-03 16:53:23,,02477c2,7536e29,N/A,Potential,I Don't Know,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=7536e29
+42,libtasn1,CVE-2006-0645,2002-06-25 20:59:08,,6e953b5,3358382,N/A,Yes,I Don't Know,,No,TODO,"http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=3358382
+https://security-tracker.debian.org/tracker/CVE-2006-0645"
+43,libtasn1,,2002-06-11 8:11:41,,d8c5e8d,d4b3109,N/A,Potential,Null Dereference,,No,TODO,http://git.savannah.gnu.org/gitweb/?p=libtasn1.git;a=commit;h=d4b3109

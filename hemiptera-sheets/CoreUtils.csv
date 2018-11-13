@@ -1,0 +1,16 @@
+CoreUtils,,Num Of Confirmed Bugs with test cases:,0,Num of available crashes,0,,Project Link:,https://github.com/libgd/libgd,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+Internal ID,Tool Name,Binary,Bug Number,Commit ID before fix,Commit ID of fix,Notes,Shall we include?,Bug Details,Crash Input,Crash Status,Useful Link
+1,CoreUtils,ptx,N/A,6f2530cf3a9d58707b80872e8418772e5bf0c395,d28b0d4de83f21c85f273cbf8cba3f7b68e42ff5,N/A,Yes,Buffer Overflow,No,TODO,http://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=d28b0d4de83f21c85f273cbf8cba3f7b68e42ff5
+2,CoreUtils,csplit,N/A,fc9b802e3d282875e2ad4bcafa954c0ce1c759f8,b6b438c45dbc5dab7b2d62ae464942e6927b1d17,N/A,No,Memory Leak,No,Not Considered,http://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=b6b438c45dbc5dab7b2d62ae464942e6927b1d17
+3,CoreUtils,shred,N/A,	f3bacff51f371d014102c3497306988e6b5b57ef ,43d487b7112d84bfbcb792164e6ccd046f1568a7 ,"No Mention of failed assertion but they did claim the assertion was ""weak"".",Potential,Possible Assertion Failure,No,TODO,http://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=43d487b7112d84bfbcb792164e6ccd046f1568a7
+4,CoreUtils,lib/regexec.c,N/A,53ca379fa304eeaafaae9691ffc20cba53bd3d59,f9265a7efe4b53093dedcfa44de0d330484b86ef ,N/A,Yes,Buffer Overflow in memset,NO,TODO,http://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=f9265a7efe4b53093dedcfa44de0d330484b86ef
+5,CoreUtils,dd,N/A,360b98042fa20a4418371cb91ad0d881c6d3762d,36081fa6358527fcec93c8df3f3a8cfbf0b72208,N/A,Yes,Buffer Overflow,No,TODO,http://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=36081fa6358527fcec93c8df3f3a8cfbf0b72208
+6,CoreUtils,csplit,N/A,d4595fdae98d59a104aaf42091579c6091f9f1a0,2729563f6bf2e2d25873249a6dea957593e0f6a3 ,Need to look into it further.,Potential,Buffer Overflow,No,TODO,http://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=2729563f6bf2e2d25873249a6dea957593e0f6a3
+7,CoreUtils,pr,N/A,15d4c70e0843c19a8a62c06bf95771f462cef9ce,91f8e15bff133d6ee497b64a6e3a283f6f865ecc,N/A,Yes,Buffer Overflow (off-by-one),No,TODO,http://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=bb0eb686fcbb39619e2ca11819435ff5c8d92113
+8,CoreUtils,dd,N/A,15d4c70e0843c19a8a62c06bf95771f462cef9ce,91f8e15bff133d6ee497b64a6e3a283f6f865ecc ,N/A,Yes,Buffer Overflow (off-by-one),No,TODO,http://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=91f8e15bff133d6ee497b64a6e3a283f6f865ecc
+9,CoreUtils,shuf,N/A,31c77a2fde27888aead246cde6eb88724450e5e1,a38becce9752e67f71e79e8c230b327869802e70,N/A,Yes,Buffer Overflow (off-by-one),No,TODO,http://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=a38becce9752e67f71e79e8c230b327869802e70
+10,CoreUtils,expr,N/A,0eef2e1e8b40c36244311e4180fb5dd76ea50fa6,cad27cdc2ea46ec401b71b76a92fcf3bc1d094e0,N/A,Yes,Integer Overflow,No,TODO,http://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=a8826c6e63d47c7ad12e52f4cdb628968bf95e68
+11,CoreUtils,du,N/A,cf18eb7ca4ea6bf07570044656b70348699e6f2b,933576b4401b9e33ac792aa441ee2a128eb04850,Needs further investigating,Potential,Integer Overflow,NO,TODO,http://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=933576b4401b9e33ac792aa441ee2a128eb04850
+12,,,,,,,,,,,

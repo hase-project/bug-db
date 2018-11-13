@@ -1,0 +1,404 @@
+tcpdump,,Num Of Confirmed Bugs with test cases:,11,Num of available crashes,14,,Project Link:,https://github.com/the-tcpdump-group/tcpdump,,,,,,
+,,,,,,,,,,,,,,
+Invalid Access,11,,,,,,,,,,,,,
+Failed Assertion,0,,,,,,,,,,,,,
+Division By Zero,0,,,,,,,,,,,,,
+Dangling Pointer Use,0,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+Internal ID,Tool Name,CVE ID,Date of Fix,Earliest Unfixed Commit,Commit ID / Version before fix,Commit ID / Version of fix,Notes,Shall we include?,Bug Type,Bug Details,Crash Input,Crash Status,Useful Link,
+1,tcpdump,N/A,1999-11-20 15:34:00,TODO,dece31c,7252f02,N/A,Yes,Out-of-Bounds,In addrtoname.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/7252f02,
+2,tcpdump,N/A,2000-01-19 4:42:00,TODO,7bdb91c,250306e,N/A,Potential,Out-of-Bounds,In getaddrinfo.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/250306e,
+3,tcpdump,N/A,2000-01-19 5:34:00,TODO,22bb863,63ac2af,N/A,Yes,Out-of-Bounds,In strlcat.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/63ac2af,
+4,tcpdump,CVE-1999-1024,2000-01-25 1:03:00,TODO,318a186,9fc0b53,N/A,No,Infinite Loop,In print-ip.c,No,TODO,"https://github.com/the-tcpdump-group/tcpdump/commit/9fc0b53
+http://www.cvedetails.com/cve/CVE-1999-1024/",
+5,tcpdump,N/A,2000-03-13 5:00:00,TODO,fa2305b,2debca7,N/A,Yes,Out-of-Bounds,In print-icmp6.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/2debca7,
+6,tcpdump,N/A,2000-03-13 5:01:00,TODO,2debca7,5287159,N/A,Potential,Out-of-Bounds,"In print-atalk.c
+
+Bad use of sscanf",No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/5287159,
+7,tcpdump,CVE-2000-0333,2000-04-17 6:49:00,TODO,e13f9c8,9489d35,N/A,No,Infinite Loop,In print-domain.c,No,TODO,"https://github.com/the-tcpdump-group/tcpdump/commit/9489d35
+http://www.cvedetails.com/cve/CVE-2000-0333/",
+8,tcpdump,N/A,2000-05-26 9:32:00,TODO,42b516c,a4a78bf,N/A,No,Infinite Loop,In print-cdp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/a4a78bf,
+9,tcpdump,N/A,2000-06-03 16:40:00,TODO,f2eaaa3,e44561c,N/A,Potential,Infinite Loop,In util.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/e44561c,
+10,tcpdump,N/A,2000-08-18 7:53:00,TODO,89170d3,6772b53,N/A,Potential,Out-of-Bounds,In print-ppp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/6772b53,
+11,tcpdump,N/A,2000-08-18 8:20:00,TODO,6772b53,8e045dc,N/A,Yes,Out-of-Bounds,In print-ppp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/8e045dc,
+12,tcpdump,N/A,2000-08-29 16:04:00,TODO,a424d22,2ccbd10,N/A,Yes,Out-of-Bounds,In print-icmp6.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/2ccbd10,
+13,tcpdump,N/A,2000-10-07 5:20:00,TODO,92ca94f,88633a8,N/A,Yes,Out-of-Bounds,In getnameinfo.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/88633a8,
+14,tcpdump,N/A,2000-12-04 0:43:00,TODO,fb298cf,e3e36b4,N/A,Potential,Out-of-Bounds,In print-bgp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/e3e36b4,
+15,tcpdump,N/A,2000-12-04 5:27:00,TODO,e3e36b4,f3e835f,N/A,Potential,I Don't Know,In print-bgp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/f3e835f,
+16,tcpdump,N/A,2001-01-01 4:22:00,TODO,5d5b5e0,16ce7b4,N/A,Yes,Null Dereference,In print-domain.c (Seg Fault),No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/16ce7b4,
+17,tcpdump,CVE-2001-1279,2001-01-10 8:12:00,TODO,d50b530,74f3154,N/A,Yes,Out-of-Bounds,In print-rx.c,No,TODO,"https://github.com/the-tcpdump-group/tcpdump/commit/74f3154
+http://www.cvedetails.com/cve/CVE-2001-1279/",
+18,tcpdump,N/A,2001-01-15 2:23:00,TODO,06f29e2,1e73a0f,N/A,Yes,Out-of-Bounds,In print-ipx.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/1e73a0f,
+19,tcpdump,N/A,2001-01-15 3:23:00,TODO,1e73a0f,64e81f2,N/A,Yes,Out-of-Bounds,In print-smb.c (ipx_netbios_print),No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/64e81f2,
+20,tcpdump,N/A,2001-01-15 3:59:00,TODO,64e81f2,56894,N/A,Yes,Out-of-Bounds,In print-smb.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/0056894,
+21,tcpdump,N/A,2001-02-20 6:03:00,TODO,9f850d2,de0e71c,N/A,Yes,Out-of-Bounds,In print-domain.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/de0e71c,
+22,tcpdump,N/A,2001-02-23 8:55:00,TODO,23affce,46de5c9,N/A,Yes,Out-of-Bounds,In print-domain.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/46de5c9,
+23,tcpdump,N/A,2001-03-13 1:03:00,TODO,9298dc8,13c623c,N/A,Potential,Out-of-Bounds,In print-gre.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/13c623c,
+24,tcpdump,N/A,2001-04-03 22:55:00,TODO,c737726,9335d23,N/A,Potential,Out-of-Bounds,In print-smb.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/9335d23,
+25,tcpdump,N/A,2001-04-23 19:29:00,TODO,3838a46,b720b10,N/A,Potential,I Don't Know,In print-snmp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/b720b10,
+26,tcpdump,N/A,2001-06-13 7:25:00,TODO,15b5a0a,884ae4d,N/A,Yes,Out-of-Bounds,In ieee802_11.h,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/884ae4d,
+27,tcpdump,N/A,2001-06-15 7:54:00,TODO,fb5749b,e246418,N/A,Yes,Out-of-Bounds,In print-cdp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/e246418,
+28,tcpdump,N/A,2001-06-15 7:58:00,TODO,e246418,46458a4,N/A,Yes,Out-of-Bounds,In print-cdp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/46458a4,
+29,tcpdump,N/A,2001-06-15 20:52:00,TODO,17e614c,881c14c,N/A,Yes,Out-of-Bounds,In print-cdp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/881c14c,
+30,tcpdump,CVE-2003-0093,2001-06-18 9:16:00,TODO,ae68164,fcbbfea,N/A,No,Infinite Loop,In print-radius.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/fcbbfea,
+31,tcpdump,N/A,2001-07-09 9:24:00,TODO,5d5480f,4ad2011,N/A,Yes,Out-of-Bounds,In print-rx.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/4ad2011,
+32,tcpdump,N/A,2001-07-23 22:27:00,TODO,73dc419,4dba2d1,N/A,Potential,Out-of-Bounds,In print-vrrp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/4dba2d1,
+33,tcpdump,N/A,2001-09-10 6:40:00,TODO,6913fe6,8787c14,N/A,Potential,Out-of-Bounds,In print-telnet.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/8787c14,
+34,tcpdump,N/A,2001-10-04 9:26:00,TODO,459451d,9aebdc7,N/A,Potential,I Don't Know,In print-isoclns.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/9aebdc7,
+35,tcpdump,N/A,2001-10-19 9:00:00,TODO,922e03a,8df5006,N/A,Yes,Null Dereference,Inprint-domain.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/8df5006,
+36,tcpdump,N/A,2001-10-29 9:06:00,TODO,62082d1,49237ba,N/A,Potential,I Don't Know,In print-isoclns.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/49237ba,
+37,tcpdump,N/A,2001-11-05 2:02:00,TODO,56993c0,2824f79,N/A,No,Memory Leak,In addrtoname.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/2824f79,
+38,tcpdump,N/A,2001-11-10 21:35:00,TODO,de390b1,e3dfdbd,N/A,Potential,Out-of-Bounds,In print-isoclns.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/e3dfdbd,
+39,tcpdump,N/A,2001-12-03 9:17:00,TODO,ec910f1,ff83f3d,N/A,Potential,I Don't Know,In print-isoclns.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/ff83f3d,
+40,tcpdump,N/A,2002-01-17 4:38:00,TODO,ef1927a,3b8eb6c,N/A,Potential,Out-of-Bounds,print-smb.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/3b8eb6c,
+41,tcpdump,N/A,2002-04-26 9:13:00,TODO,c3287e5,4f65f2d,N/A,Potential,Out-of-Bounds,In print-cdp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/4f65f2d,
+42,tcpdump,N/A,2002-04-26 9:51:00,TODO,4f65f2d,632bb20,N/A,Potential,I Don't Know,In print-cdp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/632bb20,
+43,tcpdump,N/A,2002-05-31 9:29:00,TODO,2f3fdf1,7ebe728,N/A,Potential,I Don't Know,In interface.h,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/7ebe728,
+44,tcpdump,CVE-2002-0380,2002-05-31 9:38:00,TODO,204619,1f1fd00,N/A,Potential,I Don't Know,In interface.h,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/1f1fd00,
+45,tcpdump,N/A,2002-09-01 21:08:00,TODO,3a93c19,92f6294,N/A,Yes,Out-of-Bounds,In print-isoclns.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/92f6294,
+46,tcpdump,N/A,2002-12-04 19:09:00,TODO,676b2ce,b34c1cc,N/A,Yes,Null Dereference,In print-bootp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/b34c1cc,
+47,tcpdump,N/A,2002-12-15 8:33:00,TODO,3680073,21a071e,N/A,No,Infinite Loop,In print-bgp.c,No,TODO,"https://github.com/the-tcpdump-group/tcpdump/commit/21a071e
+",
+48,tcpdump,N/A,2003-02-26 5:58:00,TODO,bb6726f,d0e796c,N/A,No,Infinite Loop,In print-isakmp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/d0e796c,
+49,tcpdump,N/A,2003-05-10 16:33:00,TODO,3058667,5e2c45a,N/A,No,I Don't Know,In print-isoclns.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/5e2c45a,
+50,tcpdump,N/A,2003-06-03 22:15:00,TODO,aad4c8a,f4d9457,N/A,Potential,Out-of-Bounds,In print-bgp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/f4d9457,
+51,tcpdump,N/A,2003-06-03 23:23:00,TODO,f4d9457,13137dd,N/A,No,Infinite Loop,In print-bgp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/13137dd,
+52,tcpdump,N/A,2003-08-10 19:47:00,TODO,af44e60,688cae1,N/A,Yes,Out-of-Bounds,smbutil.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/688cae1,
+53,tcpdump,N/A,2003-11-19 9:42:00,TODO,d511b99,259cb9a,N/A,Yes,Out-of-Bounds,"In print-igmp.c, print-dvmrp.c",No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/259cb9a,
+54,tcpdump,N/A,2003-12-29 19:26:00,TODO,69b12b3,df946ca,N/A,Yes,Out-of-Bounds,In print-cdp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/df946ca,
+55,tcpdump,CVE-2004-0057,2004-01-07 7:53:00,TODO,ea91ebb,5c8ed36,N/A,Yes,Out-of-Bounds,In print-radius.c and print-isakmp.c,Yes,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/e0d20f2,
+56,tcpdump,CVE-2004-0055,2004-01-25 9:31:00,TODO,dc0208f,2b4d0e9,N/A,Yes,Out-of-Bounds,In print-radius.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/2b4d0e9,
+57,tcpdump,N/A,2004-01-26 1:42:00,TODO,ebe7dfe,dcf3502,N/A,Yes,Out-of-Bounds,In tcpdump.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/dcf3502,
+58,tcpdump,N/A,2004-02-18 15:14:00,TODO,3a91906,ad02799,N/A,Yes,Null Dereference,In addrtoname.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/ad02799,
+59,tcpdump,N/A,2004-03-02 7:38:00,TODO,26b6a74,544802f,N/A,Yes,I Don't Know,In print-bootp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/544802f,
+60,tcpdump,N/A,2004-03-12 14:58:00,TODO,5da3b64,5c2f39f,N/A,Yes,Out-of-Bounds,In print-bgp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/5c2f39f,
+61,tcpdump,N/A,2004-03-24 0:01:00,TODO,5c2f39f,33ede7f,N/A,Potential,Out-of-Bounds,In print-icmp6.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/33ede7f,
+62,tcpdump,N/A,2004-03-24 0:06:00,TODO,33ede7f,b340e34,N/A,Potential,Out-of-Bounds,In print-aodv.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/b340e34,
+63,tcpdump,N/A,2004-03-24 0:30:00,TODO,b340e34,d3d90f2,N/A,Potential,I Don't Know,In print-cdp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/d3d90f2,
+64,tcpdump,N/A,2004-03-24 0:41:00,TODO,d3d90f2,9bf8133,N/A,Potential,I Don't Know,In print-icmp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/9bf8133,
+65,tcpdump,N/A,2004-03-24 0:56:00,TODO,9bf8133,8b9bab2,N/A,Potential,I Don't Know,In print-ip.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/8b9bab2,
+66,tcpdump,N/A,2004-03-24 1:26:00,TODO,4a14292,f3fa55c,N/A,Potential,I Don't Know,In print-mobile.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/f3fa55c,
+67,tcpdump,N/A,2004-03-24 1:58:00,TODO,5c61c95,c37418c,N/A,Potential,Out-of-Bounds,In print-pim.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/c37418c,
+68,tcpdump,N/A,2004-03-24 2:51:00,TODO,c37418c,650537f,N/A,Potential,Out-of-Bounds,In print-pppoe.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/650537f,
+69,tcpdump,N/A,2004-03-24 3:04:00,TODO,650537f,883ff1e,N/A,Potential,Out-of-Bounds,In print-ppp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/883ff1e,
+70,tcpdump,N/A,2004-03-24 3:30:00,TODO,883ff1e,95421f8,N/A,Potential,I Don't Know,In print-rsvp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/95421f8,
+71,tcpdump,N/A,2004-03-24 4:00:00,TODO,95421f8,850e7d3,N/A,Potential,I Don't Know,print-wb.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/850e7d3,
+72,tcpdump,CVE-2004-0184,2004-03-24 4:06:00,8322d3a,0779792 (8322d3a),c6d12ae,"Note we build using commit id: 8322d3a
+This is due to compilation errors (related to pcap-debug) with the original commit provided.
+
+Debug info was provided by valgrind. Asan provides no info.",Yes,Out-of-Bounds,"print-isakmp.c (isakmp_id_print)
+
+Bad permissions for mapped region at address 0x5A67000
+==19622==    at 0x41AD83: isakmp_id_print (in /home/john/tests/tcpdump/installer/sbin/tcpdump)
+==19622==    by 0x419C8C: isakmp_sub_print (in /home/john/tests/tcpdump/installer/sbin/tcpdump)
+==19622==    by 0x41B4B1: isakmp_print (in /home/john/tests/tcpdump/installer/sbin/tcpdump)
+==19622==    by 0x40A2C6: ip_print (in /home/john/tests/tcpdump/installer/sbin/tcpdump)
+==19622==    by 0x4079B4: ether_encap_print (in /home/john/tests/tcpdump/installer/sbin/tcpdump)
+==19622==    by 0x407D53: ether_if_print (in /home/john/tests/tcpdump/installer/sbin/tcpdump)
+==19622==    by 0x4E5B87C: pcap_offline_read (in /usr/lib64/libpcap.so.1.7.4)
+==19622==    by 0x4E4BF6E: pcap_loop (in /usr/lib64/libpcap.so.1.7.4)
+==19622==    by 0x40242B: main (in /home/john/tests/tcpdump/installer/sbin/tcpdump)
+",Yes,Success,"https://github.com/the-tcpdump-group/tcpdump/commit/c6d12ae
+https://www.rapid7.com/db/vulnerabilities/freebsd-vid-f8551668-de09-4d7b-9720-f1360929df07
+http://www.cvedetails.com/cve/cve-2004-0184
+https://www.exploit-db.com/exploits/171/",
+73,tcpdump,N/A,2004-06-15 7:58:00,TODO,7752332,ccabac5,N/A,Potential,I Don't Know,In print-lspping.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/ccabac5,
+74,tcpdump,N/A,2004-07-28 19:59:00,TODO,5d69746,20d2f68,N/A,Yes,Out-of-Bounds,In print-icmp6.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/20d2f68,
+75,tcpdump,N/A,2004-08-27 3:28:00,TODO,a663702,728fd81,N/A,Potential,Out-of-Bounds,In print-pppoe.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/728fd81,
+76,tcpdump,N/A,2004-12-23 10:51:00,TODO,d54f16a,5561f21,N/A,Yes,Out-of-Bounds,In print-icmp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/5561f21,
+77,tcpdump,N/A,2004-12-29 5:27:00,TODO,e46e896,ae05d24,N/A,Potential,Out-of-Bounds,In smbutil.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/ae05d24,
+78,tcpdump,N/A,2005-01-13 7:08:00,TODO,43e8ce0,da8bcc0,N/A,Potential,I Don't Know,In print-rsvp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/da8bcc0,
+79,tcpdump,N/A,2005-01-25 15:02:00,TODO,2bb115b,a647853,N/A,Potential,I Don't Know,In print-fr.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/a647853,
+80,tcpdump,N/A,2005-04-10 6:39:00,TODO,ff161bd,edf737e,N/A,Potential,Out-of-Bounds,In print-chdlc.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/edf737e,
+81,tcpdump,N/A,2005-04-18 0:07:00,TODO,6b5bfdd,a03ba28,N/A,Potential,Out-of-Bounds,In print-snmp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/a03ba28,
+82,tcpdump,N/A,2005-04-19 12:17:00,TODO,43f4bab,c4e9c6b,N/A,Potential,Out-of-Bounds,In print-lspping.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/c4e9c6b,
+83,tcpdump,N/A,2005-04-25 9:09:00,TODO,ee44728,3ac9165,N/A,Potential,Out-of-Bounds,In print-isoclns.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/3ac9165,
+84,tcpdump,N/A,2005-04-25 13:18:00,TODO,5ad4af2,ce115a5,N/A,No,Infinite Loop,In print-rsvp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/ce115a5,
+85,tcpdump,N/A,2005-04-26 7:14:00,TODO,259983f,c0fd677,N/A,Potential,Out-of-Bounds,In print-isoclns.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/c0fd677,
+86,tcpdump,N/A,2005-04-27 18:55:00,TODO,80d7284,2baf228,N/A,No,Infinite Loop,In print-ldp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/2baf228,
+87,tcpdump,N/A,2005-04-27 23:14:00,TODO,fe99fbf,620d5f1,N/A,Potential,Out-of-Bounds,In print-bfd.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/620d5f1,
+88,tcpdump,N/A,2005-05-03 8:21:00,TODO,0bc2846,1ee09c1,N/A,No,Infinite Loop,In print-ldp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/1ee09c1,
+89,tcpdump,N/A,2005-05-05 22:49:00,TODO,414804c,9bd9227,N/A,Potential,I Don't Know,In print-bgp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/9bd9227,
+90,tcpdump,N/A,2005-05-05 23:08:00,TODO,9bd9227,1324704,N/A,Potential,I Don't Know,In print-sctp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/1324704,
+91,tcpdump,N/A,2005-05-06 2:16:00,TODO,1324704,f616391,N/A,Potential,I Don't Know,In print-decnet.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/f616391,
+92,tcpdump,N/A,2005-05-06 4:19:00,TODO,90b3d1b,b2957dd,N/A,Potential,I Don't Know,In print-bootp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/b2957dd,
+93,tcpdump,N/A,2005-05-06 10:53:00,TODO,638229f,d022b33,N/A,Potential,Out-of-Bounds,In print-sctp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/d022b33,
+94,tcpdump,N/A,2005-05-08 19:59:00,TODO,d022b33,c44d884,N/A,Potential,I Don't Know,In print-smb.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/c44d884,
+95,tcpdump,N/A,2005-05-22 21:18:00,TODO,e60d2e6,1534844,N/A,Potential,Out-of-Bounds,In print-juniper.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/1534844,
+96,tcpdump,N/A,2005-05-25 22:06:00,TODO,6740864,2b08b76,N/A,Potential,I Don't Know,In print-isoclns.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/2b08b76,
+97,tcpdump,N/A,2005-06-03 7:28:00,TODO,af9f8b6,8bf0956,N/A,Potential,Out-of-Bounds,In print-bgp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/8bf0956,
+98,tcpdump,N/A,2005-06-16 0:49:00,TODO,6aa76a8,542c5f3,N/A,Potential,Out-of-Bounds,In print-rsvp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/542c5f3,
+99,tcpdump,N/A,2005-07-11 12:58:00,TODO,c56e09a,ac93b91,N/A,Potential,Out-of-Bounds,In print-isoclns.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/ac93b91,
+100,tcpdump,N/A,2005-07-21 8:26:00,TODO,156694c,751cd0a,N/A,Potential,Out-of-Bounds,In print-fr.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/751cd0a,
+101,tcpdump,N/A,2005-07-26 17:33:00,TODO,224bdf9,423ef5b,N/A,Potential,Out-of-Bounds,In addrtoname.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/423ef5b,
+102,tcpdump,N/A,2005-10-16 18:14:00,TODO,02c692d,9e349e8,N/A,Potential,Out-of-Bounds,In print-bgp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/9e349e8,
+103,tcpdump,N/A,2005-10-25 9:29:00,TODO,92218d7,9574a70,N/A,No,Memory Leak,In tcpdump.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/9574a70,
+104,tcpdump,N/A,2006-01-17 17:43:00,TODO,997e4c6,4ee5f75,N/A,Yes,Null Dereference,In print-llc.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/4ee5f75,
+105,tcpdump,N/A,2006-02-08 1:38:00,TODO,6b3e20d,ddb7009,N/A,Potential,Out-of-Bounds,In util.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/ddb7009,
+106,tcpdump,N/A,2006-02-10 17:24:00,TODO,860434,4141860,N/A,Potential,Out-of-Bounds,In print-mpcp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/4141860,
+107,tcpdump,N/A,2006-02-19 5:00:00,TODO,c0de704,45aea43,N/A,Potential,Out-of-Bounds,In print-ip.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/45aea43,
+108,tcpdump,N/A,2006-05-16 21:57:00,TODO,194e9d1,a333cd3,N/A,No,Infinite Loop,In print-slow.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/a333cd3,
+109,tcpdump,N/A,2006-12-12 10:48:00,TODO,9929688,196bff5,N/A,No,Infinite Loop,In print-icmp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/196bff5,
+110,tcpdump,N/A,2007-01-29 20:55:00,TODO,674d231,90c8108,N/A,Yes,Out-of-Bounds,In print-bootp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/90c8108,
+111,tcpdump,N/A,2007-02-01 2:18:00,TODO,909204f,8a90557,N/A,Yes,Out-of-Bounds,In print-802_11.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/8a90557,
+112,tcpdump,N/A,2007-12-22 3:08:00,TODO,efb8078,ed1906f,N/A,Potential,Out-of-Bounds,In print-nfs.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/ed1906f,
+113,tcpdump,N/A,2008-03-20 9:30:00,TODO,eb65de0,a7c56c0,N/A,Potential,Out-of-Bounds,In print-lldp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/a7c56c0,
+114,tcpdump,N/A,2009-04-28 1:20:00,TODO,044afa7,dc4380a,N/A,Yes,Out-of-Bounds,In tcpdump.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/dc4380a,
+115,tcpdump,N/A,2009-08-18 14:56:00,TODO,9da2a96,c91c138,N/A,Potential,Out-of-Bounds,In print-l2tp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/c91c138,
+116,tcpdump,N/A,2010-01-26 18:43:00,TODO,12604e2,6ee5663,N/A,Potential,I Don't Know,In print-forces.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/6ee5663,
+117,tcpdump,N/A,2010-02-07 17:47:00,TODO,7906cae,606a29c,N/A,No,Infinite Loop,In print-forces.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/606a29c,
+118,tcpdump,N/A,2010-02-21 0:27:00,TODO,b00042a,e8b5237,N/A,Potential,Out-of-Bounds,In print-ap1394.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/e8b5237,
+119,tcpdump,N/A,2010-02-21 11:29:00,TODO,623e427,f99863c,N/A,Potential,Out-of-Bounds,In print-token.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/f99863c,
+120,tcpdump,N/A,2011-04-15 10:01:00,TODO,e6358ea,5779709,N/A,Potential,I Don't Know,In print-sflow.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/5779709,
+121,tcpdump,N/A,2012-06-08 19:07:00,TODO,42a8c23,723ebba,N/A,Potential,Out-of-Bounds,In print-bgp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/723ebba,
+122,tcpdump,N/A,2012-11-26 17:39:00,TODO,9e2d0e4,2c4de02,N/A,Potential,I Don't Know,In print-dhcp6.c,Yes,Failed,https://github.com/the-tcpdump-group/tcpdump/commit/2c4de02,
+123,tcpdump,N/A,2012-12-02 16:59:00,TODO,b85edb6 2c4de02,d174c40,N/A,Potential,I Don't Know,print-dhcp6.c,Yes,Failed,"https://github.com/the-tcpdump-group/tcpdump/commit/d174c40
+",
+124,tcpdump,N/A,2013-03-26 2:35:00,TODO,949a220,4a696ee,N/A,Potential,Out-of-Bounds,In print-stp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/4a696ee,
+125,tcpdump,N/A,2013-04-19 9:22:00,TODO,8e6ada8,e2c6675,N/A,Potential,I Don't Know,In print-mptcp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/e2c6675,
+126,tcpdump,N/A,2013-04-19 21:40:00,TODO,e2c6675,916cd7e,N/A,Potential,Out-of-Bounds,In print-rx.c,No,TODO,"https://github.com/the-tcpdump-group/tcpdump/commit/916cd7e
+https://github.com/the-tcpdump-group/tcpdump/commit/b766ec9
+https://github.com/the-tcpdump-group/tcpdump/issues/287",
+127,tcpdump,N/A,2013-04-28 18:26:00,TODO,3e3cc1f,b766ec9,N/A,Yes,Out-of-Bounds,In cpack.c,Yes,Failed,"https://github.com/the-tcpdump-group/tcpdump/commit/b766ec9
+https://github.com/the-tcpdump-group/tcpdump/commit/3e3cc1fc",Wim Torfs
+128,tcpdump,N/A,2013-05-05 18:29:00,TODO,902a44d,3432f69,N/A,Potential,I Don't Know,In print-mptcp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/3432f69,
+129,tcpdump,N/A,2013-06-27 13:28:00,TODO,80d038a,0c78d43,N/A,Potential,I Don't Know,In print-calm-fast.c,Yes,Failed,https://github.com/the-tcpdump-group/tcpdump/commit/0c78d43,
+130,tcpdump,N/A,2013-07-30 17:16:00,TODO,c951c50,78bf524,N/A,Potential,Out-of-Bounds,In print-atalk.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/78bf524,
+131,tcpdump,N/A,2013-07-30 23:18:00,TODO,c951c50 78bf524,d4d28dc,N/A,Potential,I Don't Know,In print-atalk.c,No,TODO,"https://github.com/the-tcpdump-group/tcpdump/commit/0ba2f9c
+https://github.com/the-tcpdump-group/tcpdump/pull/328",
+132,tcpdump,N/A,2014-02-16 11:53:00,TODO,c3216f5,3625533,N/A,Potential,I Don't Know,In print-dccp.c,Yes,Failed,https://github.com/the-tcpdump-group/tcpdump/commit/3625533,
+133,tcpdump,N/A,2014-02-16 18:29:00,TODO,c3216f5 3625533,b80fdf7,N/A,Potential,I Don't Know,In ,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/b80fdf7,
+134,tcpdump,N/A,2014-02-26 14:15:00,TODO,6e12d87,8c78679,N/A,Potential,I Don't Know,In print-nfs.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/8c78679,
+135,tcpdump,N/A,2014-03-30 12:45:00,TODO,663090d,708a68a,N/A,Potential,I Don't Know,In print-bootp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/708a68a,
+136,tcpdump,N/A,2014-04-18 19:09:00,TODO,12d1cd6,9f03301,N/A,No,Infinite Loop,In print-802_11.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/9f03301,
+137,tcpdump,N/A,2014-06-06 0:56:00,TODO,b146122,bb9331d,N/A,No,I Don't Know,In util.c,Yes,Failed,"https://github.com/the-tcpdump-group/tcpdump/commit/bb9331d
+https://github.com/the-tcpdump-group/tcpdump/issues/391",mastermind4
+138,tcpdump,N/A,2014-06-25 12:55:00,TODO,a509c52,f2b690e,N/A,Potential,I Don't Know,In print-nfs.c,Yes,Failed,"https://github.com/the-tcpdump-group/tcpdump/commit/f2b690e
+https://github.com/the-tcpdump-group/tcpdump/issues/395",irwintillman
+139,tcpdump,N/A,2014-10-19 14:45:00,TODO,bf93670,3a3ec26,N/A,Potential,Out-of-Bounds,In print-wb.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/3a3ec26,
+140,tcpdump,CVE-2014-9140,2014-10-22 12:31:00,TODO,15d235c,0f95d44,N/A,Yes,Out-of-Bounds,In print-ppp.c,No,TODO,"https://github.com/the-tcpdump-group/tcpdump/commit/0f95d44
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9140",
+141,tcpdump,,2014-10-22 16:41:00,TODO,0f95d44,a9e4211,N/A,Potential,Out-of-Bounds,In print-ldp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/a9e4211,
+142,tcpdump,N/A,2014-10-23 0:06:00,a9e4211,a9e4211 ,4ac7226,This bug was not detected with the script but was found by searching the issues page,Yes,Out-of-Bounds,"In print-ascii.c
+
+==18427==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60800000c000 at pc 0x00000042d013 bp 0x7ffc72403810 sp 0x7ffc72403800
+READ of size 1 at 0x60800000c000 thread T0
+    #0 0x42d012 in hex_and_ascii_print_with_offset print-ascii.c:102
+    #1 0x42d5cf in hex_and_ascii_print print-ascii.c:139
+    #2 0x40aeed in ndo_default_print tcpdump.c:2421
+    #3 0x42be20 in arp_print print-arp.c:326
+    #4 0x462c66 in ethertype_print print-ether.c:335
+    #5 0x46248d in ether_print print-ether.c:225
+    #6 0x4626b9 in ether_if_print print-ether.c:249
+    #7 0x40ab0e in print_packet tcpdump.c:2318
+    #8 0x2b7d9c70087c in pcap_offline_read (/lib64/libpcap.so.1+0x2187c)
+    #9 0x2b7d9c6f0f6e in pcap_loop (/lib64/libpcap.so.1+0x11f6e)
+    #10 0x4091d2 in main tcpdump.c:1859
+    #11 0x2b7d9c943400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #12 0x403929 in _start (/home/john/tests/tcpdump/installer/sbin/tcpdump+0x403929)
+",Yes,Success,"https://github.com/the-tcpdump-group/tcpdump/commit/4ac72261ee2
+https://github.com/the-tcpdump-group/tcpdump/issues/520",David Silveiro
+143,tcpdump,N/A,2014-11-09 23:24:00,TODO,fa01fcd,9ed7ddb,N/A,Potential,Out-of-Bounds,In print-cnfp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/9ed7ddb,
+144,tcpdump,CVE-2014-8768,2014-11-11 15:51:00,a9e4211 ,f5b7529 (486e8e1),9255c9b,"Parent ID of this commit is f5b7529, but we use an earlier commit because that is where the bug is triggered.",Yes,Out-of-Bounds,"In print-geonet.c
+
+at 0x4126F5: hex_and_ascii_print_with_offset (print-ascii.c:87)
+==3372==    by 0x41292A: hex_and_ascii_print (print-ascii.c:124)
+==3372==    by 0x4061CE: ndo_default_print (tcpdump.c:2089)
+==3372==    by 0x4061F9: default_print (tcpdump.c:2095)
+==3372==    by 0x42EB23: geonet_print (print-geonet.c:242)
+==3372==    by 0x429E21: ethertype_print (print-ether.c:422)
+==3372==    by 0x4297F8: ether_print (print-ether.c:226)
+==3372==    by 0x4298A6: ether_if_print (print-ether.c:250)
+==3372==    by 0x40601C: print_packet (tcpdump.c:1986)
+==3372==    by 0x52BB87C: pcap_offline_read (in /usr/lib64/libpcap.so.1.7.4)
+==3372==    by 0x52ABF6E: pcap_loop (in /usr/lib64/libpcap.so.1.7.4)
+==3372==    by 0x40552C: main (tcpdump.c:1596)
+",Yes,Success,"https://github.com/the-tcpdump-group/tcpdump/commit/9255c9b
+https://github.com/the-tcpdump-group/tcpdump/commit/d04efc2
+https://www.cvedetails.com/cve/CVE-2014-8768
+http://seclists.org/bugtraq/2014/Nov/89",
+145,tcpdump,CVE-2014-8767,2014-11-11 16:49:00,a9e4211 ,9255c9b,4038f83,N/A,Yes,Out-of-Bounds,"In print-olsr.c
+
+==31450==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x6310000247fe at pc 0x00000040bc90 bp 0x7ffebbbf5560 sp 0x7ffebbbf5550
+READ of size 4 at 0x6310000247fe thread T0
+    #0 0x40bc8f in getname addrtoname.c:228
+    #1 0x4c569d in olsr_print_neighbor print-olsr.c:241
+    #2 0x4c6382 in olsr_print print-olsr.c:431
+    #3 0x530ea4 in udp_print print-udp.c:651
+    #4 0x479458 in ip_print_demux print-ip.c:383
+    #5 0x47baaa in ip_print print-ip.c:651
+    #6 0x46472a in ethertype_print print-ether.c:326
+    #7 0x463f91 in ether_print print-ether.c:225
+    #8 0x4641bd in ether_if_print print-ether.c:249
+    #9 0x40ab0e in print_packet tcpdump.c:2324
+    #10 0x2afe3e5db87c in pcap_offline_read (/lib64/libpcap.so.1+0x2187c)
+    #11 0x2afe3e5cbf6e in pcap_loop (/lib64/libpcap.so.1+0x11f6e)
+    #12 0x4091d2 in main tcpdump.c:1864
+    #13 0x2afe3e81e400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #14 0x403929 in _start (/home/john/tests/tcpdump/installer/sbin/tcpdump+0x403929)
+",Yes,Success,"https://github.com/the-tcpdump-group/tcpdump/commit/4038f83
+https://github.com/the-tcpdump-group/tcpdump/commit/d04efc2",
+146,tcpdump,N/A,2014-11-11 19:05:00,a9e4211 ,3e8a443 (486e8e1),e302ff0,"Parent ID of this commit is 3e8a443 , but we use an earlier commit because that is where the bug is triggered.",Yes,Out-of-Bounds,"In print-aodv.c
+
+20== Use of uninitialised value of size 8
+==2220==    at 0x66DF291: _nss_dns_gethostbyaddr2_r (in /usr/lib64/libnss_dns-2.24.so)
+==2220==    by 0x66DF702: _nss_dns_gethostbyaddr_r (in /usr/lib64/libnss_dns-2.24.so)
+==2220==    by 0x55F8A8D: gethostbyaddr_r@@GLIBC_2.2.5 (in /usr/lib64/libc-2.24.so)
+==2220==    by 0x55F880C: gethostbyaddr (in /usr/lib64/libc-2.24.so)
+==2220==    by 0x406C31: getname6 (addrtoname.c:297)
+==2220==    by 0x411DA5: aodv_v6_draft_01_rerr (print-aodv.c:547)
+==2220==    by 0x412008: aodv_print (print-aodv.c:610)
+==2220==    by 0x49E23B: udp_print (print-udp.c:581)
+==2220==    by 0x43B057: ip_print_demux (print-ip.c:383)
+==2220==    by 0x43BC2A: ip_print (print-ip.c:651)
+==2220==    by 0x430AAA: ethertype_print (print-ether.c:326)
+==2220==    by 0x43070C: ether_print (print-ether.c:225)
+",Yes,Success,"https://github.com/the-tcpdump-group/tcpdump/commit/ab4e52b
+https://github.com/the-tcpdump-group/tcpdump/commit/d04efc2",
+147,tcpdump,N/A,2014-12-09 21:20:00,TODO,07dfc4e,8faebcd,N/A,Potential,I Don't Know,In print-bootp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/8faebcd,
+148,tcpdump,N/A,2014-12-19 12:13:00,TODO,7cea408,e5b3ec4,N/A,Potential,I Don't Know,In addrtoname.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/e5b3ec4,
+149,tcpdump,N/A,2015-02-04 18:55:00,TODO,913899b,f87c79a,N/A,Potential,I Don't Know,In print-arp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/f87c79a,
+150,tcpdump,N/A,2015-02-12 12:07:00,TODO,d717937 f87c79a,d5be981,N/A,Potential,I Don't Know,In print-arp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/d5be981,
+151,tcpdump,N/A,2015-02-16 20:42:00,TODO,c3f115f,e31a39e,N/A,Potential,I Don't Know,In print-decnet.c (Seg),No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/e31a39e,
+152,tcpdump,CVE-2015-2153,2015-03-09 14:35:00,a9e4211 ,1d1e1d9,fb6e537,This bug was not detected with the script but was found by searching the issues page,Yes,Out-of-Bounds,"In print-rpki-rtr.c
+
+==11737==ERROR: AddressSanitizer: SEGV on unknown address 0x7ffc5b321ee0 (pc 0x0000004f5f2f bp 0x7ffc5331da80 sp 0x7ffc5331d940 T0)
+    #0 0x4f5f2e in rpki_rtr_pdu_print print-rpki-rtr.c:291
+    #1 0x4f629c in rpki_rtr_print print-rpki-rtr.c:347
+    #2 0x52cf27 in tcp_print print-tcp.c:718
+    #3 0x47a4b5 in ip_print_demux print-ip.c:377
+    #4 0x47cc64 in ip_print print-ip.c:650
+    #5 0x465525 in ethertype_print print-ether.c:323
+    #6 0x464d8c in ether_print print-ether.c:222
+    #7 0x464fb8 in ether_if_print print-ether.c:246
+    #8 0x40acc5 in print_packet tcpdump.c:2432
+    #9 0x2b6b3cf3987c in pcap_offline_read (/lib64/libpcap.so.1+0x2187c)
+    #10 0x2b6b3cf29f6e in pcap_loop (/lib64/libpcap.so.1+0x11f6e)
+    #11 0x4093ae in main tcpdump.c:1969
+    #12 0x2b6b3d17c400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #13 0x4039c9 in _start (/home/john/tests/tcpdump/installer/sbin/tcpdump+0x4039c9)
+",Yes,Success,"https://github.com/the-tcpdump-group/tcpdump/commit/364b001
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2153",Kevin Day tcp dump
+154,tcpdump,CVE-2015-2154,2015-03-09 15:15:00,a9e4211 ,1d1e1d9,364b001,This bug was not detected with the script but was found by searching the issues page,Yes,Out-of-Bounds,"In print-rpki-rtr.c and print-isoclns.c
+
+==11774==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x6310000247ff at pc 0x0000004112fd bp 0x7ffd428b0930 sp 0x7ffd428b0920
+READ of size 1 at 0x6310000247ff thread T0
+    #0 0x4112fc in create_osi_cksum checksum.c:163
+    #1 0x49c2d5 in osi_print_cksum print-isoclns.c:3088
+    #2 0x497a5a in isis_print print-isoclns.c:2320
+    #3 0x48e698 in isoclns_print print-isoclns.c:690
+    #4 0x46d403 in fr_print print-fr.c:330
+    #5 0x46e129 in mfr_print print-fr.c:560
+    #6 0x46d8cf in mfr_if_print print-fr.c:381
+    #7 0x40acc5 in print_packet tcpdump.c:2432
+    #8 0x2b76db85287c in pcap_offline_read (/lib64/libpcap.so.1+0x2187c)
+    #9 0x2b76db842f6e in pcap_loop (/lib64/libpcap.so.1+0x11f6e)
+    #10 0x4093ae in main tcpdump.c:1969
+    #11 0x2b76dba95400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #12 0x4039c9 in _start (/home/john/tests/tcpdump/installer/sbin/tcpdump+0x4039c9)
+",Yes,Success,"https://github.com/the-tcpdump-group/tcpdump/commit/364b001
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2154",Kevin Day tcp dump
+155,tcpdump,CVE-2015-2155,2015-03-10 23:10:00,a9e4211 ,1d1e1d9,364b001,"This bug was not detected with the script but was found by searching the issues page
+
+Requires IPv6",Yes,Out-of-Bounds,"In print-rpki-rtr.c and print-isoclns.c
+
+==9081== Process terminating with default action of signal 11 (SIGSEGV)
+==9081==  Bad permissions for mapped region at address 0x0
+==9081==    at 0x0: ???
+==9081==    by 0x42C891: lfbselect_print (print-forces.c:1551)
+==9081==    by 0x42CBEA: forces_type_print (print-forces.c:1639)
+==9081==    by 0x42D0EF: forces_print (print-forces.c:1725)
+==9081==    by 0x47ADCF: sctp_print (print-sctp.c:573)
+==9081==    by 0x432A05: ip_print_demux (print-ip.c:364)
+==9081==    by 0x43341F: ip_print (print-ip.c:648)
+==9081==    by 0x429B6E: ethertype_print (print-ether.c:327)
+==9081==    by 0x4297F8: ether_print (print-ether.c:226)
+==9081==    by 0x4298A6: ether_if_print (print-ether.c:250)
+==9081==    by 0x40601C: print_packet (tcpdump.c:1986)
+==9081==    by 0x52BB87C: pcap_offline_read (in /usr/lib64/libpcap.so.1.7.4)
+",Yes,Success,"https://github.com/the-tcpdump-group/tcpdump/commit/364b001
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2155",Kevin Day tcp dump
+156,tcpdump,N/A,2015-03-13 14:27:00,TODO,9eb8c3a,fb6e537,N/A,Yes,I Don't Know,In print-rpki-rtr.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/fb6e537,
+157,tcpdump,N/A,2015-03-15 11:01:00,TODO,ac7004f,840d0b,This bug was not detected with the script but was found by searching the issues page,Yes,Out-of-Bounds,In print-isoclns.c,Yes,Failed,"https://github.com/the-tcpdump-group/tcpdump/commit/840d0b
+https://github.com/the-tcpdump-group/tcpdump/issues/437",Brian 'geeknik' Carpenter
+158,tcpdump,N/A,2015-03-22 22:48:00,a9e4211 ,7a2fd50,3ed82f4,N/A,Yes,Out-of-Bounds,"In print-wb.c
+
+==9972==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x2ab6756cc866 at pc 0x0000005384bf bp 0x7fff39d9d280 sp 0x7fff39d9d270
+READ of size 4 at 0x2ab6756cc866 thread T0
+    #0 0x5384be in EXTRACT_32BITS extract.h:150
+    #1 0x538fda in wb_prep print-wb.c:279
+    #2 0x539b92 in wb_print print-wb.c:443
+    #3 0x534a92 in udp_print print-udp.c:634
+    #4 0x47a593 in ip_print_demux print-ip.c:382
+    #5 0x47cc39 in ip_print print-ip.c:649
+    #6 0x4654fa in ethertype_print print-ether.c:322
+    #7 0x464d61 in ether_print print-ether.c:221
+    #8 0x464f8d in ether_if_print print-ether.c:245
+    #9 0x40acc5 in print_packet tcpdump.c:2432
+    #10 0x2ab676c2287c in pcap_offline_read (/lib64/libpcap.so.1+0x2187c)
+    #11 0x2ab676c12f6e in pcap_loop (/lib64/libpcap.so.1+0x11f6e)
+    #12 0x4093ae in main tcpdump.c:1969
+    #13 0x2ab676e65400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #14 0x4039c9 in _start (/home/john/tests/tcpdump/installer/sbin/tcpdump+0x4039c9)
+",Yes,Success,"https://github.com/the-tcpdump-group/tcpdump/commit/3ed82f4
+https://github.com/the-tcpdump-group/tcpdump/issues/446
+https://access.redhat.com/security/cve/cve-2015-3138",
+159,tcpdump,N/A,2015-05-07 17:54:00,TODO,20b0119,e8cd6c1,N/A,Potential,I Don't Know,In print-sflow.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/e8cd6c1,
+180,tcpdump,CVE-2015-0261,05/11/2015 0:00:00,a9e4211,100b54a (486e8e1),335b9ed314acb84 (TODO),"Ran it on 486e8e1 cause this is where the bug gets triggered
+
+Requires IPv6",Yes,Buffer Overflow,"Out of Bounds read
+
+Process terminating with default action of signal 11 (SIGSEGV)
+==9401==  Bad permissions for mapped region at address 0x60C8000
+==9401==    at 0x48D5A5: mobility_opt_print (print-mobility.c:99)
+==9401==    by 0x48E166: mobility_print (print-mobility.c:306)
+==9401==    by 0x48CB58: ip6_print (print-ip6.c:185)
+==9401==    by 0x47CAE6: sl_if_print (print-sl.c:85)
+==9401==    by 0x406039: print_packet (tcpdump.c:1988)
+==9401==    by 0x52BB87C: pcap_offline_read (in /usr/lib64/libpcap.so.1.7.4)
+==9401==    by 0x52ABF6E: pcap_loop (in /usr/lib64/libpcap.so.1.7.4)
+==9401==    by 0x40552C: main (tcpdump.c:1596)
+
+",Yes,Success,"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0261
+https://github.com/the-tcpdump-group/tcpdump/commit/335b9ed314acb84",
+160,tcpdump,N/A,2015-08-24 18:14:00,TODO,2d82e8f,5fc3681,N/A,No,Out-of-Bounds,In print-nfs.c,Yes,Failed,"https://github.com/the-tcpdump-group/tcpdump/commit/5fc3681
+https://github.com/the-tcpdump-group/tcpdump/commit/05c341d
+https://github.com/the-tcpdump-group/tcpdump/issues/478",
+161,tcpdump,N/A,2015-10-06 16:24:00,TODO,de7c619,1f17711,N/A,No,Infinite Loop,In print-dtp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/1f17711,
+162,tcpdump,N/A,2015-10-17 22:54:00,TODO,a14ec74,d7d269e,N/A,No,Infinite Loop,In print-rsvp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/d7d269e,
+163,tcpdump,N/A,2015-11-04 23:10:00,TODO,2862abf,8db57a4,N/A,Yes,Out-of-Bounds,In print-isoclns.c (Seg fault),No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/8db57a4,
+164,tcpdump,N/A,2015-11-06 18:55:00,TODO,e64b287,be8e9c9,N/A,Potential,I Don't Know,In print-isoclns.c (Seg fault),No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/be8e9c9,
+165,tcpdump,N/A,2015-11-19 15:40:00,TODO,be8e9c9,ef87bed,N/A,Potential,Out-of-Bounds,In print-rsvp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/ef87bed,
+166,tcpdump,N/A,2015-11-20 20:23:00,TODO,e075e99,9759a5b,N/A,No,Infinite Loop,In print-udld.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/9759a5b,
+167,tcpdump,N/A,2015-11-21 14:25:00,TODO,ba983e3,4a15e7e,N/A,Potential,I Don't Know,In print-vtp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/4a15e7e,
+168,tcpdump,N/A,2015-12-09 15:46:00,TODO,4b870b6,046f10d,N/A,Yes,I Don't Know,In print-ospf.c (Seg fault),No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/046f10d,
+169,tcpdump,N/A,2015-12-15 19:12:00,TODO,fd2a4d9,67d45a4,N/A,No,Memory Leak,In tcpdump.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/67d45a4,
+170,tcpdump,N/A,2015-12-15 22:15:00,TODO,67d45a4,354638f,N/A,Potential,Out-of-Bounds,In print-sctp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/354638f,
+171,tcpdump,N/A,2016-01-31 20:52:00,TODO,fdc13e2,20c9007,N/A,Potential,I Don't Know,In print-vxlan.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/20c9007,
+172,tcpdump,N/A,2016-02-06 15:26:00,TODO,5912e4f,b62aefa,N/A,Potential,I Don't Know,In print-rsvp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/b62aefa,
+173,tcpdump,N/A,2016-07-04 21:28:00,TODO,58aeb47,d739da0,N/A,Potential,Out-of-Bounds,In print-ospf.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/d739da0,
+174,tcpdump,N/A,2016-07-04 22:17:00,TODO,d739da0,2bdecbf,N/A,Potential,Out-of-Bounds,In print-rsvp.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/2bdecbf,
+175,tcpdump,N/A,2016-08-07 17:48:00,TODO,3ac642e,9e9347f,N/A,Potential,I Don't Know,In addrtostr.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/9e9347f,
+176,tcpdump,N/A,2016-09-02 14:01:00,TODO,4a2fb51,d500451,N/A,Yes,I Don't Know,In tcpdump.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/d500451,
+177,tcpdump,N/A,2016-10-09 10:24:00,TODO,8255eea,e32482c,N/A,Potential,Out-of-Bounds,In print-telnet.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/e32482c,
+178,tcpdump,N/A,2016-10-12 20:22:00,TODO,bc700c4,cf1d68d,N/A,No,Out-of-Bounds,In print-telnet.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/cf1d68d,
+179,tcpdump,N/A,2016-10-13 22:18:00,TODO,151c0cb,3454c77,N/A,No,Out-of-Bounds,In print-ppi.c and print-pktap.c,No,TODO,https://github.com/the-tcpdump-group/tcpdump/commit/3454c77,
+180,tcpdump,CVE-2015-2153,2015-03-09 14:35:00,a9e4211 ,1d1e1d9,fb6e537,This bug was not detected with the script but was found by searching the issues page,Yes,Out-of-Bounds,"ERROR: AddressSanitizer: SEGV on unknown address 0x6310008148af (pc 0x0000004ef53a bp 0x7ffc89561f40 sp 0x7ffc89561f30 T0)
+    #0 0x4ef539 in EXTRACT_32BITS extract.h:150
+    #1 0x4efdba in rpki_rtr_pdu_print print-rpki-rtr.c:285
+    #2 0x4f01c5 in rpki_rtr_print print-rpki-rtr.c:347
+    #3 0x526a9e in tcp_print print-tcp.c:718
+    #4 0x47694a in ip_print_demux print-ip.c:377
+    #5 0x4790a5 in ip_print print-ip.c:651
+    #6 0x462c26 in ethertype_print print-ether.c:326
+    #7 0x46248d in ether_print print-ether.c:225
+    #8 0x4626b9 in ether_if_print print-ether.c:249
+    #9 0x40ab0e in print_packet tcpdump.c:2318
+    #10 0x2b3fd4c9a87c in pcap_offline_read (/lib64/libpcap.so.1+0x2187c)
+    #11 0x2b3fd4c8af6e in pcap_loop (/lib64/libpcap.so.1+0x11f6e)
+    #12 0x4091d2 in main tcpdump.c:1859
+    #13 0x2b3fd4edd400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #14 0x403929 in _start (/home/john/hemiptera_applications/tcpdump/install/sbin/tcpdump+0x403929)
+",Yes,Success,"https://github.com/the-tcpdump-group/tcpdump/commit/364b001
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2153",Kevin Day tcp dump

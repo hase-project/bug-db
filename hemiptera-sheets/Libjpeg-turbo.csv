@@ -1,0 +1,96 @@
+Libjpeg-Turbo,,Num Of Confirmed Bugs with test cases:,2,Num of available crashes,4,,Project Link:,https://github.com/libjpeg-turbo/libjpeg-turbo,,,,,
+,,,,,,,,,,,,,
+Invalid Access,1,,,,,,,,,,,,
+Failed Assertion,0,,,,,,,,,,,,
+Division By Zero,1,,,,,,,,,,,,
+Dangling Pointer Use,0,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Internal ID,Tool Name,CVE ID,Date of Fix,Earliest Unfixed Commit,Commit ID before fix,Commit ID of fix,Notes,Shall we include?,Bug Type,Bug Details,Crash Input,Crash Status,Useful Link
+1,libjpeg-turbo,N/A,16 Feb 2011,TODO,dae3ee9,4a3322d,N/A,Potential,I Don't Know,Triggers Seg Fault,No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/4a3322df1eba49da42f580f7e6005488987a380d
+2,libjpeg-turbo,N/A,26 Feb 2011,TODO,3484e0b,361a637,N/A,No,Use-Before-Write,Use of unintialised variables.,No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/90215cca0ccd4fc69ecbde9a1d779cdaf5fe7c8d
+3,libjpeg-turbo,N/A,24 May 2011,TODO,67d1fc1,90215cc,N/A,No,Memory Leak,Memory Leak,No,TODO,"https://github.com/libjpeg-turbo/libjpeg-turbo/commit/361a637174e122645267339d3b2c38b8000bc7aa
+"
+4,libjpeg-turbo,N/A,28 Jan 2012,TODO,27fb3fc,313a09b,N/A,Yes,Out-of-Bounds,"Buffer Overflow
+
+Height of output buffer should equal scaled height, not JPEG height",No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/313a09b4b7cc2b495c4ec2dd1b808fb5296e12e5
+5,libjpeg-turbo,CVE-2012-2806,28 Jan 2012,TODO,4f24016,8c8124b,N/A,Yes,Out-of-Bounds,"Buffer Overflow
+
+Need to handle cases in which num_components > n
+
+Seems to require driver program to trigger, such as firefox",Yes,Failed,"https://github.com/libjpeg-turbo/libjpeg-turbo/commit/8c8124bf51bcc03015b3908aca4cc74852f2e91a
+
+https://www.cvedetails.com/cve/CVE-2012-2806/
+
+https://bugzilla.mozilla.org/show_bug.cgi?id=759802"
+6,libjpeg-turbo,N/A,26 Apr 2012,TODO,9ba64bb,ea3396a,N/A,No,Memory Leak,Memory Leak,No,,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/ea3396a9456fbe403e0defd2991a308d7c400abc
+7,libjpeg-turbo,N/A,7 Jun 2012,TODO,f659f43,ea3396a,N/A,Potential,Out-of-Bounds,Out-of-bounds mem access,No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/dc31f0bc410e57fad3380077649b5c033103f2ce
+8,libjpeg-turbo,N/A,1 Dec 2012,TODO,de924b8,152e4c5,N/A,Potential,Out-of-Bounds,Potential invalid pointer,No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/152e4c5ee4d9db245a1747728caadd3f7775a4aa
+9,libjpeg-turbo,CVE-2013-6629,21 Nov 2013,TODO,b10aafb,43d8cf4,N/A,Potential,Use-Before-Write,Use of uninitialised Memory,No,TODO,"https://github.com/libjpeg-turbo/libjpeg-turbo/commit/9f9436ae237855e9a6861d2e2a87359dc7f102f0
+
+https://access.redhat.com/security/cve/cve-2013-6629"
+10,libjpeg-turbo,CVE-2013-6630,21 Nov 2013,TODO,b10aafb,43d8cf4,N/A,Potential,Use-Before-Write,Use of uninitialised Memory,Yes,Failed,"https://github.com/libjpeg-turbo/libjpeg-turbo/commit/9f9436ae237855e9a6861d2e2a87359dc7f102f0
+
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6630"
+11,libjpeg-turbo,N/A,6 Feb 2014,TODO,9397469,e26c687,N/A,Potential,Out-of-Bounds,Several overflows,No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/e26c687b211905bdd36ab0aaa04028b3b501701c
+12,libjpeg-turbo,N/A,12 Mar 2014,TODO,a15f19f,dd59233,N/A,Potential,I Don't Know,Seg Fault,No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/dd59233dd4161ee14701e4ab1229ac7416f62b78
+13,libjpeg-turbo,N/A,20 Apr 2014,TODO,6887f05 ,230d09d,N/A,Potential,Out-of-Bounds,"Crashes
+
+Fix crashes and bogus output in the CMYK and decode-to-YUV features",No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/230d09dbed4b7f2dfb52b9009770b2979b2aeb8f
+14,libjpeg-turbo,N/A,22 Jun 2014,TODO,a8fb48b ,b7d6e84,N/A,Yes,Out-of-Bounds,Out-of-bounds read,No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/b7d6e84d6a9283dc2bc50ef9fcaadc0cdeb25c9f
+15,libjpeg-turbo,N/A,21 Aug 2014,TODO,f6d7b77,88b90bd,N/A,Potential,Out-of-Bounds,Seg Fault due to out-of-bounds read,No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/9c168ad23bd90ebd66cc486b32d64d6ce93b9f2a
+16,libjpeg-turbo,CVE-2014-9092,22 Nov 2014,TODO,306add8,402a715,Terminal freezxing but no ASAN output.,Yes,Out-of-Bounds,"Out of bounds read
+
+Fix Huffman local buffer overrun discovered by Debian developers",Yes,Failed,"https://github.com/libjpeg-turbo/libjpeg-turbo/commit/402a715f82313384ef4606660c32d8678c79f197
+
+https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=768369
+
+https://bugzilla.suse.com/show_bug.cgi?id=906761"
+17,libjpeg-turbo,CVE-2016-3616,29 Dec 2014,3091354,82923eb,6709e4a,N/A,Yes,Out-of-Bounds,"
+Out of bounds read
+
+=================================================================
+==11339==ERROR: AddressSanitizer: SEGV on unknown address 0x628092780fa1 (pc 0x000000407269 bp 0x7ffe78d865a0 sp 0x7ffe78d86550 T0)
+    #0 0x407268 in get_text_gray_row /home/john/tests/libjpeg-turbo/rdppm.c:153
+    #1 0x4036e8 in main /home/john/tests/libjpeg-turbo/cjpeg.c:583
+    #2 0x2aeccbe5b400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #3 0x401589 in _start (/home/john/tests/libjpeg-turbo/install/bin/cjpeg+0x401589)
+",Yes,Success,"https://github.com/libjpeg-turbo/libjpeg-turbo/commit/6709e4a0cfa44d4f54ee8ad05753d4aa9260cb91
+
+https://security-tracker.debian.org/tracker/CVE-2016-3616
+
+https://bugzilla.redhat.com/show_bug.cgi?id=1318509"
+18,libjpeg-turbo,N/A,14 Jan 2015,TODO,2517ef7,11c4010,N/A,Yes,Out-of-Bounds,Buffer Overflow,No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/11c4010c3c22544e775228d6a9653be2b3f2e77c
+19,libjpeg-turbo,,6 May 2015,TODO,96869f4,a8b6ea2,N/A,Yes,Out-of-Bounds,Buffer Overflow,No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/a8b6ea2f8d51f2bd89b805ffd5f95b68ffae234e
+20,libjpeg-turbo,N/A,8 Jun 2015,TODO,1f79c7c,f15ef33,N/A,Potential,I Don't Know,"Seg Fault
+
+Occured in the MIPS DSPr2 fancy upsampling
+
+Dont know how to trigger. cjpeg ore djpeg not triggering bug",Yes,Failed,"https://github.com/libjpeg-turbo/libjpeg-turbo/commit/f15ef3376870abb4a31c2d3661ab08b0c3ce50de
+
+https://github.com/libjpeg-turbo/libjpeg-turbo/issues/16
+
+https://sourceforge.net/p/libjpeg-turbo/bugs/87/"
+21,libjpeg-turbo,N/A,27 Jun 2015,TODO,6a25894,ac09954,N/A,Potential,Memory Leak,Seg Fault,No,TODO,"https://github.com/libjpeg-turbo/libjpeg-turbo/commit/ac09954b1d8fbbb2dbdcac1d4c7bdf588d6834ed
+
+https://github.com/libjpeg-turbo/libjpeg-turbo/commit/7a7da9460aea0af2333fc1c9539ea966888e8e85"
+22,libjpeg-turbo,N/A,1 Jul 2015,TODO,6ed4d9d,9cc5972,N/A,No,Out-of-Bounds,Memory Leak,No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/9cc597221ed76aae9d7a0d333aece9980947ba46
+23,libjpeg-turbo,N/A,21 Jul 2015,3091354,739edeb,74b9f60,N/A,No,Negative Shift,Right shift by a negative # of bits,Yes,Success,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/74b9f609a26655ed31169545b7b41c712b5c380a
+24,libjpeg-turbo,N/A,13 Aug 2015,TODO,b1682fb,a3ef34c,N/A,Potential,Out-of-Bounds,"Seg Fault
+
+cjpeg",No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/a3ef34c626dc50d41a0949d53dadaf65cd99e6c0
+25,libjpeg-turbo,N/A,30 Aug 2015,TODO,f3395fe,4cfa3f4,N/A,No,Negative Shift,Negative Shift,No,TODO,"https://github.com/libjpeg-turbo/libjpeg-turbo/commit/4cfa3f4c39c2e46eca3a65c67411d15e08a3fc70
+
+https://github.com/libjpeg-turbo/libjpeg-turbo/issues/13"
+26,libjpeg-turbo,N/A,25 Feb 2016,TODO,22eb6c2,944aa8e,N/A,No,I Don't Know,Memory Leak,No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/f57bae0dddcdd5b30f9ce97b45436a585159af7a
+27,libjpeg-turbo,N/A,9 Sep 2016,TODO,a1dd356,077e5bb,N/A,Yes,Out-of-Bounds,Out-of-bounds write,No,TODO,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/077e5bb4e0f6761c034e7c1f7e7a4120f580f1a0
+,,,,,,,,,,,,,
+28,libjpeg-turbo,N/A,,TODO,TODO,TODO,N/A,Yes,Division By Zero,"Division by Zero:
+
+=================================================================
+==25949==ERROR: AddressSanitizer: FPE on unknown address 0x2b84188079c6 (pc 0x2b84188079c6 bp 0x7ffe79b06100 sp 0x7ffe79b060b0 T0)
+    #0 0x2b84188079c5 in alloc_sarray /home/john/tests/libjpeg-turbo/jmemmgr.c:435
+    #1 0x40e283 in start_input_tga /home/john/tests/libjpeg-turbo/rdtarga.c:437
+    #2 0x403631 in main /home/john/tests/libjpeg-turbo/cjpeg.c:567
+    #3 0x2b8418a5d400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #4 0x401589 in _start (/home/john/tests/libjpeg-turbo/install/bin/cjpeg+0x401589)
+",Yes,Success,https://github.com/libjpeg-turbo/libjpeg-turbo/commit/077e5bb4e0f6761c034e7c1f7e7a4120f580f1a0

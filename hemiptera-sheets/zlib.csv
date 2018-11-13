@@ -1,0 +1,87 @@
+zlib,,Num Of Confirmed Bugs with test cases:,3,Num of available crashes,3,,Project Link:,https://github.com/madler/zlib,,,,,
+,,,,,,,,,,,,,
+Invalid Access,2,,,,,,,,,,,,
+Failed Assertion,0,,,,,,,,,,,,
+Division By Zero,0,,,,,,,,,,,,
+Dangling Pointer Use,1,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Internal ID,Tool Name,CVE ID,Date of Fix,Earliest Unfixed Commit,Commit ID before fix,Commit ID of fix,Notes,Shall we include?,Bug Type,Bug Details,Crash Input,Crash Status,Useful Link
+1,zlib,CVE-2002-0059,10 Sep 2011,14763ac,14763ac ,a383133,Affects version 1.1.3 or later.,Yes,Double Free,"Double free
+
+==14334==ERROR: AddressSanitizer: attempting double-free on 0x61a00001f280 in thread T0:
+    #0 0x2b99b5095b00 in free (/lib64/libasan.so.3+0xc6b00)
+    #1 0x4226ad in inflate_blocks_reset /home/john/tests/zlib/infblock.c:76
+    #2 0x4226ad in inflate_blocks_free /home/john/tests/zlib/infblock.c:371
+    #3 0x41d5a9 in inflateEnd /home/john/tests/zlib/inflate.c:73
+    #4 0x402d4f in destroy /home/john/tests/zlib/gzio.c:333
+    #5 0x40264c in gz_uncompress /home/john/tests/zlib/minigzip.c:187
+    #6 0x402a6f in file_uncompress /home/john/tests/zlib/minigzip.c:256
+    #7 0x401bc3 in main /home/john/tests/zlib/minigzip.c:312
+    #8 0x2b99b5f91400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #9 0x401f09 in _start (/home/john/tests/zlib/minigzip+0x401f09)",Yes,Success,"https://github.com/Dead2/zlib-ng/tree/develop/test
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0059"
+2,zlib,CVE-2003-0107,10 Sep 2011,14763ac,a383133,7c2a874,"Affects version 1.1.4 or later.
+
+Needs custom driver program.",No,Buffer Overflow,"Buffer overflow in the gzprintf function
+
+stack-buffer-overflow on address 0x7fff695b3570 at pc 0x7fc7c3fb3b62 bp 0x7fff695b24e0 sp 0x7fff695b1c70
+",Yes,Success,"https://github.com/Dead2/zlib-ng/tree/develop/test
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0107"
+3,zlib,CVE-2004-0797,29 Jan 2012,7c2a874,a383133,e75de02,"Affects version  1.2.x 
+
+Need to check if it affects 1.2.6
+
+Use of unitialised index.",Yes,Out-of-Bounds,"The error handling in the (1) inflate and (2) inflateBack functions in ZLib compression library
+
+==10174==ERROR: AddressSanitizer: SEGV on unknown address 0x7ffdb9f98bcc (pc 0x000000424159 bp 0x7ffdb9f80ed0 sp 0x7ffdb9f80db0 T0)
+    #0 0x424158 in inflate_table /home/john/tests/zlib/inftrees.c:110
+    #1 0x422209 in inflate /home/john/tests/zlib/inflate.c:861
+    #2 0x4050ad in gzread /home/john/tests/zlib/gzio.c:429
+    #3 0x4025bb in gz_uncompress /home/john/tests/zlib/minigzip.c:177
+    #4 0x4029ff in file_uncompress /home/john/tests/zlib/minigzip.c:256
+    #5 0x401bb3 in main /home/john/tests/zlib/minigzip.c:312
+    #6 0x2b2440a10400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x401e99 in _start (/home/john/tests/zlib/minigzip+0x401e99)
+
+",Yes,Success,"https://github.com/Dead2/zlib-ng/tree/develop/test
+https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2004-0797"
+4,zlib,CVE-2005-1849,10 Sep 2011,7c2a874,79fbcdc,abf180a,"Afftects version 1.2.2 (need to check if it works on version 1.2.3)
+
+Seems to triggers same heap overflow bug as ID-5.",Potential,I Don't Know,An invalid file that causes a large dynamic tree to be produced.,Yes,TODO,"https://github.com/Dead2/zlib-ng/tree/develop/test
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=can-2005-1849"
+5,zlib,CVE-2005-2096,10 Sep 2011,7c2a874,7c2a874,abf180a,Affects version 1.2 (need to check if it works on version 1.2.3),Yes,Buffer Overflow,"Buffer overflow - incomplete code description of a length greater than 1
+
+==10189==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x62400000fe68 at pc 0x000000424c05 bp 0x7ffe76dcc1a0 sp 0x7ffe76dcc190
+WRITE of size 1 at 0x62400000fe68 thread T0
+    #0 0x424c04 in inflate_table /home/john/tests/zlib/inftrees.c:303
+    #1 0x422209 in inflate /home/john/tests/zlib/inflate.c:861
+    #2 0x4050ad in gzread /home/john/tests/zlib/gzio.c:429
+    #3 0x4025bb in gz_uncompress /home/john/tests/zlib/minigzip.c:177
+    #4 0x4029ff in file_uncompress /home/john/tests/zlib/minigzip.c:256
+    #5 0x401bb3 in main /home/john/tests/zlib/minigzip.c:312
+    #6 0x2b5e19d8c400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x401e99 in _start (/home/john/tests/zlib/minigzip+0x401e99)
+",Yes,Success,https://github.com/Dead2/zlib-ng/tree/develop/test
+6,zlib,CVE-2015-8721,,N/A,TODO,TODO,N/A,No,I Don't Know,In Wireshark using zlib,No,TODO,
+7,zlib,CVE-2015-7054,,N/A,TODO,TODO,N/A,No,I Don't Know,In Compression component of iOS,No,TODO,
+8,zlib,CVE-2013-0296,,N/A,TODO,TODO,N/A,No,I Don't Know,In pigz using zlib compression,No,TODO,
+9,zlib,CVE-2011-2174,,N/A,TODO,TODO,N/A,No,I Don't Know,Double free vuln in Wireshark when using zlib compressed data,No,TODO,
+10,zlib,CVE-2011-0015,,N/A,TODO,TODO,N/A,No,I Don't Know,Toy before 0.2.1.29 does not check the compression level in zlib data,No,TODO,
+11,zlib,CVE-2010-0734,,N/A,TODO,TODO,N/A,No,I Don't Know,libcurl does not restrict callback data size with zlib compression,No,TODO,
+12,zlib,CVE-2009-4324,,N/A,TODO,TODO,N/A,No,I Don't Know,Use after free in Adobe Reader when using a PDF file with zlib compression,No,TODO,
+13,zlib,CVE-2009-1391,,N/A,TODO,TODO,N/A,No,I Don't Know,Off by one in Perl zlib usage,No,TODO,
+14,zlib,CVE-2008-3933,,N/A,TODO,TODO,N/A,No,I Don't Know,Wireshark crash when crafted zlib-compressed data,No,TODO,
+l,zlib,CVE-2008-1721,,N/A,TODO,TODO,N/A,No,I Don't Know,Python integer signedness error in zlib module in Python,No,TODO,
+16,zlib,CVE-2007-1657,,N/A,TODO,TODO,N/A,No,I Don't Know,Minigzip module in Python 2.5 has stack based overflow,No,TODO,
+17,zlib,CVE-2006-5823,,N/A,TODO,TODO,N/A,No,I Don't Know,Zlib inflate in Linux Kernel 2.6.x,No,TODO,
+18,zlib,CVE-2005-2458,,N/A,TODO,TODO,N/A,No,I Don't Know,inflate.c in Zlib routines in Linux Kernel,No,TODO,
+19,zlib,CVE-2005-2459,,N/A,TODO,TODO,N/A,No,I Don't Know,huft_build in inflate.c in Zlib routines in Linux Kernel,No,TODO,
+20,zlib,N/A,,N/A,f32370e,0a81dc026c,N/A,No,I Don't Know,Fix bug in gzgets() for a concatenated empty gzip stream.,No,TODO,https://github.com/madler/zlib/commit/0a81dc026c4e727e9498654d703730ef8efbb8de
+21,zlib,N/A,,N/A,98f5779f42,377173b57e,N/A,No,I Don't Know,Fix bug in gzread.c when end-of-file is reached.,No,TODO,https://github.com/madler/zlib/commit/377173b57ef9fab5066481a87a1901bd72fa2c32
+23,zlib,N/A,,N/A,17068938ce,aa566e86c4,N/A,No,I Don't Know,Fix unintialized value bug in gzputc() introduced by const patches.,No,TODO,https://github.com/madler/zlib/commit/aa566e86c46d2264bf623e51f5840bde642548ad
+24,zlib,N/A,,N/A,10056909c0,51370f3656,N/A,No,I Don't Know,Fix serious but very rare decompression bug in inftrees.c.,No,TODO,https://github.com/madler/zlib/commit/51370f365607fe14a6a7a1a27b3bd29d788f5e5b
+25,zlib,N/A,,N/A,,53bfe01cea,N/A,No,I Don't Know,Fix bug in gzclose_w() when gzwrite() fails to allocate memory.,No,TODO,https://github.com/madler/zlib/commit/53bfe01cea647ef6f6b86edbc51d0fad4640e4a6
+26,zlib,N/A,,N/A,TODO,TODO,Stated not a bug (Coundnt find commit),No,I Don't Know,"crash (segfault) in inflate_fast when linked with -Wl,-z,relro#50",No,TODO,https://github.com/madler/zlib/issues/50
+28,zlib,N/A,,N/A,TODO,TODO,Stated not a bug (Coundnt find commit),No,I Don't Know,Bug in deflate with Z_FULL_FLUSH and a specific output buffer size,No,TODO,https://github.com/madler/zlib/issues/149

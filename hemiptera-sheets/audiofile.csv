@@ -1,0 +1,124 @@
+audiofile,,Num Of Confirmed Bugs with test cases:,8,Num of available crashes,11,,Project Link:,https://github.com/mpruett/audiofile/,,,,,,
+,,,,,,,,,,,,,,
+Invalid Access,6,,,,,,,,,,,,,
+Failed Assertion,0,,,,,,,,,,,,,
+Division By Zero,2,,,,,,,,,,,,,
+Dangling Pointer Use,0,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+Internal ID,Tool Name,CVE ID,Date of Fix,Earliest Unfixed Commit,Commit ID / Version before fix,Commit ID / Version of fix,Notes,Shall we include?,Bug Type,Bug Details,Crash Input,Crash Status,Useful Link,
+1,audiofile,,2001-05-09 21:36:05,,fa3595f,3c1d770,N/A,No,Memory Leak,N/A,No,TODO,https://github.com/mpruett/audiofile/commit/3c1d770,
+2,audiofile,,2001-05-14 19:25:10,,4d75fa5,ac5b8cb,N/A,No,Memory Leak,N/A,No,TODO,https://github.com/mpruett/audiofile/commit/ac5b8cb,
+3,audiofile,,2001-06-05 19:58:07,,b274cfc,9e56ca6,N/A,Potential,Division By Zero,N/A,No,TODO,"https://github.com/mpruett/audiofile/commit/9e56ca6
+https://github.com/mpruett/audiofile/issues/9",
+4,audiofile,CVE-2008-5824,2010-03-17 0:00:00,ca645b2 ,ca645b2 ,e8cf009,N/A,Yes,Buffer Overflow,"ERROR: AddressSanitizer: heap-buffer-overflow on address 0x62100001b500 at pc 0x2ac51ba6bd74 bp 0x7fff9dd9e830 sp 0x7fff9dd9e820
+WRITE of size 2 at 0x62100001b500 thread T0
+    #0 0x2ac51ba6bd73 in ms_adpcm_decode_block /home/john/hemiptera_applications/audiofile/libaudiofile/modules/msadpcm.c:194
+    #1 0x2ac51ba6cb5c in ms_adpcm_run_pull /home/john/hemiptera_applications/audiofile/libaudiofile/modules/msadpcm.c:312
+    #2 0x2ac51ba53be4 in _AFpull /home/john/hemiptera_applications/audiofile/libaudiofile/modules.c:111
+    #3 0x2ac51ba72714 in int2rebufferf2vrun_pull /home/john/hemiptera_applications/audiofile/libaudiofile/modules/rebuffer.template:409
+    #4 0x2ac51ba28acb in afReadFrames /home/john/hemiptera_applications/audiofile/libaudiofile/data.c:228
+    #5 0x40224c in copyaudiodata /home/john/hemiptera_applications/audiofile/sfcommands/sfconvert.c:276
+    #6 0x402041 in main /home/john/hemiptera_applications/audiofile/sfcommands/sfconvert.c:215
+    #7 0x2ac51bfbe400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #8 0x4014a9 in _start (/home/john/hemiptera_applications/audiofile/install/bin/sfconvert+0x4014a9)
+",Yes,Success,"https://github.com/mpruett/audiofile/commit/e8cf0095
+https://github.com/mpruett/audiofile/issues/1
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5824
+http://www.securityfocus.com/bid/33066/exploit",
+5,audiofile,,2011-01-12 21:12:11,,f525b8a,55c6f59,N/A,Potential,Memory Leak,N/A,No,TODO,https://github.com/mpruett/audiofile/commit/55c6f59,
+6,audiofile,,2011-01-12 23:09:51,,2eab11c,f003eb0,N/A,Potential,Memory Leak,N/A,No,TODO,https://github.com/mpruett/audiofile/commit/f003eb0,
+7,audiofile,,2011-01-12 23:41:56,,f003eb0,1414737,N/A,Potential,Memory Leak,N/A,No,TODO,https://github.com/mpruett/audiofile/commit/1414737,
+8,audiofile,,2011-04-13 21:44:03,,a1899d1,ca06ee7,N/A,Potential,Memory Leak,N/A,No,TODO,https://github.com/mpruett/audiofile/commit/ca06ee7,
+9,audiofile,,2012-07-05 21:01:04,,2b0b06c,10f19b8,N/A,No,Memory Leak,N/A,No,TODO,https://github.com/mpruett/audiofile/commit/10f19b8,
+10,audiofile,,2012-07-21 13:06:15,,37e87c2,288f3da,N/A,Potential,Buffer Overflow,N/A,No,TODO,https://github.com/mpruett/audiofile/commit/288f3da,
+11,audiofile,,2012-07-31 23:09:59,,773041f,1006f62,N/A,Yes,Memory Leak,N/A,No,TODO,https://github.com/mpruett/audiofile/commit/1006f62,
+12,audiofile,,2013-02-04 18:54:50,,6c3aabc,717de78,N/A,No,Memory Leak,N/A,No,TODO,https://github.com/mpruett/audiofile/commit/717de78,
+13,audiofile,CVE-2017-6828,N/A,b62c902,b62c902,N/A,N/A,Yes,Buffer Overflow,"AddressSanitizer: heap-buffer-overflow on address 0x61a00001f708 at pc 0x2ac0ffaf50b5 bp 0x7ffeb901b240 sp 0x7ffeb901a9e8
+WRITE of size 2 at 0x61a00001f708 thread T0
+    #0 0x2ac0ffaf50b4 in read (/lib64/libasan.so.3+0x4a0b4)
+    #1 0x2ac100a5929a in readValue<short int> /home/john/hemiptera_applications/audiofile/libaudiofile/FileHandle.cpp:353
+    #2 0x2ac100a5929a in readSwap<short int> /home/john/hemiptera_applications/audiofile/libaudiofile/FileHandle.cpp:375
+    #3 0x2ac100a5929a in _AFfilehandle::readS16(short*) /home/john/hemiptera_applications/audiofile/libaudiofile/FileHandle.cpp:397
+    #4 0x2ac100a620ee in WAVEFile::parseFormat(Tag const&, unsigned int) /home/john/hemiptera_applications/audiofile/libaudiofile/WAVE.cpp:289
+    #5 0x2ac100a624e6 in WAVEFile::readInit(_AFfilesetup*) /home/john/hemiptera_applications/audiofile/libaudiofile/WAVE.cpp:733
+    #6 0x2ac100a668d2 in _afOpenFile /home/john/hemiptera_applications/audiofile/libaudiofile/openclose.cpp:354
+    #7 0x2ac100a66b79 in afOpenFile /home/john/hemiptera_applications/audiofile/libaudiofile/openclose.cpp:217
+    #8 0x40168f in printfileinfo /home/john/hemiptera_applications/audiofile/sfcommands/printinfo.c:45
+    #9 0x4014f8 in main /home/john/hemiptera_applications/audiofile/sfcommands/sfinfo.c:113
+    #10 0x2ac100cb1400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #11 0x401129 in _start (/home/john/hemiptera_applications/audiofile/install/bin/sfinfo+0x401129)
+",Yes,Success,"https://github.com/mpruett/audiofile/issues/31
+https://blogs.gentoo.org/ago/2017/02/20/audiofile-heap-based-buffer-overflow-in-readvalue-filehandle-cpp/",Asarubbo
+14,audiofile,CVE-2017-6827,N/A,b62c902,b62c902,N/A,N/A,Yes,Buffer Overflow," AddressSanitizer: heap-buffer-overflow on address 0x61a00001f708 at pc 0x2b849633849f bp 0x7ffcab94f360 sp 0x7ffcab94eb08
+READ of size 33872 at 0x61a00001f708 thread T0
+    #0 0x2b849633849e  (/lib64/libasan.so.3+0x5f49e)
+    #1 0x2b849729c7b0 in MSADPCM::initializeCoefficients() /home/john/hemiptera_applications/audiofile/libaudiofile/modules/MSADPCM.cpp:369
+    #2 0x2b849729c81f in MSADPCM::createDecompress(Track*, File*, bool, bool, long*) /home/john/hemiptera_applications/audiofile/libaudiofile/modules/MSADPCM.cpp:387
+    #3 0x2b8497298c72 in ModuleState::initFileModule(_AFfilehandle*, Track*) /home/john/hemiptera_applications/audiofile/libaudiofile/modules/ModuleState.cpp:73
+    #4 0x2b8497298cc8 in ModuleState::init(_AFfilehandle*, Track*) /home/john/hemiptera_applications/audiofile/libaudiofile/modules/ModuleState.cpp:98
+    #5 0x2b84972945f4 in _afOpenFile /home/john/hemiptera_applications/audiofile/libaudiofile/openclose.cpp:396
+    #6 0x2b8497294b79 in afOpenFile /home/john/hemiptera_applications/audiofile/libaudiofile/openclose.cpp:217
+    #7 0x40168f in printfileinfo /home/john/hemiptera_applications/audiofile/sfcommands/printinfo.c:45
+    #8 0x4014f8 in main /home/john/hemiptera_applications/audiofile/sfcommands/sfinfo.c:113
+    #9 0x2b84974df400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #10 0x401129 in _start (/home/john/hemiptera_applications/audiofile/install/bin/sfinfo+0x401129)
+",Yes,Success,"https://github.com/mpruett/audiofile/issues/32
+https://blogs.gentoo.org/ago/2017/02/20/audiofile-heap-based-buffer-overflow-in-msadpcminitializecoefficients-msadpcm-cpp/",Asarubbo
+15,audiofile,CVE-2017-6829,N/A,,b62c902,N/A,N/A,Yes,Buffer Overflow,N/A,Yes,Failed,"https://github.com/mpruett/audiofile/issues/33
+https://blogs.gentoo.org/ago/2017/02/20/audiofile-global-buffer-overflow-in-decodesample-ima-cpp/",Asarubbo
+16,audiofile,CVE-2017-6830,N/A,b62c902,b62c902,N/A,N/A,Yes,Buffer Overflow,"ERROR: AddressSanitizer: SEGV on unknown address 0x2b94c35b4000 (pc 0x2b94c46bf5eb bp 0x00000015007f sp 0x7ffe920b80e0 T0)
+    #0 0x2b94c46bf5ea in alaw2linear_buf /home/john/hemiptera_applications/audiofile/libaudiofile/modules/G711.cpp:54
+    #1 0x2b94c46bf5ea in G711::runPull() /home/john/hemiptera_applications/audiofile/libaudiofile/modules/G711.cpp:210
+    #2 0x2b94c46ba261 in afReadFrames /home/john/hemiptera_applications/audiofile/libaudiofile/data.cpp:222
+    #3 0x402a33 in copyaudiodata /home/john/hemiptera_applications/audiofile/sfcommands/sfconvert.c:340
+    #4 0x402724 in main /home/john/hemiptera_applications/audiofile/sfcommands/sfconvert.c:248
+    #5 0x2b94c4907400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x401539 in _start (/home/john/hemiptera_applications/audiofile/install/bin/sfconvert+0x401539)
+",Yes,Success,"https://github.com/mpruett/audiofile/issues/34
+https://blogs.gentoo.org/ago/2017/02/20/audiofile-heap-based-buffer-overflow-in-alaw2linear_buf-g711-cpp/",Asarubbo
+17,audiofile,CVE-2017-6831,N/A,,b62c903,N/A,N/A,Yes,Buffer Overflow,N/A,Yes,Failed,"https://github.com/mpruett/audiofile/issues/35
+https://blogs.gentoo.org/ago/2017/02/20/audiofile-heap-based-buffer-overflow-in-imadecodeblockwave-ima-cpp/",Asarubbo
+18,audiofile,CVE-2017-6832,N/A,,b62c904,N/A,N/A,Yes,Buffer Overflow,N/A,Yes,Failed,"https://github.com/mpruett/audiofile/issues/36
+https://blogs.gentoo.org/ago/2017/02/20/audiofile-heap-based-buffer-overflow-in-msadpcmdecodeblock-msadpcm-cpp/",Asarubbo
+19,audiofile,CVE-2017-6833,N/A,b62c902,b62c905,N/A,N/A,Yes,Division By Zero,"ERROR: AddressSanitizer: FPE on unknown address 0x2ada097bee82 (pc 0x2ada097bee82 bp 0x000000000f18 sp 0x7fff269aed30 T0)
+    #0 0x2ada097bee81 in BlockCodec::runPull() /home/john/hemiptera_applications/audiofile/libaudiofile/modules/BlockCodec.cpp:50
+    #1 0x2ada097c4e9c in RebufferModule::runPull() /home/john/hemiptera_applications/audiofile/libaudiofile/modules/RebufferModule.cpp:122
+    #2 0x2ada097ba261 in afReadFrames /home/john/hemiptera_applications/audiofile/libaudiofile/data.cpp:222
+    #3 0x402a33 in copyaudiodata /home/john/hemiptera_applications/audiofile/sfcommands/sfconvert.c:340
+    #4 0x402724 in main /home/john/hemiptera_applications/audiofile/sfcommands/sfconvert.c:248
+    #5 0x2ada09a07400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x401539 in _start (/home/john/hemiptera_applications/audiofile/install/bin/sfconvert+0x401539)
+",Yes,Success,"https://github.com/mpruett/audiofile/issues/37
+https://blogs.gentoo.org/ago/2017/02/20/audiofile-divide-by-zero-in-blockcodecrunpull-blockcodec-cpp/",Asarubbo
+20,audiofile,CVE-2017-6834,N/A,b62c902,b62c904,N/A,N/A,Yes,Buffer Overflow,"ERROR: AddressSanitizer: SEGV on unknown address 0x2b52cd5ce000 (pc 0x2b52ce65966b bp 0x000000150127 sp 0x7fff67f17cb0 T0)
+    #0 0x2b52ce65966a in ulaw2linear_buf /home/john/hemiptera_applications/audiofile/libaudiofile/modules/G711.cpp:42
+    #1 0x2b52ce65966a in G711::runPull() /home/john/hemiptera_applications/audiofile/libaudiofile/modules/G711.cpp:207
+    #2 0x2b52ce654261 in afReadFrames /home/john/hemiptera_applications/audiofile/libaudiofile/data.cpp:222
+    #3 0x402a33 in copyaudiodata /home/john/hemiptera_applications/audiofile/sfcommands/sfconvert.c:340
+    #4 0x402724 in main /home/john/hemiptera_applications/audiofile/sfcommands/sfconvert.c:248
+    #5 0x2b52ce8a1400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x401539 in _start (/home/john/hemiptera_applications/audiofile/install/bin/sfconvert+0x401539)
+",Yes,Success,"https://github.com/mpruett/audiofile/issues/38
+https://blogs.gentoo.org/ago/2017/02/20/audiofile-heap-based-buffer-overflow-in-ulaw2linear_buf-g711-cpp/",Asarubbo
+21,audiofile,CVE-2017-6835,N/A,b62c902,b62c904,N/A,N/A,Yes,Division By Zero,"ERROR: AddressSanitizer: FPE on unknown address 0x2b55f4f38dc1 (pc 0x2b55f4f38dc1 bp 0x60200000ec08 sp 0x7ffcdbc70788 T0)
+    #0 0x2b55f4f38dc0 in BlockCodec::reset1() /home/john/hemiptera_applications/audiofile/libaudiofile/modules/BlockCodec.cpp:74
+    #1 0x2b55f4f3ad70 in ModuleState::reset(_AFfilehandle*, Track*) /home/john/hemiptera_applications/audiofile/libaudiofile/modules/ModuleState.cpp:218
+    #2 0x2b55f4f3c5f9 in ModuleState::setup(_AFfilehandle*, Track*) /home/john/hemiptera_applications/audiofile/libaudiofile/modules/ModuleState.cpp:190
+    #3 0x2b55f4f35c82 in afGetFrameCount /home/john/hemiptera_applications/audiofile/libaudiofile/format.cpp:205
+    #4 0x4029e5 in copyaudiodata /home/john/hemiptera_applications/audiofile/sfcommands/sfconvert.c:329
+    #5 0x402724 in main /home/john/hemiptera_applications/audiofile/sfcommands/sfconvert.c:248
+    #6 0x2b55f5181400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x401539 in _start (/home/john/hemiptera_applications/audiofile/install/bin/sfconvert+0x401539)
+",Yes,Success,"https://github.com/mpruett/audiofile/issues/39
+https://blogs.gentoo.org/ago/2017/02/20/audiofile-divide-by-zero-in-blockcodecreset1-blockcodec-cpp/",Asarubbo
+22,audiofile,CVE-2017-6836,N/A,b62c902,b62c904,N/A,N/A,Yes,Buffer Overflow,"ERROR: AddressSanitizer: SEGV on unknown address 0x2b8dc35c1000 (pc 0x2b8dc46b0854 bp 0x000000000000 sp 0x7fff0cee2e88 T0)
+    #0 0x2b8dc46b0853 in void Expand3To4Module::run<int>(unsigned char const*, int*, int) /home/john/hemiptera_applications/audiofile/libaudiofile/modules/SimpleModule.h:269
+    #1 0x2b8dc46b0853 in Expand3To4Module::run(Chunk&, Chunk&) /home/john/hemiptera_applications/audiofile/libaudiofile/modules/SimpleModule.h:244
+    #2 0x2b8dc46a7261 in afReadFrames /home/john/hemiptera_applications/audiofile/libaudiofile/data.cpp:222
+    #3 0x402a33 in copyaudiodata /home/john/hemiptera_applications/audiofile/sfcommands/sfconvert.c:340
+    #4 0x402724 in main /home/john/hemiptera_applications/audiofile/sfcommands/sfconvert.c:248
+    #5 0x2b8dc48f4400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x401539 in _start (/home/john/hemiptera_applications/audiofile/install/bin/sfconvert+0x401539)
+",Yes,Success,"https://github.com/mpruett/audiofile/issues/40
+https://blogs.gentoo.org/ago/2017/02/20/audiofile-heap-based-buffer-overflow-in-expand3to4modulerun-simplemodule-h/",Asarubbo

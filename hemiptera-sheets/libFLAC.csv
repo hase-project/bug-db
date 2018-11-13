@@ -1,0 +1,174 @@
+libFLAC,,Num Of Confirmed Bugs with test cases:,5,Num of available crashes,9,,Project Link:,https://github.com/xiph/flac,,,,,
+,,,,,,,,,,,,,
+Invalid Access,5,,0,,,,,,,,,,
+Failed Assertion,0,,0,,,,,,,,,,
+Division By Zero,0,,0,,,,,,,,,,
+Dangling Pointer Use,0,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Internal ID,Tool Name,CVE ID,Date of Fix,Earlies Unfixed Commit,Commit ID / Version before fix,Commit ID / Version of fix,Notes,Shall we include?,Bug Type,Bug Details,Crash Input,Crash Status,Useful Link
+1,FLAC,N/A,2000-12-17 19:07:46 +0000,,288c9de,d44feb1,N/A,I Don't Know,I Don't Know,encoder.c,No,TODO,https://github.com/xiph/flac/commit/d44feb1
+2,FLAC,N/A,2001-01-05 23:26:59 +0000,,841e27e,da68d76,N/A,I Don't Know,I Don't Know,encode.c,No,TODO,https://github.com/xiph/flac/commit/da68d76
+3,FLAC,N/A,2001-01-24 23:35:48 +0000,,a18b2ee,9c072fa,N/A,Yes,Assertion Failure,"decode.c
+
+Assert failure",No,TODO,https://github.com/xiph/flac/commit/9c072fa
+4,FLAC,N/A,2001-02-28 23:44:27 +0000,,f6237c8,fe9ba6f,N/A,Potential,I Don't Know,fixed.c,No,TODO,https://github.com/xiph/flac/commit/fe9ba6f
+5,FLAC,N/A,2001-03-01 19:00:10 +0000,,22c8ad8,b210949,N/A,Yes,Buffer Overflow,decode.c,No,TODO,https://github.com/xiph/flac/commit/b210949
+6,FLAC,N/A,2001-03-22 23:56:07 +0000,,10cffdd,674653f,N/A,Yes,Buffer Overflow,file_decoder.c,No,TODO,https://github.com/xiph/flac/commit/674653f
+7,FLAC,N/A,2001-03-29 21:29:46 +0000,,ac4c158,7817ef5,N/A,Yes,Assertion Failure,bitbuffer.c,No,TODO,https://github.com/xiph/flac/commit/7817ef5
+8,FLAC,N/A,2001-03-29 22:17:52 +0000,,bd646e1,2cf7d00,N/A,Potential,Buffer Overflow,stream_decoder.c,No,TODO,https://github.com/xiph/flac/commit/2cf7d00
+9,FLAC,N/A,2001-03-29 22:54:33 +0000,,470785c,ef44878,N/A,Potential,Buffer Overflow,,No,TODO,https://github.com/xiph/flac/commit/ef44878
+10,FLAC,N/A,2001-03-30 00:45:22 +0000,,4b2a27d,eef5670,N/A,Potential,Buffer Overflow,,No,TODO,https://github.com/xiph/flac/commit/eef5670
+11,FLAC,N/A,2001-04-27 03:38:31 +0000,,72222ca,f932bc7,N/A,Potential,Buffer Overflow,bitbuffer.c,No,TODO,https://github.com/xiph/flac/commit/f932bc7
+12,FLAC,N/A,2001-05-25 19:02:01 +0000,,31c8a1f,6bd1757,N/A,Potential,Buffer Overflow,,No,TODO,https://github.com/xiph/flac/commit/6bd1757
+13,FLAC,N/A,2001-05-26 05:19:10 +0000,,480ddd8,697b603,N/A,Potential,Buffer Overflow,,No,TODO,https://github.com/xiph/flac/commit/697b603
+14,FLAC,N/A,2001-07-12 21:26:57 +0000,,8395d02,63d9957,N/A,Potential,Buffer Overflow,stream_decoder.c,No,TODO,https://github.com/xiph/flac/commit/63d9957
+15,FLAC,N/A,2001-07-18 00:25:52 +0000,,21aa17e,021ad3b,N/A,Yes,Assertion Failure,stream_decoder.c,No,TODO,https://github.com/xiph/flac/commit/021ad3b
+16,FLAC,N/A,2002-01-26 23:17:17 +0000,,1152f9f,90cf0b2,N/A,Potential,Buffer Overflow,main.c,No,TODO,https://github.com/xiph/flac/commit/90cf0b2
+17,FLAC,N/A,2002-02-12 05:19:45 +0000,,d471055,019795b,N/A,Yes,Assertion Failure,seekable_stream_decoder.c,No,TODO,https://github.com/xiph/flac/commit/019795b
+18,FLAC,N/A,2002-03-01 06:52:52 +0000,,e4c62aa,1c2d8c4,N/A,No,Memory Leak,bitbuffer.c,No,TODO,https://github.com/xiph/flac/commit/1c2d8c4
+19,FLAC,N/A,2002-05-07 05:33:10 +0000,,8c84e19,fad2e61,N/A,Potential,Buffer Overflow,metadata.c,No,TODO,https://github.com/xiph/flac/commit/fad2e61
+20,FLAC,N/A,2002-05-09 05:39:01 +0000,,4074d05,294f82c,N/A,Yes,Assertion Failure,bitbuffer.c,No,TODO,https://github.com/xiph/flac/commit/294f82c
+21,FLAC,N/A,2002-05-29 05:56:39 +0000,,b645e31,1e64706,N/A,No,Memory Leak,metadata.c,No,TODO,https://github.com/xiph/flac/commit/1e64706
+22,FLAC,N/A,2002-06-15 05:10:55 +0000,,3ecb117,1482767,N/A,No,Infinite Loop,main.c,No,TODO,https://github.com/xiph/flac/commit/1482767
+23,FLAC,N/A,2002-07-24 06:08:37 +0000,,9203160,93df7e0,N/A,No,Double Free,stream_decoder.c,No,TODO,https://github.com/xiph/flac/commit/93df7e0
+24,FLAC,N/A,2002-08-16 05:39:34 +0000,,382b2f8,fc2b737,N/A,Yes,Assertion Failure,stream_encoder.c,No,TODO,https://github.com/xiph/flac/commit/fc2b737
+25,FLAC,N/A,2002-10-11 06:24:33 +0000,,64df715,f12edc6,N/A,Yes,Assertion Failure,format.c,No,TODO,https://github.com/xiph/flac/commit/f12edc6
+26,FLAC,N/A,2002-10-21 06:43:48 +0000,,8806494,2c718a2,N/A,Potential,Buffer Overflow,stream_decoder.c,No,TODO,https://github.com/xiph/flac/commit/2c718a2
+27,FLAC,N/A,2002-11-08 06:05:23 +0000,,1786393,d9b6e33,N/A,Potential,Buffer Overflow,seekable_stream_encoder.c,No,TODO,https://github.com/xiph/flac/commit/d9b6e33
+28,FLAC,N/A,2002-11-15 05:48:10 +0000,,d91f8fa,f70353b,N/A,Potential,Buffer Overflow,plugin.c,No,TODO,https://github.com/xiph/flac/commit/f70353b
+29,FLAC,N/A,2002-12-04 07:01:37 +0000,,44ca9fe,4fa9059,N/A,No,Memory Leak,Several Memory leaks,No,TODO,https://github.com/xiph/flac/commit/4fa9059
+30,FLAC,N/A,2003-01-10 05:27:47 +0000,,3f0f742,315daa9,N/A,Potential,I Don't Know,,No,TODO,https://github.com/xiph/flac/commit/315daa9
+31,FLAC,N/A,2003-01-11 06:26:15 +0000,,fb48f24,29c4797,N/A,Potential,I Don't Know,,No,TODO,https://github.com/xiph/flac/commit/29c4797
+32,FLAC,N/A,2003-01-13 02:06:40 +0000,,80f7bb4,ccce9ed,N/A,Potential,Assertion Failure,,No,TODO,https://github.com/xiph/flac/commit/ccce9ed
+33,FLAC,N/A,2003-02-20 06:11:49 +0000,,6747981,e8e0ae7,N/A,No,Infinite Loop,seekable_stream_decoder.c,No,TODO,https://github.com/xiph/flac/commit/e8e0ae7
+34,FLAC,N/A,2003-07-08 22:05:45 +0000,,eb35435,2ee59b4,N/A,I Don't Know,I Don't Know,,POTENTIAL,TODO,https://github.com/xiph/flac/commit/2ee59b4
+35,FLAC,N/A,2003-11-14 00:06:25 +0000,,7890953,997c6bc,N/A,Yes,Buffer Overflow,main.c,Yes,Failed,"https://github.com/xiph/flac/commit/997c6bc
+https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=213172"
+36,FLAC,N/A,2004-03-17 21:19:09 +0000,,0433c8e,e8fa86b,N/A,No,Memory Leak,seekable_stream_encoder.c,No,TODO,https://github.com/xiph/flac/commit/e8fa86b
+37,FLAC,N/A,2004-07-16 00:34:42 +0000,,89f161c,cc75611,N/A,No,Use-Before-Write,encoders.c,No,TODO,https://github.com/xiph/flac/commit/cc75611
+38,FLAC,N/A,2004-07-24 00:02:46 +0000,,98a81f5,e04f0c4,N/A,Yes,Use-After-Free,decode.c,No,TODO,https://github.com/xiph/flac/commit/e04f0c4
+39,FLAC,N/A,2004-09-14 00:23:30 +0000,,aa2f8bd,6476272,N/A,No,Memory Leak,encode.c,No,TODO,https://github.com/xiph/flac/commit/6476272
+40,FLAC,N/A,2004-10-06 00:56:51 +0000,,5367759,607fc84,N/A,Yes,I Don't Know,stream_decoder.c,Yes,Failed,"https://github.com/xiph/flac/commit/607fc84
+https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=274301"
+41,FLAC,N/A,2004-10-19 04:23:57 +0000,,ed1db1f,07be291,N/A,No,Memory Leak,operations.c,No,TODO,https://github.com/xiph/flac/commit/07be291
+42,FLAC,N/A,2005-08-27 01:52:11 +0000,,15acb69,dee5339,N/A,Potential,I Don't Know,encode.c,No,TODO,https://github.com/xiph/flac/commit/dee5339
+43,FLAC,N/A,2005-08-29 04:30:20 +0000,,4731c75,e781952,N/A,No,I Don't Know,encode.c,No,TODO,https://github.com/xiph/flac/commit/e781952
+44,FLAC,N/A,2005-09-03 01:33:12 +0000,,33f4ce5,7fdd688,N/A,Potential,I Don't Know,,Yes,Failed,"https://github.com/xiph/flac/commit/7fdd688
+https://sourceforge.net/p/flac/bugs/173/"
+45,FLAC,N/A,2006-11-27 16:27:41 +0000,,d9ac0bd,32b9bae,N/A,No,Infinite Loop,,No,TODO,https://github.com/xiph/flac/commit/32b9bae
+46,FLAC,N/A,2007-02-13 02:05:19 +0000,,c0f51e7,147dbe2,N/A,No,Memory Leak,encode.c,No,TODO,https://github.com/xiph/flac/commit/147dbe2
+47,FLAC,N/A,2007-06-19 04:18:55 +0000,,a4d8402,d7ebbe5,N/A,No,Memory Leak,,No,TODO,https://github.com/xiph/flac/commit/d7ebbe5
+48,FLAC,N/A,2007-06-20 01:23:49 +0000,,f395ec4,9fae245,N/A,Potential,Buffer Overflow,stream_encoder_asm.nasm,No,TODO,https://github.com/xiph/flac/commit/9fae245
+49,FLAC,N/A,2007-08-22 02:01:28 +0000,,157909,69ecf4f,N/A,Potential,Buffer Overflow,,No,TODO,https://github.com/xiph/flac/commit/69ecf4f
+50,FLAC,N/A,2007-09-11 04:49:56 +0000,,0221d87,0f008d2,N/A,Potential,Buffer Overflow,,No,TODO,https://github.com/xiph/flac/commit/0f008d2
+51,FLAC,N/A,2009-01-06 17:14:31 +0000,,0915a55,ee51fc0,N/A,I Don't Know,I Don't Know,,No,TODO,https://github.com/xiph/flac/commit/ee51fc0
+52,FLAC,N/A,2012-02-01 22:01:05 +1100,,e7fb215,3b41451,N/A,I Don't Know,I Don't Know,stream_encoder.c,No,TODO,https://github.com/xiph/flac/commit/3b41451
+53,FLAC,N/A,2012-02-05 16:51:32 +1100,,0fe9767,8f95634,N/A,No,Memory Leak,,No,TODO,"https://github.com/xiph/flac/commit/8f95634
+https://sourceforge.net/p/flac/patches/48/"
+54,FLAC,N/A,2012-04-05 21:02:40 +1000,,6c2040d,dff08f1,N/A,Potential,Buffer Overflow,options.c,No,TODO,https://github.com/xiph/flac/commit/dff08f1
+55,FLAC,N/A,2013-06-05 18:50:42 +1000,,d42c042,606fdfc,N/A,Potential,Buffer Overflow,,No,TODO,https://github.com/xiph/flac/commit/606fdfc
+56,FLAC,N/A,2014-03-23 21:41:01 +1100,,697dbde,49d9d74,N/A,Yes,Null Dereference,"metadata_object.c
+
+if\(0 \!= src-&gt;entry && src-&gt;length &gt; 0\) \{",No,TODO,"https://github.com/xiph/flac/commit/49d9d74
+https://sourceforge.net/p/flac/bugs/377/"
+57,FLAC,N/A,2014-06-28 09:27:33 +1000,,854575,6ccef14,N/A,I Don't Know,I Don't Know,,No,TODO,https://github.com/xiph/flac/commit/6ccef14
+58,FLAC,N/A,2014-08-09 13:02:58 +1000,,e0f638f,a87019e,N/A,No,Memory Leak,,No,TODO,https://github.com/xiph/flac/commit/a87019e
+59,FLAC,CVE-2014-8962,2014-11-20 21:46:39 +1100,d8d1717,d8d1717,5b3033a,Kindly provided by Michele via email,Yes,Buffer Overflow,"stream_decoder.c
+
+    #0 0x468782 in find_metadata_ (/home/john/tests/flac/install/bin/flac+0x468782)
+    #1 0x475af7 in FLAC__stream_decoder_process_until_end_of_metadata (/home/john/tests/flac/install/bin/flac+0x475af7)
+    #2 0x411e91 in flac__decode_file (/home/john/tests/flac/install/bin/flac+0x411e91)
+    #3 0x4036c1 in decode_file (/home/john/tests/flac/install/bin/flac+0x4036c1)
+    #4 0x406e65 in main (/home/john/tests/flac/install/bin/flac+0x406e65)
+    #5 0x2ad549afc400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #6 0x407a49 in _start (/home/john/tests/flac/install/bin/flac+0x407a49)
+",Yes,Success,"https://github.com/xiph/flac/commit/5b3033a
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8962"
+60,FLAC,N/A,2014-11-20 21:46:57 +1100,,5b3033a,93846ee,N/A,Yes,I Don't Know,main.c,Yes,Failed,"https://github.com/xiph/flac/commit/93846ee
+https://sourceforge.net/p/flac/bugs/418/"
+61,FLAC,CVE-2014-9028,2014-11-25 13:03:55 +1100,d8d1717,288edbb,fcf0ba0,Kindly provided by Michele via email,Yes,Buffer Overflow,"stream_decoder.c
+
+==22641==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60300000efc4 at pc 0x2b6305db129b bp 0x7ffc9b976d80 sp 0x7ffc9b976528
+WRITE of size 52 at 0x60300000efc4 thread T0
+    #0 0x2b6305db129a  (/lib64/libasan.so.3+0x5f29a)
+    #1 0x46c091 in read_frame_.part.8 (/home/john/tests/flac/install/bin/flac+0x46c091)
+    #2 0x475d66 in FLAC__stream_decoder_process_until_end_of_stream (/home/john/tests/flac/install/bin/flac+0x475d66)
+    #3 0x4121c2 in flac__decode_file (/home/john/tests/flac/install/bin/flac+0x4121c2)
+    #4 0x4036c1 in decode_file (/home/john/tests/flac/install/bin/flac+0x4036c1)
+    #5 0x406e65 in main (/home/john/tests/flac/install/bin/flac+0x406e65)
+    #6 0x2b6307224400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #7 0x407a49 in _start (/home/john/tests/flac/install/bin/flac+0x407a49)
+",Yes,Success,https://github.com/xiph/flac/commit/fcf0ba0
+62,FLAC,N/A,2014-11-27 13:40:37 +1100,,71b5c02,5a36599,N/A,Yes,Buffer Overflow,,No,TODO,https://github.com/xiph/flac/commit/5a36599
+63,FLAC,N/A,2014-11-29 18:08:33 +1100,d8d1717,0e11f73,43ba7ad,N/A,Yes,Null Dereference,"stream_decoder.c
+
+   #0 0x2ad5a41727aa  (/lib64/libasan.so.3+0xd07aa)
+    #1 0x2ad5a4179163 in __sanitizer::CheckFailed(char const*, int, char const*, unsigned long long, unsigned long long) (/lib64/libasan.so.3+0xd7163)
+    #2 0x2ad5a417934d  (/lib64/libasan.so.3+0xd734d)
+    #3 0x2ad5a4183392  (/lib64/libasan.so.3+0xe1392)
+    #4 0x2ad5a40c774d  (/lib64/libasan.so.3+0x2574d)
+    #5 0x2ad5a4168e24 in malloc (/lib64/libasan.so.3+0xc6e24)
+    #6 0x47180f in read_metadata_ (/home/john/tests/flac/install/bin/flac+0x47180f)
+    #7 0x475ad7 in FLAC__stream_decoder_process_until_end_of_metadata (/home/john/tests/flac/install/bin/flac+0x475ad7)
+    #8 0x411e91 in flac__decode_file (/home/john/tests/flac/install/bin/flac+0x411e91)
+    #9 0x4036c1 in decode_file (/home/john/tests/flac/install/bin/flac+0x4036c1)
+    #10 0x406e65 in main (/home/john/tests/flac/install/bin/flac+0x406e65)
+    #11 0x2ad5a5574400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #12 0x407a49 in _start (/home/john/tests/flac/install/bin/flac+0x407a49)
+",Yes,Success,"https://github.com/xiph/flac/commit/43ba7ad
+https://sourceforge.net/p/flac/bugs/421/"
+64,FLAC,N/A,2014-12-11 11:17:03 +1100,,3ff1b9d,b4b2910,N/A,I Don't Know,I Don't Know,,No,TODO,https://github.com/xiph/flac/commit/b4b2910
+65,FLAC,N/A,2015-02-18 09:49:08 +1100,d8d1717,ed22a42,c06a449,N/A,Yes,Null Dereference,"encode.c
+
+#0 0x2afc02facb83 in __memmove_sse2_unaligned_erms (/lib64/libc.so.6+0x90b83)
+    #1 0x2afc01ac90b6  (/lib64/libasan.so.3+0x5f0b6)
+    #2 0x49c984 in FLAC__stream_encoder_process (/home/john/tests/flac/install/bin/flac+0x49c984)
+    #3 0x416635 in flac_decoder_write_callback (/home/john/tests/flac/install/bin/flac+0x416635)
+    #4 0x46b54b in read_frame_.part.8 (/home/john/tests/flac/install/bin/flac+0x46b54b)
+    #5 0x47594f in FLAC__stream_decoder_process_single (/home/john/tests/flac/install/bin/flac+0x47594f)
+    #6 0x420866 in flac__encode_file (/home/john/tests/flac/install/bin/flac+0x420866)
+    #7 0x4045b2 in encode_file (/home/john/tests/flac/install/bin/flac+0x4045b2)
+    #8 0x406f82 in main (/home/john/tests/flac/install/bin/flac+0x406f82)
+    #9 0x2afc02f3c400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #10 0x407a49 in _start (/home/john/tests/flac/install/bin/flac+0x407a49)
+",Yes,Success,"https://github.com/xiph/flac/commit/c06a449
+https://sourceforge.net/p/flac/bugs/425/"
+66,FLAC,N/A,2015-02-18 09:49:08 +1100,d8d1717,ed22a42,c06a449,N/A,Potential,Use-Before-Write,"encode.c
+
+==22900==ERROR: AddressSanitizer: SEGV on unknown address 0x00047fff7ffc (pc 0x00000041a6a9 bp 0x7fff4f5e6a80 sp 0x7fff4f5e6010 T0)
+    #0 0x41a6a8 in EncoderSession_init_encoder (/home/john/tests/flac/install/bin/flac+0x41a6a8)
+    #1 0x420561 in flac__encode_file (/home/john/tests/flac/install/bin/flac+0x420561)
+    #2 0x4045b2 in encode_file (/home/john/tests/flac/install/bin/flac+0x4045b2)
+    #3 0x406f82 in main (/home/john/tests/flac/install/bin/flac+0x406f82)
+    #4 0x2b438b7eb400 in __libc_start_main (/lib64/libc.so.6+0x20400)
+    #5 0x407a49 in _start (/home/john/tests/flac/install/bin/flac+0x407a49)
+",Yes,Success,"https://github.com/xiph/flac/commit/c06a449
+https://sourceforge.net/p/flac/bugs/425/"
+67,FLAC,N/A,2015-02-18 09:49:08 +1100,d8d1717,ed22a42,c06a449,N/A,Yes,Buffer Overflow,"encode.c
+
+libflac_stack.wav: WARNING: skipping unknown chunk 'cue ' (use --keep-foreign-metadata to keep)
+*** buffer overflow detected ***: ./install/bin/flac terminated
+======= Backtrace: =========
+/lib64/libc.so.6(+0x791fb)[0x2b10e98e11fb]
+/lib64/libc.so.6(__fortify_fail+0x37)[0x2b10e9982187]
+/lib64/libc.so.6(+0x118120)[0x2b10e9980120]
+/lib64/libc.so.6(__fread_chk+0x14d)[0x2b10e998083d]
+./install/bin/flac[0x4208f8]
+./install/bin/flac[0x40468f]
+./install/bin/flac[0x406f83]
+/lib64/libc.so.6(__libc_start_main+0xf1)[0x2b10e9888401]
+",Yes,Success,"https://github.com/xiph/flac/commit/c06a449
+https://sourceforge.net/p/flac/bugs/425/"
+68,FLAC,N/A,2015-08-09 14:32:11 +1000,,7083cf2,15a9062,N/A,No,Memory Leak,format.c,No,TODO,https://github.com/xiph/flac/commit/15a9062
+69,FLAC,N/A,2015-08-22 19:25:39 +1000,,f7c52c8,684fb3d,N/A,Yes,Double Free,stream_decoder.c,No,TODO,https://github.com/xiph/flac/commit/684fb3d
+70,FLAC,N/A,2015-08-22 20:28:47 +1000,,d9ae5e9,584a134,N/A,No,Memory Leak,,No,TODO,https://github.com/xiph/flac/commit/584a134
+71,FLAC,N/A,2015-09-28 09:18:27 +1000,,5fab59f,d91eb4a,N/A,Yes,Buffer Overflow,,No,TODO,https://github.com/xiph/flac/commit/d91eb4a
+72,FLAC,N/A,2015-11-25 05:42:43 +1100,,3fdb87b,eb2af52,N/A,Potential,I Don't Know,,No,TODO,https://github.com/xiph/flac/commit/eb2af52
+73,FLAC,N/A,2016-01-09 10:38:48 +1100,,1a5ba62,27e00c8,N/A,Yes,Buffer Overflow,,No,TODO,"https://github.com/xiph/flac/commit/27e00c8
+https://sourceforge.net/p/flac/bugs/284/"
+74,FLAC,N/A,2016-01-09 10:59:46 +1100,,262505b,28817ba,N/A,Yes,Buffer Overflow,bitwriter.c,No,TODO,https://github.com/xiph/flac/commit/28817ba
+75,FLAC,N/A,2016-07-10 08:19:26 +1000,,8279778,0a49fe7,N/A,Yes,Assertion Failure,stream_decoder.c,Yes,Failed,"https://github.com/xiph/flac/commit/0a49fe7
+https://bugs.musicpd.org/view.php?id=4552"
+76,FLAC,N/A,2016-07-10 11:25:39 +1000,,9949ce1,a70fcdd,N/A,Potential,Assertion Failure,metadata_object.c,No,TODO,https://github.com/xiph/flac/commit/a70fcdd
+77,FLAC,N/A,2016-07-14 18:42:05 +1000,,f7491f9,a52177b,N/A,Yes,Null Dereference,stream_decoder.c,No,TODO,https://github.com/xiph/flac/commit/a52177b
+78,FLAC,N/A,2016-07-14 18:42:05 +1000,,c12bfa0,f7491f9,N/A,No,Memory Leak,stream_decoder.c,No,TODO,https://github.com/xiph/flac/commit/f7491f9

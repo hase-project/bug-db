@@ -1,0 +1,234 @@
+libgd,,Num Of Confirmed Bugs with test cases:,3,Num of available crashes,21,,Project Link:,https://github.com/libgd/libgd,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Internal ID,Tool Name,CVE ID,Date of Fix,Earlies Unfixed Commit,Commit ID before fix,Commit ID of fix,Notes,Shall we include?,Bug Type,Bug Details,Crash Input,Crash Status,Useful Link
+1,Libgd,N/A,28 Sep 2006,4d52bd1,4d52bd1,d3c2178,"Could be CVE-2007-3474.
+
+triggered by file",Yes,,"Potential buffer overflow
+
+gd_gif_in.c
+
+AddressSanitizer: global-buffer-overflow on address 0x000000673e7e at pc 0x0000004206b8 bp 0x7ffe63a922c0 sp 0x7ffe63a922b0
+READ of size 1 at 0x000000673e7e thread T0
+    #0 0x4206b7 in GetCode_ /home/john/libgd/src/gd_gif_in.c:327
+    #1 0x420aa0 in GetCode /home/john/libgd/src/gd_gif_in.c:351
+    #2 0x420f8f in LWZReadByte_ /home/john/libgd/src/gd_gif_in.c:396
+    #3 0x421e99 in LWZReadByte /home/john/libgd/src/gd_gif_in.c:483
+    #4 0x42284d in ReadImage /home/john/libgd/src/gd_gif_in.c:524
+    #5 0x41fc47 in gdImageCreateFromGifCtx /home/john/libgd/src/gd_gif_in.c:193
+    #6 0x41f533 in gdImageCreateFromGif /home/john/libgd/src/gd_gif_in.c:84
+",Yes,Success,https://github.com/libgd/libgd/commit/d3c21787a944e4530711c64b45d77302dd104671
+2,Libgd,N/A,28 Sep 2006,,aae3560,44bbfeb,N/A,Potential,,Sig Fault,Yes,Failed,"https://github.com/libgd/libgd/commit/44bbfebf7a4562e3450172977d34d0a7b8c3af43
+https://github.com/libgd/libgd/commit/0235118a5cf2c5c987ebe69f0c4ec5befff2a231"
+3,Libgd,N/A,3 Jan 2007,,936cdf9,565dbcc,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/565dbcc705349408a2dd6837c340fb7e30875403
+4,Libgd,N/A,3 Jan 2007,,0a331ae,cfee163,N/A,Yes,,Invalid free,No,TODO,https://github.com/libgd/libgd/commit/cfee163a5e848fc3e3fb1d05a30d7557cdd36457
+5,Libgd,N/A,3 Jan 2007,,1e9829f,8abe073,N/A,Yes,,Division by Zero,No,TODO,"https://github.com/libgd/libgd/commit/8abe073f9f162f01b27a7c2396e003830fb74eb7
+https://github.com/libgd/libgd/issues/30"
+6,Libgd,N/A,7 Jan 2007,,1a6184a,1e2962e,Could be CVE-2007-2756,Potential,,"Crash
+
+malformed PNG image crash
+
+gd_png.c",No,TODO,https://github.com/libgd/libgd/commit/1e2962e6635849f63c25d3cba89e3e1c072e9837
+7,Libgd,N/A,17 Jun 2007,,3582807,9d05dd4,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/9d05dd439df2469a82d38a71cb3472957343bc85
+8,Libgd,CVE-2007-3473,19 Jun 2007,,3582807,a5550a7a,Report claims to be a NULL dereference,Yes,,Crash,No,TODO,"https://github.com/libgd/libgd/commit/a5550a7a70b2102356b50103504c39ebae2ee559
+https://github.com/libgd/libgd/issues/94
+https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2007-3473"
+9,Libgd,N/A,6 Aug 2007,,e9f153e,dcd827f,N/A,Potential,,"Crash
+
+_gdCreateFromFile() can crash if gdImageCreate fails",No,TODO,https://github.com/libgd/libgd/commit/dcd827f2cc236362a7f0fc95c44b02bfdf1aa39d
+10,Libgd,N/A,8 Aug 2007,,ad0d834,5008306,Could be CVE-2007-3472,Potential,,"Integer Overflow
+
+Potential buffer overflow
+
+ in gdImageFill",No,TODO,https://github.com/libgd/libgd/commit/5008306b0dfe04147dcb05e4f4a063bb742b894d
+11,Libgd,N/A,8 Aug 2007,,0a879c9,27b3f30,N/A,Potential,,"Potential Invalid Read
+
+nc in gdImageFill",No,TODO,https://github.com/libgd/libgd/commit/27b3f3086d346d3f5743db0f4d8de980094cbd86
+12,Libgd,N/A,26 Aug 2007,4d52bd1,12c4668,1e3d5f1,N/A,No,,"gdImageRectangle draws 1x1 rectangles as 1x3 rectangles
+
+",Yes,Success,https://github.com/libgd/libgd/commit/1e3d5f1e7000873cc0b5969c50ea71ed17e3ced0
+13,Libgd,N/A,31 Aug 2007,4d52bd1,2c08342,841d43d,N/A,Yes,,"Write out-of-bounds
+
+gd.c:596:11: runtime error: index 256 out of bounds for type 'int [256]'",Yes,Success,"https://github.com/libgd/libgd/commit/eaaa94012774f2d37bc48fb078714a7613f9a757
+https://github.com/libgd/libgd/commit/841d43d812f97ad55dcc8408fa2039353895165a
+"
+14,Libgd,N/A,9 Sep 2007,4d52bd1,7ed4aee ,234498d,N/A,Yes,,"Write out-of-bounds
+gdImageColorTransparent
+
+gd.c:609:13: runtime error: index 256 out of bounds for type 'int [256]'",Yes,Success,"https://github.com/libgd/libgd/commit/234498d77cca6ab5b45f5bf6b86df1a021cd4661
+https://github.com/libgd/libgd/issues/113"
+15,Libgd,N/A,24 Oct 2007,,7378eb2,46fd625,N/A,No,,segfault when createwbmp fails,No,TODO,https://github.com/libgd/libgd/commit/46fd62585ecbced255193cd5fe964bc44eb137de
+16,Libgd,N/A,1 Jan 2008,,2c8a4e8 ,12c8c09,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/12c8c09dcdbecceca0af7b5cc80865944475b78d
+17,Libgd,N/A,20 Jan 2008,,0075f3b, b7a002,N/A,No,,"Crash
+
+windows.c",No,TODO,https://github.com/libgd/libgd/commit/b7a002a9f62d207f5091b0b58a5e8bd75cbf7542
+18,Libgd,N/A,1 Feb 2008,,bef7998,c00717b,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/c00717b1b665a2e4e008a538e2a14557f77f9691
+19,Libgd,N/A,30 Jul 2008,,ea53082,84f0bde,N/A,No,,Potentail integer overflow which is then used for malloc.,No,TODO,https://github.com/libgd/libgd/commit/84f0bdeb962b564d32f92369abe59bc912ddf98e
+20,Libgd,N/A,31 Jul 2008,,84f0bde,c00717b1,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/c00717b1b665a2e4e008a538e2a14557f77f9691
+21,Libgd,N/A,2 Aug 2008,,cf78220,9f17511,N/A,Potential,,"Potential out-of-bounds
+
+gd_strtok_r instead of strtok.
+gdft.c",No,TODO,https://github.com/libgd/libgd/commit/9f17511f9076aff49f68f27c432391c0831a55ec
+22,Libgd,N/A,13 Mar 2009,,abbe5d7,267042a,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/267042ad67c8b227c787e0753a433d73142cbd23
+23,Libgd,N/A,25 Jun 2009,,e691fb1,53d6320,,Check - Ask others on opinion.,,"Seg Fault with derefernce of NULL
+",Yes,Failed,https://github.com/libgd/libgd/commit/53d6320309486b06030292d83a898ae5ccdbb063
+24,Libgd,N/A,1 Nov 2009,,dc22c26,4d808f8,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/4d808f89a7664019f2293936923c70aafb07520e
+25,Libgd,N/A,14 Jan 2010,1ad34e9 ,1ad34e9 ,5876dc8,Compilation failed due to undefined gdCalloc. ,Potential,,"Potential Out-of-bounds error
+
+gd.c",Yes,TODO,https://github.com/libgd/libgd/commit/5876dc8ef4a4dedcc2009e2df7cf68b2d1216cb1
+26,Libgd,N/A,24 Aug 2010,,db10f30,f15932d,N/A,No,,Free memory,No,TODO,https://github.com/libgd/libgd/commit/f15932dd57430caf64d8509788c7b81bb435648c
+27,Libgd,N/A,28 May 2013,,bbb506e,a421625,N/A,No,,PHP Bug,Yes,TODO,https://github.com/libgd/libgd/commit/a421625b18b4422c29f599ac169149d64d749e85
+28,Libgd,N/A,27 May 2013,,8b3bb51,255af40,N/A,No,,Use of unint variable,No,TODO,https://github.com/libgd/libgd/commit/255af40ea9ed28787d3a7925c0ce33387c71f17e
+29,Libgd,N/A,2 Jun 2013,,b47e37d,73bb3e9,N/A,Potential,,Invalid read,No,TODO,https://github.com/libgd/libgd/commit/73bb3e9619c92ea8709b602fcbe8f5370192deb2
+30,Libgd,N/A,10 Jun 2013,,87eb546,da6c203,N/A,Yes,,"Off-by-one error
+
+fix palette copy in gdimageclone",No,TODO,https://github.com/libgd/libgd/commit/da6c203bb37d71d34eed6fc216b1ab14e7960b98
+31,Libgd,N/A,10 Jun 2013,,da6c203,837b732,N/A,No,,"Integer Overflow
+
+Leads to inifite loop",No,TODO,"https://github.com/libgd/libgd/commit/eca37d620a2c21917db51d30fe616d18bc3004aa
+https://github.com/libgd/libgd/commit/837b73276dea1e14ea543367b2050eff6967b6db"
+32,Libgd,N/A,27 Aug 2013,,d47c718 ,4c70f57,N/A,Potential,,Seg Fault ,No,TODO,"https://github.com/libgd/libgd/issues/86
+https://github.com/libgd/libgd/commit/4a90e3ff93d1d60a41d3a020d5608421d1a44ad7"
+33,Libgd,CVE-2013-7456,23 Sep 2013,,3e76d30,4f65a3e,N/A,Yes,,"Buffer over-run
+
+gdImageScaleTwoPass",Yes,TODO,"https://github.com/libgd/libgd/commit/4f65a3e4eedaffa1efcf9ee1eb08f0b504fbc31a
+https://github.com/libgd/libgd/commit/16ed1a9a9768a90d4accd3dcc8817f17067b6561"
+34,Libgd,N/A,10 Oct 2013,,16ed1a9,546b274,N/A,Yes,,"Off-by-one error
+
+fix palette copy in gdimageclone",Yes,TODO,https://github.com/libgd/libgd/commit/546b274f27a28834a3fa1ff6590e38561e3ea113
+35,Libgd,N/A,22 Oct 2013,,f321961,723ea52,N/A,Potential,,Seg Fault,No,TODO,https://github.com/libgd/libgd/commit/723ea520bed3b5854df87393c687323d3930edf3
+36,Libgd,N/A,12 Mar 2014,,1de3b80 ,4b86e06,N/A,Potential,,Potential Crash,Potential,TODO,"https://github.com/libgd/libgd/commit/4b86e06937bc5ff116be969137f8da9d1a7869d5
+https://bugs.php.net/bug.php?id=66887"
+37,Libgd,N/A,24 Apr 2014,,4b86e06,354409b,N/A,Yes,,"Overrun
+
+long font search path
+gdft.c",No,TODO,https://github.com/libgd/libgd/commit/354409b80c5cb8215a269af0451f7ad5f88c96de
+38,Libgd,CVE-2014-2497,4 Aug 2014,,f01ade7,463c3bd,N/A,Yes,,Null Dereference,Yes,TODO,"https://github.com/libgd/libgd/commit/463c3bd09bfe8e924e19acad7a2a6af16953a704
+https://bugs.php.net/bug.php?id=66901"
+39,Libgd,N/A,4 Aug 2014,,463c3bd,33c05c1,N/A,Yes,,"Buffer Overrun
+
+gdft.c
+
+font_path
+
+php > imagecreatefromxpm(""monochome-poc.xpm"");",No,TODO,https://github.com/libgd/libgd/commit/33c05c1e6fc0830ec8d9c67c1a4c972640b86dbf
+40,Libgd,N/A,13 Dec 2014,,6db34b7,47eb44b,N/A,Yes,,Buffer Overflow,Potential,TODO,https://github.com/libgd/libgd/commit/47eb44b2e90ca88a08dca9f9a1aa9041e9587f43
+41,Libgd,N/A,13 Dec 2014,,c9e458b ,3c0d220,N/A,No,,infinite loop,No,TODO,"https://github.com/libgd/libgd/commit/3c0d2203b2672b688d4d2326ff3a60b019879062
+https://bugs.php.net/bug.php?id=68713&edit=3"
+42,Libgd,N/A,7 Jan 2015,,4af76c9 ,2a09086,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/2a09086c0230cd01d8730eeb335cadbbb73acfd5
+43,Libgd,N/A,7 Jan 2015,,4faf926 ,7b49862,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/7b4986279a4c6cd1c2a47560c86cd29ea2fbcc7a
+44,Libgd,N/A,14 Jan 2015,,2a40315,13d87a6,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/13d87a623ef502f1a2a46b2582cf2ca18aee97f7
+45,Libgd,N/A,14 Jan 2015,,13d87a6,1424dd6,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/1424dd6c1ad0f78ef93658f47dc3672be1b67108
+46,Libgd,N/A,14 Jan 2015,,1424dd6,999b5d2,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/999b5d25787e67241ff965d61b263be6634595f4
+47,Libgd,N/A,17 Jan 2015,,2f40d52,81d341c,N/A,Yes,,Null Dereference,No,TODO,https://github.com/libgd/libgd/commit/81d341c8f17b0af0e36dbf39817ba2683ffd2de9
+48,Libgd,N/A,17 Jan 2015,,b1f4313 ,2b3130e,N/A,No,,Potential uninit data,No,TODO,https://github.com/libgd/libgd/commit/2b3130efe66f20547b55a030da84c63f21a3f5fb
+49,Libgd,N/A,19 Jan 2015,,490bc3e,acdebc8,N/A,Yes,,Double Free,Yes,TODO,"https://github.com/libgd/libgd/issues/84
+https://github.com/libgd/libgd/commit/acdebc81484376ccc24890186e87b848415185b3"
+50,Libgd,N/A,19 Jan 2015,,490bc3e,acdebc9,N/A,Yes,,"Buffer Overrun
+
+read_image_tga",No,Potential,"https://github.com/libgd/libgd/issues/84
+https://github.com/libgd/libgd/commit/acdebc81484376ccc24890186e87b848415185b3"
+51,Libgd,N/A,19 Jan 2015,,acdebc8,b126726,N/A,No,,Memory Leak,Potential,TODO,https://github.com/libgd/libgd/commit/b1267265251cc40a1ee601e5761854b453ac5c4e
+52,Libgd,N/A,20 Jan 2015,,824a3aa,4ef5903,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/4ef590371cbe1677906807b5e524121999647263
+53,Libgd,N/A,3 Apr 2015,,a9f3a83 ,c9dac2d,N/A,Potential,,"Potential Buffer Out-of-bounds
+
+gdImageFlipVertical() for non-TrueColor images",No,TODO,https://github.com/libgd/libgd/commit/c9dac2d94195adcc6b0efcb5a5b083b76c4c057e
+54,Libgd,CVE-2015-8877,5 Aug 2015,,4e1ce66,4751b60,N/A,No,,Memory Leak,No,TODO,"https://github.com/libgd/libgd/commit/4751b606fa38edc456d627140898a7ec679fcc24
+https://github.com/libgd/libgd/issues/173
+https://security-tracker.debian.org/tracker/CVE-2015-8877
+"
+55,Libgd,CVE-2016-3074,27 Apr 2016,,fc14a8c,2bb97f4,N/A,Yes,,Out-of-bounds error,No,TODO,https://github.com/libgd/libgd/commit/2bb97f407c1145c850416a3bfbcc8cf124e68a19
+56,Libgd,N/A,27 Apr 2016,,2bb97f4,a5b5c27,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/a5b5c2722d6f11f79828084e9ceed11ed7a821e7
+57,Libgd,N/A,24 Dec 2015,,cd1d964,09d2d01,N/A,Yes,,"Double Free
+
+webp: fix double free ",No,TODO,https://github.com/libgd/libgd/commit/09d2d01315761bdedb767746cd32cb720b65ed63
+58,Libgd,N/A,1 May 2016,,0315e44,658f168,N/A,Yes,,"Double Free
+
+gd_gd2.c",Yes,TODO,https://github.com/libgd/libgd/commit/658f168874789370f76e7f2d8058d4bb6c4f53af
+59,Libgd,N/A,4 Dec 2015,,658f168,4e61c9b,N/A,No,,"Memory Leak
+
+gdImageCreateFromTiffCtx()",No,TODO,https://github.com/libgd/libgd/commit/4e61c9b0212b4a8a46ce4848252ab2926c7c9d06
+60,Libgd,CVE-2016-5116,14 May 2016,,b083ec1,4dc1a2d,N/A,Yes,,"Stack Overflow
+
+xbm",Yes,TODO,"https://github.com/libgd/libgd/commit/4dc1a2d7931017d3625f2d7cff70a17ce58b53b4
+https://github.com/libgd/libgd/issues/211"
+61,Libgd,CVE-2016-6161,14 May 2016,,4dc1a2d,82b80dc,N/A,Yes,,"Out of Bounds error
+
+gd_gif_out",Yes,TODO,"https://github.com/libgd/libgd/commit/82b80dcb70a7ca8986125ff412bceddafc896842
+https://github.com/libgd/libgd/issues/209"
+62,Libgd,N/A,14 May 2016,,82b80dc,e530663,N/A,No,,"Memory Leak
+
+png",No,TODO,https://github.com/libgd/libgd/commit/e5306635ff6b17b110320c2a3e007a65be7b394b
+63,Libgd,N/A,14 May 2016,,8f50777,96d5687,N/A,Yes,,Invalid Use of Pointer,Yes,Yes,"https://github.com/libgd/libgd/commit/96d56876890aa156f2177bc217833905ed3f404b
+https://github.com/libgd/libgd/issues/159"
+64,Libgd,N/A,14 May 2016,,8f50777,96d5687,N/A,Yes,,"Buffer Overrun
+",Yes,TODO,"https://github.com/libgd/libgd/commit/96d56876890aa156f2177bc217833905ed3f404b
+https://github.com/libgd/libgd/issues/159"
+65,Libgd,CVE-2015-8874,20 May 2016,,a881959,3824101,N/A,Yes,,Stack Consumption,Yes,TODO,"https://github.com/libgd/libgd/commit/38241013cc048af7c03daf6e9a75b4f42bffb200
+https://bugs.php.net/bug.php?id=66387"
+66,Libgd,N/A,4 Jun 2016,,73f4e03,77f619d,N/A,Yes,,"Stack Buffer Overflow
+
+gdImageFillToBorder",Yes,TODO,"https://github.com/libgd/libgd/commit/77f619d48259383628c3ec4654b1ad578e9eb40e
+https://github.com/libgd/libgd/issues/215
+https://github.com/libgd/libgd/commit/2a55b0f7a02581b6e8d110ef8d6d067ce095783c"
+67,Libgd,N/A,8 Jun 2016,,ac78b1e,77309c4,N/A,Yes,,"Crash - Out-of-bounds read
+
+gd_interploation.c",Yes,Potential,https://github.com/libgd/libgd/commit/77309c419cda4b9a4c5f5b2c61df9af8427c0741
+68,Libgd,N/A,18 Jun 2016,,c2a90b9,75fb8f0,N/A,No,,Memory Leak,No,TODO,https://github.com/libgd/libgd/commit/75fb8f02eff7ff9efc6641eaf4d7cf4553c83b7f
+69,Libgd,CVE-2016-6128,27 Jun 2016,,3fe0a71,1ccfe21,N/A,Potential,,"Crash
+
+Invalid color index",Yes,TODO,"https://github.com/libgd/libgd/compare/3fe0a7128bac5000fdcfab888bd2a75ec0c9447d...fd623025505e87bba7ec8555eeb72dae4fb0afd
+http://www.openwall.com/lists/oss-security/2016/06/30/1"
+70,Libgd,CVE-2016-5766,28 Jun 2016,,fd62302,aba3db8,N/A,Potential,,"Integer Overflow 
+in _gd2GetHeader",Yes,TODO,"https://github.com/libgd/libgd/commit/aba3db8ba159465ecec1089027a24835a6da9cc0
+https://github.com/libgd/libgd/issues/243"
+71,Libgd,CVE-2016-6132,12 Jul 2016,,e6399f5,10ef1dc,N/A,Yes,,"Out-of-bounds error
+
+",Yes,TODO,"https://github.com/libgd/libgd/commit/10ef1dca63d62433fda13309b4a228782db823f7
+https://github.com/libgd/libgd/commit/ead349e99868303b37f5e6e9d9d680c9dc71ff8d
+https://github.com/libgd/libgd/issues/247"
+72,Libgd,CVE-2016-6214,14 Jul 2016,,b070a26,5ddd5a7,N/A,Yes,,"Out-of-bounds error
+
+read_image_tga",Yes,TODO,"https://github.com/libgd/libgd/commit/ead349e99868303b37f5e6e9d9d680c9dc71ff8d
+https://github.com/libgd/libgd/issues/247#issuecomment-232084241"
+73,Libgd,CVE-2016-6905,14 Jul 2016,,b070a26,5ddd5a7,N/A,Yes,,"Out-of-bounds error
+
+read_image_tga",Yes,TODO,"https://github.com/libgd/libgd/commit/2580f5df5c4a038018b28682b71923bedd5294d1
+https://github.com/libgd/libgd/issues/248
+https://security-tracker.debian.org/tracker/CVE-2016-6905
+https://github.com/libgd/libgd/commit/fb92b1d5d81fb38018e63ba181f7828dd7cab758"
+74,Libgd,CVE-2016-6207,19 Jul 2016,,d5ed6e9,0dd40ab,N/A,Yes,,"Heap-based buffer overflow
+In the nsCaseTransformTextRunFactory",Yes,TODO,"https://github.com/libgd/libgd/commit/0dd40abd6d5b3e53a6b745dd4d6cf94b70010989
+https://www.cvedetails.com/cve/CVE-2016-6207/"
+75,Libgd,N/A,22 Jul 2016,,1586f16,2b3dd57,N/A,No,,"Use of unintialised variable
+
+'error' may be used uninitialized
+gd2_read.c",No,TODO,https://github.com/libgd/libgd/commit/2b3dd57a6ccb2940f2e9119ae04e14362e2a1f61
+76,Libgd,N/A,24 Jul 2016,,e7fa298,497ba7f,N/A,Potential,,"Seg Fault
+
+gdImageBmpCtx()",Yes,TODO,"https://github.com/libgd/libgd/commit/497ba7fc3caf23d218ac35518f95c3f3911036bf
+https://github.com/libgd/libgd/issues/275"
+77,Libgd,N/A,27 Aug 2016,,9906eb8,0bd7ec0,N/A,Yes,,"Use-After-Free
+
+gdft.c",No,TODO,https://github.com/libgd/libgd/commit/0bd7ec0560d2e751d4d46ea6bbfd92b3fb8134f4
+78,Libgd,N/A,28 Aug 2016,,0bd7ec0,edd5cae,N/A,No,,Memory Leak,Yes,TODO,https://github.com/libgd/libgd/commit/edd5cae6221539d8449297c4176582f93ce9c135
+79,Libgd,N/A,3 Sep 2016,,b53cebf,24b4550f,N/A,Yes,,Division by Zero,Yes,TODO,https://github.com/libgd/libgd/commit/24b4550fa808bec2bfcf139ee109cb145a172412
+80,Libgd,N/A,3 Sep 2016,,25e18eb,bb1998a1,N/A,Potential,,"Potnetial Out-of-bounds write
+
+gdImageGd2() writes wrong chunk ",Yes,TODO,"https://github.com/libgd/libgd/commit/bb1998a16e30d542ab22eba5501911a9aa066edb
+https://github.com/libgd/libgd/issues/309"
+81,Libgd,CVE-2016-7568,16 Sep 2016,,0423df1,40bec0f,N/A,Yes,,"Integer Overflow which causes heap overflow
+
+gdImageWebpCtx",Potential,TODO,"https://github.com/libgd/libgd/commit/40bec0f38f50e8510f5bb71a82f516d46facde03
+https://github.com/libgd/libgd/issues/308"
+82,Libgd,        CVE-2016-5767,30 Sep 2016,,3e8b5c5 ,c3cf674,N/A,Potential,,"Potential out-of-bounds read due to overflow
+
+gdImageCreate",No,TODO,https://github.com/libgd/libgd/commit/c3cf674cb444696a36f720f785878b41225af063
+83,Libgd,N/A,6 Oct 2016,,5292ba3,1b6564c,N/A,Yes,,Null Dereference,No,TODO,https://github.com/libgd/libgd/commit/1b6564cdc857df53e541613f63f5976b42de6c7d
+84,Libgd,N/A,10 Oct 2016,,7ce5aea,77c8d35,N/A,Potential,," Integer overflow in gdImageScaleBilinearPalette()
+
+gd_interpolation.c",Yes,TODO,https://github.com/libgd/libgd/commit/77c8d359bb81ecf33189efa0c0cf62b2315b1e88
+85,Libgd,N/A,15 Oct 2016,,5311087,939d49a,N/A,Yes,,"Buffer Underflow
+
+gd_gif_in.c",Yes,TODO,"https://github.com/libgd/libgd/commit/939d49a3a9d1cbcd2a37cea9eac9f9e5e9f9de78
+https://github.com/libgd/libgd/issues/68"

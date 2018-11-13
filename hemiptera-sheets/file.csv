@@ -1,0 +1,270 @@
+File,,Num Of Confirmed Bugs with test cases:,7,Num of available crashes,7,,Project Link:,https://github.com/file/file,,,,,,
+,,,,,,,,,,,,,,
+Invalid Access,5,b6e8437,5,,,,,,,,,,,
+Failed Assertion,1,4a51454,1,,,,,,,,,,,
+Division By Zero,1,7445748,1,,,,,,,,,,,
+Dangling Pointer Use,0,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+Internal ID,Tool Name,CVE ID,Date of Fix,Earlies Unfixed Commit,Commit ID / Version before fix,Commit ID / Version of fix,Notes,Shall we include?,Bug Type,Bug Details,Crash Input,Crash Status,Useful Link,
+16,file,N/A,22 Jan 2010,TODO,b293f98,f38846b,Coudnt find exact commit pertaining to the bug's fix.,Yes,Division By Zero,Arithmetic Exception,No,TODO,"https://bugs.gw.com/view.php?id=140
+https://github.com/file/file/commit/b293f989933f45917b7aa43068ee9f520becde5a",
+15,fle,N/A,17 Sep 2013,TODO,3cf59c3,6a035d3,N/A,No,Use-Before-Write,Use of uninitialised memory due to incorrect malloc size.,No,TODO,"https://bugs.gw.com/view.php?id=283
+https://github.com/file/file/commit/6a035d38e7921205b39c16d2a872000ab711359c",
+14,file,N/A,8 Jan 2014,TODO,f40883f,4475585,N/A,Potential,Buffer Overflow,Lack of offset checks,No,TODO,"https://github.com/file/file/commit/447558595a3650db2886cd2f416ad0beba965801
+https://bugs.gw.com/view.php?id=313",
+13,file,N/A,24 Sep 2014,TODO,2a041a5 ,b71174f,Might need to be on a Windows Machine to trigger.,No,I Don't Know,Format specifier that breaks windows,No,TODO,"https://bugs.gw.com/view.php?id=384
+https://github.com/file/file/commit/b71174f3ec9a134361e39948c0fec59b37a2f587",
+12,file,N/A,3 Jun 2015,b6e8437,b6e8437 ,6713ca4,,Yes,Buffer Overflow,"double free or corruption.
+
+ASAN reported heap buffer overflow
+
+==16360==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x57a03be4 at pc 0x55ba7d64 bp 0xff91ba18 sp 0xff91ba08
+WRITE of size 4 at 0x57a03be4 thread T0
+    #0 0x55ba7d63 in file_check_mem /home/john/tests/file/src/funcs.c:428
+    #1 0x55b7da11 in parse /home/john/tests/file/src/apprentice.c:1779
+    #2 0x55b79cfa in load_1 /home/john/tests/file/src/apprentice.c:1149
+    #3 0x55b7b3b5 in apprentice_load /home/john/tests/file/src/apprentice.c:1338
+    #4 0x55b7697b in apprentice_1 /home/john/tests/file/src/apprentice.c:455
+    #5 0x55b77bff in file_apprentice /home/john/tests/file/src/apprentice.c:683
+    #6 0x55b74b86 in magic_load /home/john/tests/file/src/magic.c:296
+    #7 0x804a20e in load /home/john/tests/file/src/file.c:426
+    #8 0x8049a4a in main /home/john/tests/file/src/file.c:349
+    #9 0x55c001c5 in __libc_start_main (/lib/libc.so.6+0x181c5)
+    #10 0x8049020  (/home/john/tests/file/install/bin/file+0x8049020)
+
+ON VALGRIND (64-bit Version)
+
+==21216== Invalid write of size 4
+==21216==    at 0x4E539E6: file_check_mem (funcs.c:428)
+==21216==    by 0x4E42A96: parse (apprentice.c:1779)
+==21216==    by 0x4E4141B: load_1 (apprentice.c:1149)
+==21216==    by 0x4E41D98: apprentice_load (apprentice.c:1338)
+==21216==    by 0x4E3FF8E: apprentice_1 (apprentice.c:455)
+==21216==    by 0x4E4071F: file_apprentice (apprentice.c:683)
+==21216==    by 0x4E3F1FC: magic_load (magic.c:296)
+==21216==    by 0x401B7E: load (file.c:426)
+==21216==    by 0x40180E: main (file.c:349)
+
+",Yes,Success,"https://bugs.gw.com/view.php?id=454
+https://github.com/file/file/commit/6713ca45e7757297381f4b4cdb9cf5e624a9ad36",Felix Bolte
+8,file,N/A,10 Jun 2015,b6e8437,91a5efb,aab722e,"Works on 64 (Need valgrind to find it).
+Folder ""ID-17"" has another test case that triggers the bug ",Yes,Buffer Overflow,"Heap Buffer Overflow
+
+AddressSanitizer: heap-buffer-overflow /home/john/file/src/softmagic.c:1579 in mget
+
+==16517==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x58003750 at pc 0x55b8e5ec bp 0xfff5fd48 sp 0xfff5fd38
+READ of size 4 at 0x58003750 thread T0
+    #0 0x55b8e5eb in mget /home/john/tests/file/src/softmagic.c:1579
+    #1 0x55b8392c in match /home/john/tests/file/src/softmagic.c:180
+    #2 0x55b83271 in file_softmagic /home/john/tests/file/src/softmagic.c:86
+    #3 0x55ba2809 in file_buffer /home/john/tests/file/src/funcs.c:244
+    #4 0x55b713c5 in file_or_fd /home/john/tests/file/src/magic.c:513
+    #5 0x55b70ebe in magic_file /home/john/tests/file/src/magic.c:391
+    #6 0x804a8b5 in process /home/john/tests/file/src/file.c:500
+    #7 0x8049c7e in main /home/john/tests/file/src/file.c:373
+    #8 0x55bfc1c5 in __libc_start_main (/lib/libc.so.6+0x181c5)
+    #9 0x8049020  (/home/john/tests/file/install/bin/file+0x8049020)
+
+ON VALGRIND (64-bit Version)
+
+==7711== Process terminating with default action of signal 11 (SIGSEGV)
+==7711==  Access not within mapped region at address 0x100563F420
+==7711==    at 0x4E49D3B: mget (softmagic.c:1579)
+==7711==    by 0x4E461C4: match (softmagic.c:180)
+==7711==    by 0x4E45F10: file_softmagic (softmagic.c:86)
+==7711==    by 0x4E532DC: file_buffer (funcs.c:244)
+==7711==    by 0x4E3F77A: file_or_fd (magic.c:513)
+==7711==    by 0x4E3F3D3: magic_file (magic.c:391)
+==7711==    by 0x401E96: process (file.c:500)
+==7711==    by 0x401900: main (file.c:373)
+==7711==  If you believe this happened as a result of a stack
+==7711==  overflow in your program's main thread (unlikely but
+==7711==  possible), you can try to increase the size of the
+==7711==  main thread stack using the --main-stacksize= flag.
+==7711==  The main thread stack size used in this run was 16777216.
+",Yes,Success,"https://github.com/file/file/commit/aab722ebba855b3bba14c55e22178ccdb6e764af
+https://bugs.gw.com/view.php?id=459",	Felix Bolte
+9,file,N/A,27 Jul 2015,b6e8437,372d236,cd85f48,Works fine on 64-bit,No,Use-Before-Write,"Use of uninitialised variables. Requires '-fsanitize=undefined'
+
+apprentice.c:1351:3: runtime error: null pointer passed as argument 1",Yes,Success,"https://bugs.gw.com/view.php?id=470
+https://github.com/file/file/commit/cd85f48ca55f220d3c55adb761f7ad3aabf86d10",
+10,file,N/A,27 Jul 2015,b293f98,372d236,cd85f48,N/A,No,,Undefined behaviour due to negative shift,Yes,Success,"https://bugs.gw.com/view.php?id=470
+https://github.com/file/file/commit/cd85f48ca55f220d3c55adb761f7ad3aabf86d10",
+11,file,N/A,27 Jul 2015,b293f98,b293f98,cd85f48,,No,,left shift of 225 by 24 places cannot be represented in type 'int',Yes,Success,"https://bugs.gw.com/view.php?id=470
+https://github.com/file/file/commit/cd85f48ca55f220d3c55adb761f7ad3aabf86d10",
+7,file,N/A,10 Sep 2015,b6e8437,b6e8437 ,4a1cf93,Potentially makes use of uninit data to cause overflow.,Potential,Buffer Overflow,"Bufer Out-of-bounds read
+
+==16580==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x58302ff8 at pc 0x55b67834 bp 0xffb21388 sp 0xffb21378
+READ of size 1 at 0x58302ff8 thread T0
+    #0 0x55b67833 in parse /home/john/tests/file/src/apprentice.c:2108
+    #1 0x55b60cfa in load_1 /home/john/tests/file/src/apprentice.c:1149
+    #2 0x55b623b5 in apprentice_load /home/john/tests/file/src/apprentice.c:1338
+    #3 0x55b5d97b in apprentice_1 /home/john/tests/file/src/apprentice.c:455
+    #4 0x55b5ebff in file_apprentice /home/john/tests/file/src/apprentice.c:683
+    #5 0x55b5bb86 in magic_load /home/john/tests/file/src/magic.c:296
+    #6 0x804a20e in load /home/john/tests/file/src/file.c:426
+    #7 0x8049a4a in main /home/john/tests/file/src/file.c:349
+    #8 0x55be71c5 in __libc_start_main (/lib/libc.so.6+0x181c5)
+    #9 0x8049020  (/home/john/tests/file/install/bin/file+0x8049020)
+
+ON VALGRIND (64-bit Version)
+
+==21274== Conditional jump or move depends on uninitialised value(s)
+==21274==    at 0x4E437AD: parse (apprentice.c:2099)
+==21274==    by 0x4E4141B: load_1 (apprentice.c:1149)
+==21274==    by 0x4E41D98: apprentice_load (apprentice.c:1338)
+==21274==    by 0x4E3FF8E: apprentice_1 (apprentice.c:455)
+==21274==    by 0x4E4071F: file_apprentice (apprentice.c:683)
+==21274==    by 0x4E3F1FC: magic_load (magic.c:296)
+==21274==    by 0x401B7E: load (file.c:426)
+==21274==    by 0x40180E: main (file.c:349)
+",Yes,Success,"https://github.com/file/file/commit/4a1cf9379d51503bdd87f022a1cc6f2bd1943277
+https://bugs.gw.com/view.php?id=475",
+5,file,N/A,16 Sep 2015,b6e8437,7e60111 ,de23336,N/A,Yes,Buffer Overflow,"Invalid Use of Malloced address
+
+==16602==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x589017f4 at pc 0x55b9654b bp 0xffcfed18 sp 0xffcfed08
+READ of size 4 at 0x589017f4 thread T0
+    #0 0x55b9654a in mget /home/john/tests/file/src/softmagic.c:1248
+    #1 0x55b8d92c in match /home/john/tests/file/src/softmagic.c:180
+    #2 0x55b8d271 in file_softmagic /home/john/tests/file/src/softmagic.c:86
+    #3 0x55bac809 in file_buffer /home/john/tests/file/src/funcs.c:244
+    #4 0x55b7b3c5 in file_or_fd /home/john/tests/file/src/magic.c:513
+    #5 0x55b7aebe in magic_file /home/john/tests/file/src/magic.c:391
+    #6 0x804a8b5 in process /home/john/tests/file/src/file.c:500
+    #7 0x8049c7e in main /home/john/tests/file/src/file.c:373
+    #8 0x55c061c5 in __libc_start_main (/lib/libc.so.6+0x181c5)
+    #9 0x8049020  (/home/john/tests/file/install/bin/file+0x8049020)
+
+ON VALGRIND (64-bit Version)
+
+==21303==    at 0x4E49163: mget (softmagic.c:1248)
+==21303==    by 0x4E461C4: match (softmagic.c:180)
+==21303==    by 0x4E45F10: file_softmagic (softmagic.c:86)
+==21303==    by 0x4E532DC: file_buffer (funcs.c:244)
+==21303==    by 0x4E3F77A: file_or_fd (magic.c:513)
+==21303==    by 0x4E3F3D3: magic_file (magic.c:391)
+==21303==    by 0x401E96: process (file.c:500)
+==21303==    by 0x401900: main (file.c:373)
+",Yes,Success,"https://bugs.gw.com/view.php?id=479
+https://github.com/file/file/commit/de2333662c2c9841703408e0061a6abdeebff3bc",Felix Bolte
+6,file,N/A,16 Sep 2015,b6e8437,b6e8437,de23336,Detected with valgrind,Yes,Division By Zero,"Triggers an arithmetic error
+
+==16618==ERROR: AddressSanitizer: FPE on unknown address 0x55c5e89a (pc 0x55c5e89a bp 0xfff01f98 sp 0xfff01f70 T0)
+    #0 0x55c5e899 in cvt_8 /home/john/tests/file/src/softmagic.c:857
+    #1 0x55c6097e in mconvert /home/john/tests/file/src/softmagic.c:920
+    #2 0x55c65ff2 in mget /home/john/tests/file/src/softmagic.c:1724
+    #3 0x55c5a92c in match /home/john/tests/file/src/softmagic.c:180
+    #4 0x55c5a271 in file_softmagic /home/john/tests/file/src/softmagic.c:86
+    #5 0x55c79809 in file_buffer /home/john/tests/file/src/funcs.c:244
+    #6 0x55c483c5 in file_or_fd /home/john/tests/file/src/magic.c:513
+    #7 0x55c47ebe in magic_file /home/john/tests/file/src/magic.c:391
+    #8 0x804a8b5 in process /home/john/tests/file/src/file.c:500
+    #9 0x8049c7e in main /home/john/tests/file/src/file.c:373
+    #10 0x55cd31c5 in __libc_start_main (/lib/libc.so.6+0x181c5)
+    #11 0x8049020  (/home/john/tests/file/install/bin/file+0x8049020)
+
+ON VALGRIND (64-bit Version)
+
+
+==21354== Process terminating with default action of signal 8 (SIGFPE)
+==21354==  Integer divide by zero at address 0x802CC2545
+==21354==    at 0x4E47B7A: cvt_8 (softmagic.c:857)
+==21354==    by 0x4E48360: mconvert (softmagic.c:920)
+==21354==    by 0x4E4A307: mget (softmagic.c:1724)
+==21354==    by 0x4E461C4: match (softmagic.c:180)
+==21354==    by 0x4E45F10: file_softmagic (softmagic.c:86)
+==21354==    by 0x4E532DC: file_buffer (funcs.c:244)
+==21354==    by 0x4E3F77A: file_or_fd (magic.c:513)
+==21354==    by 0x4E3F3D3: magic_file (magic.c:391)
+==21354==    by 0x401E96: process (file.c:500)
+==21354==    by 0x401900: main (file.c:373)
+",Yes,Success,"https://bugs.gw.com/view.php?id=479
+https://github.com/file/file/commit/de2333662c2c9841703408e0061a6abdeebff3bc",Felix Bolte
+2,file,N/A,1 Jun 2016,4a51454,f65c6cc,86fc463,N/A,No,,"negative-size-param
+malloc is allocated 0 bytes",Yes,Failed,"https://bugs.gw.com/view.php?id=551
+https://github.com/file/file/commit/86fc4635f8b7ba0e736f2df90b20dba456dd6aae",
+3,file,N/A,1 Jun 2016,4a51454,86836bb,f65c6cc,N/A,Yes,Buffer Overflow,"Invalid array index at cdf_count_chain function
+
+==22248==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x5893b2e0 at pc 0x55c41cd4 bp 0xffa6e088 sp 0xffa6e078
+READ of size 4 at 0x5893b2e0 thread T0
+    #0 0x55c41cd3 in cdf_count_chain /home/john/tests/file/src/cdf.c:508
+    #1 0x55c422d0 in cdf_read_short_sector_chain /home/john/tests/file/src/cdf.c:575
+    #2 0x55c42752 in cdf_read_sector_chain /home/john/tests/file/src/cdf.c:617
+    #3 0x55c437f7 in cdf_read_user_stream /home/john/tests/file/src/cdf.c:784
+    #4 0x55c436c6 in cdf_read_summary_info /home/john/tests/file/src/cdf.c:766
+    #5 0x55c49d37 in file_trycdf /home/john/tests/file/src/readcdf.c:538
+    #6 0x55c3874d in file_buffer /home/john/tests/file/src/funcs.c:243
+    #7 0x55c0313e in file_or_fd /home/john/tests/file/src/magic.c:521
+    #8 0x55c02b6e in magic_file /home/john/tests/file/src/magic.c:399
+    #9 0x804a902 in process /home/john/tests/file/src/file.c:515
+    #10 0x8049ca5 in main /home/john/tests/file/src/file.c:384
+    #11 0x55c971c5 in __libc_start_main (/lib/libc.so.6+0x181c5)
+    #12 0x8049020  (/home/john/tests/file/install/bin/file+0x8049020)
+
+ON VALGRIND (64-bit Version)
+
+==28707== Invalid read of size 4
+==28707==    at 0x4E57EA5: cdf_count_chain (cdf.c:508)
+==28707==    by 0x4E58124: cdf_read_short_sector_chain (cdf.c:575)
+==28707==    by 0x4E582F6: cdf_read_sector_chain (cdf.c:617)
+==28707==    by 0x4E58A4F: cdf_read_user_stream (cdf.c:784)
+==28707==    by 0x4E5898D: cdf_read_summary_info (cdf.c:766)
+==28707==    by 0x4E5B72B: file_trycdf (readcdf.c:538)
+==28707==    by 0x4E554D3: file_buffer (funcs.c:243)
+==28707==    by 0x4E3FE4A: file_or_fd (magic.c:521)
+==28707==    by 0x4E3FA83: magic_file (magic.c:399)
+==28707==    by 0x401EDE: process (file.c:515)
+==28707==    by 0x401920: main (file.c:384)
+==28707==  Address 0x57c56a0 is 217,216 bytes inside an unallocated block of size 2,820,544 in arena ""client""
+",Yes,Success,"https://bugs.gw.com/view.php?id=553
+https://github.com/file/file/commit/f65c6ccf033fbcc1f07991c33fa5868f2bcb64d4#diff-e251643c6244602a4c4bbd2305b5a627 ",F. Alonso
+4,file,N/A,1 Jun 2016,4a51454,4a51454 ,190f51d,N/A,No,Use-Before-Write,"Out of Bounds array index at:
+ (146) tag = c[(*p)++] & 0x1f;
+
+==22216==ERROR: AddressSanitizer: SEGV on unknown address 0x174ed6be (pc 0x55be7089 bp 0xffb3d228 sp 0xffb3d1f0 T0)
+    #0 0x55be7088 in gettag /home/john/tests/file/src/der.c:146
+    #1 0x55be7b12 in der_cmp /home/john/tests/file/src/der.c:260
+    #2 0x55bcfe55 in magiccheck /home/john/tests/file/src/softmagic.c:2124
+    #3 0x55bc2a94 in match /home/john/tests/file/src/softmagic.c:311
+    #4 0x55bc1b07 in file_softmagic /home/john/tests/file/src/softmagic.c:107
+    #5 0x55be4893 in file_buffer /home/john/tests/file/src/funcs.c:254
+    #6 0x55baf13e in file_or_fd /home/john/tests/file/src/magic.c:521
+    #7 0x55baeb6e in magic_file /home/john/tests/file/src/magic.c:399
+    #8 0x804a902 in process /home/john/tests/file/src/file.c:515
+    #9 0x8049ca5 in main /home/john/tests/file/src/file.c:384
+    #10 0x55c431c5 in __libc_start_main (/lib/libc.so.6+0x181c5)
+    #11 0x8049020  (/home/john/tests/file/install/bin/file+0x8049020)",Yes,Success,"https://bugs.gw.com/view.php?id=550
+https://github.com/file/file/commit/190f51dcf625830eedc67ff064c185cf08979a85",F. Alonso
+1,file,N/A,1 Dec 2016,7445748,7445748,db58188,Does not work on version 5.28,Yes,Assertion Failure,"Failed assertion 
+Assertion `ss == sst->sst_ss'",Yes,Success,"https://bugs.gw.com/view.php?id=583
+https://github.com/file/file/commit/db5818858c49bb02391f61047d6b4a4450692e93",
+18,file,N/A,10 Sep 2015,b6e8437,b6e8437 ,4a1cf93,Need to test on 32-bit,Yes,Buffer Overflow,"Bufer Out-of-bounds read
+
+==16672==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x5752edf8 at pc 0x55c01559 bp 0xff8c2768 sp 0xff8c2758
+READ of size 1 at 0x5752edf8 thread T0
+    #0 0x55c01558 in parse /home/john/tests/file/src/apprentice.c:2099
+    #1 0x55bfacfa in load_1 /home/john/tests/file/src/apprentice.c:1149
+    #2 0x55bfc30b in apprentice_load /home/john/tests/file/src/apprentice.c:1333
+    #3 0x55bf797b in apprentice_1 /home/john/tests/file/src/apprentice.c:455
+    #4 0x55bf8bff in file_apprentice /home/john/tests/file/src/apprentice.c:683
+    #5 0x55bf5b86 in magic_load /home/john/tests/file/src/magic.c:296
+    #6 0x804a20e in load /home/john/tests/file/src/file.c:426
+    #7 0x8049a4a in main /home/john/tests/file/src/file.c:349
+    #8 0x55c811c5 in __libc_start_main (/lib/libc.so.6+0x181c5)
+    #9 0x8049020  (/home/john/tests/file/install/bin/file+0x8049020)
+
+ON VALGRIND ( For 64-bit Version)
+
+
+033== 
+==2033== Invalid read of size 1
+==2033==    at 0x4E437A2: parse (apprentice.c:2099)
+==2033==    by 0x4E4141B: load_1 (apprentice.c:1149)
+==2033==    by 0x4E41D98: apprentice_load (apprentice.c:1338)
+==2033==    by 0x4E3FF8E: apprentice_1 (apprentice.c:455)
+==2033==    by 0x4E4071F: file_apprentice (apprentice.c:683)
+==2033==    by 0x4E3F1FC: magic_load (magic.c:296)
+==2033==    by 0x401B7E: load (file.c:426)
+==2033==    by 0x40180E: main (file.c:349)
+",Yes,Success,"https://github.com/file/file/commit/4a1cf9379d51503bdd87f022a1cc6f2bd1943277
+https://bugs.gw.com/view.php?id=475",

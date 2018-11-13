@@ -1,0 +1,291 @@
+Yara,,Num Of Confirmed Bugs with test cases:,0,Num of available crashes,0,Project Link:,https://github.com/VirusTotal/yara,Work on this has been temporary halted due to complex input test cases.,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Internal ID,Tool Name,CVE ID,Date of Fix,Earlies Unfixed Commit,Commit ID before fix,Commit ID of fix,Notes,Shall we include?,Bug Type,Bug Details,Crash Input,Crash Status,Useful Link
+,yara,N/A,2017-01-17 17:07:02 +0100,TODO,d68cd32,3119b23,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3119b23
+,yara,N/A,2016-12-15 23:03:45 +0100,TODO,779b9a7,6fd4883,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/6fd4883
+,yara,N/A,2016-11-27 18:09:57 +0100,TODO,10a64a1 ee8478e,0ac7f46,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/0ac7f46
+,yara,N/A,2016-11-02 09:23:15 +0100,TODO,ddd5e97,35f0165,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/35f0165
+,yara,N/A,2016-10-31 09:40:38 +0100,TODO,12fb707,8b2b6b8,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/8b2b6b8
+,yara,N/A,2016-10-13 22:48:38 +0200,TODO,cc6adeb,a9a1105,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/a9a1105
+,yara,N/A,2016-09-21 09:21:41 +0200,TODO,4d47719,ec67ad7,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/ec67ad7
+,yara,N/A,2016-09-14 16:35:59 +0200,TODO,58db66b,658aec6,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/658aec6
+,yara,N/A,2016-09-08 19:22:57 +0200,TODO,569339d,89c70ae,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/89c70ae
+,yara,N/A,2016-09-08 18:41:59 +0200,TODO,eeeb703,e516bed,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/e516bed
+,yara,N/A,2016-09-02 20:01:45 +0200,TODO,5122eb9,c6779bb,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/c6779bb
+,yara,N/A,2016-08-26 10:43:54 +0200,TODO,be8ed5f,5122eb9,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/5122eb9
+,yara,N/A,2016-08-25 21:47:54 +0200,TODO,64930a6,be8ed5f,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/be8ed5f
+,yara,N/A,2016-08-18 18:58:38 +0200,TODO,bc0dd65,3fe2c37,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3fe2c37
+,yara,N/A,2016-08-18 12:22:41 +0200,TODO,a905b93,bc0dd65,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/bc0dd65
+,yara,N/A,2016-08-03 16:58:08 +0200,TODO,424e308,7f1596d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/7f1596d
+,yara,N/A,2016-07-13 09:22:34 +0200,TODO,e5f0a8f,f38ac77,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/f38ac77
+,yara,N/A,2016-07-13 09:21:25 +0200,TODO,9191c30,e5f0a8f,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/e5f0a8f
+,yara,N/A,2016-06-29 16:28:57 +0200,TODO,685ec9c,fe0eb17,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/fe0eb17
+,yara,N/A,2016-06-16 14:54:00 +0200,TODO,4cc5fcc,e085a86,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/e085a86
+,yara,N/A,2016-06-16 13:07:00 +0200,TODO,84198d9,4cc5fcc,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/4cc5fcc
+,yara,N/A,2016-06-16 12:44:45 +0200,TODO,89cafe6,84198d9,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/84198d9
+,yara,N/A,2016-06-15 16:09:57 +0200,TODO,f1e2ec9,89cafe6,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/89cafe6
+,yara,N/A,2016-06-15 14:19:44 +0200,TODO,370aec0,f1e2ec9,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/f1e2ec9
+,yara,N/A,2016-06-15 14:18:58 +0200,TODO,aeae6aa,370aec0,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/370aec0
+,yara,N/A,2016-06-15 14:18:36 +0200,TODO,ff383e2,aeae6aa,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/aeae6aa
+,yara,N/A,2016-06-15 13:32:19 +0200,TODO,2470a02,ff383e2,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/ff383e2
+,yara,N/A,2016-06-15 13:30:50 +0200,TODO,5ec8cbc,2470a02,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/2470a02
+,yara,N/A,2016-06-15 12:16:58 +0200,TODO,d3c35f1,aa15261,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/aa15261
+,yara,N/A,2016-06-08 02:44:35 +0100,TODO,4036bd6 fd346a7,b3b4d1c,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/b3b4d1c
+,yara,N/A,2016-06-06 22:40:52 +0200,TODO,8c26cf8,4536079,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/4536079
+,yara,N/A,2016-06-03 14:03:30 +0200,TODO,7825d19,6519dc1,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/6519dc1
+,yara,N/A,2016-06-03 12:17:51 +0200,TODO,b5e762a,6b16efd,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/6b16efd
+,yara,N/A,2016-05-12 12:07:19 +0200,TODO,c7f00b9,dc4811b,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/dc4811b
+,yara,N/A,2016-05-12 11:33:48 +0200,TODO,430b5b5,c7f00b9,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/c7f00b9
+,yara,N/A,2016-05-10 15:29:32 +0200,TODO,c48b902,5b5d280,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/5b5d280
+,yara,N/A,2016-04-26 16:52:56 +0200,TODO,e83f639,1497fbd,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/1497fbd
+,yara,N/A,2016-04-22 11:24:41 +0200,TODO,d5d83ae,907a0b0,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/907a0b0
+,yara,N/A,2016-04-22 11:24:41 +0200,TODO,2d6fc25,d5d83ae,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/d5d83ae
+,yara,N/A,2016-04-22 11:19:10 +0200,TODO,1cce744,2d6fc25,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/2d6fc25
+,yara,N/A,2016-04-22 11:19:10 +0200,TODO,06409ec,1cce744,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/1cce744
+,yara,N/A,2016-04-08 09:46:58 +0200,TODO,a330507 3245154,e1bd626,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/e1bd626
+,yara,N/A,2016-03-10 23:23:14 +0100,TODO,4e2e9ec 4b6ab92,0f43419,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/0f43419
+,yara,N/A,2016-02-23 21:20:17 +0100,TODO,ff05102,4d979e6,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/4d979e6
+,yara,N/A,2016-02-22 21:30:06 +0100,TODO,a4c614a,a76bfc0,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/a76bfc0
+,yara,N/A,2016-01-31 22:51:50 +0100,TODO,3c74c9b,52dd72e,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/52dd72e
+,yara,N/A,2016-01-22 21:41:59 +0100,TODO,60e505b,b9c4840,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/b9c4840
+,yara,N/A,2016-01-22 21:08:40 +0100,TODO,f867aee,60e505b,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/60e505b
+,yara,N/A,2016-01-22 20:51:32 +0100,TODO,0ed6087,f867aee,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/f867aee
+,yara,N/A,2016-01-21 23:04:53 +0100,TODO,80d64db 553a76f,2ca694b,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/2ca694b
+,yara,N/A,2015-11-11 18:43:38 +0100,TODO,4a53217,9fbb20a,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/9fbb20a
+,yara,N/A,2015-11-03 18:36:04 +0100,TODO,2fac34b,65a8611,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/65a8611
+,yara,N/A,2015-10-30 19:23:40 +0100,TODO,0d02651,5d6d8b1,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/5d6d8b1
+,yara,N/A,2015-10-23 10:19:13 +0200,TODO,2698f51,3f2f291,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3f2f291
+,yara,N/A,2015-10-08 00:01:09 +0200,TODO,470e776 62513e1,c6288b7,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/c6288b7
+,yara,N/A,2015-09-25 10:11:04 +0200,TODO,92fee0f,d522a89,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/d522a89
+,yara,N/A,2015-09-24 10:35:41 +0200,TODO,52827ec,f718c52,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/f718c52
+,yara,N/A,2015-09-24 10:32:41 +0200,TODO,7e14ce2,52827ec,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/52827ec
+,yara,N/A,2015-09-23 14:51:15 +0200,TODO,6960720,db099d8,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/db099d8
+,yara,N/A,2015-09-22 13:53:16 +0200,TODO,483691,85e7590,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/85e7590
+,yara,N/A,2015-09-22 12:09:08 +0200,TODO,c3e7487 4510007,483691,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/0483691
+,yara,N/A,2015-07-30 19:17:59 +0200,TODO,89d44ff,6ad1182,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/6ad1182
+,yara,N/A,2015-07-15 11:11:53 +0200,TODO,38f5f8f,3f1cbf2,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3f1cbf2
+,yara,N/A,2015-07-03 11:27:55 +0200,TODO,a18e9f3,113bef3,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/113bef3
+,yara,N/A,2015-07-03 11:16:31 +0200,TODO,0cdf30d,a18e9f3,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/a18e9f3
+,yara,N/A,2015-07-02 15:59:30 +0200,TODO,f3f7824,0cdf30d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/0cdf30d
+,yara,N/A,2015-07-02 15:13:46 +0200,TODO,15d249b,b1106ad,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/b1106ad
+,yara,N/A,2015-06-30 20:55:35 +0200,TODO,c666ae1,6fff18a,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/6fff18a
+,yara,N/A,2015-06-30 11:24:17 +0200,TODO,e6a1d4c,cf4746d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/cf4746d
+,yara,N/A,2015-06-29 10:35:57 +0200,TODO,9aa11cb,e6a1d4c,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/e6a1d4c
+,yara,N/A,2015-06-04 18:50:07 +0200,TODO,e67d00a,c9ee8fc,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/c9ee8fc
+,yara,N/A,2015-06-03 17:27:20 +0200,TODO,0e6f070,10da150,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/10da150
+,yara,N/A,2015-06-03 11:20:12 +0200,TODO,2fe34e0,8304634,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/8304634
+,yara,N/A,2015-05-27 11:23:21 +0200,TODO,1e0bb3c 3a4776a,4.58E+54,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/4576e51
+,yara,N/A,2015-05-22 10:30:27 +0200,TODO,0fe4b17,06f9e94,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/06f9e94
+,yara,N/A,2015-05-14 12:12:17 +0200,TODO,4cd0998,4fd4012,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/4fd4012
+,yara,N/A,2015-05-11 10:16:27 +0200,TODO,c979823,5f02d37,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/5f02d37
+,yara,N/A,2015-05-08 09:36:54 +0200,TODO,ba6e9e4 fd2826a,9661cd5,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/9661cd5
+,yara,N/A,2015-05-05 14:43:34 +0200,TODO,97c46f3,d11a682,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/d11a682
+,yara,N/A,2015-04-27 13:57:41 +0200,TODO,5d5bb04 a5c78e9,922f1f9,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/922f1f9
+,yara,N/A,2015-04-24 10:26:53 +0200,TODO,07d9d74 b01eeab,1e34c4c,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/1e34c4c
+,yara,N/A,2015-04-21 13:42:00 +0200,TODO,4565007,07d9d74,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/07d9d74
+,yara,N/A,2015-04-21 10:37:54 +0200,TODO,c19e83a 01fd0f6,3bbae40,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3bbae40
+,yara,N/A,2015-04-16 08:52:58 +0200,TODO,24e7f8d 1cc98f7,d771e5c,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/d771e5c
+,yara,N/A,2015-03-18 12:25:19 +0100,TODO,5ce0f3e,3a4ed03,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3a4ed03
+,yara,N/A,2015-03-18 10:15:04 +0100,TODO,7b9b3d8 eb0dd14,5ce0f3e,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/5ce0f3e
+,yara,N/A,2015-03-17 18:46:21 +0100,TODO,e91f2e9 4aafc3e,7b9b3d8,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/7b9b3d8
+,yara,N/A,2015-03-13 11:08:46 +0100,TODO,223daaf,497cd85,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/497cd85
+,yara,N/A,2015-03-12 11:14:31 +0100,TODO,d4aa74c,223daaf,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/223daaf
+,yara,N/A,2015-03-12 10:08:23 +0100,TODO,5.39E+48,21e796d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/21e796d
+,yara,N/A,2015-03-12 09:38:37 +0100,TODO,e654c40 bc9d5b6,48c4a2b,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/48c4a2b
+,yara,N/A,2015-02-20 22:49:46 +0100,TODO,83db30e,a7e9f35,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/a7e9f35
+,yara,N/A,2015-02-16 10:34:06 +0100,TODO,4994a2c,aa0f6c4,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/aa0f6c4
+,yara,N/A,2015-02-12 10:07:05 +0100,TODO,73098ae 90d16f8,b47a70f,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/b47a70f
+,yara,N/A,2015-02-09 21:14:10 +0100,TODO,7af1706,d1fa24b,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/d1fa24b
+,yara,N/A,2015-02-09 10:36:24 +0100,TODO,d0cabe7,2540594,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/2540594
+,yara,N/A,2015-02-06 20:55:04 +0100,TODO,2c1c67c,febeaa2,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/febeaa2
+,yara,N/A,2015-02-06 20:11:42 +0100,TODO,a5d77f3,2c1c67c,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/2c1c67c
+,yara,N/A,2015-02-06 15:15:10 +0100,TODO,137981f,a5d77f3,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/a5d77f3
+,yara,N/A,2015-02-02 21:49:21 +0100,TODO,925cc8b,88f2ed7,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/88f2ed7
+,yara,N/A,2015-01-31 17:09:11 +0100,TODO,6cd9fad,8ebfeee,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/8ebfeee
+,yara,N/A,2015-01-29 20:36:34 +0100,TODO,eccb434 81ec39e,d502157,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/d502157
+,yara,N/A,2015-01-08 15:07:38 +0100,TODO,334bd1a,111133d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/111133d
+,yara,N/A,2015-01-07 17:04:04 +0100,TODO,6b6b771,b019227,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/b019227
+,yara,N/A,2015-01-07 11:27:44 +0100,TODO,da309b7,2705515,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/2705515
+,yara,N/A,2015-01-05 15:26:05 +0100,TODO,962d5df,9d1c14a,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/9d1c14a
+,yara,N/A,2014-12-31 13:29:18 +0100,TODO,45352ea,2fcfa86,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/2fcfa86
+,yara,N/A,2014-12-31 12:00:39 +0100,TODO,9784167,d9f7e2c,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/d9f7e2c
+,yara,N/A,2014-12-30 10:26:52 +0100,TODO,6bb131d d5b071c,d84e0f9,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/d84e0f9
+,yara,N/A,2014-12-29 23:54:11 +0100,TODO,133df5c,6bb131d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/6bb131d
+,yara,N/A,2014-12-29 13:20:21 +0100,TODO,3bc5efd,82a4212,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/82a4212
+,yara,N/A,2014-12-24 13:03:04 +0100,TODO,161e324,3bc5efd,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3bc5efd
+,yara,N/A,2014-12-19 11:51:44 +0100,TODO,6280cd4,a7b6dfe,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/a7b6dfe
+,yara,N/A,2014-12-19 11:47:32 +0100,TODO,f0ea82a,6280cd4,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/6280cd4
+,yara,N/A,2014-12-04 12:04:07 +0100,TODO,a430718,0434bb9,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/0434bb9
+,yara,N/A,2014-12-02 09:56:45 +0100,TODO,279ae0b 2524d0c,9ae81c0,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/9ae81c0
+,yara,N/A,2014-12-01 20:49:52 +0100,TODO,d3a1fff,7297977,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/7297977
+,yara,N/A,2014-11-28 15:24:54 +0100,TODO,7cc63b1 eb3e20a,089eb65,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/089eb65
+,yara,N/A,2014-11-27 12:37:33 +0100,TODO,cce7c5d,7cc63b1,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/7cc63b1
+,yara,N/A,2014-11-22 23:44:55 +0100,TODO,116b5e1,08f9871,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/08f9871
+,yara,N/A,2014-11-21 14:32:10 +0100,TODO,8e55590,2aeb167,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/2aeb167
+,yara,N/A,2014-11-21 09:44:44 +0100,TODO,aff604d,8e55590,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/8e55590
+,yara,N/A,2014-11-13 10:30:50 +0100,TODO,344d27a,81f4349,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/81f4349
+,yara,N/A,2014-11-07 21:54:58 +0100,TODO,3b2b9fd,f3edcf2,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/f3edcf2
+,yara,N/A,2014-11-07 14:02:51 +0100,TODO,ab2d2df,ac33844,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/ac33844
+,yara,N/A,2014-11-06 18:43:18 +0100,TODO,6832b36,dd2afc6,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/dd2afc6
+,yara,N/A,2014-11-06 17:35:28 +0100,TODO,0cd95ae,6832b36,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/6832b36
+,yara,N/A,2014-11-03 18:10:29 +0100,TODO,46fee1a,f678d4b,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/f678d4b
+,yara,N/A,2014-11-03 10:54:00 +0100,TODO,93cce90,7bf0c83,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/7bf0c83
+,yara,N/A,2014-10-31 12:03:49 +0100,TODO,59b643b,4.22E+10,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/42236e6
+,yara,N/A,2014-10-31 12:03:05 +0100,TODO,0e67efe,59b643b,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/59b643b
+,yara,N/A,2014-10-31 11:29:27 +0100,TODO,dda6c74,5f39dcc,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/5f39dcc
+,yara,N/A,2014-10-30 17:22:05 +0100,TODO,557aa9a,b86a6f6,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/b86a6f6
+,yara,N/A,2014-10-29 14:15:57 +0100,TODO,5ba87be,0d4d719,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/0d4d719
+,yara,N/A,2014-10-28 18:37:54 +0100,TODO,aaee659,62d8318,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/62d8318
+,yara,N/A,2014-10-16 15:01:56 +0200,TODO,cdadb9e,1c0968d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/1c0968d
+,yara,N/A,2014-10-16 13:28:58 +0200,TODO,df87f7e,a7ce07e,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/a7ce07e
+,yara,N/A,2014-10-16 13:14:40 +0200,TODO,96e6d9e,df87f7e,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/df87f7e
+,yara,N/A,2014-10-09 10:10:09 +0200,TODO,88a25d2,ce8f8c4,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/ce8f8c4
+,yara,N/A,2014-09-30 13:39:40 +0200,TODO,f37e97e,e5369ca,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/e5369ca
+,yara,N/A,2014-09-25 20:05:05 +0200,TODO,c80a56b,7e99c64,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/7e99c64
+,yara,N/A,2014-09-24 23:42:45 +0200,TODO,0763b7a,9f7a178,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/9f7a178
+,yara,N/A,2014-09-17 22:00:54 +0200,TODO,72f0cc5,f002d92,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/f002d92
+,yara,N/A,2014-09-13 11:47:14 +0200,TODO,b82ad28 cd54bea,39fcd4a,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/39fcd4a
+,yara,N/A,2014-09-02 14:32:37 +0200,TODO,a5a8b51,4a0e558,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/4a0e558
+,yara,N/A,2014-09-02 12:50:05 +0200,TODO,367b0ea,a5a8b51,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/a5a8b51
+,yara,N/A,2014-08-29 17:17:05 +0200,TODO,ab30621,1bbc215,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/1bbc215
+,yara,N/A,2014-08-26 13:00:32 +0200,TODO,ffc0a33,03b015e,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/03b015e
+,yara,N/A,2014-08-25 16:17:59 +0200,TODO,d196b97,87df834,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/87df834
+,yara,N/A,2014-08-22 14:02:54 +0200,TODO,a22f289,ac87a92,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/ac87a92
+,yara,N/A,2014-08-22 13:35:29 +0200,TODO,5e3282b,2d04878,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/2d04878
+,yara,N/A,2014-08-22 12:34:09 +0200,TODO,1c5ac31,7.51E+06,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/75139e2
+,yara,N/A,2014-08-21 13:26:57 +0200,TODO,d5ed62e,f56608c,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/f56608c
+,yara,N/A,2014-08-20 13:15:39 +0200,TODO,3b5ddd0,797c485,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/797c485
+,yara,N/A,2014-08-19 11:32:10 +0200,TODO,2eaafa8,2dd8274,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/2dd8274
+,yara,N/A,2014-08-18 10:38:48 +0200,TODO,a9db0ea,2eaafa8,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/2eaafa8
+,yara,N/A,2014-08-11 09:51:51 +0200,TODO,57ef744,33bd8fd,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/33bd8fd
+,yara,N/A,2014-07-24 17:04:08 +0200,TODO,285d538,ec5eb9f,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/ec5eb9f
+,yara,N/A,2014-07-24 13:37:58 +0200,TODO,f8fd52d,285d538,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/285d538
+,yara,N/A,2014-07-24 13:16:14 +0200,TODO,e33266d,f8fd52d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/f8fd52d
+,yara,N/A,2014-07-07 14:59:25 +0200,TODO,f609e10,b0b3c7f,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/b0b3c7f
+,yara,N/A,2014-07-07 14:06:58 +0200,TODO,a9dd9e4,b056a7d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/b056a7d
+,yara,N/A,2014-07-07 13:57:32 +0200,TODO,b41d264,a9dd9e4,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/a9dd9e4
+,yara,N/A,2014-07-03 12:18:46 +0200,TODO,3344ada,3773bb1,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3773bb1
+,yara,N/A,2014-07-03 12:06:38 +0200,TODO,51aeb0e,f81eeaf,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/f81eeaf
+,yara,N/A,2014-07-01 11:52:34 +0200,TODO,bd40304,1d65669,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/1d65669
+,yara,N/A,2014-05-15 10:27:51 +0200,TODO,f0e80c7,035b2a2,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/035b2a2
+,yara,N/A,2014-04-01 17:58:20 +0200,TODO,74a7e4e,67eb56c,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/67eb56c
+,yara,N/A,2014-03-31 11:34:34 +0200,TODO,08c8456,f1999cb,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/f1999cb
+,yara,N/A,2014-03-28 16:44:49 +0100,TODO,bfe9980,08c8456,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/08c8456
+,yara,N/A,2014-03-24 11:33:11 +0100,TODO,74ca113,bfe9980,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/bfe9980
+,yara,N/A,2014-03-13 08:52:02 +0100,TODO,24d001d,c9d6d93,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/c9d6d93
+,yara,N/A,2014-03-10 10:43:56 +0100,TODO,372ce64,24d001d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/24d001d
+,yara,N/A,2014-03-07 15:45:11 +0100,TODO,4dc0442,345bf84,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/345bf84
+,yara,N/A,2014-02-25 11:23:31 +0100,TODO,7e3f88b,7bef5aa,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/7bef5aa
+,yara,N/A,2014-02-11 10:23:00 +0100,TODO,fba874f,5f281ed,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/5f281ed
+,yara,N/A,2014-02-07 13:12:52 +0100,TODO,cc118c4,fba874f,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/fba874f
+,yara,N/A,2014-02-07 12:33:56 +0100,TODO,3f03809,cc118c4,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/cc118c4
+,yara,N/A,2014-02-06 22:43:22 +0100,TODO,8dc2485,3f03809,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3f03809
+,yara,N/A,2014-01-21 21:07:52 +0100,TODO,635eb9d,4d4e97c,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/4d4e97c
+,yara,N/A,2014-01-21 21:07:52 +0100,TODO,16ea7f1,635eb9d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/635eb9d
+,yara,N/A,2014-01-21 21:07:52 +0100,TODO,0e9509a,3fd4de0,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3fd4de0
+,yara,N/A,2014-01-21 21:07:52 +0100,TODO,9fd8e0c,0e9509a,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/0e9509a
+,yara,N/A,2014-01-20 23:30:03 +0100,TODO,ccee157,2.50E+23,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/2497e20
+,yara,N/A,2014-01-20 20:54:27 +0100,TODO,0ffedd4 1078205,ccee157,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/ccee157
+,yara,N/A,2014-01-16 12:58:06 +0100,TODO,f435aae,bc07563,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/bc07563
+,yara,N/A,2014-01-15 20:34:57 +0100,TODO,daeb337,d5358cd,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/d5358cd
+,yara,N/A,2014-01-13 22:28:19 +0100,TODO,b605096,daeb337,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/daeb337
+,yara,N/A,2013-12-31 10:54:58 +0100,TODO,8f069cb,ce48035,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/ce48035
+,yara,N/A,2013-12-26 22:15:33 +0100,TODO,d5dbefb,31b6c3b,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/31b6c3b
+,yara,N/A,2013-12-23 12:06:09 +0100,TODO,e48fecd,02db90f,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/02db90f
+,yara,N/A,2013-12-23 11:56:11 +0100,TODO,967157e,e48fecd,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/e48fecd
+,yara,N/A,2013-12-22 12:53:22 +0100,TODO,39669c6,19bcae9,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/19bcae9
+,yara,N/A,2013-12-19 20:29:08 +0100,TODO,8050f97,c17b26d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/c17b26d
+,yara,N/A,2013-12-18 18:27:31 +0100,TODO,ff09570,8050f97,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/8050f97
+,yara,N/A,2013-12-18 14:29:14 +0100,TODO,78a42c6,ff09570,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/ff09570
+,yara,N/A,2013-12-18 10:02:18 +0100,TODO,ddf3dda,dd58af1,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/dd58af1
+,yara,N/A,2013-12-17 15:55:03 +0100,TODO,e7d4bb2,ddf3dda,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/ddf3dda
+,yara,N/A,2013-12-10 12:59:08 +0100,TODO,5c799da,c06c019,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/c06c019
+,yara,N/A,2013-12-07 21:51:59 +0100,TODO,5d7378a,5d8dc70,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/5d8dc70
+,yara,N/A,2013-12-07 18:38:04 +0100,TODO,45a6a96,5d7378a,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/5d7378a
+,yara,N/A,2013-12-07 18:14:58 +0100,TODO,93c1739,45a6a96,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/45a6a96
+,yara,N/A,2013-12-07 13:33:44 +0100,TODO,cc4bc54,93c1739,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/93c1739
+,yara,N/A,2013-12-06 22:36:04 +0100,TODO,d5ac624,cc4bc54,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/cc4bc54
+,yara,N/A,2013-12-06 17:02:20 +0100,TODO,77dc656,c12923f,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/c12923f
+,yara,N/A,2013-12-03 23:58:28 +0100,TODO,b5a697c,54d1025,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/54d1025
+,yara,N/A,2013-12-03 15:33:41 +0100,TODO,43eecfe,31f2983,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/31f2983
+,yara,N/A,2013-11-22 15:46:46 +0000,TODO,871dfe7,3afb3e7,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3afb3e7
+,yara,N/A,2013-11-22 15:31:20 +0000,TODO,77c6f0c,e8ac1cf,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/e8ac1cf
+,yara,N/A,2013-11-21 13:15:19 +0000,TODO,533a621,704eb61,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/704eb61
+,yara,N/A,2013-11-21 13:13:01 +0000,TODO,1e151eb,533a621,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/533a621
+,yara,N/A,2013-11-20 23:55:10 +0000,TODO,67d80a1,619831c,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/619831c
+,yara,N/A,2013-11-18 15:39:08 +0000,TODO,4e58b94,12a3e60,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/12a3e60
+,yara,N/A,2013-11-15 13:51:55 +0000,TODO,06852de,4e58b94,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/4e58b94
+,yara,N/A,2013-11-15 13:39:05 +0000,TODO,20054bd,06852de,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/06852de
+,yara,N/A,2013-11-15 11:10:52 +0000,TODO,a370311,20054bd,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/20054bd
+,yara,N/A,2013-11-13 09:01:18 +0000,TODO,8d7d738,a370311,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/a370311
+,yara,N/A,2013-11-12 15:06:58 +0000,TODO,0447c23,597211e,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/597211e
+,yara,N/A,2013-11-11 16:34:44 +0000,TODO,7ac4b25,5d6a08d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/5d6a08d
+,yara,N/A,2013-11-05 13:16:13 +0000,TODO,7a87866,93b77fc,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/93b77fc
+,yara,N/A,2013-10-30 11:43:24 +0000,TODO,c614dcb,658c618,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/658c618
+,yara,N/A,2013-07-26 17:40:04 +0000,TODO,9cd1f93,48fc3c0,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/48fc3c0
+,yara,N/A,2013-07-18 16:22:20 +0000,TODO,157e4ef,8cd3a5a,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/8cd3a5a
+,yara,N/A,2013-07-18 09:50:57 +0000,TODO,4004103,157e4ef,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/157e4ef
+,yara,N/A,2013-07-17 07:23:11 +0000,TODO,e6becca,4004103,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/4004103
+,yara,N/A,2013-07-03 15:07:14 +0000,TODO,3fee869,a309b7c,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/a309b7c
+,yara,N/A,2013-07-01 23:02:03 +0000,TODO,d4f8410,4b86b4a,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/4b86b4a
+,yara,N/A,2013-06-26 15:01:30 +0000,TODO,6ef9085,75c0f2c,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/75c0f2c
+,yara,N/A,2013-06-26 14:31:29 +0000,TODO,4a637d9,6ef9085,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/6ef9085
+,yara,N/A,2013-06-26 12:58:23 +0000,TODO,ac0319c,4a637d9,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/4a637d9
+,yara,N/A,2013-06-18 09:27:46 +0000,TODO,3e5cfcb,3601422,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3601422
+,yara,N/A,2013-05-31 11:20:24 +0000,TODO,97a7b1a,1a242f5,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/1a242f5
+,yara,N/A,2013-05-31 09:42:36 +0000,TODO,7199976,97a7b1a,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/97a7b1a
+,yara,N/A,2013-05-31 09:29:29 +0000,TODO,beb13f3,7199976,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/7199976
+,yara,N/A,2013-05-31 08:42:00 +0000,TODO,90082d4,beb13f3,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/beb13f3
+,yara,N/A,2013-05-28 16:09:12 +0000,TODO,cdc9e05,8be26a7,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/8be26a7
+,yara,N/A,2013-05-28 10:39:41 +0000,TODO,7404e2e,debbcdd,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/debbcdd
+,yara,N/A,2013-05-27 16:34:41 +0000,TODO,39af986,7404e2e,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/7404e2e
+,yara,N/A,2013-05-21 08:43:40 +0000,TODO,6e86a55,d0575ef,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/d0575ef
+,yara,N/A,2013-04-17 08:05:54 +0000,TODO,b13ab5d,6e86a55,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/6e86a55
+,yara,N/A,2013-04-15 15:04:36 +0000,TODO,cf31a19,b13ab5d,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/b13ab5d
+,yara,N/A,2013-04-15 08:03:30 +0000,TODO,2eab4f1,cf31a19,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/cf31a19
+,yara,N/A,2013-04-09 21:39:30 +0000,TODO,256dedb,7dbed6a,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/7dbed6a
+,yara,N/A,2012-08-16 16:57:10 +0000,TODO,87fc2ab,07b5a01,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/07b5a01
+,yara,N/A,2012-08-09 21:12:22 +0000,TODO,86657a9,8b76026,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/8b76026
+,yara,N/A,2012-06-26 13:18:56 +0000,TODO,502916b,28c7315,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/28c7315
+,yara,N/A,2012-05-04 20:51:53 +0000,TODO,2932e3a,3d44f26,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3d44f26
+,yara,N/A,2012-04-27 10:10:13 +0000,TODO,c8f1e4f,2932e3a,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/2932e3a
+,yara,N/A,2012-04-27 10:07:46 +0000,TODO,9b9753b,c8f1e4f,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/c8f1e4f
+,yara,N/A,2012-04-25 10:20:27 +0000,TODO,8f0f9b9,9b9753b,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/9b9753b
+,yara,N/A,2012-04-24 15:16:28 +0000,TODO,a05c794,8f0f9b9,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/8f0f9b9
+,yara,N/A,2012-04-23 20:29:41 +0000,TODO,c65f0f2,9180110,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/9180110
+,yara,N/A,2012-04-23 16:16:37 +0000,TODO,982a0d4,c65f0f2,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/c65f0f2
+,yara,N/A,2012-01-31 15:15:59 +0000,TODO,bfddf7e,3e91e53,N/A,Potential,I Don't Know,,TODO,TODO,https://github.com/VirusTotal/yara/commit/3e91e53
+,yara,N/A,2011-12-22 17:40:49 +0000,TODO,52bb201,34b7a29,N/A,Potential,I Don't Know,In yara-python.c,TODO,TODO,https://github.com/VirusTotal/yara/commit/34b7a29
+,,,,,,,,,,,,,
+,yara,N/A,2011-08-01 09:41:37 +0000,TODO,3508ff5,42a5670,N/A,Potential,Buffer Overflow,In exe.c,TODO,TODO,"https://github.com/VirusTotal/yara/commit/42a5670
+https://code.google.com/archive/p/yara-project/issues/16"
+,yara,N/A,2011-06-27 18:58:28 +0000,TODO,1dd9fcb,7685524,N/A,No,Memory Leak,In lex.c,TODO,TODO,https://github.com/VirusTotal/yara/commit/7685524
+,yara,N/A,2011-03-29 22:35:32 +0000,TODO,079e891,4c58102,N/A,Potential,Buffer Overflow,In exe.c,TODO,TODO,https://github.com/VirusTotal/yara/commit/4c58102
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,yara,N/A,2011-03-22 13:32:36 +0000,TODO,83f2dfa,031e857,N/A,Potential,I Don't Know,In regex-pcre.c,TODO,TODO,https://github.com/VirusTotal/yara/commit/031e857
+,yara,N/A,2011-03-21 22:38:19 +0000,TODO,8447054,c2bb3f7,N/A,Potential,Buffer Overflow,eval.c,TODO,TODO,https://github.com/VirusTotal/yara/commit/c2bb3f7
+,yara,N/A,2011-03-21 22:37:31 +0000,TODO,61ff92f,8447054,N/A,No,Memory Leak,In ast.c,TODO,TODO,https://github.com/VirusTotal/yara/commit/8447054
+,,,,,,,,,,,,,
+,yara,N/A,2011-03-09 02:05:16 +0000,TODO,1412b6e,0f1fa54,N/A,Yes,I Don't Know,In regex-re2.cc,TODO,TODO,https://github.com/VirusTotal/yara/commit/0f1fa54
+,yara,N/A,2011-02-19 20:46:10 +0000,TODO,0eb9966,7029183,N/A,Potential,Use-After-Free,In yara-python.c,TODO,TODO,https://github.com/VirusTotal/yara/commit/7029183
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,yara,N/A,2009-11-21 01:18:17 +0000,TODO,7d4975a,0bb0d2c,N/A,Potential,Use-After-Free,In yara-python.c,TODO,TODO,https://github.com/VirusTotal/yara/commit/0bb0d2c
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,yara,N/A,2009-10-21 20:43:22 +0000,TODO,bacfdab,c5d47c0,N/A,Yes,Double Free,In lex.c,TODO,TODO,https://github.com/VirusTotal/yara/commit/c5d47c0
+,,,,,,,,,,,,,
+,yara,N/A,2009-09-11 22:04:33 +0000,TODO,3c4fd6d,da854c4,N/A,Yes,Buffer Overflow,In libyara.c,TODO,TODO,https://github.com/VirusTotal/yara/commit/da854c4
+,yara,N/A,2009-04-08 11:07:40 +0000,TODO,bb5b46b,7f64459,N/A,Potential,Use-Before-Write,In lex.c,TODO,TODO,https://github.com/VirusTotal/yara/commit/7f64459
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,yara,N/A,2009-03-06 12:14:06 +0000,TODO,4c0a401,3e4ff25,N/A,Potential,Buffer Overflow,"In scan.c
+Heap underflow",TODO,TODO,https://github.com/VirusTotal/yara/commit/3e4ff25
+,yara,N/A,2009-02-27 11:35:41 +0000,TODO,c551626,4c0a401,N/A,Yes,Buffer Overflow,In scan.c,TODO,TODO,https://github.com/VirusTotal/yara/commit/4c0a401
+,yara,N/A,2009-02-17 16:12:33 +0000,TODO,08d61d2,c551626,N/A,No,Memory Leak,In ast.c,TODO,TODO,https://github.com/VirusTotal/yara/commit/c551626
