@@ -8,7 +8,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from typing import Dict, List, Optional
 
-from hase.record import record_loop
+from hase.record import record
 
 from .utils import REPORT_PATH, ROOT, green_text, red_text, Timeout
 
@@ -129,7 +129,7 @@ class Bug:
             with TemporaryDirectory() as tempdir:
                 timeout = 20
                 try:
-                    recording = record_loop(
+                    recording = record(
                         Path(tempdir),
                         Path(str(ROOT.joinpath("logs"))),
                         limit=1,
