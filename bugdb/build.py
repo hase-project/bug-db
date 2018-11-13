@@ -29,7 +29,7 @@ class Build:
         self.skip_auto_reconf = skip_auto_reconf
         self.skip_cmake = skip_cmake
         self.enable_address_sanitizer = enable_address_sanitizer
-        if enable_ubsan_sanitizer is None:
+        if enable_ubsan_sanitizer is not None:
             # backwards compatible
             self.enable_ubsan_sanitizer = enable_address_sanitizer
         else:
@@ -76,7 +76,7 @@ class Build:
         flags = []
         if self.enable_address_sanitizer:
             flags.append("-lasan")
-        elif self.enable_ubsan_sanitizer:
+        if self.enable_ubsan_sanitizer:
             flags.append("-lubsan")
         return flags
 
