@@ -1,5 +1,21 @@
 # README
 
+## bugdb
+
+Build first without root:
+
+```console
+$ ./bin/bugdb-record --build-only
+```
+
+Then as root run
+
+```console
+$ ./bin/bugdb-record
+```
+
+## Comparison with klee
+
 1. clone libs and apply patch
 ```
 cd util
