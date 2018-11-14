@@ -6,7 +6,7 @@ import time
 import angr
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple, Any
 
 from hase.record import record
 
@@ -98,6 +98,7 @@ class Bug:
                 with open(REPORT_PATH.joinpath(f'{self.name}.txt'), 'w+') as f:
                     f.write(f'time: {time_diff}s')
                 import pdb
+
                 pdb.set_trace()
 
     def run(self, simulate: bool, build_only: bool) -> None:
@@ -153,6 +154,67 @@ class Bug:
             if self.by_angr:
                 self.run_by_angr()
 
+    def measure(self) -> Tuple[int, Any]:
+        command = self.command()
+        if self.stdin_file is None:
+            stdin = None
+        else:
+            stdin = open(self.substitute_vars(self.stdin_file), "rb")
+
+        working_directory = self.working_directory()
+        extra_env = self.extra_env()
+
+        with TemporaryDirectory() as tempdir:
+            timeout = 20
+            try:
+                recording = record(
+                    Path(tempdir),
+                    Path(str(ROOT.joinpath("logs"))),
+                    limit=1,
+                    command=command,
+                    timeout=timeout,
+                    rusage=True,
+                    stdin=stdin,
+                    working_directory=working_directory,
+                    extra_env=extra_env,
+                )
+                assert recording is not None
+                print(red_text(f"{command[0]} exited with {recording.exit_status}"))
+                if recording.report_path is not None:
+                    shutil.move(recording.report_path, self.report_path)
+
+                return (recording.exit_status, recording.rusage)
+            except subprocess.TimeoutExpired:
+                print(red_text(f"timeout after {timeout}s"))
+                return (-1, None)
+
+    def run_without_hase(self) -> Tuple[int, Any]:
+        command = self.command()
+        if self.stdin_file is None:
+            stdin = None
+        else:
+            stdin = open(self.substitute_vars(self.stdin_file), "rb")
+
+        working_directory = self.working_directory()
+        extra_env = self.extra_env()
+
+        with TemporaryDirectory() as tempdir:
+            timeout = 20
+            try:
+                process = subprocess.Popen(
+                    command,
+                    stdin=stdin,
+                    cwd=working_directory,
+                    env=extra_env,
+                )
+                _, exit_status, rusage = os.wait4(process.pid, 0)
+                print(red_text(f"{command[0]} exited with {exit_status}"))
+
+                return (exit_status, rusage)
+            except subprocess.TimeoutExpired:
+                print(red_text(f"timeout after {timeout}s"))
+                return (-1, None)
+
     def reproduce(self, build_only: bool = False) -> None:
         try:
             self.pre_hook()
@@ -163,6 +225,20 @@ class Bug:
                 self.directory.cleanup()
             except OSError as e:
                 print(f"error while removing {self.directory}: {e}")
+
+    def benchmark(self) -> Tuple[int, Any]:
+        try:
+            self.pre_hook()
+            data = self.measure()
+            self.post_hook()
+        finally:
+            try:
+                self.directory.cleanup()
+            except OSError as e:
+                print(f"error while removing {self.directory}: {e}")
+
+        return data
+
 
     def pre_hook(self) -> None:
         pass

@@ -1,7 +1,10 @@
 import argparse
 import os
 import sys
-from typing import List
+import json
+from typing import List, Dict, Any
+import logging
+from pathlib import Path
 
 import pry
 
@@ -47,7 +50,7 @@ def all_bugs() -> List[Bug]:
         + libjpeg_turbo_bugs(bug_ids["libjpeg-turbo"])
         + libtasn_bugs(bug_ids["libtasn"])
         # this is marked as "ongoing" in hemiptera
-        #+ libgd_bugs(bug_ids["libgd"])
+        # + libgd_bugs(bug_ids["libgd"])
     )
     return bugs
 
@@ -61,9 +64,27 @@ def parse_args(args: List[str]) -> argparse.Namespace:
     return parser.parse_args(args[1:])
 
 
+def parse_args_benchmark(args: List[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(prog=args[0])
+    parser.add_argument("--name", nargs='+')
+    parser.add_argument("--run", type=int, default=3, help="The number of runs")
+    parser.add_argument(
+        "--result", type=str, default="result", help="The name of the result file"
+    )
+    parser.add_argument(
+        "--record-path",
+        "-p",
+        type=str,
+        required=True,
+        help="The name of the record folder",
+    )
+    return parser.parse_args(args[1:])
+
+
 def main():
     args = parse_args(sys.argv)
     bugs = all_bugs()
+
     for bug in bugs:
         if args.name is None or bug.name in args.name:
             bug.simulate = args.simulate
@@ -71,6 +92,62 @@ def main():
 
             with pry:
                 bug.reproduce(build_only=args.build_only)
+
+
+def benchmark():
+    args = parse_args_benchmark(sys.argv)
+
+    logging.basicConfig(
+        format="%(asctime)s: %(levelname)s: %(message)s", level=logging.INFO
+    )
+    logger = logging.getLogger(__name__)
+
+    results: Dict[str, Any] = {}
+    result_file = Path(args.record_path).joinpath(args.result + ".json")
+    if result_file.exists():
+        with open(result_file, "r") as f:
+            results = json.load(f)
+
+    bugs = all_bugs()
+    for bug in bugs:
+        if args.name is None or bug.name in args.name:
+            with pry:
+                results[bug.name + str(bug.version)] = dict(original=[], hase=[])
+
+
+    for run in range(args.run):
+
+        for bug in bugs:
+            if args.name is None or bug.name in args.name:
+                with pry:
+                    result = results[bug.name + str(bug.version)]
+                    result["hase"].append(
+                        dict(run=run, result=[], exit_status=0, valid=True)
+                    )
+                    exit_status, rusage = bug.benchmark()
+                    result["hase"][run]["result"].append(list(rusage))
+                    result["hase"][run]["exit_status"] = exit_status
+                    result["hase"][run]["valid"] = exit_status
+                    results[bug.name + str(bug.version)] = result
+
+        bugs = all_bugs()
+        for bug in bugs:
+            if args.name is None or bug.name in args.name:
+                with pry:
+                    result = results[bug.name + str(bug.version)]
+                    result["original"].append(
+                        dict(run=run, result=[], exit_status=0, valid=True)
+                    )
+                    exit_status, rusage = bug.run_without_hase()
+                    result["original"][run]["result"].append(list(rusage))
+                    result["original"][run]["exit_status"] = exit_status
+                    result["original"][run]["valid"] = exit_status
+                    results[bug.name + str(bug.version)] = result
+
+        result_file.parent.mkdir(parents=True, exist_ok=True)
+        with open(result_file, "w") as file:
+            json.dump(results, file, sort_keys=True, indent=4, separators=(',', ': '))
+            file.write("\n")
 
 
 if __name__ == "__main__":
