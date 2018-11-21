@@ -77,7 +77,7 @@ def w3m_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
             f"w3m-11",
             bug_id=11,
             version=bug_ids[11],
-            #command=crash_command,
+            # command=crash_command,
             command=["w3m", "-dump", "-T", "text/plain", "crash.html"],
             notgc=True,
         )

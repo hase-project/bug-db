@@ -24,12 +24,12 @@ class Zlib(Build):
             ["sh", "./configure"],
             extra_env=extra_env,
             simulate=self.simulate,
-            dir=str(self.build_path)
+            dir=str(self.build_path),
         )
 
     # don't override LFLAGS/CFLAGS, those we pass in configure
     def make_flags(self) -> List[str]:
-        return ['AR=ar rcs']
+        return ["AR=ar rcs"]
 
 
 class ZlibBug(Bug):

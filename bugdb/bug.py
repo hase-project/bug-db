@@ -85,18 +85,18 @@ class Bug:
                 current_time = time.time()
                 simgr.run()
             except TimeoutError:
-                print(red_text(f'{self.name}: Angr simulation timeout'))
-                with open(REPORT_PATH.joinpath(f'{self.name}.txt'), 'w+') as f:
-                    f.write(f'time: >{timeout}s')
+                print(red_text(f"{self.name}: Angr simulation timeout"))
+                with open(REPORT_PATH.joinpath(f"{self.name}.txt"), "w+") as f:
+                    f.write(f"time: >{timeout}s")
             except Exception as e:
-                print(red_text(f'{self.name}: Angr simulation error {e}'))
-                with open(REPORT_PATH.joinpath(f'{self.name}.txt'), 'w+') as f:
-                    f.write(f'time: error {e}')
+                print(red_text(f"{self.name}: Angr simulation error {e}"))
+                with open(REPORT_PATH.joinpath(f"{self.name}.txt"), "w+") as f:
+                    f.write(f"time: error {e}")
             else:
                 time_diff = time.time() - current_time
-                print(green_text(f'{self.name}: Execution time {time_diff}s'))
-                with open(REPORT_PATH.joinpath(f'{self.name}.txt'), 'w+') as f:
-                    f.write(f'time: {time_diff}s')
+                print(green_text(f"{self.name}: Execution time {time_diff}s"))
+                with open(REPORT_PATH.joinpath(f"{self.name}.txt"), "w+") as f:
+                    f.write(f"time: {time_diff}s")
                 import pdb
 
                 pdb.set_trace()
@@ -202,10 +202,7 @@ class Bug:
             timeout = 20
             try:
                 process = subprocess.Popen(
-                    command,
-                    stdin=stdin,
-                    cwd=working_directory,
-                    env=extra_env,
+                    command, stdin=stdin, cwd=working_directory, env=extra_env
                 )
                 _, exit_status, rusage = os.wait4(process.pid, 0)
                 print(red_text(f"{command[0]} exited with {exit_status}"))
@@ -238,7 +235,6 @@ class Bug:
                 print(f"error while removing {self.directory}: {e}")
 
         return data
-
 
     def pre_hook(self) -> None:
         pass

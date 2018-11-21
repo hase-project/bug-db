@@ -14,7 +14,9 @@ class Libgd(Build):
     def __init__(self, version: str, simulate: bool = False) -> None:
         url = f"https://github.com/libgd/libgd/archive/{version}.tar.gz"
         self.version = version
-        super().__init__(url, LIBGD_PATH, simulate, enable_address_sanitizer=True, skip_cmake=True)
+        super().__init__(
+            url, LIBGD_PATH, simulate, enable_address_sanitizer=True, skip_cmake=True
+        )
 
     def pre_build(self):
         config = self.build_path.joinpath("config")
@@ -33,6 +35,7 @@ class Libgd(Build):
 
     def source_directory(self) -> Path:
         return Path("src")
+
 
 class LibgdBug(Bug):
     def __init__(self, *args, bug_id: int, **kwargs) -> None:
@@ -58,7 +61,15 @@ class LibgdBug(Bug):
         if not bug_exe.exists():
             sources = list(map(str, cwd.glob("*.c")))
             lib = str(self.libgd_path.joinpath("libgd.so"))
-            cflags = ["-g", "-I", str(include_path), "-o", str(bug_exe), lib, "-lm"] + sources
+            cflags = [
+                "-g",
+                "-I",
+                str(include_path),
+                "-o",
+                str(bug_exe),
+                lib,
+                "-lm",
+            ] + sources
             sh(["cc"] + cflags + libgd.cflags() + libgd.ldflags())
 
         return str(bug_exe)
@@ -68,7 +79,7 @@ def libgd_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     bugs: List[Bug] = []
     commands: Dict[int, List[str]] = {}
     # TODO compile the examples
-    #for bug_id in [1, 12, 13, 14, 25]:
+    # for bug_id in [1, 12, 13, 14, 25]:
     for bug_id in [1, 12, 13, 14]:
         bugs.append(
             LibgdBug(
@@ -168,5 +179,3 @@ def libgd_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
 ## 84
 
 ## 85
-
-

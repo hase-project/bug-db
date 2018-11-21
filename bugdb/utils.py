@@ -60,11 +60,13 @@ def sh(
     return None
 
 
-class Timeout():
+class Timeout:
     def __init__(self, seconds):
         self.seconds = seconds
+
         def signal_handler(signum, frame):
             raise TimeoutError()
+
         self.old_handler = signal.getsignal(signal.SIGALRM)
         self.signal_handler = signal_handler
 

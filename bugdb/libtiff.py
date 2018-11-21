@@ -13,15 +13,14 @@ LIBTIFF_PATH = ROOT.joinpath("libtiff")
 class Libtiff(Build):
     def __init__(self, version: str, simulate: bool = False) -> None:
         url = f"https://github.com/vadz/libtiff/archive/{version}.tar.gz"
-        super().__init__(
-            url,
-            LIBTIFF_PATH,
-            simulate,
-            enable_address_sanitizer=True,
-        )
+        super().__init__(url, LIBTIFF_PATH, simulate, enable_address_sanitizer=True)
 
     def pre_build(self):
-        sh(["sed", "-i", "-e", "s!ACLOCAL_AMFLAGS = -I ./m4!!", "Makefile.am"], self.simulate, dir=str(self.build_path))
+        sh(
+            ["sed", "-i", "-e", "s!ACLOCAL_AMFLAGS = -I ./m4!!", "Makefile.am"],
+            self.simulate,
+            dir=str(self.build_path),
+        )
 
 
 class LibtiffBug(Bug):
@@ -152,11 +151,7 @@ def libtiff_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
         "@tempdir@/out",
     ]
 
-    commands[303] = [
-        "tiffinfo",
-        "-Dijr",
-        "00056-libtiff-nullptr-TIFFReadRawData"
-    ]
+    commands[303] = ["tiffinfo", "-Dijr", "00056-libtiff-nullptr-TIFFReadRawData"]
 
     commands[305] = [
         "tiffcp",
@@ -191,7 +186,7 @@ def libtiff_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
         "@tempdir@/out",
     ]
 
-    #bug_ids[314] = "ad2fccb"
+    # bug_ids[314] = "ad2fccb"
 
     commands[314] = [
         "tiff2pdf",

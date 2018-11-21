@@ -14,7 +14,11 @@ class LibjpegTurbo(Build):
     def __init__(self, version: str, simulate: bool = False) -> None:
         url = f"https://github.com/libjpeg-turbo/libjpeg-turbo/archive/{version}.tar.gz"
         super().__init__(
-            url, LIBJPEG_TURBO_PATH, simulate, enable_address_sanitizer=True, skip_cmake=True
+            url,
+            LIBJPEG_TURBO_PATH,
+            simulate,
+            enable_address_sanitizer=True,
+            skip_cmake=True,
         )
 
 
@@ -50,29 +54,28 @@ def libjpeg_turbo_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
         )
     return bugs
 
+
 ## 5
 # $ ./installer/bin/djpeg '/media/sf_Bugs/libjpeg-turbo/ID-5/firefox-heap-buffer-overflow-4b0.jpeg'
-# 
+#
 
 ## 10
 
 ## 16
 
 ## 17
-# 
+#
 # $ ./installer/bin/cjpeg '/media/sf_Bugs/libjpeg-turbo/ID-17/crasherfile'
-# 
+#
 
 ## 20
 
 ## 23
-# 
+#
 # $ ./installer/bin/djpeg '/media/sf_Bugrbo/ID-23/turbo-dht.jpg'
-# 
+#
 
 ## 28
-# 
+#
 # $ ./installer/bin/cjpeg 'PATH_TO_REPOSITORY/ID-28/crash'
-# 
-
-
+#

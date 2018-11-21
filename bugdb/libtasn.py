@@ -25,7 +25,7 @@ class Libtasn(Build):
                 "s/SUBDIRS = gl lib src examples tests doc/SUBDIRS = gl lib src examples tests/",
                 "Makefile.am",
             ],
-            dir=(self.source_path())
+            dir=(self.source_path()),
         )
 
 
@@ -49,7 +49,7 @@ def libtasn_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     commands: Dict[int, List[str]] = {}
     # [14, 15]
     # does not crash for me.
-    #commands[14] = ["asn1Decoding", "./pkix.asn", "overflow.crt", "PKIX1Implicit88.asn1"]
+    # commands[14] = ["asn1Decoding", "./pkix.asn", "overflow.crt", "PKIX1Implicit88.asn1"]
     commands[15] = ["asn1Decoding", "./crash.asn", "x", "x"]
     for bug_id, command in commands.items():
         bugs.append(

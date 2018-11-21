@@ -59,14 +59,14 @@ def parse_args(args: List[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(prog=args[0])
     parser.add_argument("--simulate", action="store_true")
     parser.add_argument("--build-only", action="store_true")
-    parser.add_argument("--by_angr", action="store_true")
-    parser.add_argument("--name", nargs='+')
+    parser.add_argument("--by-angr", action="store_true")
+    parser.add_argument("--name", nargs="+")
     return parser.parse_args(args[1:])
 
 
 def parse_args_benchmark(args: List[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(prog=args[0])
-    parser.add_argument("--name", nargs='+')
+    parser.add_argument("--name", nargs="+")
     parser.add_argument("--run", type=int, default=3, help="The number of runs")
     parser.add_argument(
         "--result", type=str, default="result", help="The name of the result file"
@@ -114,7 +114,6 @@ def benchmark():
             with pry:
                 results[bug.name + str(bug.version)] = dict(original=[], hase=[])
 
-
     for run in range(args.run):
 
         for bug in bugs:
@@ -146,7 +145,7 @@ def benchmark():
 
         result_file.parent.mkdir(parents=True, exist_ok=True)
         with open(result_file, "w") as file:
-            json.dump(results, file, sort_keys=True, indent=4, separators=(',', ': '))
+            json.dump(results, file, sort_keys=True, indent=4, separators=(",", ": "))
             file.write("\n")
 
 

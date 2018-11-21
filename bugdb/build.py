@@ -138,7 +138,10 @@ class Build:
                 dir=self.source_path(),
             )
 
-        if not self.skip_cmake and self.source_path().joinpath("CMakeLists.txt").exists():
+        if (
+            not self.skip_cmake
+            and self.source_path().joinpath("CMakeLists.txt").exists()
+        ):
             sh(
                 ["cmake", "-DALLOW_IN_SOURCE_BUILD=1", "."] + self.cmake_flags(),
                 self.simulate,
