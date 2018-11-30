@@ -1,0 +1,140 @@
+#!/usr/bin/env python
+
+import csv
+import logging
+import os
+import signal
+import sys
+import time
+from enum import IntEnum
+from multiprocessing import Process
+from pathlib import Path
+from queue import Queue
+from random import shuffle
+from typing import Any, Callable, Optional, Set, Tuple
+
+import hase
+
+l = logging.getLogger(__name__)
+
+
+class Result:
+    def __init__(self, filename: str, result: str, error: Optional[str]) -> None:
+        self.filename = filename
+        self.result = result
+        self.error = error
+
+
+def log_result(result: Result) -> None:
+    with open("results.csv", "a", newline="") as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=["filename", "result", "error"])
+        writer.writerow(result.__dict__)
+
+
+def processed_traces() -> Set[str]:
+    with open("results.csv", "r", newline="") as csvfile:
+        reader = csv.DictReader(csvfile, fieldnames=["filename", "result", "error"])
+        done = set()
+        for r in reader:
+            done.add(r["filename"])
+    return done
+
+
+def process_trace(trace: str) -> Optional[Result]:
+    p = Path(trace)
+    if p.name in processed_traces():
+        return None
+
+    try:
+        hase.main(["hase", "replay", trace])
+        r = Result(p.name, "succeed", None)
+    except Exception as e:
+        r = Result(p.name, "failed", repr(e))
+        l.exception(f"hase replay {trace} failed")
+        if DEBUG:
+            raise
+    log_result(r)
+    return r
+
+
+class JobState(IntEnum):
+    FINISHED = 1
+    TIMEOUT = 2
+    PENDING = 3
+    FAILED = 4
+
+
+class Job:
+    def __init__(self, target: Callable, args: Tuple[Any]) -> None:
+        self.process = Process(target=target, args=args)
+        self.start_time = time.time()
+        self.process.start()
+        self.args = args
+
+    def join(self, timeout: int) -> JobState:
+        deadline = max(timeout - (self.start_time - time.time()), 0)
+        self.process.join(0)
+        if not self.process.is_alive():
+            if self.process.exitcode == 0:
+                return JobState.FAILED
+            else:
+                return JobState.FINISHED
+        elif deadline == 0:
+            self.process.terminate()
+            time.sleep(5)
+            if self.process.is_alive():
+                assert self.process.pid is not None
+                os.kill(self.process.pid, signal.SIGKILL)
+            return JobState.TIMEOUT
+        else:
+            return JobState.PENDING
+
+
+DEBUG = True
+
+
+def main() -> None:
+    handler = logging.FileHandler("replay-errors.log")
+    handler.setLevel(logging.ERROR)
+    l.addHandler(handler)
+
+    if not os.path.exists("results.csv"):
+        open("results.csv", "w+", newline="").close()
+
+    done = processed_traces()
+    todo = []
+    for arg in sys.argv[1:]:
+        path = Path(arg).name
+        if path not in done:
+            todo.append(arg)
+
+    shuffle(todo)
+    if DEBUG:
+        from ipdb import launch_ipdb_on_exception
+        for path in todo:
+            print(path)
+            with launch_ipdb_on_exception():
+                process_trace(path)
+    else:
+        jobs: Queue[Job] = Queue(maxsize=20)
+        for path in todo:
+            while jobs.full():
+                hour = 60 * 60
+                pending = []
+                while not jobs.empty():
+                    job = jobs.get()
+                    res = job.join(2 * hour)
+                    if res == JobState.PENDING:
+                        pending.append(job)
+                    elif res == JobState.TIMEOUT:
+                        log_result(Result(job.args[0], "timeout", None))
+                        l.exception(f"hase replay {job.args[0]} timeout")
+                for job in pending:
+                    jobs.put(job)
+                time.sleep(1)
+
+            jobs.put(Job(target=process_trace, args=(path,)))
+
+
+if __name__ == "__main__":
+    main()
