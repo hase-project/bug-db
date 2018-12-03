@@ -72,7 +72,7 @@ class Job:
         self.args = args
 
     def join(self, timeout: int) -> JobState:
-        deadline = max(timeout - (self.start_time - time.time()), 0)
+        deadline = max(timeout - (time.time() - self.start_time), 0)
         self.process.join(0)
         if not self.process.is_alive():
             if self.process.exitcode == 0:
@@ -90,7 +90,7 @@ class Job:
             return JobState.PENDING
 
 
-DEBUG = True
+DEBUG = False
 
 
 def main() -> None:
