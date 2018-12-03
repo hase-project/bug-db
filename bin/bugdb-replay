@@ -8,6 +8,7 @@ import sys
 import time
 from enum import IntEnum
 from multiprocessing import Process
+from threading import Thread
 from pathlib import Path
 from queue import Queue
 from random import shuffle
@@ -64,6 +65,15 @@ class JobState(IntEnum):
     FAILED = 4
 
 
+def kill_process(process: Process):
+    seconds = 120
+    while process.is_alive() and seconds > 0:
+        time.sleep(1)
+        seconds -= 1
+    assert process.pid is not None
+    os.kill(process.pid, signal.SIGKILL)
+
+
 class Job:
     def __init__(self, target: Callable, args: Tuple[Any]) -> None:
         self.process = Process(target=target, args=args)
@@ -72,7 +82,7 @@ class Job:
         self.args = args
 
     def join(self, timeout: int) -> JobState:
-        deadline = max(timeout - (self.start_time - time.time()), 0)
+        deadline = max(timeout - (time.time() - self.start_time), 0)
         self.process.join(0)
         if not self.process.is_alive():
             if self.process.exitcode == 0:
@@ -81,16 +91,13 @@ class Job:
                 return JobState.FINISHED
         elif deadline == 0:
             self.process.terminate()
-            time.sleep(5)
-            if self.process.is_alive():
-                assert self.process.pid is not None
-                os.kill(self.process.pid, signal.SIGKILL)
+            Thread(target=kill_process, args=(self.process,)).start()
             return JobState.TIMEOUT
         else:
             return JobState.PENDING
 
 
-DEBUG = True
+DEBUG = False
 
 
 def main() -> None:
@@ -111,6 +118,7 @@ def main() -> None:
     shuffle(todo)
     if DEBUG:
         from ipdb import launch_ipdb_on_exception
+
         for path in todo:
             print(path)
             with launch_ipdb_on_exception():
