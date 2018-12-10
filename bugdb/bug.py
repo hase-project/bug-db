@@ -131,10 +131,10 @@ class Bug:
                 timeout = 20
                 try:
                     recording = record(
-                        Path(tempdir),
-                        Path(str(ROOT.joinpath("logs"))),
+                        record_path=Path(tempdir),
+                        log_path=Path(str(ROOT.joinpath("logs"))),
                         limit=1,
-                        command=command,
+                        target=command,
                         timeout=timeout,
                         stdin=stdin,
                         working_directory=working_directory,
@@ -168,12 +168,11 @@ class Bug:
             timeout = 20
             try:
                 recording = record(
-                    Path(tempdir),
-                    Path(str(ROOT.joinpath("logs"))),
+                    record_path=Path(tempdir),
+                    log_path=Path(str(ROOT.joinpath("logs"))),
                     limit=1,
-                    command=command,
+                    target=command,
                     timeout=timeout,
-                    rusage=True,
                     stdin=stdin,
                     working_directory=working_directory,
                     extra_env=extra_env,
