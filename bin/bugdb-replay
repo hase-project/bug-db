@@ -8,15 +8,29 @@ import sys
 import time
 from enum import IntEnum
 from multiprocessing import Process
-from threading import Thread
 from pathlib import Path
 from queue import Queue
 from random import shuffle
+from threading import Thread
 from typing import Any, Callable, Optional, Set, Tuple
 
 import hase
+from hase.symbex import tracer
+from hase import progress_log 
 
 l = logging.getLogger(__name__)
+
+
+def configure_logging() -> None:
+    handler = logging.FileHandler("symbex-errors.log")
+    handler.setLevel(logging.ERROR)
+    tracer.l.addHandler(handler)
+    handler = logging.FileHandler("progress.log")
+    handler.setLevel(logging.INFO)
+    progress_log.l.addHandler(handler)
+    handler = logging.FileHandler("replay-errors.log")
+    handler.setLevel(logging.ERROR)
+    l.addHandler(handler)
 
 
 class Result:
@@ -101,9 +115,7 @@ DEBUG = False
 
 
 def main() -> None:
-    handler = logging.FileHandler("replay-errors.log")
-    handler.setLevel(logging.ERROR)
-    l.addHandler(handler)
+    configure_logging()
 
     if not os.path.exists("results.csv"):
         open("results.csv", "w+", newline="").close()
@@ -124,18 +136,18 @@ def main() -> None:
             with launch_ipdb_on_exception():
                 process_trace(path)
     else:
-        jobs: Queue[Job] = Queue(maxsize=20)
+        jobs: Queue[Job] = Queue(maxsize=10)
         for path in todo:
             while jobs.full():
                 hour = 60 * 60
                 pending = []
                 while not jobs.empty():
                     job = jobs.get()
-                    res = job.join(2 * hour)
+                    res = job.join(24 * hour)
                     if res == JobState.PENDING:
                         pending.append(job)
                     elif res == JobState.TIMEOUT:
-                        log_result(Result(job.args[0], "timeout", None))
+                        log_result(Result(Path(job.args[0]).name, "timeout", None))
                         l.exception(f"hase replay {job.args[0]} timeout")
                 for job in pending:
                     jobs.put(job)
