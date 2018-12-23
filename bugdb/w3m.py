@@ -45,7 +45,9 @@ class W3m(Build):
 
 
 class W3mBug(Bug):
-    def __init__(self, *args: Any, bug_id: int, notgc: bool = False, **kwargs: Any) -> None:
+    def __init__(
+        self, *args: Any, bug_id: int, notgc: bool = False, **kwargs: Any
+    ) -> None:
         super().__init__(*args, **kwargs)
         self.bug_id = bug_id
         self.notgc = notgc
@@ -119,7 +121,10 @@ def w3m_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     for bug_id, command in commands.items():
         bugs.append(
             W3mBug(
-                "w3m-{}".format(bug_id), bug_id=bug_id, version=bug_ids[bug_id], command=command
+                "w3m-{}".format(bug_id),
+                bug_id=bug_id,
+                version=bug_ids[bug_id],
+                command=command,
             )
         )
     notgc_ids = [

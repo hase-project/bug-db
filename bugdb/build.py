@@ -95,7 +95,7 @@ class Build:
         if not self.simulate and self.build_path.exists():
             return
 
-        tempdir = mkdtemp(prefix=str(ROOT)) # type: Optional[str]
+        tempdir = mkdtemp(prefix=str(ROOT))  # type: Optional[str]
         try:
             assert tempdir is not None
             cmd = [

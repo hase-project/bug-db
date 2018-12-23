@@ -95,7 +95,9 @@ def libtiff_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     class TiffsetBug(LibtiffBug):
         def pre_hook(self) -> None:
             tif = LIBTIFF_PATH.joinpath("ID-282", "19_tiffset.tiff")
-            shutil.copyfile(str(tif), str(Path(self.directory.name).joinpath("19_tiffset.tiff")))
+            shutil.copyfile(
+                str(tif), str(Path(self.directory.name).joinpath("19_tiffset.tiff"))
+            )
 
     bugs.append(
         TiffsetBug(

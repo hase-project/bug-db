@@ -149,7 +149,7 @@ def coreutils_bugs() -> List[Bug]:
             "date",
             version="8.27",
             commit_ids=["9287ef2b1707e2a222f8ae776ce3785abcb16fba"],
-            command=["date", "-d", "TZ=\"{}0\" 2017".format('a' * 2001)],
+            command=["date", "-d", 'TZ="{}0" 2017'.format("a" * 2001)],
         )
     )
 

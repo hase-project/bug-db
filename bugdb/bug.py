@@ -86,16 +86,22 @@ class Bug:
                 simgr.run()
             except TimeoutError:
                 print(red_text("{}: Angr simulation timeout".format(self.name)))
-                with open(str(REPORT_PATH.joinpath("{}.txt".format(self.name))), "w+") as f:
+                with open(
+                    str(REPORT_PATH.joinpath("{}.txt".format(self.name))), "w+"
+                ) as f:
                     f.write("time: >{}s".format(timeout))
             except Exception as e:
                 print(red_text("{}: Angr simulation error {}".format(self.name, e)))
-                with open(str(REPORT_PATH.joinpath("{}.txt".format(self.name))), "w+") as f:
+                with open(
+                    str(REPORT_PATH.joinpath("{}.txt".format(self.name))), "w+"
+                ) as f:
                     f.write("time: error {}".format(e))
             else:
                 time_diff = time.time() - current_time
                 print(green_text("{}: Execution time {}s".format(self.name, time_diff)))
-                with open(str(REPORT_PATH.joinpath("{}.txt".format(self.name))), "w+") as f:
+                with open(
+                    str(REPORT_PATH.joinpath("{}.txt".format(self.name))), "w+"
+                ) as f:
                     f.write("time: {}s".format(time_diff))
                 import pdb
 
@@ -120,8 +126,8 @@ class Bug:
             export = []  # type: List[str]
             for k, v in extra_env.items():
                 export += ["{}={}".format(k, shlex.quote(v))]
-            print(green_text("$ export {}".format(' '.join(export))))
-        print(green_text("$ {}".format(' '.join(command))))
+            print(green_text("$ export {}".format(" ".join(export))))
+        print(green_text("$ {}".format(" ".join(command))))
 
         if build_only:
             return
@@ -141,7 +147,13 @@ class Bug:
                         extra_env=extra_env,
                     )
                     assert recording is not None
-                    print(red_text("{} exited with {}".format(command[0], recording.exit_status)))
+                    print(
+                        red_text(
+                            "{} exited with {}".format(
+                                command[0], recording.exit_status
+                            )
+                        )
+                    )
                     if recording.report_path is not None:
                         shutil.move(recording.report_path, str(self.report_path))
                     else:
@@ -178,7 +190,11 @@ class Bug:
                     extra_env=extra_env,
                 )
                 assert recording is not None
-                print(red_text("{} exited with {}".format(command[0], recording.exit_status)))
+                print(
+                    red_text(
+                        "{} exited with {}".format(command[0], recording.exit_status)
+                    )
+                )
                 if recording.report_path is not None:
                     shutil.move(recording.report_path, str(self.report_path))
 
