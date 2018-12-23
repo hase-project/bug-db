@@ -1,7 +1,6 @@
-import os
 import shutil
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List
 
 from .bug import Bug
 from .build import Build
@@ -12,10 +11,10 @@ LIBTIFF_PATH = ROOT.joinpath("libtiff")
 
 class Libtiff(Build):
     def __init__(self, version: str, simulate: bool = False) -> None:
-        url = f"https://github.com/vadz/libtiff/archive/{version}.tar.gz"
+        url = "https://github.com/vadz/libtiff/archive/{}.tar.gz".format(version)
         super().__init__(url, LIBTIFF_PATH, simulate, enable_address_sanitizer=True)
 
-    def pre_build(self):
+    def pre_build(self) -> None:
         sh(
             ["sed", "-i", "-e", "s!ACLOCAL_AMFLAGS = -I ./m4!!", "Makefile.am"],
             self.simulate,
@@ -24,12 +23,12 @@ class Libtiff(Build):
 
 
 class LibtiffBug(Bug):
-    def __init__(self, *args, bug_id: int, **kwargs) -> None:
+    def __init__(self, *args: Any, bug_id: int, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self.bug_id = bug_id
 
     def working_directory(self) -> Path:
-        return LIBTIFF_PATH.joinpath(f"ID-{self.bug_id}")
+        return LIBTIFF_PATH.joinpath("ID-{}".format(self.bug_id))
 
     def extra_env(self) -> Dict[str, str]:
         env = super().extra_env()
@@ -45,8 +44,8 @@ class LibtiffBug(Bug):
 
 
 def libtiff_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
-    bugs: List[Bug] = []
-    commands: Dict[int, List[str]] = {}
+    bugs = []  # type: List[Bug]
+    commands = {}  # type: Dict[int, List[str]]
 
     commands[111] = ["tiff2pdf", "testcase.tif", "-o", "@tempdir@/test.pdf"]
     commands[139] = [
@@ -94,13 +93,13 @@ def libtiff_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     commands[281] = ["tiffinfo", "-d", "ShowTile_heap-oob.tif"]
 
     class TiffsetBug(LibtiffBug):
-        def pre_hook(self):
-            tif = LIBTIFF_PATH.joinpath(f"ID-282", "19_tiffset.tiff")
-            shutil.copyfile(tif, Path(self.directory.name).joinpath("19_tiffset.tiff"))
+        def pre_hook(self) -> None:
+            tif = LIBTIFF_PATH.joinpath("ID-282", "19_tiffset.tiff")
+            shutil.copyfile(str(tif), str(Path(self.directory.name).joinpath("19_tiffset.tiff")))
 
     bugs.append(
         TiffsetBug(
-            f"libtiff-282",
+            "libtiff-282",
             bug_id=282,
             version=bug_ids[282],
             command=["tiffset", "@tempdir@/19_tiffset.tiff"],
@@ -205,7 +204,7 @@ def libtiff_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     for bug_id, command in commands.items():
         bugs.append(
             LibtiffBug(
-                f"libtiff-{bug_id}",
+                "libtiff-{}".format(bug_id),
                 bug_id=bug_id,
                 version=bug_ids[bug_id],
                 command=command,

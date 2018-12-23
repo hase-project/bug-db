@@ -1,7 +1,6 @@
-import os
 import shutil
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 from .bug import Bug
 from .build import Build
@@ -13,7 +12,7 @@ NOTGC_PATH = W3M_PATH.joinpath("notgc")
 
 class W3m(Build):
     def __init__(self, version: str, simulate: bool = False) -> None:
-        url = f"https://github.com/tats/w3m/archive/{version}.tar.gz"
+        url = "https://github.com/tats/w3m/archive/{}.tar.gz".format(version)
         super().__init__(
             url,
             W3M_PATH,
@@ -22,11 +21,12 @@ class W3m(Build):
             skip_auto_reconf=True,
         )
 
-    def pre_build(self):
+    def pre_build(self) -> None:
         sh(["aclocal", "--force"], simulate=self.simulate, dir=str(self.build_path))
         sh(["autoconf", "--force"], simulate=self.simulate, dir=str(self.build_path))
 
         path = shutil.which("gettext")
+        assert path is not None
         # currently requires on my system to symlink an updated version of po/Makefile.in.in from gettext
         makefile_path = Path(path).parent.parent.joinpath(
             "share/gettext/po/Makefile.in.in"
@@ -35,23 +35,23 @@ class W3m(Build):
         if makefile_path.exists():
             old_makefile = self.build_path.joinpath("po/Makefile.in.in")
             if old_makefile.exists():
-                os.unlink(old_makefile)
+                old_makefile.unlink()
             old_makefile.symlink_to(makefile_path)
 
     def make_flags(self) -> List[str]:
         cflags = " ".join(super().cflags())
         ldflags = " ".join(super().ldflags())
-        return [f"CC=gcc -lncurses {cflags}", f"LDFLAGS={ldflags}"]
+        return ["CC=gcc -lncurses {}".format(cflags), "LDFLAGS={}".format(ldflags)]
 
 
 class W3mBug(Bug):
-    def __init__(self, *args, bug_id: int, notgc: bool = False, **kwargs) -> None:
+    def __init__(self, *args: Any, bug_id: int, notgc: bool = False, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self.bug_id = bug_id
         self.notgc = notgc
 
     def working_directory(self) -> Path:
-        return W3M_PATH.joinpath(f"ID-{self.bug_id}")
+        return W3M_PATH.joinpath("ID-{}".format(self.bug_id))
 
     def extra_env(self) -> Dict[str, str]:
         env = super().extra_env()
@@ -65,16 +65,16 @@ class W3mBug(Bug):
         w3m.build()
         if self.notgc and not NOTGC_PATH.joinpath("libgc.so").exists():
             sh(["make"], dir=w3m.build_path)
-        return f"{w3m.build_path}/{exe}"
+        return "{}/{}".format(w3m.build_path, exe)
 
 
 def w3m_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
-    bugs: List[Bug] = []
-    commands: Dict[int, List[str]] = {}
+    bugs = []  # type: List[Bug]
+    commands = {}  # type: Dict[int, List[str]]
 
     bugs.append(
         W3mBug(
-            f"w3m-11",
+            "w3m-11",
             bug_id=11,
             version=bug_ids[11],
             # command=crash_command,
@@ -119,7 +119,7 @@ def w3m_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     for bug_id, command in commands.items():
         bugs.append(
             W3mBug(
-                f"w3m-{bug_id}", bug_id=bug_id, version=bug_ids[bug_id], command=command
+                "w3m-{}".format(bug_id), bug_id=bug_id, version=bug_ids[bug_id], command=command
             )
         )
     notgc_ids = [
@@ -152,7 +152,7 @@ def w3m_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     for bug_id in notgc_ids:
         bugs.append(
             W3mBug(
-                f"w3m-{bug_id}",
+                "w3m-{}".format(bug_id),
                 bug_id=bug_id,
                 version=bug_ids[bug_id],
                 command=crash_command,

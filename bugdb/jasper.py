@@ -1,37 +1,37 @@
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 from .bug import Bug
-from .utils import ROOT
 from .build import Build
+from .utils import ROOT
 
 JASPER_PATH = ROOT.joinpath("jasper")
 
 
 class Jasper(Build):
     def __init__(self, version: str, simulate: bool = False) -> None:
-        url = f"https://github.com/mdadams/jasper/archive/{version}.tar.gz"
+        url = "https://github.com/mdadams/jasper/archive/{}.tar.gz".format(version)
         super().__init__(url, JASPER_PATH, simulate, enable_address_sanitizer=True)
 
 
 class JasperBug(Bug):
-    def __init__(self, *args, bug_id: int, **kwargs) -> None:
+    def __init__(self, *args: Any, bug_id: int, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self.bug_id = bug_id
 
     def working_directory(self) -> Path:
-        return JASPER_PATH.joinpath(f"ID-{self.bug_id}")
+        return JASPER_PATH.joinpath("ID-{}".format(self.bug_id))
 
     def executable(self) -> str:
         exe = self._command[0]
-        file = Jasper(self.version, simulate=self.simulate)
-        file.build()
-        return f"{file.build_path}/src/appl/{exe}"
+        jasper = Jasper(self.version, simulate=self.simulate)
+        jasper.build()
+        return "{}/src/appl/{}".format(jasper.build_path, exe)
 
 
 def jasper_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
-    bugs: List[Bug] = []
-    commands: Dict[int, List[str]] = {}
+    bugs = []  # type: List[Bug]
+    commands = {}  # type: Dict[int, List[str]]
     commands[2] = ["imginfo", "-f", "bad.jp2"]
     commands[9] = ["imginfo", "-f", "poc.jp2"]
     commands[13] = [
@@ -64,7 +64,7 @@ def jasper_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     for bug_id, command in commands.items():
         bugs.append(
             JasperBug(
-                f"jasper-{bug_id}",
+                "jasper-{}".format(bug_id),
                 bug_id=bug_id,
                 version=bug_ids[bug_id],
                 command=command,

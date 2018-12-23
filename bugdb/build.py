@@ -52,14 +52,14 @@ class Build:
         return self.build_path.joinpath(self.source_directory())
 
     def download(self) -> None:
-        if not self.simulate and os.path.exists(self.archive_path):
+        if not self.simulate and self.archive_path.exists():
             return
-        os.makedirs(os.path.dirname(self.archive_path), exist_ok=True)
+        self.archive_path.parent.mkdir(exist_ok=True)
         tempfile = NamedTemporaryFile(dir=str(ROOT), delete=False)
         try:
             sh(["wget", self.url, "-O", tempfile.name], self.simulate)
             if not self.simulate:
-                shutil.move(tempfile.name, self.archive_path)
+                shutil.move(tempfile.name, str(self.archive_path))
         except Exception as e:
             os.unlink(tempfile.name)
             raise e
@@ -92,24 +92,24 @@ class Build:
     def unpack(self) -> None:
         self.download()
 
-        if not self.simulate and os.path.exists(self.build_path):
+        if not self.simulate and self.build_path.exists():
             return
 
-        tempdir: Optional[str] = mkdtemp(prefix=str(ROOT))
+        tempdir = mkdtemp(prefix=str(ROOT)) # type: Optional[str]
         try:
             assert tempdir is not None
             cmd = [
                 "tar",
-                f"--strip-components={self.strip_components()}",
+                "--strip-components={}".format(self.strip_components()),
                 "-xf",
                 str(self.archive_path),
                 "-C",
                 str(tempdir),
             ]
             sh(cmd, self.simulate)
-            print(blue_text(f"$ mv '{tempdir}' '{self.build_path}'"))
+            print(blue_text("$ mv '{}' '{}'".format(tempdir, self.build_path)))
             if not self.simulate:
-                shutil.move(tempdir, self.build_path)
+                shutil.move(tempdir, str(self.build_path))
                 tempdir = None
         finally:
             if tempdir is not None:
@@ -117,8 +117,8 @@ class Build:
 
     def make_flags(self) -> List[str]:
         return [
-            f"CFLAGS={' '.join(self.cflags())}",
-            f"LDFLAGS={' '.join(self.ldflags())}",
+            "CFLAGS={}".format(" ".join(self.cflags())),
+            "LDFLAGS={}".format(" ".join(self.ldflags())),
         ]
 
     def pre_build(self) -> None:
@@ -158,11 +158,10 @@ class Build:
     def build(self) -> None:
         self.unpack()
 
-        if not self.simulate and os.path.exists(self.build_finished_file):
+        if not self.simulate and self.build_finished_file.exists():
             return
 
         with self.build_path:
-            build = str(self.build_path)
             self.pre_build()
 
             self.configure()
@@ -173,7 +172,7 @@ class Build:
                 dir=self.source_path(),
             )
             if not self.simulate:
-                with open(self.build_finished_file, "w+"):
+                with open(str(self.build_finished_file), "w+"):
                     pass
 
             self.post_build()

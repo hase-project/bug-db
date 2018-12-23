@@ -10,7 +10,7 @@ from typing import Dict, Iterator, Tuple
 import pandas as pd
 
 
-def normalize_string(s):
+def normalize_string(s: str) -> str:
     if isinstance(s, str):
         return s.strip()
     return s
@@ -19,9 +19,9 @@ def normalize_string(s):
 INTERNAL_ID = re.compile(".*internal\s+id.*", re.IGNORECASE)
 
 
-def scrape_ids(df) -> Dict[int, int]:
+def scrape_ids(df: pd.DataFrame) -> Dict[int, int]:
     found_internal_ids = False
-    row_to_id: Dict[int, int] = {}
+    row_to_id = {}  # type: Dict[int, int]
     for (row, value) in enumerate(df[df.columns[0]].values):
         value = normalize_string(value)
         if isinstance(value, str) and INTERNAL_ID.match(value):
@@ -37,9 +37,9 @@ def scrape_ids(df) -> Dict[int, int]:
 UNFIXED_COMMIT = re.compile(".*unfixed\s+commit.*", re.IGNORECASE)
 
 
-def scrape_commits(df) -> Dict[int, str]:
+def scrape_commits(df: pd.DataFrame) -> Dict[int, str]:
     found_commits = False
-    row_to_commits: Dict[int, str] = {}
+    row_to_commits = {}  # type: Dict[int, str]
     for (row, value) in enumerate(df[df.columns[4]].values):
         value = normalize_string(value)
         if isinstance(value, str) and UNFIXED_COMMIT.match(value):
@@ -56,9 +56,9 @@ def scrape_commits(df) -> Dict[int, str]:
 BUG_TYPE = re.compile(".*bug\s+(type|details).*", re.IGNORECASE)
 
 
-def scrape_bug_type(df, col) -> Dict[int, str]:
+def scrape_bug_type(df: pd.DataFrame, col: int) -> Dict[int, str]:
     found_bug_type = False
-    row_to_commits: Dict[int, str] = {}
+    row_to_commits = {}  # type: Dict[int, str]
     for (row, value) in enumerate(df[df.columns[col]].values):
         value = normalize_string(value)
         if isinstance(value, str) and BUG_TYPE.match(value):
@@ -68,7 +68,7 @@ def scrape_bug_type(df, col) -> Dict[int, str]:
     return row_to_commits
 
 
-def scrape_bugs(df, bug_col: int = 9) -> Iterator[Tuple[int, str, str]]:
+def scrape_bugs(df: pd.DataFrame, bug_col: int = 9) -> Iterator[Tuple[int, str, str]]:
     row_to_id = scrape_ids(df)
     row_to_commits = scrape_commits(df)
     row_to_bug_type = scrape_bug_type(df, bug_col)
@@ -79,13 +79,13 @@ def scrape_bugs(df, bug_col: int = 9) -> Iterator[Tuple[int, str, str]]:
         yield (row_to_id[id], row_to_commits[id], row_to_bug_type[id])
 
 
-def main():
+def main() -> None:
     if len(sys.argv) < 2:
-        print(f"USAGE: {sys.argv[0]} sheet_directory", file=sys.stderr)
+        print("USAGE: {} sheet_directory".format(sys.argv[0]), file=sys.stderr)
         sys.exit(1)
     sheet_path = Path(sys.argv[1])
     sheets = glob.glob(str(sheet_path.joinpath("*.csv")))
-    reproducible_bugs = defaultdict(list)
+    reproducible_bugs = defaultdict(list)  # type: defaultdict
     for sheet in sheets:
         with open(sheet) as f:
             df = pd.read_csv(f)

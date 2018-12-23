@@ -1,12 +1,12 @@
 import argparse
+import json
+import logging
 import os
 import sys
-import json
-from typing import List, Dict, Any
-import logging
 from pathlib import Path
+from typing import Any, Dict, List
 
-import pry
+from ipdb import launch_ipdb_on_exception
 
 from .audiofile import audiofile_bugs
 from .bug import Bug
@@ -17,16 +17,16 @@ from .hemiptera import read_bug_ids_per_project
 from .jasper import jasper_bugs
 from .libgd import libgd_bugs
 from .libjpeg_turbo import libjpeg_turbo_bugs
+from .libtasn import libtasn_bugs
 from .libtiff import libtiff_bugs
 from .tcpdump import tcpdump_bugs
 from .utils import REPORT_PATH
 from .w3m import w3m_bugs
 from .zlib import zlib_bugs
-from .libtasn import libtasn_bugs
 
 
 def all_bugs() -> List[Bug]:
-    os.makedirs(REPORT_PATH, exist_ok=True)
+    REPORT_PATH.mkdir(parents=True, exist_ok=True)
 
     bug_ids = read_bug_ids_per_project()
 
@@ -81,7 +81,7 @@ def parse_args_benchmark(args: List[str]) -> argparse.Namespace:
     return parser.parse_args(args[1:])
 
 
-def main():
+def main() -> None:
     args = parse_args(sys.argv)
     bugs = all_bugs()
 
@@ -90,35 +90,34 @@ def main():
             bug.simulate = args.simulate
             bug.by_angr = args.by_angr
 
-            with pry:
+            with launch_ipdb_on_exception():
                 bug.reproduce(build_only=args.build_only)
 
 
-def benchmark():
+def benchmark() -> None:
     args = parse_args_benchmark(sys.argv)
 
     logging.basicConfig(
         format="%(asctime)s: %(levelname)s: %(message)s", level=logging.INFO
     )
-    logger = logging.getLogger(__name__)
 
-    results: Dict[str, Any] = {}
+    results = {}  # type: Dict[str, Any]
     result_file = Path(args.record_path).joinpath(args.result + ".json")
     if result_file.exists():
-        with open(result_file, "r") as f:
+        with open(str(result_file), "r") as f:
             results = json.load(f)
 
     bugs = all_bugs()
     for bug in bugs:
         if args.name is None or bug.name in args.name:
-            with pry:
+            with launch_ipdb_on_exception():
                 results[bug.name + str(bug.version)] = dict(original=[], hase=[])
 
     for run in range(args.run):
 
         for bug in bugs:
             if args.name is None or bug.name in args.name:
-                with pry:
+                with launch_ipdb_on_exception():
                     result = results[bug.name + str(bug.version)]
                     result["hase"].append(
                         dict(run=run, result=[], exit_status=0, valid=True)
@@ -132,7 +131,7 @@ def benchmark():
         bugs = all_bugs()
         for bug in bugs:
             if args.name is None or bug.name in args.name:
-                with pry:
+                with launch_ipdb_on_exception():
                     result = results[bug.name + str(bug.version)]
                     result["original"].append(
                         dict(run=run, result=[], exit_status=0, valid=True)
@@ -144,7 +143,7 @@ def benchmark():
                     results[bug.name + str(bug.version)] = result
 
         result_file.parent.mkdir(parents=True, exist_ok=True)
-        with open(result_file, "w") as file:
+        with open(str(result_file), "w") as file:
             json.dump(results, file, sort_keys=True, indent=4, separators=(",", ": "))
             file.write("\n")
 
