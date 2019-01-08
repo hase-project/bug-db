@@ -16,7 +16,7 @@ from typing import Any, Callable, Optional, Set, Tuple
 
 import hase
 from hase.symbex import tracer
-from hase import progress_log 
+from hase import progress_log
 
 l = logging.getLogger(__name__)
 
@@ -65,7 +65,7 @@ def process_trace(trace: str) -> Optional[Result]:
         r = Result(p.name, "succeed", None)
     except Exception as e:
         r = Result(p.name, "failed", repr(e))
-        l.exception(f"hase replay {trace} failed")
+        l.exception("hase replay {} failed".format(trace))
         if DEBUG:
             raise
     log_result(r)
@@ -79,7 +79,7 @@ class JobState(IntEnum):
     FAILED = 4
 
 
-def kill_process(process: Process):
+def kill_process(process: Process) -> None:
     seconds = 120
     while process.is_alive() and seconds > 0:
         time.sleep(1)
@@ -136,7 +136,7 @@ def main() -> None:
             with launch_ipdb_on_exception():
                 process_trace(path)
     else:
-        jobs: Queue[Job] = Queue(maxsize=10)
+        jobs = Queue(maxsize=10) # type: Queue[Job]
         for path in todo:
             while jobs.full():
                 hour = 60 * 60
@@ -148,7 +148,7 @@ def main() -> None:
                         pending.append(job)
                     elif res == JobState.TIMEOUT:
                         log_result(Result(Path(job.args[0]).name, "timeout", None))
-                        l.exception(f"hase replay {job.args[0]} timeout")
+                        l.exception("hase replay {} timeout".format(job.args[0]))
                 for job in pending:
                     jobs.put(job)
                 time.sleep(1)
