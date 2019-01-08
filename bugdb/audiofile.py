@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List
 
 from .bug import Bug
 from .build import Build
@@ -10,7 +10,7 @@ AUDIOFILE_PATH = ROOT.joinpath("audiofile")
 
 class Audiofile(Build):
     def __init__(self, version: str, simulate: bool = False) -> None:
-        url = f"https://github.com/mpruett/audiofile/archive/{version}.tar.gz"
+        url = "https://github.com/mpruett/audiofile/archive/{}.tar.gz".format(version)
         super().__init__(url, AUDIOFILE_PATH, simulate)
 
     def configure_flags(self) -> List[str]:
@@ -18,12 +18,12 @@ class Audiofile(Build):
 
 
 class AudiofileBug(Bug):
-    def __init__(self, *args, bug_id: int, **kwargs) -> None:
+    def __init__(self, *args: Any, bug_id: int, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self.bug_id = bug_id
 
     def working_directory(self) -> Path:
-        return AUDIOFILE_PATH.joinpath(f"ID-{self.bug_id}")
+        return AUDIOFILE_PATH.joinpath("ID-{}".format(self.bug_id))
 
     def extra_env(self) -> Dict[str, str]:
         env = super().extra_env()
@@ -39,11 +39,11 @@ class AudiofileBug(Bug):
 
 
 def audiofile_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
-    bugs: List[Bug] = []
+    bugs = []  # type: List[Bug]
     for id in [4, 13, 14]:
         bugs.append(
             AudiofileBug(
-                f"audiofile-{id}",
+                "audiofile-{}".format(id),
                 bug_id=id,
                 version=bug_ids[id],
                 command=["sfconvert", "crash", "@tempdir@/out"],
@@ -52,7 +52,7 @@ def audiofile_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     for id in [16, 19, 20, 21, 22]:
         bugs.append(
             AudiofileBug(
-                f"audiofile-{id}",
+                "audiofile-{}".format(id),
                 bug_id=id,
                 version=bug_ids[id],
                 command=["sfconvert", "crash", "out.mp3", "format", "aiff"],

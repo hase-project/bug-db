@@ -9,7 +9,7 @@ from .build import Build
 from .utils import REPORT_PATH, ROOT, blue_text, cd, green_text, red_text, sh
 
 COREUTILS_PATH = ROOT.joinpath("coreutils")
-os.makedirs(COREUTILS_PATH, exist_ok=True)
+COREUTILS_PATH.mkdir(exist_ok=True)
 
 
 class Coreutils(Build):
@@ -21,25 +21,25 @@ class Coreutils(Build):
         else:
             ext = "tar.gz"
 
-        archive_name = f"coreutils-{version}.{ext}"
+        archive_name = "coreutils-{}.{}".format(version, ext)
 
-        url = f"http://ftp.gnu.org/gnu/coreutils/{archive_name}"
+        url = "http://ftp.gnu.org/gnu/coreutils/{}".format(archive_name)
         super().__init__(url, COREUTILS_PATH, simulate, skip_auto_reconf=True)
 
 
 class CoreutilsBug(Bug):
     def id(self) -> str:
-        return f"coreutils-{self.version}-{self.name}"
+        return "coreutils-{}-{}".format(self.version, self.name)
 
     def executable(self) -> str:
         exe = self._command[0]
         coreutils = Coreutils(self.version, simulate=self.simulate)
         coreutils.build()
-        return f"{coreutils.build_path}/src/{exe}"
+        return "{}/src/{}".format(coreutils.build_path, exe)
 
 
 def coreutils_bugs() -> List[Bug]:
-    bugs: List[Bug] = []
+    bugs = []  # type: List[Bug]
 
     bugs.append(
         CoreutilsBug(
@@ -149,7 +149,7 @@ def coreutils_bugs() -> List[Bug]:
             "date",
             version="8.27",
             commit_ids=["9287ef2b1707e2a222f8ae776ce3785abcb16fba"],
-            command=["date", "-d", f"TZ=\"{'a' * 2001}0\" 2017"],
+            command=["date", "-d", 'TZ="{}0" 2017'.format("a" * 2001)],
         )
     )
 

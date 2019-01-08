@@ -1,7 +1,5 @@
-import os
-import shutil
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List
 
 from .bug import Bug
 from .build import Build
@@ -12,13 +10,13 @@ LIBGD_PATH = ROOT.joinpath("libgd")
 
 class Libgd(Build):
     def __init__(self, version: str, simulate: bool = False) -> None:
-        url = f"https://github.com/libgd/libgd/archive/{version}.tar.gz"
+        url = "https://github.com/libgd/libgd/archive/{}.tar.gz".format(version)
         self.version = version
         super().__init__(
             url, LIBGD_PATH, simulate, enable_address_sanitizer=True, skip_cmake=True
         )
 
-    def pre_build(self):
+    def pre_build(self) -> None:
         config = self.build_path.joinpath("config")
         config_symlink = self.source_path().joinpath("config")
         if not config_symlink.exists() and config.exists():
@@ -38,12 +36,12 @@ class Libgd(Build):
 
 
 class LibgdBug(Bug):
-    def __init__(self, *args, bug_id: int, **kwargs) -> None:
+    def __init__(self, *args: Any, bug_id: int, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self.bug_id = bug_id
 
     def working_directory(self) -> Path:
-        return LIBGD_PATH.joinpath(f"ID-{self.bug_id}")
+        return LIBGD_PATH.joinpath("ID-{}".format(self.bug_id))
 
     def extra_env(self) -> Dict[str, str]:
         env = super().extra_env()
@@ -76,14 +74,14 @@ class LibgdBug(Bug):
 
 
 def libgd_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
-    bugs: List[Bug] = []
-    commands: Dict[int, List[str]] = {}
+    bugs = []  # type: List[Bug]
+    commands = {}  # type: Dict[int, List[str]]
     # TODO compile the examples
     # for bug_id in [1, 12, 13, 14, 25]:
     for bug_id in [1, 12, 13, 14]:
         bugs.append(
             LibgdBug(
-                f"libgd-{bug_id}",
+                "libgd-{}".format(bug_id),
                 bug_id=bug_id,
                 version=bug_ids[bug_id],
                 command=["./bug"],

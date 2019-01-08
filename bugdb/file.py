@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List
 
 from .bug import Bug
 from .build import Build
@@ -10,7 +10,7 @@ FILE_PATH = ROOT.joinpath("file")
 
 class File(Build):
     def __init__(self, version: str, simulate: bool = False) -> None:
-        url = f"https://github.com/file/file/archive/{version}.tar.gz"
+        url = "https://github.com/file/file/archive/{}.tar.gz".format(version)
         super().__init__(url, FILE_PATH, simulate, enable_address_sanitizer=True)
 
     def post_build(self) -> None:
@@ -22,12 +22,12 @@ class File(Build):
 
 
 class FileBug(Bug):
-    def __init__(self, *args, bug_id: int, **kwargs) -> None:
+    def __init__(self, *args: Any, bug_id: int, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self.bug_id = bug_id
 
     def working_directory(self) -> Path:
-        return FILE_PATH.joinpath(f"ID-{self.bug_id}")
+        return FILE_PATH.joinpath("ID-{}".format(self.bug_id))
 
     def extra_env(self) -> Dict[str, str]:
         env = super().extra_env()
@@ -45,13 +45,13 @@ class FileBug(Bug):
 
 
 def file_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
-    bugs: List[Bug] = []
+    bugs = []  # type: List[Bug]
     bugs.append(
         FileBug(
-            f"file-1", bug_id=1, version=bug_ids[1], command=["file", "file_error.xls"]
+            "file-1", bug_id=1, version=bug_ids[1], command=["file", "file_error.xls"]
         )
     )
-    commands: Dict[int, List[str]] = {}
+    commands = {}  # type: Dict[int, List[str]]
     for id in [2, 3, 4]:
         commands[id] = ["file", "crash"]
 
@@ -67,7 +67,7 @@ def file_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     for (id, command) in commands.items():
         bugs.append(
             FileBug(
-                f"file-{id}",
+                "file-{}".format(id),
                 bug_id=id,
                 version=bug_ids[id],
                 command=command,

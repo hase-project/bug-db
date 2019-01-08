@@ -5,7 +5,7 @@ import sys
 import signal
 from contextlib import contextmanager
 from pathlib import Path
-from typing import Dict, List, Optional, Union, Any, IO
+from typing import Dict, List, Optional, Union, Any, IO, Generator
 
 ROOT = Path(__file__).resolve().parent.parent
 REPORT_PATH = ROOT.joinpath("reports")
@@ -24,7 +24,7 @@ def green_text(s: str) -> str:
 
 
 @contextmanager
-def cd(newdir):
+def cd(newdir: str) -> Generator[None, None, None]:
     prevdir = os.getcwd()
     os.chdir(os.path.expanduser(newdir))
     try:
@@ -61,19 +61,19 @@ def sh(
 
 
 class Timeout:
-    def __init__(self, seconds):
+    def __init__(self, seconds: int) -> None:
         self.seconds = seconds
 
-        def signal_handler(signum, frame):
+        def signal_handler(signum: int, frame: Any) -> None:
             raise TimeoutError()
 
         self.old_handler = signal.getsignal(signal.SIGALRM)
         self.signal_handler = signal_handler
 
-    def __enter__(self):
+    def __enter__(self) -> None:
         signal.signal(signal.SIGALRM, self.signal_handler)
         signal.alarm(self.seconds)
 
-    def __exit__(self, type, value, traceback):
+    def __exit__(self, type: Any, value: Any, traceback: Any) -> None:
         signal.alarm(0)
         signal.signal(signal.SIGALRM, self.old_handler)

@@ -1,7 +1,5 @@
-import os
-import shutil
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List
 
 from .bug import Bug
 from .build import Build
@@ -12,11 +10,13 @@ LIBTASN_PATH = ROOT.joinpath("libtasn")
 
 class Libtasn(Build):
     def __init__(self, version: str, simulate: bool = False) -> None:
-        url = f"https://gitlab.com/gnutls/libtasn1/-/archive/{version}/libtasn1-{version}.tar.gz"
+        url = "https://gitlab.com/gnutls/libtasn1/-/archive/{}/libtasn1-{}.tar.gz".format(
+            version, version
+        )
         self.version = version
         super().__init__(url, LIBTASN_PATH, simulate, enable_address_sanitizer=True)
 
-    def pre_build(self):
+    def pre_build(self) -> None:
         self.source_path().joinpath("ChangeLog").touch()
         sh(
             [
@@ -30,12 +30,12 @@ class Libtasn(Build):
 
 
 class LibtasnBug(Bug):
-    def __init__(self, *args, bug_id: int, **kwargs) -> None:
+    def __init__(self, *args: Any, bug_id: int, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self.bug_id = bug_id
 
     def working_directory(self) -> Path:
-        return LIBTASN_PATH.joinpath(f"ID-{self.bug_id}")
+        return LIBTASN_PATH.joinpath("ID-{}".format(self.bug_id))
 
     def executable(self) -> str:
         exe = self._command[0]
@@ -45,8 +45,8 @@ class LibtasnBug(Bug):
 
 
 def libtasn_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
-    bugs: List[Bug] = []
-    commands: Dict[int, List[str]] = {}
+    bugs = []  # type: List[Bug]
+    commands = {}  # type: Dict[int, List[str]]
     # [14, 15]
     # does not crash for me.
     # commands[14] = ["asn1Decoding", "./pkix.asn", "overflow.crt", "PKIX1Implicit88.asn1"]
@@ -54,7 +54,7 @@ def libtasn_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
     for bug_id, command in commands.items():
         bugs.append(
             LibtasnBug(
-                f"libtasn-{bug_id}",
+                "libtasn-{}".format(bug_id),
                 bug_id=bug_id,
                 version=bug_ids[bug_id],
                 command=command,

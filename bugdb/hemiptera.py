@@ -8,8 +8,8 @@ HEMIPTERA_COMMITS_PATH = ROOT.joinpath("hemiptera_commits.tsv")
 
 
 def read_bug_ids_per_project() -> Dict[str, Dict[int, str]]:
-    bug_ids: Dict[str, Dict[int, str]] = defaultdict(dict)
-    with open(HEMIPTERA_COMMITS_PATH) as tsvfile:
+    bug_ids = defaultdict(dict)  # type: Dict[str, Dict[int, str]]
+    with open(str(HEMIPTERA_COMMITS_PATH)) as tsvfile:
         tsvreader = csv.DictReader(tsvfile, delimiter="\t")
         for line in tsvreader:
             bug_id = int(line["bug_id"])

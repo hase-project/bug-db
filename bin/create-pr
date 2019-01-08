@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def git(
+    *args: str, check: bool = True, capture_output: bool = False
+) -> subprocess.CompletedProcess:
+    if not capture_output:
+        stdout = None
+    else:
+        stdout = subprocess.PIPE
+
+    return subprocess.run(["git", "-C", str(ROOT)] + list(args), check=check, stdout=stdout)
+
+
+def main() -> None:
+    if len(sys.argv) < 2:
+        print("USAGE: {} branchname".format(sys.argv[0]), file=sys.stderr)
+        sys.exit(1)
+
+    hase = ROOT.parent.joinpath("hase")
+    if hase.exists():
+        os.environ["MYPYPATH"] = str(hase)
+        if subprocess.call(["mypy", "--version"]) == 0:
+            subprocess.check_call(
+                ["mypy", str(ROOT.joinpath("bugdb")), str(ROOT.joinpath("bin"))]
+            )
+    else:
+        print("skip mypy check, hase not found at {}".format(hase))
+
+    if subprocess.call(["flake8", "--version"]) == 0:
+        subprocess.check_call(["flake8", "bugdb"])
+
+    branchname = sys.argv[1]
+    current_branch = git("symbolic-ref", "--short", "HEAD", capture_output=True)
+    if current_branch.stdout.strip() != b"master":
+        print("switch to master branch first", file=sys.stderr)
+        sys.exit(1)
+    git("branch", "-d", branchname, check=False)
+    git("git", "checkout", "-b", branchname)
+    git("git", "push", "origin", branchname)
+    if subprocess.call(["hub", "--version"]) == 0:
+        subprocess.check_call(["hub", "pull-request"])
+    else:
+        print("Run now:")
+        print("git push origin {}".format(branchname))
+    subprocess.check_call(["git", "checkout", "-"])
+
+
+if __name__ == "__main__":
+    main()

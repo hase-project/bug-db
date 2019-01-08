@@ -1,18 +1,18 @@
-import os
-import shutil
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Any
 
 from .bug import Bug
 from .build import Build
-from .utils import ROOT, sh
+from .utils import ROOT
 
 LIBJPEG_TURBO_PATH = ROOT.joinpath("libjpeg-turbo")
 
 
 class LibjpegTurbo(Build):
     def __init__(self, version: str, simulate: bool = False) -> None:
-        url = f"https://github.com/libjpeg-turbo/libjpeg-turbo/archive/{version}.tar.gz"
+        url = "https://github.com/libjpeg-turbo/libjpeg-turbo/archive/{}.tar.gz".format(
+            version
+        )
         super().__init__(
             url,
             LIBJPEG_TURBO_PATH,
@@ -23,12 +23,12 @@ class LibjpegTurbo(Build):
 
 
 class LibjpegTurboBug(Bug):
-    def __init__(self, *args, bug_id: int, **kwargs) -> None:
+    def __init__(self, *args: Any, bug_id: int, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self.bug_id = bug_id
 
     def working_directory(self) -> Path:
-        return LIBJPEG_TURBO_PATH.joinpath(f"ID-{self.bug_id}")
+        return LIBJPEG_TURBO_PATH.joinpath("ID-{}".format(self.bug_id))
 
     def executable(self) -> str:
         exe = self._command[0]
@@ -38,15 +38,15 @@ class LibjpegTurboBug(Bug):
 
 
 def libjpeg_turbo_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
-    bugs: List[Bug] = []
-    commands: Dict[int, List[str]] = {}
+    bugs = []  # type: List[Bug]
+    commands = {}  # type: Dict[int, List[str]]
     commands[17] = ["cjpeg", "crasherfile"]
     commands[23] = ["djpeg", "turbo-dht.jpg"]
 
     for bug_id, command in commands.items():
         bugs.append(
             LibjpegTurboBug(
-                f"libjpeg-turbo-{bug_id}",
+                "libjpeg-turbo-{}".format(bug_id),
                 bug_id=bug_id,
                 version=bug_ids[bug_id],
                 command=command,

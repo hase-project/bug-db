@@ -1,46 +1,47 @@
-import os
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any
 
 from .bug import Bug
 from .build import Build
-from .utils import ROOT, sh
+from .utils import ROOT
 
 TCPDUMP_PATH = ROOT.joinpath("tcpdump")
 
 
 class Tcpdump(Build):
     def __init__(self, version: str, simulate: bool = False) -> None:
-        url = f"https://github.com/the-tcpdump-group/tcpdump/archive/{version}.tar.gz"
+        url = "https://github.com/the-tcpdump-group/tcpdump/archive/{}.tar.gz".format(
+            version
+        )
         super().__init__(url, TCPDUMP_PATH, simulate, enable_address_sanitizer=True)
 
     def make_flags(self) -> List[str]:
         cflags = " ".join(super().cflags())
         ldflags = " ".join(super().ldflags())
-        return [f"CC=gcc {cflags}", f"LDFLAGS={ldflags}"]
+        return ["CC=gcc {}".format(cflags), "LDFLAGS={}".format(ldflags)]
 
 
 class TcpdumpBug(Bug):
-    def __init__(self, *args, bug_id: int, **kwargs) -> None:
+    def __init__(self, *args: Any, bug_id: int, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self.bug_id = bug_id
 
     def working_directory(self) -> Path:
-        return TCPDUMP_PATH.joinpath(f"ID-{self.bug_id}")
+        return TCPDUMP_PATH.joinpath("ID-{}".format(self.bug_id))
 
     def executable(self) -> str:
         exe = self._command[0]
         tcpdump = Tcpdump(self.version, simulate=self.simulate)
         tcpdump.build()
-        return f"{tcpdump.build_path}/{exe}"
+        return "{}/{}".format(tcpdump.build_path, exe)
 
 
 def tcpdump_bugs(bug_ids: Dict[int, str]) -> List[Bug]:
-    bugs: List[Bug] = []
+    bugs = []  # type: List[Bug]
     for bug_id in [72, 142, 144, 145, 146, 152, 154, 155, 158, 180]:
         bugs.append(
             TcpdumpBug(
-                f"tcpdump-{bug_id}",
+                "tcpdump-{}".format(bug_id),
                 bug_id=bug_id,
                 version=bug_ids[bug_id],
                 command=["tcpdump", "-vvv", "-r", "crash.pcap"],

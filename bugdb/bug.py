@@ -3,14 +3,14 @@ import shlex
 import shutil
 import subprocess
 import time
-import angr
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from typing import Dict, List, Optional, Tuple, Any
+from typing import Any, Dict, List, Optional, Tuple
 
+import angr
 from hase.record import record
 
-from .utils import REPORT_PATH, ROOT, green_text, red_text, Timeout
+from .utils import REPORT_PATH, ROOT, Timeout, green_text, red_text
 
 
 class Bug:
@@ -31,10 +31,10 @@ class Bug:
         self.stdin_file = stdin_file
         self.simulate = False
         self.by_angr = False
-        self.vars: Dict[str, str] = {}
+        self.vars = {}  # type: Dict[str, str]
         self.directory = TemporaryDirectory()
         self.vars["tempdir"] = self.directory.name
-        self.report_path = REPORT_PATH.joinpath(f"{self.id()}.tar.gz")
+        self.report_path = REPORT_PATH.joinpath("{}.tar.gz".format(self.id()))
 
         if tempfile_content is not None:
             path = os.path.join(self.vars["tempdir"], tempfile_name)
@@ -45,11 +45,11 @@ class Bug:
     def substitute_vars(self, template: str) -> str:
         s = template
         for k, v in self.vars.items():
-            s = s.replace(f"@{k}@", v)
+            s = s.replace("@{}@".format(k), v)
         return s
 
     def id(self) -> str:
-        return f"{self.name}-{self.version}"
+        return "{}-{}".format(self.name, self.version)
 
     def executable(self) -> str:
         raise NotImplementedError("Has to be implemented")
@@ -74,7 +74,7 @@ class Bug:
         args = list(map(self.substitute_vars, self._command[1:]))
         return [executable] + args
 
-    def run_by_angr(self):
+    def run_by_angr(self) -> None:
         self.directory.cleanup()
         proj = angr.Project(self.executable())
         state = proj.factory.full_init_state(args=self.command())
@@ -85,18 +85,24 @@ class Bug:
                 current_time = time.time()
                 simgr.run()
             except TimeoutError:
-                print(red_text(f"{self.name}: Angr simulation timeout"))
-                with open(REPORT_PATH.joinpath(f"{self.name}.txt"), "w+") as f:
-                    f.write(f"time: >{timeout}s")
+                print(red_text("{}: Angr simulation timeout".format(self.name)))
+                with open(
+                    str(REPORT_PATH.joinpath("{}.txt".format(self.name))), "w+"
+                ) as f:
+                    f.write("time: >{}s".format(timeout))
             except Exception as e:
-                print(red_text(f"{self.name}: Angr simulation error {e}"))
-                with open(REPORT_PATH.joinpath(f"{self.name}.txt"), "w+") as f:
-                    f.write(f"time: error {e}")
+                print(red_text("{}: Angr simulation error {}".format(self.name, e)))
+                with open(
+                    str(REPORT_PATH.joinpath("{}.txt".format(self.name))), "w+"
+                ) as f:
+                    f.write("time: error {}".format(e))
             else:
                 time_diff = time.time() - current_time
-                print(green_text(f"{self.name}: Execution time {time_diff}s"))
-                with open(REPORT_PATH.joinpath(f"{self.name}.txt"), "w+") as f:
-                    f.write(f"time: {time_diff}s")
+                print(green_text("{}: Execution time {}s".format(self.name, time_diff)))
+                with open(
+                    str(REPORT_PATH.joinpath("{}.txt".format(self.name))), "w+"
+                ) as f:
+                    f.write("time: {}s".format(time_diff))
                 import pdb
 
                 pdb.set_trace()
@@ -115,13 +121,13 @@ class Bug:
         extra_env = self.extra_env()
 
         if working_directory is not None:
-            print(green_text(f"$ cd {working_directory}"))
+            print(green_text("$ cd {}".format(working_directory)))
         if extra_env is not None:
-            export: List[str] = []
+            export = []  # type: List[str]
             for k, v in extra_env.items():
-                export += [f"{k}={shlex.quote(v)}"]
-            print(green_text(f"$ export {' '.join(export)}"))
-        print(green_text(f"$ {' '.join(command)}"))
+                export += ["{}={}".format(k, shlex.quote(v))]
+            print(green_text("$ export {}".format(" ".join(export))))
+        print(green_text("$ {}".format(" ".join(command))))
 
         if build_only:
             return
@@ -141,15 +147,21 @@ class Bug:
                         extra_env=extra_env,
                     )
                     assert recording is not None
-                    print(red_text(f"{command[0]} exited with {recording.exit_status}"))
+                    print(
+                        red_text(
+                            "{} exited with {}".format(
+                                command[0], recording.exit_status
+                            )
+                        )
+                    )
                     if recording.report_path is not None:
-                        shutil.move(recording.report_path, self.report_path)
+                        shutil.move(recording.report_path, str(self.report_path))
                     else:
                         import pdb
 
                         pdb.set_trace()
                 except subprocess.TimeoutExpired:
-                    print(red_text(f"timeout after {timeout}s"))
+                    print(red_text("timeout after {}s".format(timeout)))
         else:
             if self.by_angr:
                 self.run_by_angr()
@@ -178,13 +190,17 @@ class Bug:
                     extra_env=extra_env,
                 )
                 assert recording is not None
-                print(red_text(f"{command[0]} exited with {recording.exit_status}"))
+                print(
+                    red_text(
+                        "{} exited with {}".format(command[0], recording.exit_status)
+                    )
+                )
                 if recording.report_path is not None:
-                    shutil.move(recording.report_path, self.report_path)
+                    shutil.move(recording.report_path, str(self.report_path))
 
                 return (recording.exit_status, recording.rusage)
             except subprocess.TimeoutExpired:
-                print(red_text(f"timeout after {timeout}s"))
+                print(red_text("timeout after {}s".format(timeout)))
                 return (-1, None)
 
     def run_without_hase(self) -> Tuple[int, Any]:
@@ -201,14 +217,14 @@ class Bug:
             timeout = 20
             try:
                 process = subprocess.Popen(
-                    command, stdin=stdin, cwd=working_directory, env=extra_env
+                    command, stdin=stdin, cwd=str(working_directory), env=extra_env
                 )
                 _, exit_status, rusage = os.wait4(process.pid, 0)
-                print(red_text(f"{command[0]} exited with {exit_status}"))
+                print(red_text("{} exited with {}".format(command[0], exit_status)))
 
                 return (exit_status, rusage)
             except subprocess.TimeoutExpired:
-                print(red_text(f"timeout after {timeout}s"))
+                print(red_text("timeout after {}s".format(timeout)))
                 return (-1, None)
 
     def reproduce(self, build_only: bool = False) -> None:
@@ -220,7 +236,7 @@ class Bug:
             try:
                 self.directory.cleanup()
             except OSError as e:
-                print(f"error while removing {self.directory}: {e}")
+                print("error while removing {}: {}".format(self.directory, e))
 
     def benchmark(self) -> Tuple[int, Any]:
         try:
@@ -231,7 +247,7 @@ class Bug:
             try:
                 self.directory.cleanup()
             except OSError as e:
-                print(f"error while removing {self.directory}: {e}")
+                print("error while removing {}: {}".format(self.directory, e))
 
         return data
 
